@@ -1,6 +1,6 @@
 # muOS React Theme Toolkit
 
-This is a simple tool that allows you to generate theme images for muOS themes based on React components you create. This is not a WYSIWYG solution for making themes - you still have to add and modify React components in code and style them in CSS for the images to generate correctly, so previous knowledge of React and CSS is probably needed.
+This is a simple tool that allows you to generate theme images for muOS themes based on React components you create. This is not a user friendly solution with easy UI, drag'n'drop and other bells and whistles - you still have to add and modify React components in code and style them in CSS for the images to generate correctly, so previous knowledge of React and CSS is probably needed.
 
 Also, you have to provide scheme files for the theme yourself.
 
