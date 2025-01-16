@@ -1,7 +1,7 @@
 import { RefProvider } from "react-context-refs";
-import { ThemeDisplay } from "./components/tools/ThemeDisplay";
+import { ThemeDisplay } from "./components/ThemeDisplay";
 import { screens } from "./config";
-import { ToolBar } from "./components/tools/ToolBar";
+import { ToolBar } from "./components/ToolBar";
 
 export function App() {
   return (

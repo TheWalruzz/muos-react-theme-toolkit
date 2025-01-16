@@ -32,7 +32,7 @@ There, you can change the language of texts in the select at the top, enable or 
 
 #### Screen configuration
 
-Since you might be working on several themes in one repository, put your screen components in `src/components/themes/THEME_NAME` and create an `index.tsx` file that exports a config array for that theme. Refer to existing example theme for a working example.
+Since you might be working on several themes in one repository, put your screen components in `src/themes/THEME_NAME` and create an `index.tsx` file that exports a config array for that theme. Refer to existing example theme for a working example.
 
 ```tsx
 export const screens: ScreenConfig[] = [
@@ -71,7 +71,7 @@ After your configuration is ready, import it in `src/config.ts` and the screens 
 
 ```ts
 import { ScreenConfig } from "./types";
-import { screens as minimalRoundScreens } from "./components/themes/MinimalRound";
+import { screens as minimalRoundScreens } from "./themes/MinimalRound";
 
 export const screens: ScreenConfig[] = minimalRoundScreens;
 ```
@@ -88,7 +88,7 @@ Example screens are a good way to see how it all works in practice. Of course, y
 
 #### Scheme templates
 
-You can provide your own scheme templates that will generate appropriate files based on currently processed resolution. In your `src/components/themes/THEME_NAME/schemes` folder, add appropriate TypeScript files, e.g. `default.ts` (for default.txt scheme) with a proper template function that receives current resolution as a param, like so:
+You can provide your own scheme templates that will generate appropriate files based on currently processed resolution. In your `src/themes/THEME_NAME/schemes` folder, add appropriate TypeScript files, e.g. `default.ts` (for default.txt scheme) with a proper template function that receives current resolution as a param, like so:
 
 ```ts
 import { Scheme } from "@/types";
@@ -126,7 +126,7 @@ FONT_HEADER_ICON_PAD_BOTTOM=0
 
 You can create all the schemes you want that way.
 
-After you're done, in your `src/components/themes/THEME_NAME/index.ts` add and export a scheme config next to your screen configs:
+After you're done, in your `src/themes/THEME_NAME/index.ts` add and export a scheme config next to your screen configs:
 
 ```ts
 import { SchemeConfig } from "@/types";
@@ -151,7 +151,7 @@ Similarly to how you select screens to be rendered by the app, you import your s
 
 ```ts
 import { SchemeConfig } from "./types";
-import { schemes as minimalRoundSchemes } from "./components/themes/MinimalRound";
+import { schemes as minimalRoundSchemes } from "./themes/MinimalRound";
 
 // ...screen configs go here
 
