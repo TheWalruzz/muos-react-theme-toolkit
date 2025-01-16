@@ -9,7 +9,7 @@ import styles from "./ThemeDisplay.module.css";
 
 export function ThemeDisplay() {
   const { currentTheme } = useCurrentTheme();
-  console.log(currentTheme.name);
+
   return (
     <div className={styles.ThemeDisplay}>
       {currentTheme.languages

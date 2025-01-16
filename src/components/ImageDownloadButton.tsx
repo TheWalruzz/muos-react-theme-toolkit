@@ -73,14 +73,14 @@ export function ImageDownloadButton() {
 
     const url = window.URL.createObjectURL(blob);
     link.href = url;
-    link.download = "images.zip";
+    link.download = `${currentTheme.name}-images.zip`;
 
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
     window.URL.revokeObjectURL(url);
     setIsWorking(false);
-  }, [currentTheme.fallbackLanguage, currentTheme.schemes, refs]);
+  }, [currentTheme, refs]);
 
   return (
     <div className={styles.ImageDownloadButton}>

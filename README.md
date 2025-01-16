@@ -30,35 +30,74 @@ There, you can click the Download button to generate and download a ZIP file wit
 
 ### Developing themes
 
-#### Screen configuration
+#### Main theme configuration
 
-Since you might be working on several themes in one repository, put your screen components in `src/themes/THEME_NAME` and create an `index.tsx` file that exports a config array for that theme. Refer to existing example theme for a working example.
+Since you might be working on several themes in one repository, put your screen components and schemes in `src/themes/THEME_NAME` and create an `index.tsx` file that exports a config object for that theme.
+
+In general, it should look like this:
 
 ```tsx
-export const screens: ScreenConfig[] = [
-  {
-    path: "preview.png",
-    // This will make the image that size regardless of target resolution
-    // The parameter to the function is the original resolution of the screens (e.g. 640x480, 720x720 etc.)
-    overrideResolution: ({ width, height }: Resolution) => {
-      if (width === height) {
-        return { width: 340, height: 340 };
-      }
-      return { width: 288, height: 216 };
-    },
-    render: () => <MainMenu itemIndex={0} />,
-  },
-  { path: "image/wall/default.png", render: () => <Default /> },
-  {
-    path: "image/bootlogo.bmp",
-    render: () => <BootLogo />,
-  },
-  {
-    path: "image/wall/muxstart.png",
-    render: () => <StartScreen />,
-  },
-  // ...other screens
+export const config: ThemeConfig = {
+  name: "My Theme",
+  screens: [
+    // your screen configs go here
+  ],
+  schemes: [
+    // your scheme configs go here
+  ],
+  languages: ['en', 'pl'], // languages to generate images in
+  fallbackLanguage: 'en', // default language for the theme
+}
+```
+
+Each theme config can then be imported into `src/config.ts` into an array of themes visible by the app:
+
+```ts
+import { ThemeConfig } from "./types";
+import { config as minimalRound } from "./themes/MinimalRound";
+import { config as myTheme } from "./themes/MyTheme";
+
+export const themes: ThemeConfig[] = [
+  minimalRound,
+  myTheme,
 ];
+```
+
+You will be now able to select your theme from the dropdown next to the download button and see how it looks in different resolutions and languages.
+
+#### Screen configuration
+
+The `screens` part of a theme config should look like this:
+
+```tsx
+export const config: ThemeConfig = {
+  // ...
+  screens: [
+    {
+      path: "preview.png",
+      // This will make the image that size regardless of target resolution
+      // The parameter to the function is the original resolution of the screens (e.g. 640x480, 720x720 etc.)
+      overrideResolution: ({ width, height }: Resolution) => {
+        if (width === height) {
+          return { width: 340, height: 340 };
+        }
+        return { width: 288, height: 216 };
+      },
+      render: () => <MainMenu itemIndex={0} />,
+    },
+    { path: "image/wall/default.png", render: () => <Default /> },
+    {
+      path: "image/bootlogo.bmp",
+      render: () => <BootLogo />,
+    },
+    {
+      path: "image/wall/muxstart.png",
+      render: () => <StartScreen />,
+    },
+    // ...other screens
+  ],
+  // ...
+}
 ```
 
 `path` property is the path to the image in the theme. As an example, providing the path `image/wall/default.png` will generate images in different resolution folders, e.g. `640x480/image/wall/default.png`, `720x480/image/wall/default.png`. The extension of the file matters, as this tool can generate only `.png` and `.bmp` files.
@@ -67,16 +106,7 @@ export const screens: ScreenConfig[] = [
 
 Optionally, you can provide an `overrideResolution` function that will force that single screen to be generated at a different resolution from the rest. This is useful for generating preview images. The parameter passed to that function is the original resolution, so you can make changes accordingly. It expects `{ width: number; height: number; }` as a return value. 
 
-After your configuration is ready, import it in `src/config.ts` and the screens will generate in the app. For example:
-
-```ts
-import { ScreenConfig } from "./types";
-import { screens as minimalRoundScreens } from "./themes/MinimalRound";
-
-export const screens: ScreenConfig[] = minimalRoundScreens;
-```
-
-#### Screen creation and styling
+##### Screen creation and styling
 
 Each screen is a simple component that can be styled however you want, but keep in mind that you have to use `var(--width)` and `var(--height)` CSS variables to know the current resolution. Resolution can also be retrieved programatically using a `useResolution` hook:
 
@@ -86,7 +116,31 @@ const { width, height } = useResolution();
 
 Example screens are a good way to see how it all works in practice. Of course, you're more than welcome to change things up and provide your own solutions. This is still technically a React app, so go wild!
 
-#### Scheme templates
+#### Scheme configuration
+
+The `schemes` part of a theme config should look like this:
+
+```tsx
+export const config: ThemeConfig = {
+  // ...
+  schemes: [
+    {
+      path: "scheme/default.txt",
+      scheme: defaultScheme, // scheme template
+    },
+    {
+      path: "scheme/muxlaunch.txt",
+      scheme: muxlaunchScheme, // scheme template
+    },
+    // ...other schemes
+  ],
+  // ...
+}
+```
+
+When creating a ZIP, those schemes will be generated in every resolution's folder as expected.
+
+##### Scheme templates
 
 You can provide your own scheme templates that will generate appropriate files based on currently processed resolution. In your `src/themes/THEME_NAME/schemes` folder, add appropriate TypeScript files, e.g. `default.ts` (for default.txt scheme) with a proper template function that receives current resolution as a param, like so:
 
@@ -125,44 +179,6 @@ FONT_HEADER_ICON_PAD_BOTTOM=0
 ```
 
 You can create all the schemes you want that way.
-
-After you're done, in your `src/themes/THEME_NAME/index.ts` add and export a scheme config next to your screen configs:
-
-```ts
-import { SchemeConfig } from "@/types";
-import { defaultScheme } from "./schemes/default";
-import { muxlaunchScheme } from "./schemes/muxlaunch";
-
-// ...screen configs go here
-
-export const schemes: SchemeConfig[] = [
-  {
-    path: "scheme/default.txt",
-    scheme: defaultScheme,
-  },
-  {
-    path: "scheme/muxlaunch.txt",
-    scheme: muxlaunchScheme,
-  },
-];
-```
-
-Similarly to how you select screens to be rendered by the app, you import your scheme configs into `src/config.ts` file:
-
-```ts
-import { SchemeConfig } from "./types";
-import { schemes as minimalRoundSchemes } from "./themes/MinimalRound";
-
-// ...screen configs go here
-
-export const schemes: SchemeConfig[] = minimalRoundSchemes;
-```
-
-Then, on ZIP creation, those schemes will be generated in every resolution's folder as expected.
-
-If you do not wish to generate schemes, you can just set/export an empty array (`[]`) instead of those configs.
-
-As always, refer to the example theme to see how it looks like in practice.
 
 #### Localization
 
@@ -205,21 +221,25 @@ export const resources = {
 
 Language codes used as keys in that object should correspond to the languages used by muOS, you can see the list of them in `src/i18n.ts` in `languageMap` object.
 
-You can select which languages to generate images for by modifying `languages` variable in `src/config.ts`. E.g.:
+##### Language configuration for a theme
+
+The `languages` and `fallbackLanguage` parts of a theme config should look like this:
 
 ```ts
-export const languages: Language[] = ["en", "pl"];
+export const config: ThemeConfig = {
+  // ...
+  languages: ["en"], // ...and more languages
+  fallbackLanguage: "en",
+};
 ```
 
-Those language codes must correspond to the keys of the `resources` object in `src/locales/index.ts`.
+`languages` array denotes which languages to use while rendering and generating images.
 
-This will generate images in those languages to subfolders like `640x480/image/Polish/...` in the ZIP file, so that they will be recognizeable by muOS.
+Like when adding new language JSON files, those language codes must correspond to the ones used internally by the app and muOS.
 
-You can also set a fallback language (the one that will display whenever requested language is not available in the theme) by setting `fallbackLanguage` in `src/config.ts`:
+Toolkit will generate images in those set languages in subfolders like `640x480/image/Polish/...`, so that they will be recognizeable by muOS.
 
-```ts
-export const fallbackLanguage: Language = "en";
-```
+`fallbackLanguage` is the default language that the app (and muOS) will use when system language is not available in the theme.
 
 Fallback language will not create a subfolder, like other languages.
 
