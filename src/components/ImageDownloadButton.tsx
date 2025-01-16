@@ -9,13 +9,14 @@ import { useCallback, useState } from "react";
 import { useRefs } from "react-context-refs";
 import { CanvasToBMP } from "@/utils/canvasToBMP";
 import { resolutions } from "@/resolutions";
-import { fallbackLanguage, schemes } from "@/config";
 import { Language, languageMap } from "@/i18n";
+import { useCurrentTheme } from "@/context/CurrentThemeContext";
 
-import "./ImageDownloadButton.css";
+import styles from "./ImageDownloadButton.module.css";
 
 export function ImageDownloadButton() {
   const refs = useRefs("");
+  const { currentTheme } = useCurrentTheme();
   const [isWorking, setIsWorking] = useState(false);
 
   const downloadImages = useCallback(async () => {
@@ -34,7 +35,7 @@ export function ImageDownloadButton() {
       }
 
       // add fallback images to main folder
-      if (ref.meta.language === fallbackLanguage) {
+      if (ref.meta.language === currentTheme.fallbackLanguage) {
         await writer.add(
           `${ref.meta.width}x${ref.meta.height}/${ref.meta.path}`,
           new Data64URIReader(data)
@@ -57,7 +58,7 @@ export function ImageDownloadButton() {
     }
 
     for (const resolution of resolutions) {
-      for (const scheme of schemes) {
+      for (const scheme of currentTheme.schemes) {
         writer.add(
           `${resolution.width}x${resolution.height}/${scheme.path}`,
           new TextReader(scheme.scheme(resolution))
@@ -79,12 +80,12 @@ export function ImageDownloadButton() {
     document.body.removeChild(link);
     window.URL.revokeObjectURL(url);
     setIsWorking(false);
-  }, [refs]);
+  }, [currentTheme.fallbackLanguage, currentTheme.schemes, refs]);
 
   return (
-    <div className="ImageDownloadButton">
+    <div className={styles.ImageDownloadButton}>
       {isWorking && (
-        <div className="ImageDownloadButton_inProgress">
+        <div className={styles.ImageDownloadButton_inProgress}>
           Preparing ZIP file...
         </div>
       )}

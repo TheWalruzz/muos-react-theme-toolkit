@@ -29,3 +29,11 @@ export interface SchemeConfig {
   path: string;
   scheme: Scheme;
 }
+
+export interface ThemeConfig {
+  name: string;
+  screens: ScreenConfig[];
+  schemes: SchemeConfig[];
+  languages: Language[];
+  fallbackLanguage: Language;
+}

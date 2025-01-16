@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 
-import "./Default.css";
+import styles from "./Default.module.css";
 
 export function Default({ children }: PropsWithChildren) {
-  return <div className="Default">{children}</div>;
+  return <div className={styles.Default}>{children}</div>;
 }

@@ -15,7 +15,7 @@ import {
 import { MenuItem } from "./MenuItem";
 import classNames from "classnames";
 
-import "./MainMenu.css";
+import styles from "./MainMenu.module.css";
 
 interface Props {
   itemIndex: number;
@@ -50,9 +50,9 @@ export function MainMenu({ itemIndex }: Props) {
 
   return (
     <Default>
-      <div className="MainMenu">
+      <div className={styles.MainMenu}>
         <div
-          className="MainMenu_list"
+          className={styles.MainMenu_list}
           style={{
             transform: `translate(calc(${
               width / 2 - (width / 2) * itemIndex
@@ -68,12 +68,12 @@ export function MainMenu({ itemIndex }: Props) {
             />
           ))}
         </div>
-        <div className="MainMenu_dots">
+        <div className={styles.MainMenu_dots}>
           {items.map((_, index) => (
             <div
               key={`MainMenu_dot-${width}x${height}-${itemIndex}-${index}`}
-              className={classNames("MainMenu_dot", {
-                active: index === itemIndex,
+              className={classNames(styles.MainMenu_dot, {
+                [styles.active]: index === itemIndex,
               })}
             />
           ))}

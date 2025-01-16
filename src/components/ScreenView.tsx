@@ -4,7 +4,7 @@ import { useContextRef } from "react-context-refs";
 import { Resolution } from "@/types";
 import { useTranslation } from "react-i18next";
 
-import "./ScreenView.css";
+import styles from "./ScreenView.module.css";
 
 interface Props {
   path: string;
@@ -23,8 +23,8 @@ export function ScreenView({ path, render, resolutionGroup }: Props) {
   });
 
   return (
-    <div className="ScreenView">
-      <div className="ScreenView_path">{path}</div>
+    <div className={styles.ScreenView}>
+      <div className={styles.ScreenView_path}>{path}</div>
       <div
         ref={setRef}
         style={

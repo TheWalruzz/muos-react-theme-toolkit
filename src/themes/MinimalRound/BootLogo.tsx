@@ -1,11 +1,11 @@
 import { Default } from "./Default";
 
-import "./BootLogo.css";
+import styles from "./BootLogo.module.css";
 
 export function BootLogo() {
   return (
     <Default>
-      <div className="BootLogo">muOS</div>
+      <div className={styles.BootLogo}>muOS</div>
     </Default>
   );
 }

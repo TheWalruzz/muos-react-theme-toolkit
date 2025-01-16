@@ -1,11 +1,11 @@
 import { Default } from "./Default";
 
-import "./StartScreen.css";
+import styles from "./StartScreen.module.css";
 
 export function StartScreen() {
   return (
     <Default>
-      <div className="StartScreen">muOS</div>
+      <div className={styles.StartScreen}>muOS</div>
     </Default>
   );
 }

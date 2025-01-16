@@ -1,10 +1,12 @@
 import { ImageDownloadButton } from "./ImageDownloadButton";
+import { ThemeSelector } from "./ThemeSelector";
 
-import "./ToolBar.css";
+import styles from "./ToolBar.module.css";
 
 export const ToolBar = () => {
   return (
-    <div className="ToolBar">
+    <div className={styles.ToolBar}>
+      <ThemeSelector />
       <ImageDownloadButton />
     </div>
   );
