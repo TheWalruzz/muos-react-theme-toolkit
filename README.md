@@ -15,9 +15,8 @@ You have full freedom in how you make your screen components, this tool only han
 
 * node.js >=18
 
-## Basics
 
-### Getting started
+## Getting started
 
 Run those commands to install necessary packages and run the dev server.
 
@@ -28,9 +27,9 @@ Navigate to http://localhost:5173/ and you'll see a (very) simple page that rend
 
 There, you can click the Download button to generate and download a ZIP file with all the images and schemes.
 
-### Developing themes
+## Developing themes
 
-#### Main theme configuration
+### Main theme configuration
 
 Since you might be working on several themes in one repository, put your screen components and schemes in `src/themes/THEME_NAME` and create an `index.tsx` file that exports a config object for that theme.
 
@@ -65,7 +64,7 @@ export const themes: ThemeConfig[] = [
 
 You will be now able to select your theme from the dropdown next to the download button and see how it looks in different resolutions and languages.
 
-#### Screen configuration
+### Screen configuration
 
 The `screens` part of a theme config should look like this:
 
@@ -106,7 +105,7 @@ export const config: ThemeConfig = {
 
 Optionally, you can provide an `overrideResolution` function that will force that single screen to be generated at a different resolution from the rest. This is useful for generating preview images. The parameter passed to that function is the original resolution, so you can make changes accordingly. It expects `{ width: number; height: number; }` as a return value. 
 
-##### Screen creation and styling
+#### Screen creation and styling
 
 Each screen is a simple component that can be styled however you want, but keep in mind that you have to use `var(--width)` and `var(--height)` CSS variables to know the current resolution. Resolution can also be retrieved programatically using a `useResolution` hook:
 
@@ -116,7 +115,7 @@ const { width, height } = useResolution();
 
 Example screens are a good way to see how it all works in practice. Of course, you're more than welcome to change things up and provide your own solutions. This is still technically a React app, so go wild!
 
-#### Scheme configuration
+### Scheme configuration
 
 The `schemes` part of a theme config should look like this:
 
@@ -140,7 +139,7 @@ export const config: ThemeConfig = {
 
 When creating a ZIP, those schemes will be generated in every resolution's folder as expected.
 
-##### Scheme templates
+#### Scheme templates
 
 You can provide your own scheme templates that will generate appropriate files based on currently processed resolution. In your `src/themes/THEME_NAME/schemes` folder, add appropriate TypeScript files, e.g. `default.ts` (for default.txt scheme) with a proper template function that receives current resolution as a param, like so:
 
@@ -180,7 +179,7 @@ FONT_HEADER_ICON_PAD_BOTTOM=0
 
 You can create all the schemes you want that way.
 
-#### Localization
+### Localization
 
 This tool uses `i18next` and `react-i18next` to provide translations. Refer to their documentations for more information, but the TL;DR is:
 
@@ -221,7 +220,7 @@ export const resources = {
 
 Language codes used as keys in that object should correspond to the languages used by muOS, you can see the list of them in `src/i18n.ts` in `languageMap` object.
 
-##### Language configuration for a theme
+#### Language configuration for a theme
 
 The `languages` and `fallbackLanguage` parts of a theme config should look like this:
 
@@ -243,7 +242,7 @@ Toolkit will generate images in those set languages in subfolders like `640x480/
 
 Fallback language will not create a subfolder, like other languages.
 
-#### Building fonts
+### Building fonts
 
 You can build binary version of the font used with the included script. As an example, the font included in the example theme can be built with support for Polish characters using:
 
