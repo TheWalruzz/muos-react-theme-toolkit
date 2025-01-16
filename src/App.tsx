@@ -1,14 +1,12 @@
 import { RefProvider } from "react-context-refs";
 import { ThemeDisplay } from "./components/tools/ThemeDisplay";
-import { LanguageSelector } from "./components/tools/LanguageSelector";
-import { ImageDownloadButton } from "./components/tools/ImageDownloadButton";
 import { screens } from "./screens";
+import { ToolBar } from "./components/tools/ToolBar";
 
 export function App() {
   return (
     <RefProvider>
-      <LanguageSelector />
-      <ImageDownloadButton />
+      <ToolBar />
       <ThemeDisplay screens={screens} />
     </RefProvider>
   );

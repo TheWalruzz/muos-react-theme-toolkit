@@ -1,0 +1,16 @@
+.ImageDownloadButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.ImageDownloadButton button {
+  font-weight: bold;
+  height: 24px;
+  width: 150px;
+}
+
+.ImageDownloadButton_inProgress {
+  font-size: 10px;
+}

@@ -4,6 +4,8 @@ import { useCallback, useState } from "react";
 import { useRefs } from "react-context-refs";
 import { CanvasToBMP } from "../../utils/canvasToBMP";
 
+import "./ImageDownloadButton.css";
+
 export function ImageDownloadButton() {
   const refs = useRefs();
   const [isWorking, setIsWorking] = useState(false);
@@ -44,11 +46,15 @@ export function ImageDownloadButton() {
   }, [refs]);
 
   return (
-    <div>
+    <div className="ImageDownloadButton">
+      {isWorking && (
+        <div className="ImageDownloadButton_inProgress">
+          Preparing ZIP file...
+        </div>
+      )}
       <button onClick={downloadImages} disabled={isWorking}>
-        Download
+        Download Images
       </button>
-      {isWorking && <div>Preparing ZIP file...</div>}
     </div>
   );
 }

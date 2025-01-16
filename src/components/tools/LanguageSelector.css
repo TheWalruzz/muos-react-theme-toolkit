@@ -1,0 +1,9 @@
+.LanguageSelector {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.LanguageSelector select {
+  width: 100%;
+  height: 24px;
+}
