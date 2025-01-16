@@ -26,7 +26,7 @@ Run those commands to install necessary packages and run the dev server.
 
 Navigate to http://localhost:5173/ and you'll see a (very) simple page that renders all configured components in provided resolutions, so you can preview them and debug any issues. It supports Hot Module Reloading, so each change you make to your screen components will be immediately applied to the page.
 
-There, you can change the language of texts in the select at the top, enable or disable scheme generation and click Download button to generate and download a ZIP file with all the images.
+There, you can click the Download button to generate and download a ZIP file with all the images and schemes.
 
 ### Developing themes
 
@@ -202,6 +202,24 @@ export const resources = {
   fr: { translation: fr },
 };
 ```
+
+You can select which languages to generate images for by modifying `languages` variable in `src/config.ts`. E.g.:
+
+```ts
+export const languages: Language[] = ["en", "pl"];
+```
+
+Those language codes must correspond to the keys of the `resources` object in `src/locales/index.ts`. 
+
+This will generate images in those languages to subfolders like `640x480/image/Polish/...` in the ZIP file, so that they will be recognizeable by muOS.
+
+You can also set a fallback language (the one that will display whenever requested language is not available in the theme) by setting `fallbackLanguage` in `src/config.ts`:
+
+```ts
+export const fallbackLanguage: Language = "en";
+```
+
+Fallback language will not create a subfolder, like other languages.
 
 #### Building fonts
 

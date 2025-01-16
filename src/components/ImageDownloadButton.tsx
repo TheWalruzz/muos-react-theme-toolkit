@@ -9,12 +9,13 @@ import { useCallback, useState } from "react";
 import { useRefs } from "react-context-refs";
 import { CanvasToBMP } from "@/utils/canvasToBMP";
 import { resolutions } from "@/resolutions";
-import { schemes } from "@/config";
+import { fallbackLanguage, schemes } from "@/config";
+import { Language, languageMap } from "@/i18n";
 
 import "./ImageDownloadButton.css";
 
 export function ImageDownloadButton() {
-  const refs = useRefs();
+  const refs = useRefs("");
   const [isWorking, setIsWorking] = useState(false);
 
   const downloadImages = useCallback(async () => {
@@ -31,10 +32,25 @@ export function ImageDownloadButton() {
         const canvasConverter = new CanvasToBMP();
         data = canvasConverter.toDataURL(canvas);
       }
-      await writer.add(
-        `${ref.meta.width}x${ref.meta.height}/${ref.meta.path}`,
-        new Data64URIReader(data)
-      );
+
+      // add fallback images to main folder
+      if (ref.meta.language === fallbackLanguage) {
+        await writer.add(
+          `${ref.meta.width}x${ref.meta.height}/${ref.meta.path}`,
+          new Data64URIReader(data)
+        );
+      } else if (ref.meta.path.includes("image/")) {
+        // do some path substitution to get translated images into subfolders
+        const newPath = ref.meta.path.replace(
+          "image/",
+          `image/${languageMap[ref.meta.language as Language]}/`
+        );
+
+        await writer.add(
+          `${ref.meta.width}x${ref.meta.height}/${newPath}`,
+          new Data64URIReader(data)
+        );
+      }
     }
 
     for (const resolution of resolutions) {

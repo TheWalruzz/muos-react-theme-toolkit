@@ -1,4 +1,16 @@
 import { ReactNode } from "react";
+import { Language } from "./i18n";
+
+export interface RefType {
+  type: "screen";
+  current: HTMLElement;
+  meta: {
+    path: string;
+    language: Language;
+    width: number;
+    height: number;
+  };
+}
 
 export interface Resolution {
   width: number;

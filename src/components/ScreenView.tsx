@@ -2,6 +2,7 @@ import { CSSProperties, ReactNode } from "react";
 import { useResolution } from "@/context/ResolutionContext";
 import { useContextRef } from "react-context-refs";
 import { Resolution } from "@/types";
+import { useTranslation } from "react-i18next";
 
 import "./ScreenView.css";
 
@@ -12,9 +13,11 @@ interface Props {
 }
 
 export function ScreenView({ path, render, resolutionGroup }: Props) {
+  const { i18n } = useTranslation();
   const { width, height } = useResolution();
   const setRef = useContextRef({
     path,
+    language: i18n.language,
     width: resolutionGroup.width,
     height: resolutionGroup.height,
   });
