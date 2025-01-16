@@ -107,7 +107,7 @@ This returns a `t` function that does all the heavy lifting:
 
 First part of the function is the translation key that can be found in localization JSONs (more information below). The second part is the default value in English.
 
-All locales are placed in `src/locales` as JSON files. If you want to add a new locale, you'll need to add the JSON file to `locales` folder.
+All locales are placed in `src/locales` as JSON files. If you want to add a new locale, you'll need to add the JSON file there.
 
 If you want to add new translation keys to JSONs based on the defaults, you can run `npm run i18n:extract` script that will extract all the new keys and place them in localization files.
 
