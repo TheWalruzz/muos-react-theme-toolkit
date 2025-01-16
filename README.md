@@ -66,6 +66,8 @@ export const screens: ScreenConfig[] = [
 
 `render` function binds the path to the component that will be rendered as the screen.
 
+Optionally, you can provide an `overrideResolution` function that will force that single screen to be generated at a different resolution from the rest. This is useful for generating preview images. The parameter passed to that function is the original resolution, so you can make changes accordingly. It expects `{ width: number; height: number; }` as a return value. 
+
 After your configuration is ready, import it in `src/screens.ts` and the screens will generate in the app. For example:
 
 ```ts
