@@ -203,13 +203,15 @@ export const resources = {
 };
 ```
 
+Language codes used as keys in that object should correspond to the languages used by muOS, you can see the list of them in `src/i18n.ts` in `languageMap` object.
+
 You can select which languages to generate images for by modifying `languages` variable in `src/config.ts`. E.g.:
 
 ```ts
 export const languages: Language[] = ["en", "pl"];
 ```
 
-Those language codes must correspond to the keys of the `resources` object in `src/locales/index.ts`. 
+Those language codes must correspond to the keys of the `resources` object in `src/locales/index.ts`.
 
 This will generate images in those languages to subfolders like `640x480/image/Polish/...` in the ZIP file, so that they will be recognizeable by muOS.
 

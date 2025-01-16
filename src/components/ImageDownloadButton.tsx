@@ -39,7 +39,10 @@ export function ImageDownloadButton() {
           `${ref.meta.width}x${ref.meta.height}/${ref.meta.path}`,
           new Data64URIReader(data)
         );
-      } else if (ref.meta.path.includes("image/")) {
+      } else if (
+        ref.meta.path.includes("image/") &&
+        (ref.meta.language as Language) in languageMap
+      ) {
         // do some path substitution to get translated images into subfolders
         const newPath = ref.meta.path.replace(
           "image/",
