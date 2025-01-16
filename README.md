@@ -67,7 +67,7 @@ export const screens: ScreenConfig[] = [
 
 Optionally, you can provide an `overrideResolution` function that will force that single screen to be generated at a different resolution from the rest. This is useful for generating preview images. The parameter passed to that function is the original resolution, so you can make changes accordingly. It expects `{ width: number; height: number; }` as a return value. 
 
-After your configuration is ready, import it in `src/screens.ts` and the screens will generate in the app. For example:
+After your configuration is ready, import it in `src/config.ts` and the screens will generate in the app. For example:
 
 ```ts
 import { ScreenConfig } from "./types";
@@ -147,7 +147,7 @@ export const schemes: SchemeConfig[] = [
 ];
 ```
 
-Similarly to how you select screens to be rendered by the app, you import your scheme configs into `src/screens.ts` file:
+Similarly to how you select screens to be rendered by the app, you import your scheme configs into `src/config.ts` file:
 
 ```ts
 import { SchemeConfig } from "./types";

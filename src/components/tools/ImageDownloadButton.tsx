@@ -9,7 +9,7 @@ import { useCallback, useState } from "react";
 import { useRefs } from "react-context-refs";
 import { CanvasToBMP } from "@/utils/canvasToBMP";
 import { resolutions } from "@/resolutions";
-import { schemes } from "@/screens";
+import { schemes } from "@/config";
 
 import "./ImageDownloadButton.css";
 
