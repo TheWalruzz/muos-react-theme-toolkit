@@ -1,0 +1,15 @@
+.SingleItemScreen {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.SingleItemScreen.centered {
+  height: 100%;
+  align-items: center;
+  transform: translateY(calc(-0.2 * var(--item-size)));
+}
+
+.SingleItemScreen:not(.centered) {
+  transform: translateY(calc(-50% + 0.33 * var(--height)));
+}

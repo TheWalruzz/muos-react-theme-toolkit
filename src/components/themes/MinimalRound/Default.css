@@ -1,0 +1,12 @@
+.Default {
+  /* item size in main menu */
+  --item-size: calc(var(--width) / 4);
+  --background-gradient-top: linear-gradient(to top, #0f2027, #203a43, #2c5364);
+  --background-gradient-bottom: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+  
+  background: var(--background-gradient-top);
+  color: #dddddd;
+  font-family: "Dimica Light";
+  width: 100%;
+  height: 100%;
+}

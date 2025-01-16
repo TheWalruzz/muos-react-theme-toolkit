@@ -1,0 +1,70 @@
+import { BootLogo } from "./BootLogo";
+import { Charging } from "./Charging";
+import { Default } from "./Default";
+import { Reboot } from "./Reboot";
+import { Shutdown } from "./Shutdown";
+import { StartScreen } from "./StartScreen";
+import { MainMenu } from "./MainMenu";
+import { ScreenConfig } from "../../../types";
+
+export const screens: ScreenConfig[] = [
+  {
+    path: "preview.png",
+    // this will make the image that size regardless of target resolution
+    overrideResolution: { width: 288, height: 216 },
+    render: () => <MainMenu itemIndex={0} />,
+  },
+  { path: "image/wall/default.png", render: () => <Default /> },
+  {
+    path: "image/bootlogo.bmp",
+    render: () => <BootLogo />,
+  },
+  {
+    path: "image/wall/muxstart.png",
+    render: () => <StartScreen />,
+  },
+  {
+    path: "image/reboot.png",
+    render: () => <Reboot />,
+  },
+  {
+    path: "image/shutdown.png",
+    render: () => <Shutdown />,
+  },
+  {
+    path: "image/wall/muxcharge.png",
+    render: () => <Charging />,
+  },
+  {
+    path: "image/static/muxlaunch/explore.png",
+    render: () => <MainMenu itemIndex={0} />,
+  },
+  {
+    path: "image/static/muxlaunch/favourite.png",
+    render: () => <MainMenu itemIndex={1} />,
+  },
+  {
+    path: "image/static/muxlaunch/history.png",
+    render: () => <MainMenu itemIndex={2} />,
+  },
+  {
+    path: "image/static/muxlaunch/apps.png",
+    render: () => <MainMenu itemIndex={3} />,
+  },
+  {
+    path: "image/static/muxlaunch/info.png",
+    render: () => <MainMenu itemIndex={4} />,
+  },
+  {
+    path: "image/static/muxlaunch/config.png",
+    render: () => <MainMenu itemIndex={5} />,
+  },
+  {
+    path: "image/static/muxlaunch/reboot.png",
+    render: () => <MainMenu itemIndex={6} />,
+  },
+  {
+    path: "image/static/muxlaunch/shutdown.png",
+    render: () => <MainMenu itemIndex={7} />,
+  },
+];

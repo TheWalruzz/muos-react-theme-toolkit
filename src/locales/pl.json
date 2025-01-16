@@ -1,0 +1,15 @@
+{
+  "charging": "Ładowanie...",
+  "rebooting": "Restartowanie...",
+  "shuttingDown": "Zamykanie...",
+  "menu": {
+    "explore": "Gry",
+    "favourites": "Ulubione",
+    "history": "Historia",
+    "applications": "Aplikacje",
+    "information": "Informacje",
+    "configuration": "Konfiguracja",
+    "reboot": "Restartuj",
+    "shutdown": "Zamknij"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "charging": "Charging...",
+  "rebooting": "Rebooting...",
+  "shuttingDown": "Shutting Down...",
+  "menu": {
+    "explore": "Games",
+    "favourites": "Favourites",
+    "history": "History",
+    "applications": "Applications",
+    "information": "Information",
+    "configuration": "Configuration",
+    "reboot": "Reboot",
+    "shutdown": "Shutdown"
+  }
+}
