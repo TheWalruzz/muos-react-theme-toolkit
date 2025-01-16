@@ -107,9 +107,9 @@ This returns a `t` function that does all the heavy lifting:
 
 First part of the function is the translation key that can be found in localization JSONs (more information below). The second part is the default value in English.
 
-If you want to add new translation keys to JSONs based on the defaults, you can run `npm run i18n:extract` script that will extract all the new keys and place them in localization files.
-
 All locales are placed in `src/locales` as JSON files. If you want to add a new locale, you'll need to add the JSON file to `locales` folder.
+
+If you want to add new translation keys to JSONs based on the defaults, you can run `npm run i18n:extract` script that will extract all the new keys and place them in localization files.
 
 In case you want to add a new locale by extracting existing keys and creating an English template, change `locales` property in `i18next-parser.config.js` and add your language code to the array. Then, run extraction command from above and edit your newly generated JSON file with new translations.
 
