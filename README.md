@@ -1,8 +1,6 @@
 # muOS React Theme Toolkit
 
-This is a simple tool that allows you to generate theme images for muOS themes based on React components you create. This is not a user friendly solution with easy UI, drag'n'drop and other bells and whistles - you still have to add and modify React components in code and style them in CSS for the images to generate correctly, so previous knowledge of React and CSS is probably needed.
-
-Also, you have to provide scheme files for the theme yourself.
+This is a simple tool that allows you to generate images and schemes for muOS themes based on React components you create. This is not a user friendly solution with easy UI, drag'n'drop and other bells and whistles - you still have to add and modify React components in code and style them in CSS for the images to generate correctly, so previous knowledge of React and CSS is probably needed.
 
 You have full freedom in how you make your screen components, this tool only handles the heavy lifting of converting those components into images of different resolutions handled by muOS.
 
@@ -11,6 +9,7 @@ You have full freedom in how you make your screen components, this tool only han
 * Templating in React and CSS (or SCSS if you set it up for yourself)
 * Dynamic generation of each screen in different resolutions (you can change them in `src/resolutions.ts`)
 * Full internationalization support via `i18next` and `react-i18next`.
+* Scheme generation from user-provided templates
 
 ## Requirements
 
@@ -27,7 +26,7 @@ Run those commands to install necessary packages and run the dev server.
 
 Navigate to http://localhost:5173/ and you'll see a (very) simple page that renders all configured components in provided resolutions, so you can preview them and debug any issues. It supports Hot Module Reloading, so each change you make to your screen components will be immediately applied to the page.
 
-There, you can change the language of texts in the select at the top and click Download Images button to generate and download a ZIP file with all the images.
+There, you can change the language of texts in the select at the top, enable or disable scheme generation and click Download button to generate and download a ZIP file with all the images.
 
 ### Developing themes
 
@@ -86,6 +85,84 @@ const { width, height } = useResolution();
 ```
 
 Example screens are a good way to see how it all works in practice. Of course, you're more than welcome to change things up and provide your own solutions. This is still technically a React app, so go wild!
+
+#### Scheme templates
+
+You can provide your own scheme templates that will generate appropriate files based on currently processed resolution. In your `src/components/themes/THEME_NAME/schemes` folder, add appropriate TypeScript files, e.g. `default.ts` (for default.txt scheme) with a proper template function that receives current resolution as a param, like so:
+
+```ts
+import { Scheme } from "@/types";
+
+export const defaultScheme: Scheme = ({ width, height }) => `[background]
+BACKGROUND=DDDDDD
+BACKGROUND_ALPHA=0
+
+[font]
+FONT_HEADER_PAD_TOP=2
+FONT_HEADER_PAD_BOTTOM=0
+FONT_HEADER_ICON_PAD_TOP=0
+FONT_HEADER_ICON_PAD_BOTTOM=0
+// ...other properties go below
+`;
+```
+
+This leverages TypeScript's backtick string templates that allow you to easily modify the contents of a string. So if, for example, you wanted to change the top padding of the header based on current resolution, you can do it like so:
+
+```ts
+import { Scheme } from "@/types";
+
+export const defaultScheme: Scheme = ({ height }) => `[background]
+BACKGROUND=DDDDDD
+BACKGROUND_ALPHA=0
+
+[font]
+FONT_HEADER_PAD_TOP=${height < 720 ? 2 : 4}
+FONT_HEADER_PAD_BOTTOM=0
+FONT_HEADER_ICON_PAD_TOP=0
+FONT_HEADER_ICON_PAD_BOTTOM=0
+// ...other properties go below
+`;
+```
+
+You can create all the schemes you want that way.
+
+After you're done, in your `src/components/themes/THEME_NAME/index.ts` add and export a scheme config next to your screen configs:
+
+```ts
+import { SchemeConfig } from "@/types";
+import { defaultScheme } from "./schemes/default";
+import { muxlaunchScheme } from "./schemes/muxlaunch";
+
+// ...screen configs go here
+
+export const schemes: SchemeConfig[] = [
+  {
+    path: "scheme/default.txt",
+    scheme: defaultScheme,
+  },
+  {
+    path: "scheme/muxlaunch.txt",
+    scheme: muxlaunchScheme,
+  },
+];
+```
+
+Similarly to how you select screens to be rendered by the app, you import your scheme configs into `src/screens.ts` file:
+
+```ts
+import { SchemeConfig } from "./types";
+import { schemes as minimalRoundSchemes } from "./components/themes/MinimalRound";
+
+// ...screen configs go here
+
+export const schemes: SchemeConfig[] = minimalRoundSchemes;
+```
+
+Then, on ZIP creation, those schemes will be generated in every resolution's folder as expected.
+
+If you do not wish to generate schemes, you can just set/export an empty array (`[]`) instead of those configs.
+
+As always, refer to the example theme to see how it looks like in practice.
 
 #### Localization
 

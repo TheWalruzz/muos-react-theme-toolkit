@@ -1,8 +1,15 @@
-import { BlobWriter, ZipWriter, Data64URIReader } from "@zip.js/zip.js";
+import {
+  BlobWriter,
+  ZipWriter,
+  Data64URIReader,
+  TextReader,
+} from "@zip.js/zip.js";
 import { toCanvas, toPng } from "html-to-image";
 import { useCallback, useState } from "react";
 import { useRefs } from "react-context-refs";
-import { CanvasToBMP } from "../../utils/canvasToBMP";
+import { CanvasToBMP } from "@/utils/canvasToBMP";
+import { resolutions } from "@/resolutions";
+import { schemes } from "@/screens";
 
 import "./ImageDownloadButton.css";
 
@@ -29,6 +36,16 @@ export function ImageDownloadButton() {
         new Data64URIReader(data)
       );
     }
+
+    for (const resolution of resolutions) {
+      for (const scheme of schemes) {
+        writer.add(
+          `${resolution.width}x${resolution.height}/${scheme.path}`,
+          new TextReader(scheme.scheme(resolution))
+        );
+      }
+    }
+
     await writer.close();
     const blob = await blobWriter.getData();
 
@@ -53,7 +70,7 @@ export function ImageDownloadButton() {
         </div>
       )}
       <button onClick={downloadImages} disabled={isWorking}>
-        Download Images
+        Download
       </button>
     </div>
   );

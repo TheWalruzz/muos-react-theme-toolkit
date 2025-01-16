@@ -1,7 +1,7 @@
 import { CSSProperties, ReactNode } from "react";
-import { useResolution } from "../../context/ResolutionContext";
+import { useResolution } from "@/context/ResolutionContext";
 import { useContextRef } from "react-context-refs";
-import { Resolution } from "../../types";
+import { Resolution } from "@/types";
 
 import "./ScreenView.css";
 

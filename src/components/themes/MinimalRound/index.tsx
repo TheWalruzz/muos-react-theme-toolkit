@@ -5,7 +5,9 @@ import { Reboot } from "./Reboot";
 import { Shutdown } from "./Shutdown";
 import { StartScreen } from "./StartScreen";
 import { MainMenu } from "./MainMenu";
-import { Resolution, ScreenConfig } from "../../../types";
+import { Resolution, SchemeConfig, ScreenConfig } from "@/types";
+import { defaultScheme } from "./schemes/default";
+import { muxlaunchScheme } from "./schemes/muxlaunch";
 
 export const screens: ScreenConfig[] = [
   {
@@ -72,5 +74,16 @@ export const screens: ScreenConfig[] = [
   {
     path: "image/static/muxlaunch/shutdown.png",
     render: () => <MainMenu itemIndex={7} />,
+  },
+];
+
+export const schemes: SchemeConfig[] = [
+  {
+    path: "scheme/default.txt",
+    scheme: defaultScheme,
+  },
+  {
+    path: "scheme/muxlaunch.txt",
+    scheme: muxlaunchScheme,
   },
 ];

@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Default } from "./Default";
 import { useTranslation } from "react-i18next";
-import { useResolution } from "../../../context/ResolutionContext";
+import { useResolution } from "@/context/ResolutionContext";
 import {
   Gamepad,
   History,

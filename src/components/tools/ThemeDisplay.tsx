@@ -1,7 +1,7 @@
-import { ResolutionContext } from "../../context/ResolutionContext";
+import { ResolutionContext } from "@/context/ResolutionContext";
 import { ScreenView } from "./ScreenView";
-import { resolutions } from "../../resolutions";
-import { ScreenConfig } from "../../types";
+import { resolutions } from "@/resolutions";
+import { ScreenConfig } from "@/types";
 
 import "./ThemeDisplay.css";
 
