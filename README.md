@@ -105,7 +105,7 @@ This returns a `t` function that does all the heavy lifting:
 <div>{t("menu.explore", "Games")}</div>
 ```
 
-First part of the function is the translation key that can be found in localization JSONs (more information below). The second part is the default value in English.
+First part of the function is the translation key that can be found in localization JSONs (more information below). The second part is the default value in English that can be omitted if you don't want to use them (especially useful if you're using an external JSON that didn't originate from this app, like official muOS translation JSONs).
 
 All locales are placed in `src/locales` as JSON files. If you want to add a new locale, you'll need to add the JSON file there.
 
