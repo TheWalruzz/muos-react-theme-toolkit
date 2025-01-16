@@ -9,6 +9,8 @@ import { MainMenu } from "./MainMenu";
 import { defaultScheme } from "./schemes/default";
 import { muxlaunchScheme } from "./schemes/muxlaunch";
 
+import "./index.css";
+
 export const config: ThemeConfig = {
   name: "Minimal Round",
   screens: [
