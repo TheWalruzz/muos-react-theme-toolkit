@@ -39,8 +39,14 @@ Since you might be working on several themes in one repository, put your screen 
 export const screens: ScreenConfig[] = [
   {
     path: "preview.png",
-    // this will make the image that size regardless of target resolution
-    overrideResolution: { width: 288, height: 216 },
+    // This will make the image that size regardless of target resolution
+    // The parameter to the function is the original resolution of the screens (e.g. 640x480, 720x720 etc.)
+    overrideResolution: ({ width, height }: Resolution) => {
+      if (width === height) {
+        return { width: 340, height: 340 };
+      }
+      return { width: 288, height: 216 };
+    },
     render: () => <MainMenu itemIndex={0} />,
   },
   { path: "image/wall/default.png", render: () => <Default /> },

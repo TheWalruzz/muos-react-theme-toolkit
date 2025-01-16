@@ -7,6 +7,6 @@ export interface Resolution {
 
 export interface ScreenConfig {
   path: string;
-  overrideResolution?: Resolution;
+  overrideResolution?: (originalResolution: Resolution) => Resolution;
   render: () => ReactNode;
 }

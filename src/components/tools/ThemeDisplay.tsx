@@ -18,7 +18,7 @@ export function ThemeDisplay({ screens }: Props) {
           {screens.map((screen, index) => (
             <ResolutionContext.Provider
               key={`${resolution.width}x${resolution.height}-screen-${screen.path}-${index}`}
-              value={screen.overrideResolution ?? resolution}
+              value={screen.overrideResolution?.(resolution) ?? resolution}
             >
               <ScreenView resolutionGroup={resolution} {...screen} />
             </ResolutionContext.Provider>
