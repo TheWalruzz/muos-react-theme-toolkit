@@ -25,7 +25,7 @@ Run those commands to install necessary packages and run the dev server.
 * npm install
 * npm run dev
 
-Navigate to http://localhost:5173/ and you'll see a (very) simple page that renders all configured components in provided resolutions, so you can prevview them and debug any issues. It supports Hot Module Reloading, so each change you make to your screen components will be immediately applied to the page.
+Navigate to http://localhost:5173/ and you'll see a (very) simple page that renders all configured components in provided resolutions, so you can preview them and debug any issues. It supports Hot Module Reloading, so each change you make to your screen components will be immediately applied to the page.
 
 There, you can change the language of texts in the select at the top and click Download to generate and download a ZIP file with all the images.
 
