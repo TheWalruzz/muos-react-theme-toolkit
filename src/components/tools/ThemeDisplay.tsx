@@ -3,15 +3,20 @@ import { ScreenView } from "./ScreenView";
 import { resolutions } from "../../resolutions";
 import { ScreenConfig } from "../../types";
 
+import "./ThemeDisplay.css";
+
 interface Props {
   screens: ScreenConfig[];
 }
 
 export function ThemeDisplay({ screens }: Props) {
   return (
-    <div>
+    <div className="ThemeDisplay">
       {resolutions.map((resolution) => (
-        <div key={`${resolution.width}x${resolution.height}`}>
+        <div
+          key={`${resolution.width}x${resolution.height}`}
+          className="ThemeDisplay_list"
+        >
           <h2>
             {resolution.width}x{resolution.height}
           </h2>
