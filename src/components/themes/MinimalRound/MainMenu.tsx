@@ -13,9 +13,9 @@ import {
   Star,
 } from "lucide-react";
 import { MenuItem } from "./MenuItem";
+import classNames from "classnames";
 
 import "./MainMenu.css";
-import classNames from "classnames";
 
 interface Props {
   itemIndex: number;
