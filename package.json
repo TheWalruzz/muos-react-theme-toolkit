@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "i18n:extract": "i18next 'src/**/*.{ts,tsx}'",
-    "font:generate": "lv_font_conv --bpp 4 --size 20 --format bin --no-compress --no-prefilter -o ./generated/default.bin"
+    "font:generate": "lv_font_conv --bpp 4 --size 20 --format bin --no-compress --no-prefilter"
   },
   "dependencies": {
     "@zip.js/zip.js": "^2.7.54",

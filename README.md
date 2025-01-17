@@ -247,10 +247,10 @@ Fallback language will not create a subfolder, like other languages.
 You can build binary version of the font used with the included script. As an example, the font included in the example theme can be built with support for Polish characters using:
 
 ```
-npm run font:generate -- --font "./public/fonts/Dimica/Dimica-Light.otf" -r 0x00-0x017F
+npm run font:generate -- --font "./public/fonts/Dimica/Dimica-Light.otf" -r 0x00-0x017F -o ./generated/default.bin
 ```
 
-This will generate `default.bin` file in `generated` folder.
+This will generate `default.bin` file in `generated` folder, but you're free to change the path.
 
 Refer to https://muos.dev/themes/fonts.html for more info on how it all works.
 
