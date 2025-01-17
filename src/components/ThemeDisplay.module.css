@@ -3,23 +3,3 @@
   flex-direction: column;
   gap: 16px;
 }
-
-.ThemeDisplay_language {
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-  margin-top: 8px;
-}
-
-.ThemeDisplay h2 {
-  margin: 0;
-}
-
-.ThemeDisplay_list {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 8px;
-  border: 2px solid #000;
-  padding: 8px;
-  height: min-content;
-}

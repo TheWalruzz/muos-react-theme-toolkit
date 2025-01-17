@@ -1,0 +1,31 @@
+.LanguageDisplay h1 {
+  margin: 0;
+  cursor: pointer;
+}
+
+.LanguageDisplay_content {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-top: 8px;
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.LanguageDisplay_content.open {
+  max-height: initial;
+  overflow: visible;
+}
+
+.LanguageDisplay h2 {
+  margin: 0;
+}
+
+.LanguageDisplay_list {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 2px solid #000;
+  padding: 8px;
+  height: min-content;
+}
