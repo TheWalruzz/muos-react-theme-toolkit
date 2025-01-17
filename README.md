@@ -212,13 +212,13 @@ For example, if you wanted to add French:
 ```ts
 import fr from "./fr.json";
 
-export const resources = {
+export const resources: SupportedTranslations = {
   // ...other translations
   fr: { translation: fr },
 };
 ```
 
-Language codes used as keys in that object should correspond to the languages used by muOS, you can see the list of them in `src/i18n.ts` in `languageMap` object.
+Language codes used as keys in that object should correspond to the languages used by muOS, you can see the list of them in `src/locales/supportedLanguages.ts` in `supportedLanguageNameMap` object. The `resources` object is type-safe in that regard, so you won't be able to add unsupported language code.
 
 #### Language configuration for a theme
 

@@ -9,8 +9,9 @@ import { useCallback, useState } from "react";
 import { useRefs } from "react-context-refs";
 import { CanvasToBMP } from "@/utils/canvasToBMP";
 import { resolutions } from "@/resolutions";
-import { Language, languageMap } from "@/i18n";
+import { Language } from "@/i18n";
 import { useCurrentTheme } from "@/context/CurrentThemeContext";
+import { supportedLanguageNameMap } from "@/locales/supportedLanguages";
 
 import styles from "./ImageDownloadButton.module.css";
 
@@ -46,12 +47,12 @@ export function ImageDownloadButton() {
         );
       } else if (
         ref.meta.path.includes("image/") &&
-        (ref.meta.language as Language) in languageMap
+        (ref.meta.language as Language) in supportedLanguageNameMap
       ) {
         // do some path substitution to get translated images into subfolders
         const newPath = ref.meta.path.replace(
           "image/",
-          `image/${languageMap[ref.meta.language as Language]}/`
+          `image/${supportedLanguageNameMap[ref.meta.language as Language]}/`
         );
 
         await writer.add(
@@ -90,7 +91,7 @@ export function ImageDownloadButton() {
     <div className={styles.ImageDownloadButton}>
       {isWorking && (
         <div className={styles.ImageDownloadButton_inProgress}>
-          Preparing ZIP file...
+          Preparing ZIP file, please wait...
         </div>
       )}
       <button onClick={downloadImages} disabled={isWorking}>
