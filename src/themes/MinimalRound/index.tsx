@@ -13,6 +13,7 @@ import "./index.css";
 
 export const config: ThemeConfig = {
   name: "Minimal Round",
+  author: "TheWalruzz",
   screens: [
     {
       path: "preview.png",

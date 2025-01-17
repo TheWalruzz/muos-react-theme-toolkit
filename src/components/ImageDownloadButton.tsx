@@ -4,7 +4,7 @@ import {
   Data64URIReader,
   TextReader,
 } from "@zip.js/zip.js";
-import { toCanvas, toPng } from "html-to-image";
+import { toCanvas, toJpeg, toPng } from "html-to-image";
 import { useCallback, useState } from "react";
 import { useRefs } from "react-context-refs";
 import { CanvasToBMP } from "@/utils/canvasToBMP";
@@ -22,6 +22,7 @@ export function ImageDownloadButton() {
 
   const downloadImages = useCallback(async () => {
     setIsWorking(true);
+
     const blobWriter = new BlobWriter();
     const writer = new ZipWriter(blobWriter);
 
@@ -30,21 +31,34 @@ export function ImageDownloadButton() {
         continue;
       }
 
+      // get DataURLs of images in specified file format
       let data: string = "";
-      if (ref.meta.path.endsWith(".png")) {
-        data = await toPng(ref.current);
-      } else if (ref.meta.path.endsWith(".bmp")) {
-        const canvas = await toCanvas(ref.current, { type: "image/bmp" });
-        const canvasConverter = new CanvasToBMP();
-        data = canvasConverter.toDataURL(canvas);
+      const fileExtension: string = ref.meta.path.split(".").pop();
+      switch (fileExtension) {
+        case "png":
+          data = await toPng(ref.current);
+          break;
+        case "bmp": {
+          const canvas = await toCanvas(ref.current, { type: "image/bmp" });
+          const canvasConverter = new CanvasToBMP();
+          data = canvasConverter.toDataURL(canvas);
+          break;
+        }
+        case "jpg":
+        case "jpeg":
+          data = await toJpeg(ref.current);
+          break;
+        default:
+          throw new Error(`Unsupported file extension for '${ref.meta.path}'`);
       }
 
-      // add fallback images to main folder
+      // add fallback images and preview to main folder
       if (ref.meta.language === currentTheme.fallbackLanguage) {
         await writer.add(
           `${ref.meta.width}x${ref.meta.height}/${ref.meta.path}`,
           new Data64URIReader(data)
         );
+        // only process translated screens with paths including "image/", as preview should be added only once
       } else if (
         ref.meta.path.includes("image/") &&
         (ref.meta.language as Language) in supportedLanguageNameMap
@@ -62,28 +76,37 @@ export function ImageDownloadButton() {
       }
     }
 
+    // create and add scheme files for every resolution
     for (const resolution of resolutions) {
       for (const scheme of currentTheme.schemes) {
-        writer.add(
+        await writer.add(
           `${resolution.width}x${resolution.height}/${scheme.path}`,
           new TextReader(scheme.scheme(resolution))
         );
       }
     }
 
+    // add credits.txt file
+    await writer.add(
+      "credits.txt",
+      new TextReader(`Created By: ${currentTheme.author}`)
+    );
+
     await writer.close();
+
+    // prepare zip file for download
     const blob = await blobWriter.getData();
 
     const link = document.createElement("a");
-
     const url = window.URL.createObjectURL(blob);
     link.href = url;
-    link.download = `${currentTheme.name}-images.zip`;
+    link.download = `${currentTheme.name}-output.zip`;
 
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
     window.URL.revokeObjectURL(url);
+
     setIsWorking(false);
   }, [currentTheme, refs]);
 

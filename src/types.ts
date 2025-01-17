@@ -32,6 +32,7 @@ export interface SchemeConfig {
 
 export interface ThemeConfig {
   name: string;
+  author: string;
   screens: ScreenConfig[];
   schemes: SchemeConfig[];
   languages: Language[];

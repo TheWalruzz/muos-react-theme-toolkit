@@ -15,7 +15,7 @@ const getI18nInstance = (language: Language) =>
     },
     (err) => {
       if (err) {
-        return console.log(err);
+        console.error(err);
       }
     }
   );

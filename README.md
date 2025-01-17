@@ -37,7 +37,8 @@ In general, it should look like this:
 
 ```tsx
 export const config: ThemeConfig = {
-  name: "My Theme",
+  name: "My Theme", // name of theme
+  author: "Awesome Theme Creator", // name to be added in credits.txt file
   screens: [
     // your screen configs go here
   ],
@@ -99,7 +100,7 @@ export const config: ThemeConfig = {
 }
 ```
 
-`path` property is the path to the image in the theme. As an example, providing the path `image/wall/default.png` will generate images in different resolution folders, e.g. `640x480/image/wall/default.png`, `720x480/image/wall/default.png`. The extension of the file matters, as this tool can generate only `.png` and `.bmp` files.
+`path` property is the path to the image in the theme. As an example, providing the path `image/wall/default.png` will generate images in different resolution folders, e.g. `640x480/image/wall/default.png`, `720x480/image/wall/default.png`. The extension of the file matters, as this tool can generate only `.png`, `.bmp` and `.jpg/.jpeg` files.
 
 `render` function binds the path to the component that will be rendered as the screen.
 
