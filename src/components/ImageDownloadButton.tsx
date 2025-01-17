@@ -15,7 +15,7 @@ import { useCurrentTheme } from "@/context/CurrentThemeContext";
 import styles from "./ImageDownloadButton.module.css";
 
 export function ImageDownloadButton() {
-  const refs = useRefs("");
+  const refs = useRefs();
   const { currentTheme } = useCurrentTheme();
   const [isWorking, setIsWorking] = useState(false);
 
@@ -25,6 +25,10 @@ export function ImageDownloadButton() {
     const writer = new ZipWriter(blobWriter);
 
     for (const ref of refs) {
+      if (!ref.current) {
+        continue;
+      }
+
       let data: string = "";
       if (ref.meta.path.endsWith(".png")) {
         data = await toPng(ref.current);
