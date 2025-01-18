@@ -147,7 +147,7 @@ export const variantConfig: ThemeConfig = extend(config, {
 });
 ```
 
-`extend` function combines two (or more) configs and adds or overwrites properties existing in the original config with new ones, if they're provided in the second object.
+`extend` function combines two (or more) configs and adds new properties or overwrites existing ones, if they're provided.
 
 This new config can be added to your `config.ts` file like any other theme and it will use screens provided in the original config, but using variables and properties set in the variant.
 
