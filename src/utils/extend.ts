@@ -1,11 +1,10 @@
+import { deepCopy } from "deep-copy-ts";
+
 function isObject(item: unknown): boolean {
   return item !== null && typeof item === "object" && !Array.isArray(item);
 }
 
-export function merge<T extends object>(
-  target: T,
-  ...sources: Array<Partial<T>>
-): T {
+function merge<T extends object>(target: T, ...sources: Array<Partial<T>>): T {
   if (!sources.length) return target;
   const source = sources.shift();
 
@@ -22,4 +21,13 @@ export function merge<T extends object>(
     }
   }
   return merge(target, ...sources);
+}
+
+// this is a variant of the merge function that does not mutate original target
+export function extend<T extends object>(
+  target: T,
+  ...sources: Array<Partial<T>>
+): T {
+  const clonedTarget = deepCopy(target);
+  return merge(clonedTarget, ...sources);
 }

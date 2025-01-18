@@ -57,8 +57,8 @@ Each theme config can then be imported into `src/config.ts` into an array of the
 
 ```ts
 import { ThemeConfig } from "./types";
-import { config as minimalRound } from "./themes/MinimalRound";
-import { config as myTheme } from "./themes/MyTheme";
+import { minimalRound } from "./themes/MinimalRound";
+import { myTheme } from "./themes/MyTheme";
 
 export const themes: ThemeConfig[] = [
   minimalRound,
@@ -136,9 +136,9 @@ export const config: ThemeConfig = {
 That kind of config can then be extended into a variant and those styles you set earlier can be changed accordingly:
 
 ```ts
-import { merge } from "@/utils/merge";
+import { extend } from "@/utils/extend";
 
-export const variantConfig: ThemeConfig = merge(config, {
+export const variantConfig: ThemeConfig = extend(config, {
   name: "My Theme Variation",
   styles: {
     "--text-color": "#000000",
@@ -147,7 +147,7 @@ export const variantConfig: ThemeConfig = merge(config, {
 });
 ```
 
-`merge` function combines two (or more) configs and adds or overwrites properties existing in the original config with new ones, if they're provided in the second object.
+`extend` function combines two (or more) configs and adds or overwrites properties existing in the original config with new ones, if they're provided in the second object.
 
 This new config can be added to your `config.ts` file like any other theme and it will use screens provided in the original config, but using variables and properties set in the variant.
 
