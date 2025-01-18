@@ -23,12 +23,19 @@ export interface SchemeConfig {
   scheme: Scheme;
 }
 
+export interface AssetConfig {
+  path: string;
+  data: string;
+  type: "text" | "dataUrl";
+}
+
 export interface ThemeConfig {
   name: string;
   author: string;
   screens: ScreenConfig[];
   schemes: SchemeConfig[];
   styles?: Styles;
+  assets?: AssetConfig[];
   languages: Language[];
   fallbackLanguage: Language;
 }

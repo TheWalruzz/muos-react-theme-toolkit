@@ -23,6 +23,9 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
+    "types": [
+      "vite-plugin-data-url/types"
+    ],
     "paths": {
       "@/*": [
         "./src/*"

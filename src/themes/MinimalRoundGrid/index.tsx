@@ -11,6 +11,7 @@ import { muxlaunchScheme } from "./schemes/muxlaunch";
 import { extend } from "@/utils/extend";
 
 import "./index.css";
+import { assets } from "./assets";
 
 export const minimalRoundGrid: ThemeConfig = {
   name: "Minimal Round Grid",
@@ -92,6 +93,7 @@ export const minimalRoundGrid: ThemeConfig = {
       scheme: muxlaunchScheme,
     },
   ],
+  assets,
   styles: {
     "--background-gradient-top":
       "linear-gradient(to top, #0f2027, #203a43, #2c5364)",

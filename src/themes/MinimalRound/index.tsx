@@ -8,6 +8,7 @@ import { StartScreen } from "./StartScreen";
 import { MainMenu } from "./MainMenu";
 import { defaultScheme } from "./schemes/default";
 import { muxlaunchScheme } from "./schemes/muxlaunch";
+import { assets } from "./assets";
 import { extend } from "@/utils/extend";
 
 import "./index.css";
@@ -92,6 +93,7 @@ export const minimalRound: ThemeConfig = {
       scheme: muxlaunchScheme,
     },
   ],
+  assets,
   styles: {
     "--background-gradient-top":
       "linear-gradient(to top, #0f2027, #203a43, #2c5364)",

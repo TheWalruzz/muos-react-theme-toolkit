@@ -36,6 +36,7 @@
     "lv_font_conv": "^1.5.3",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
-    "vite": "^6.0.5"
+    "vite": "^6.0.5",
+    "vite-plugin-data-url": "^1.0.0"
   }
 }

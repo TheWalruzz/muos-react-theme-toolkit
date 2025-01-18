@@ -3,6 +3,7 @@ import {
   ZipWriter,
   Data64URIReader,
   TextReader,
+  Reader,
 } from "@zip.js/zip.js";
 import { toCanvas, toPng } from "html-to-image";
 import { useCallback, useState } from "react";
@@ -82,6 +83,24 @@ export function ImageDownloadButton() {
       }
     }
 
+    // add all other assets
+    if (currentTheme.assets) {
+      for (const asset of currentTheme.assets) {
+        let reader: Reader<unknown>;
+
+        switch (asset.type) {
+          case "dataUrl":
+            reader = new Data64URIReader(asset.data);
+            break;
+          case "text":
+            reader = new TextReader(asset.data);
+            break;
+        }
+
+        await writer.add(asset.path, reader);
+      }
+    }
+
     // add credits.txt file
     await writer.add(
       "credits.txt",
@@ -96,7 +115,7 @@ export function ImageDownloadButton() {
     const link = document.createElement("a");
     const url = window.URL.createObjectURL(blob);
     link.href = url;
-    link.download = `${currentTheme.name}-output.zip`;
+    link.download = `${currentTheme.name}.zip`;
 
     document.body.appendChild(link);
     link.click();

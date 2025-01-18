@@ -1,15 +1,17 @@
 # muOS React Theme Toolkit
 
-This is a simple tool that allows you to generate images and schemes for muOS themes based on React components you create. This is not a user friendly solution with easy UI, drag'n'drop and other bells and whistles - you still have to add and modify React components in code and style them in CSS for the images to generate correctly, so previous knowledge of React and CSS is probably needed.
+This is a simple toolkit that allows you to generate images and schemes for muOS themes based on React components you create, with a little bit of additional configuration.
 
-You have full freedom in how you make your screen components, this tool only handles the heavy lifting of converting those components into images of different resolutions handled by muOS.
+This is not a user friendly solution with easy UI, drag'n'drop and other bells and whistles - you still have to add and modify React components in code and style them in CSS for the images to generate correctly, so previous knowledge of React and CSS is probably needed. However, if you do manage to wrap your head around it, you can create fully working themes in no time.
 
 ## Features
 
-* Templating in React and CSS (or SCSS if you set it up for yourself)
-* Dynamic generation of each screen in different resolutions (you can change them in `src/resolutions.ts`)
+* Templating in React and CSS (or other stylesheet solution if you set it up for yourself).
+* Dynamic generation of each screen in different resolutions (you can change them in `src/resolutions.ts`).
 * Full internationalization support via `i18next` and `react-i18next`.
-* Scheme generation from user-provided templates
+* Scheme generation from user-provided templates.
+* Inclusion of other assets, like glyphs and sounds into output package.
+* Creation of install-ready ZIP files with the output theme.
 
 ## Requirements
 
@@ -48,6 +50,9 @@ export const config: ThemeConfig = {
   styles: {
     // global styles and CSS variables for theme go here. This property is optional.
   },
+  assets: [
+    // other assets that won't be processed by the toolkit, but should be included in the theme, like glyph images, sounds etc.
+  ],
   languages: ['en', 'pl'], // languages to generate images in
   fallbackLanguage: 'en', // default language for the theme
 }
@@ -299,15 +304,68 @@ Toolkit will generate images in those set languages in subfolders like `640x480/
 
 Fallback language will not create a subfolder, like other languages.
 
+### Including other assets
+
+Assets like glyph images and sounds that won't be processed by the toolkit in any way, but are needed for a theme can be automatically imported and included into the output ZIP file. This takes advantages of Vite, which is used to run the app and is not as straightforward as the rest of the config.
+
+Let's say you have a `glyph` and `rgb` folders you want to include in the root of your theme structure. Place them into `src/themes/THEME_NAME/assets` folder and create `index.ts` file there.
+
+There, you will configure folders to import into your theme while preserving their paths.
+
+```ts
+import { importAssets } from "@/utils/importAssets";
+
+export const assets = [
+  ...importAssets(
+    import.meta.glob("./glyph/**/*.{png,bmp,gif}", {
+      eager: true,
+      query: "?data-url",
+      import: "default",
+    }),
+    "dataUrl"
+  ),
+  ...importAssets(
+    import.meta.glob("./rgb/**/*.{sh,txt}", {
+      eager: true,
+      query: "?raw",
+      import: "default",
+    }),
+    "text"
+  ),
+]
+```
+
+`importAssets` function is a simple way to prepare imported assets for the toolkit.
+
+As the first argument, it uses Vite's `import.meta.glob` to import all files from the folder found under the glob pattern. `./glyph/**/*.{png,bmp,gif}` pattern can be understood as: look in the `./glyph` folder and all its subfolders for files that end with either png, bmp or gif extensions. 
+
+The object after the pattern tells the `import.meta.glob` function how to import the files. You can copy and paste it everywhere you need it, but the important part is the `query` property. For our use case, it should be either `?data-url`, which is used for binary file formats (images, sounds etc.), or `?raw` for text files (like .sh and .txt files).
+
+The second argument of the `importAssets` function is the type of file to add to the output ZIP and should mimic the `query` property (`?data-url` uses `dataUrl` type, `?raw` uses `text` type).
+
+After you're done adding and configuring your asset imports, it's time to add them to the theme config:
+
+```ts
+import { assets } from "./assets";
+
+export const config: ThemeConfig = {
+  // ...
+  assets: assets, // or `assets,` for short
+  // ...
+};
+```
+
+One thing of note is that the import of assets should occur in the parent folder of all the asset subfolders, as the `importAssets` function strips the `./` part from the path to make sure it's added correctly to the ZIP file.
+
 ### Building fonts
 
 You can build binary version of the font used with the included script. As an example, the font included in the example theme can be built with support for Polish characters using:
 
 ```
-npm run font:generate -- --font "./public/fonts/Dimica/Dimica-Light.otf" -r 0x00-0x017F -o ./generated/default.bin
+npm run font:generate -- --font "./public/fonts/Dimica/Dimica-Light.otf" -r 0x00-0x017F -o ./src/themes/MinimalRound/assets/font/default.bin
 ```
 
-This will generate `default.bin` file in `generated` folder, but you're free to change the path.
+This will generate `default.bin` file in `src/themes/MinimalRound/assets/font` folder, but you're free to change the path however you like.
 
 Refer to https://muos.dev/themes/fonts.html for more info on how it all works.
 
