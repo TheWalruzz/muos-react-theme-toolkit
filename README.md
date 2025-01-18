@@ -46,7 +46,7 @@ export const config: ThemeConfig = {
     // your scheme configs go here
   ],
   styles: {
-    // global styles and CSS variables go here. This property is optional.
+    // global styles and CSS variables for theme go here. This property is optional.
   },
   languages: ['en', 'pl'], // languages to generate images in
   fallbackLanguage: 'en', // default language for the theme
