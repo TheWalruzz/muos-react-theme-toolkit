@@ -1,7 +1,10 @@
 import { Scheme } from "@/types";
 import { colorVar } from "@/utils/vars";
 
-export const muxlaunchScheme: Scheme = ({ width }, styles) => `[background]
+export const muxlaunchScheme: Scheme = (
+  { width, height },
+  styles
+) => `[background]
 BACKGROUND=${colorVar(styles, "--background-color")}
 BACKGROUND_ALPHA=0
 
@@ -385,14 +388,14 @@ CHARGER_BACKGROUND=${colorVar(styles, "--background-color")}
 CHARGER_BACKGROUND_ALPHA=50
 CHARGER_TEXT=${colorVar(styles, "--text-color")}
 CHARGER_TEXT_ALPHA=255
-CHARGER_Y_POS=165
+CHARGER_Y_POS=${Math.floor(height / 3)}
 
 [verbose]
 VERBOSE_BOOT_BACKGROUND=${colorVar(styles, "--background-color")}
 VERBOSE_BOOT_BACKGROUND_ALPHA=50
 VERBOSE_BOOT_TEXT=${colorVar(styles, "--text-color")}
 VERBOSE_BOOT_TEXT_ALPHA=255
-VERBOSE_BOOT_Y_POS=165
+VERBOSE_BOOT_Y_POS=${Math.floor(height / 3)}
 
 [keyboard]
 OSK_BACKGROUND=${colorVar(styles, "--background-color")}
