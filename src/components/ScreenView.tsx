@@ -5,6 +5,7 @@ import { Resolution } from "@/types";
 import { useTranslation } from "react-i18next";
 
 import styles from "./ScreenView.module.css";
+import { useCurrentTheme } from "@/context/CurrentThemeContext";
 
 interface Props {
   path: string;
@@ -14,6 +15,7 @@ interface Props {
 
 export function ScreenView({ path, render, resolutionGroup }: Props) {
   const { i18n } = useTranslation();
+  const { currentTheme } = useCurrentTheme();
   const { width, height } = useResolution();
   const setRef = useContextRef({
     path,
@@ -36,6 +38,7 @@ export function ScreenView({ path, render, resolutionGroup }: Props) {
             overflow: "hidden",
             "--width": `${width}px`,
             "--height": `${height}px`,
+            ...(currentTheme?.styles ?? {}),
           } as CSSProperties
         }
       >

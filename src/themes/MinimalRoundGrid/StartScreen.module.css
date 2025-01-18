@@ -1,9 +1,8 @@
-.BootLogo {
-  width: 100%;
-  height: 100%;
+.StartScreen {
   display: flex;
-  align-items: center;
   justify-content: center;
+  width: 100%;
+  padding-top: calc(var(--height) / 5);
   /* poor man's font scaling */
   font-size: calc(var(--width) / 7.5);
   text-shadow: 2px 2px 5px var(--text-shadow-color);

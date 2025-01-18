@@ -25,10 +25,10 @@
   height: calc(var(--height) / 24);
   border: 2px solid #dddddd;
   border-radius: 100%;
-  box-shadow: 5px 5px 14px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 14px 1px var(--item-shadow-color);
 }
 
 .MainMenu .MainMenu_dot.active {
   background-color: #dddddd;
-  box-shadow: 0px 0px 10px 5px rgba(221, 221, 221, 0.5);
+  box-shadow: 0px 0px 10px 5px var(--item-shadow-color-active);
 }

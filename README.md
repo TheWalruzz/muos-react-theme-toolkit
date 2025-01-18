@@ -45,6 +45,9 @@ export const config: ThemeConfig = {
   schemes: [
     // your scheme configs go here
   ],
+  styles: {
+    // global styles and CSS variables go here. This property is optional.
+  },
   languages: ['en', 'pl'], // languages to generate images in
   fallbackLanguage: 'en', // default language for the theme
 }
@@ -114,6 +117,40 @@ Each screen is a simple component that can be styled however you want, but keep 
 const { width, height } = useResolution();
 ```
 
+#### Theme variants
+
+To create theme variants, it's possible to set `styles` property in theme's config (but this property can be removed completely if not needed). This object will be added to every screen that is rendered for that theme, so you can access CSS variables set here.
+
+```ts
+export const config: ThemeConfig = {
+  // ...other stuff
+  styles: {
+    "--text-color": "#ffffff",
+    fontSize: "16px"
+    // ...other CSS properties and variables
+  },
+  // ...other stuff
+}
+```
+
+That kind of config can then be extended into a variant and those styles you set earlier can be changed accordingly:
+
+```ts
+import { merge } from "@/utils/merge";
+
+export const variantConfig: ThemeConfig = merge(config, {
+  name: "My Theme Variation",
+  styles: {
+    "--text-color": "#000000",
+    fontSize: "14px"
+  },
+});
+```
+
+`merge` function combines two (or more) configs and adds or overwrites properties existing in the original config with new ones, if they're provided in the second object.
+
+This new config can be added to your `config.ts` file like any other theme and it will use screens provided in the original config, but using variables and properties set in the variant.
+
 Example screens are a good way to see how it all works in practice. Of course, you're more than welcome to change things up and provide your own solutions. This is still technically a React app, so go wild!
 
 ### Scheme configuration
@@ -142,12 +179,12 @@ When creating a ZIP, those schemes will be generated in every resolution's folde
 
 #### Scheme templates
 
-You can provide your own scheme templates that will generate appropriate files based on currently processed resolution. In your `src/themes/THEME_NAME/schemes` folder, add appropriate TypeScript files, e.g. `default.ts` (for default.txt scheme) with a proper template function that receives current resolution as a param, like so:
+You can provide your own scheme templates that will generate appropriate files based on currently processed resolution. In your `src/themes/THEME_NAME/schemes` folder, add appropriate TypeScript files, e.g. `default.ts` (for default.txt scheme) with a proper template function that receives current resolution as the first param and styles set in theme config as a second param, like so:
 
 ```ts
 import { Scheme } from "@/types";
 
-export const defaultScheme: Scheme = ({ width, height }) => `[background]
+export const defaultScheme: Scheme = ({ width, height }, styles) => `[background]
 BACKGROUND=DDDDDD
 BACKGROUND_ALPHA=0
 
@@ -171,6 +208,25 @@ BACKGROUND_ALPHA=0
 
 [font]
 FONT_HEADER_PAD_TOP=${height < 720 ? 2 : 4}
+FONT_HEADER_PAD_BOTTOM=0
+FONT_HEADER_ICON_PAD_TOP=0
+FONT_HEADER_ICON_PAD_BOTTOM=0
+// ...other properties go below
+`;
+```
+
+Or, if you wanted to change background color and padding according to global styles from theme config:
+
+```ts
+import { Scheme } from "@/types";
+import { colorVar, pxVar } from "@/utils/vars";
+
+export const defaultScheme: Scheme = (resolution, styles) => `[background]
+BACKGROUND=${colorVar(styles, "--background-color")}
+BACKGROUND_ALPHA=0
+
+[font]
+FONT_HEADER_PAD_TOP=${pxVar(styles, "--top-padding")}
 FONT_HEADER_PAD_BOTTOM=0
 FONT_HEADER_ICON_PAD_TOP=0
 FONT_HEADER_ICON_PAD_BOTTOM=0

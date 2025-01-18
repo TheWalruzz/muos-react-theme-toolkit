@@ -1,20 +1,13 @@
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode } from "react";
 import { Language } from "./i18n";
-
-export interface RefType {
-  type: "screen";
-  current: HTMLElement;
-  meta: {
-    path: string;
-    language: Language;
-    width: number;
-    height: number;
-  };
-}
 
 export interface Resolution {
   width: number;
   height: number;
+}
+
+export interface Styles extends CSSProperties {
+  [key: `--${string}`]: string;
 }
 
 export interface ScreenConfig {
@@ -23,7 +16,7 @@ export interface ScreenConfig {
   render: () => ReactNode;
 }
 
-export type Scheme = (resolution: Resolution) => string;
+export type Scheme = (resolution: Resolution, styles?: Styles) => string;
 
 export interface SchemeConfig {
   path: string;
@@ -35,6 +28,7 @@ export interface ThemeConfig {
   author: string;
   screens: ScreenConfig[];
   schemes: SchemeConfig[];
+  styles?: Styles;
   languages: Language[];
   fallbackLanguage: Language;
 }

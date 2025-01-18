@@ -12,7 +12,7 @@ import { muxlaunchScheme } from "./schemes/muxlaunch";
 import "./index.css";
 
 export const config: ThemeConfig = {
-  name: "Minimal Round",
+  name: "Minimal Round Grid",
   author: "TheWalruzz",
   screens: [
     {
@@ -97,7 +97,6 @@ export const config: ThemeConfig = {
     "--background-gradient-bottom":
       "linear-gradient(to bottom, #0f2027, #203a43, #2c5364)",
     "--font": "'Dimica Light'",
-    "--item-size": "calc(var(--width) / 4)",
     "--text-color": "#dddddd",
     "--text-shadow-color": "rgba(0, 0, 0, 0.7)",
     "--item-border-color": "#2c5364",

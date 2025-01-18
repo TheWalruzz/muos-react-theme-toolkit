@@ -81,7 +81,7 @@ export function ImageDownloadButton() {
       for (const scheme of currentTheme.schemes) {
         await writer.add(
           `${resolution.width}x${resolution.height}/${scheme.path}`,
-          new TextReader(scheme.scheme(resolution))
+          new TextReader(scheme.scheme(resolution, currentTheme.styles))
         );
       }
     }
