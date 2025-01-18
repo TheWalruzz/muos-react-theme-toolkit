@@ -3,11 +3,10 @@ import { Styles } from "@/types";
 // modified from: https://medium.com/@techsolutionsx/converting-rgba-to-hex-in-javascript-a-comprehensive-guide-908fbb1d13cf
 function rgbaToHex(colorStr: string) {
   return colorStr
-    .replace(/^rgba?\(|\s+|\)$/g, "") // Get's rgba / rgb string values
+    .replace(/^rgba?\(|\s+|\)$/g, "") // Gets rgba / rgb string values
     .split(",") // splits them at ","
-    .filter((_, index) => index !== 3)
+    .filter((_, index) => index !== 3) // Remove alpha, since themes can't use them in colors
     .map((value) => parseFloat(value)) // Converts them to numbers
-    .map((value, index) => (index === 3 ? Math.round(value * 255) : value)) // Converts alpha to 255 number
     .map((value) => value.toString(16)) // Converts numbers to hex
     .map((value) => (value.length === 1 ? "0" + value : value)) // Adds 0 when length of one number is 1
     .join("");
