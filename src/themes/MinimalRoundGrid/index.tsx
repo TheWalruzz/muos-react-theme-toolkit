@@ -8,10 +8,11 @@ import { StartScreen } from "./StartScreen";
 import { MainMenu } from "./MainMenu";
 import { defaultScheme } from "./schemes/default";
 import { muxlaunchScheme } from "./schemes/muxlaunch";
+import { extend } from "@/utils/extend";
 
 import "./index.css";
 
-export const config: ThemeConfig = {
+export const minimalRoundGrid: ThemeConfig = {
   name: "Minimal Round Grid",
   author: "TheWalruzz",
   screens: [
@@ -108,3 +109,38 @@ export const config: ThemeConfig = {
   languages: ["en", "pl"],
   fallbackLanguage: "en",
 };
+
+export const minimalRoundGridSummer = extend(minimalRoundGrid, {
+  name: "Minimal Round Grid Summer",
+  styles: {
+    "--background-gradient-top": "linear-gradient(to top, #f37335, #fdc830)",
+    "--background-gradient-bottom":
+      "linear-gradient(to bottom, #f37335, #fdc830)",
+    "--item-border-color": "#fdc830",
+    "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
+    "--text-color": "#ffffff",
+  },
+});
+
+export const minimalRoundGridNight = extend(minimalRoundGrid, {
+  name: "Minimal Round Grid Night",
+  styles: {
+    "--background-gradient-top": "linear-gradient(to top, #232526, #414345)",
+    "--background-gradient-bottom":
+      "linear-gradient(to bottom, #232526, #414345)",
+    "--item-border-color": "#414345",
+    "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
+  },
+});
+
+export const minimalRoundGridLime = extend(minimalRoundGrid, {
+  name: "Minimal Round Grid Lime",
+  styles: {
+    "--background-gradient-top": "linear-gradient(to top, #56ab2f, #a8e063)",
+    "--background-gradient-bottom":
+      "linear-gradient(to bottom, #56ab2f, #a8e063)",
+    "--item-border-color": "#a8e063",
+    "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
+    "--text-color": "#ffffff",
+  },
+});

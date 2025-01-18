@@ -23,12 +23,12 @@
 .MainMenu .MainMenu_dot {
   width: calc(var(--height) / 24);
   height: calc(var(--height) / 24);
-  border: 2px solid #dddddd;
+  border: 2px solid var(--text-color);
   border-radius: 100%;
   box-shadow: 5px 5px 14px 1px var(--item-shadow-color);
 }
 
 .MainMenu .MainMenu_dot.active {
-  background-color: #dddddd;
+  background-color: var(--text-color);
   box-shadow: 0px 0px 10px 5px var(--item-shadow-color-active);
 }

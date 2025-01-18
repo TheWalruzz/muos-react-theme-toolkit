@@ -1,5 +1,26 @@
 import { ThemeConfig } from "./types";
-import { config as minimalRound } from "./themes/MinimalRound";
-import { config as minimalRoundGrid } from "./themes/MinimalRoundGrid";
+import {
+  minimalRound,
+  minimalRoundLime,
+  minimalRoundNight,
+  minimalRoundSummer,
+} from "./themes/MinimalRound";
+import {
+  minimalRoundGrid,
+  minimalRoundGridLime,
+  minimalRoundGridNight,
+  minimalRoundGridSummer,
+} from "./themes/MinimalRoundGrid";
 
-export const themes: ThemeConfig[] = [minimalRound, minimalRoundGrid];
+export const themes: ThemeConfig[] = [
+  // Minimal Round
+  minimalRound,
+  minimalRoundSummer,
+  minimalRoundNight,
+  minimalRoundLime,
+  // Minimal Round Grid
+  minimalRoundGrid,
+  minimalRoundGridSummer,
+  minimalRoundGridNight,
+  minimalRoundGridLime,
+];

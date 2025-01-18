@@ -5,5 +5,5 @@
   padding-top: calc(var(--height) / 5);
   /* poor man's font scaling */
   font-size: calc(var(--width) / 7.5);
-  text-shadow: var(--text-shadow);
+  text-shadow: 2px 2px 5px var(--text-shadow-color);
 }
