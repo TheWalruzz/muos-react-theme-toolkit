@@ -119,6 +119,7 @@ export const minimalRoundGridSummer = extend(minimalRoundGrid, {
     "--item-border-color": "#fdc830",
     "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
     "--text-color": "#ffffff",
+    "--background-color": "#f37335",
   },
 });
 
@@ -130,6 +131,7 @@ export const minimalRoundGridNight = extend(minimalRoundGrid, {
       "linear-gradient(to bottom, #232526, #414345)",
     "--item-border-color": "#414345",
     "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
+    "--background-color": "#232526",
   },
 });
 
@@ -142,5 +144,6 @@ export const minimalRoundGridLime = extend(minimalRoundGrid, {
     "--item-border-color": "#a8e063",
     "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
     "--text-color": "#ffffff",
+    "--background-color": "#56ab2f",
   },
 });
