@@ -1,7 +1,7 @@
 {
   "name": "muos-react-theme-toolkit",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,14 +14,14 @@
   "dependencies": {
     "@zip.js/zip.js": "^2.7.54",
     "classnames": "^2.5.1",
-    "deep-copy-ts": "^0.5.4",
     "html-to-image": "^1.11.11",
     "i18next": "^24.2.1",
     "lucide-react": "^0.471.1",
     "react": "^18.3.1",
     "react-context-refs": "^0.2.1",
     "react-dom": "^18.3.1",
-    "react-i18next": "^15.4.0"
+    "react-i18next": "^15.4.0",
+    "ts-deepmerge": "^7.0.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

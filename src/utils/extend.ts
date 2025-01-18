@@ -1,33 +1,10 @@
-import { deepCopy } from "deep-copy-ts";
+import { merge } from "ts-deepmerge";
 
-function isObject(item: unknown): boolean {
-  return item !== null && typeof item === "object" && !Array.isArray(item);
-}
-
-function merge<T extends object>(target: T, ...sources: Array<Partial<T>>): T {
-  if (!sources.length) return target;
-  const source = sources.shift();
-
-  if (isObject(target) && isObject(source)) {
-    for (const key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        const sourceValue = source[key];
-        if (isObject(sourceValue) && isObject(target[key])) {
-          target[key] = merge(target[key] as never, sourceValue as never);
-        } else {
-          (target as Partial<T>)[key] = sourceValue;
-        }
-      }
-    }
-  }
-  return merge(target, ...sources);
-}
-
-// this is a variant of the merge function that does not mutate original target
+// Extend object without mutating sources
+// This is a simple wrapper on merge, in case something needs to change here (like library used etc.)
 export function extend<T extends object>(
   target: T,
   ...sources: Array<Partial<T>>
-): T {
-  const clonedTarget = deepCopy(target);
-  return merge(clonedTarget, ...sources);
+) {
+  return merge(target, ...sources);
 }
