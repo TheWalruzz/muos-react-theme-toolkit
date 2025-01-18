@@ -187,39 +187,39 @@ OSK_ITEM_RADIUS=3
 
 [notification]
 MSG_BACKGROUND=${colorVar(styles, "--background-color")}
-MSG_BACKGROUND_ALPHA=255
-MSG_BORDER=${colorVar(styles, "--background-color")}
+MSG_BACKGROUND_ALPHA=200
+MSG_BORDER=${colorVar(styles, "--item-border-color")}
 MSG_BORDER_ALPHA=255
-MSG_RADIUS=3
+MSG_RADIUS=32
 MSG_TEXT=${colorVar(styles, "--text-color")}
 MSG_TEXT_ALPHA=255
 
 [bar]
 BAR_BACKGROUND=${colorVar(styles, "--background-color")}
-BAR_BACKGROUND_ALPHA=255
-BAR_BORDER=${colorVar(styles, "--background-color")}
+BAR_BACKGROUND_ALPHA=200
+BAR_BORDER=${colorVar(styles, "--item-border-color")}
 BAR_BORDER_ALPHA=255
-BAR_RADIUS=3
-BAR_PROGRESS_BACKGROUND=7E730C
+BAR_RADIUS=32
+BAR_PROGRESS_BACKGROUND=${colorVar(styles, "--item-border-color")}
 BAR_PROGRESS_BACKGROUND_ALPHA=255
-BAR_PROGRESS_ACTIVE_BACKGROUND=F7E318
+BAR_PROGRESS_ACTIVE_BACKGROUND=${colorVar(styles, "--text-color")}
 BAR_PROGRESS_ACTIVE_BACKGROUND_ALPHA=255
 BAR_PROGRESS_RADIUS=3
-BAR_ICON=F7E318
+BAR_ICON=${colorVar(styles, "--text-color")}
 BAR_ICON_ALPHA=255
 
 [roll]
-ROLL_TEXT=7E730C
+ROLL_TEXT=${colorVar(styles, "--text-color")}
 ROLL_TEXT_ALPHA=255
 ROLL_BACKGROUND=${colorVar(styles, "--background-color")}
 ROLL_BACKGROUND_ALPHA=0
-ROLL_RADIUS=3
-ROLL_SELECT_TEXT=F7E318
+ROLL_RADIUS=32
+ROLL_SELECT_TEXT=${colorVar(styles, "--text-color")}
 ROLL_SELECT_TEXT_ALPHA=255
-ROLL_SELECT_BACKGROUND=7E730C
+ROLL_SELECT_BACKGROUND=${colorVar(styles, "--background-color")}
 ROLL_SELECT_BACKGROUND_ALPHA=175
 ROLL_SELECT_RADIUS=3
-ROLL_BORDER_COLOUR=${colorVar(styles, "--background-color")}
+ROLL_BORDER_COLOUR=${colorVar(styles, "--item-border-color")}
 ROLL_BORDER_ALPHA=175
 ROLL_BORDER_RADIUS=3
 
