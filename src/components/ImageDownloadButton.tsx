@@ -4,7 +4,7 @@ import {
   Data64URIReader,
   TextReader,
 } from "@zip.js/zip.js";
-import { toCanvas, toJpeg, toPng } from "html-to-image";
+import { toCanvas, toPng } from "html-to-image";
 import { useCallback, useState } from "react";
 import { useRefs } from "react-context-refs";
 import { CanvasToBMP } from "@/utils/canvasToBMP";
@@ -44,10 +44,6 @@ export function ImageDownloadButton() {
           data = canvasConverter.toDataURL(canvas);
           break;
         }
-        case "jpg":
-        case "jpeg":
-          data = await toJpeg(ref.current);
-          break;
         default:
           throw new Error(`Unsupported file extension for '${ref.meta.path}'`);
       }
