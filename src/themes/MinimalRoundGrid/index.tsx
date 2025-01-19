@@ -29,17 +29,37 @@ export const minimalRoundGrid: ThemeConfig = {
   author: "TheWalruzz",
   screens: [
     // generate system icons in set resolution
-    // ...Object.keys(systemIcons).map((system) => ({
-    //   path: system.replace(/^.\/systems\//, ""),
+
+    // {
+    //   path: "default_focused.png",
     //   overrideResolution: ({ width }: Resolution) => ({
-    //     width: Math.floor(width / 7),
-    //     height: Math.floor(width / 7),
+    //     width: Math.floor(width / 7) + 56,
+    //     height: Math.floor(width / 7) + 56,
     //   }),
     //   render: () => (
     //     <div
     //       style={{
     //         width: "100%",
     //         height: "100%",
+    //         padding: "28px 28px 28px 28px",
+    //       }}
+    //     >
+    //       <MenuItem icon={null} active={true} size="system" />
+    //     </div>
+    //   ),
+    // },
+    // ...Object.keys(systemIcons).map((system) => ({
+    //   path: system.replace(/^.\/systems\//, ""),
+    //   overrideResolution: ({ width }: Resolution) => ({
+    //     width: Math.floor(width / 7) + 56,
+    //     height: Math.floor(width / 7) + 56,
+    //   }),
+    //   render: () => (
+    //     <div
+    //       style={{
+    //         width: "100%",
+    //         height: "100%",
+    //         padding: "28px 28px 28px 28px",
     //       }}
     //     >
     //       <MenuItem

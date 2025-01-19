@@ -80,9 +80,10 @@ LOCATION_X=${Math.floor(
 LOCATION_Y=${Math.floor(
   (height - Math.floor(width / 15) * 3 - 3 * (Math.floor(width / 7) + 2)) / 2
 )}
-CELL_WIDTH=${Math.floor(width / 7) + 2}
-CELL_HEIGHT=${Math.floor(width / 7) + 2}
-CELL_RADIUS=${Math.floor(width / 7) + 2}
+CELL_WIDTH=${Math.floor(width / 7) + 2 + 56}
+CELL_HEIGHT=${Math.floor(width / 7) + 2 + 56}
+CELL_RADIUS=${Math.floor(width / 7) + 2 + 56}
+CELL_IMAGE_PADDING_SIDE=28
 COLUMN_WIDTH=${Math.floor(width / 7) + 2 + Math.floor(width / 15)}
 ROW_HEIGHT=${Math.floor(width / 7) + 2 + Math.floor(width / 15)}
 CURRENT_ITEM_LABEL_TEXT_ALPHA=0
@@ -97,12 +98,11 @@ CELL_DEFAULT_IMAGE_RECOLOUR_ALPHA=0
 CELL_DEFAULT_TEXT_ALPHA=0
 CELL_DEFAULT_BORDER_ALPHA=0
 CELL_FOCUS_BACKGROUND_ALPHA=0
-CELL_FOCUS_BORDER=${colorVar(styles, "--item-border-color-active")}
-CELL_FOCUS_BORDER_ALPHA=255
+CELL_FOCUS_BORDER=ffffff
+CELL_FOCUS_BORDER_ALPHA=0
 CELL_FOCUS_IMAGE_ALPHA=255
 CELL_FOCUS_IMAGE_RECOLOUR_ALPHA=0
 CELL_FOCUS_TEXT_ALPHA=0
-CELL_FOCUS_BORDER_ALPHA=255
 
 [help]
 HELP_BACKGROUND=${colorVar(styles, "--background-color")}
