@@ -306,42 +306,40 @@ Fallback language will not create a subfolder, like other languages.
 
 ### Including other assets
 
-Assets like glyph images and sounds that won't be processed by the toolkit in any way, but are needed for a theme can be automatically imported and included into the output ZIP file. This takes advantages of Vite, which is used to run the app and is not as straightforward as the rest of the config.
+Assets like glyph images and sounds that won't be processed by the toolkit in any way, but are needed for a theme can be automatically imported and included into the output ZIP file. This takes advantage of Vite's dynamic imports and is not as straightforward as the rest of the config.
 
 Let's say you have a `glyph` and `rgb` folders you want to include in the root of your theme structure. Place them into `src/themes/THEME_NAME/assets` folder and create `index.ts` file there.
 
 There, you will configure folders to import into your theme while preserving their paths.
 
 ```ts
-import { importAssets } from "@/utils/importAssets";
+import { importBinaryAssets, importTextAssets } from "@/utils/importAssets";
 
 export const assets = [
-  ...importAssets(
+  ...importBinaryAssets(
     import.meta.glob("./glyph/**/*.{png,bmp,gif}", {
       eager: true,
       query: "?data-url",
       import: "default",
-    }),
-    "dataUrl"
+    })
   ),
-  ...importAssets(
+  ...importTextAssets(
     import.meta.glob("./rgb/**/*.{sh,txt}", {
       eager: true,
       query: "?raw",
       import: "default",
-    }),
-    "text"
+    })
   ),
 ]
 ```
 
-`importAssets` function is a simple way to prepare imported assets for the toolkit.
+`importBinaryAssets` and `importTextAssets` functions are a simple way to prepare imported assets for the toolkit.
 
 As the first argument, it uses Vite's `import.meta.glob` to import all files from the folder found under the glob pattern. `./glyph/**/*.{png,bmp,gif}` pattern can be understood as: look in the `./glyph` folder and all its subfolders for files that end with either png, bmp or gif extensions. 
 
 The object after the pattern tells the `import.meta.glob` function how to import the files. You can copy and paste it everywhere you need it, but the important part is the `query` property. For our use case, it should be either `?data-url`, which is used for binary file formats (images, sounds etc.), or `?raw` for text files (like .sh and .txt files).
 
-The second argument of the `importAssets` function is the type of file to add to the output ZIP and should mimic the `query` property (`?data-url` uses `dataUrl` type, `?raw` uses `text` type).
+Whether you use `importBinaryAssets` or `importTextAssets` function depends on the type of files to add and should correspond to the used `query` property (`?data-url` uses `importBinaryAssets`, `?raw` uses `importTextAssets`).
 
 After you're done adding and configuring your asset imports, it's time to add them to the theme config:
 
