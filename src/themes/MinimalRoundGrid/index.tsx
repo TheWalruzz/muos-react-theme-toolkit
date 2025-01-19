@@ -1,139 +1,142 @@
 import { Resolution, ThemeConfig } from "@/types";
-// import { BootLogo } from "./BootLogo";
-// import { Charging } from "./Charging";
-// import { Default } from "./Default";
-// import { Reboot } from "./Reboot";
-// import { Shutdown } from "./Shutdown";
-// import { StartScreen } from "./StartScreen";
-// import { MainMenu } from "./MainMenu";
-// import { defaultScheme } from "./schemes/default";
-// import { muxlaunchScheme } from "./schemes/muxlaunch";
-// import { assets } from "./assets";
+import { BootLogo } from "./BootLogo";
+import { Charging } from "./Charging";
+import { Default } from "./Default";
+import { Reboot } from "./Reboot";
+import { Shutdown } from "./Shutdown";
+import { StartScreen } from "./StartScreen";
+import { MainMenu } from "./MainMenu";
+import { defaultScheme } from "./schemes/default";
+import { muxlaunchScheme } from "./schemes/muxlaunch";
+import { muxploreScheme } from "./schemes/muxplore";
+import { assets } from "./assets";
 import { extend } from "@/utils/extend";
-import { MenuItem } from "./MenuItem";
+// import { MenuItem } from "./MenuItem";
 
 import "./index.css";
 
-const systemIcons: Record<string, string> = import.meta.glob(
-  "./systems/**/*.png",
-  {
-    eager: true,
-    query: "?url",
-    import: "default",
-  }
-);
+// const systemIcons: Record<string, string> = import.meta.glob(
+//   "./systems/**/*.png",
+//   {
+//     eager: true,
+//     query: "?url",
+//     import: "default",
+//   }
+// );
 
 export const minimalRoundGrid: ThemeConfig = {
   name: "Minimal Round Grid",
   author: "TheWalruzz",
   screens: [
-    // genrate system icons in set resolution
-    // padding is here to ensure shadow translates into image correctly
-    ...Object.keys(systemIcons).map((system) => ({
-      path: system.replace(/^.\/systems\//, ""),
-      overrideResolution: ({ width }: Resolution) => ({
-        width: Math.floor(width / 7) + 24,
-        height: Math.floor(width / 7) + 24,
-      }),
-      render: () => (
-        <div
-          style={{
-            padding: "8px 16px 16px 8px",
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          <MenuItem
-            icon={
-              <img
-                src={systemIcons[system]}
-                style={{ maxWidth: "75%", maxHeight: "75%" }}
-              />
-            }
-            active={false}
-            size="system"
-          />
-        </div>
-      ),
-    })),
+    // generate system icons in set resolution
+    // ...Object.keys(systemIcons).map((system) => ({
+    //   path: system.replace(/^.\/systems\//, ""),
+    //   overrideResolution: ({ width }: Resolution) => ({
+    //     width: Math.floor(width / 7),
+    //     height: Math.floor(width / 7),
+    //   }),
+    //   render: () => (
+    //     <div
+    //       style={{
+    //         width: "100%",
+    //         height: "100%",
+    //       }}
+    //     >
+    //       <MenuItem
+    //         icon={
+    //           <img
+    //             src={systemIcons[system]}
+    //             style={{ maxWidth: "75%", maxHeight: "75%" }}
+    //           />
+    //         }
+    //         active={false}
+    //         size="system"
+    //       />
+    //     </div>
+    //   ),
+    // })),
 
-    // {
-    //   path: "preview.png",
-    //   // This will make the image that size regardless of target resolution
-    //   // The parameter to the function is the original resolution of the screens (e.g. 640x480, 720x720 etc.)
-    //   overrideResolution: ({ width, height }: Resolution) => {
-    //     if (width === height) {
-    //       return { width: 340, height: 340 };
-    //     }
-    //     return { width: 288, height: 216 };
-    //   },
-    //   render: () => <MainMenu itemIndex={0} />,
-    // },
-    // { path: "image/wall/default.png", render: () => <Default /> },
-    // {
-    //   path: "image/bootlogo.bmp",
-    //   render: () => <BootLogo />,
-    // },
-    // {
-    //   path: "image/wall/muxstart.png",
-    //   render: () => <StartScreen />,
-    // },
-    // {
-    //   path: "image/reboot.png",
-    //   render: () => <Reboot />,
-    // },
-    // {
-    //   path: "image/shutdown.png",
-    //   render: () => <Shutdown />,
-    // },
-    // {
-    //   path: "image/wall/muxcharge.png",
-    //   render: () => <Charging />,
-    // },
-    // {
-    //   path: "image/static/muxlaunch/explore.png",
-    //   render: () => <MainMenu itemIndex={0} />,
-    // },
-    // {
-    //   path: "image/static/muxlaunch/favourite.png",
-    //   render: () => <MainMenu itemIndex={1} />,
-    // },
-    // {
-    //   path: "image/static/muxlaunch/history.png",
-    //   render: () => <MainMenu itemIndex={2} />,
-    // },
-    // {
-    //   path: "image/static/muxlaunch/apps.png",
-    //   render: () => <MainMenu itemIndex={3} />,
-    // },
-    // {
-    //   path: "image/static/muxlaunch/info.png",
-    //   render: () => <MainMenu itemIndex={4} />,
-    // },
-    // {
-    //   path: "image/static/muxlaunch/config.png",
-    //   render: () => <MainMenu itemIndex={5} />,
-    // },
-    // {
-    //   path: "image/static/muxlaunch/reboot.png",
-    //   render: () => <MainMenu itemIndex={6} />,
-    // },
-    // {
-    //   path: "image/static/muxlaunch/shutdown.png",
-    //   render: () => <MainMenu itemIndex={7} />,
-    // },
+    {
+      path: "preview.png",
+      // This will make the image that size regardless of target resolution
+      // The parameter to the function is the original resolution of the screens (e.g. 640x480, 720x720 etc.)
+      overrideResolution: ({ width, height }: Resolution) => {
+        if (width === height) {
+          return { width: 340, height: 340 };
+        }
+        return { width: 288, height: 216 };
+      },
+      render: () => <MainMenu itemIndex={0} />,
+    },
+    { path: "image/wall/default.png", render: () => <Default /> },
+    {
+      path: "image/bootlogo.bmp",
+      render: () => <BootLogo />,
+    },
+    {
+      path: "image/wall/muxstart.png",
+      render: () => <StartScreen />,
+    },
+    {
+      path: "image/reboot.png",
+      render: () => <Reboot />,
+    },
+    {
+      path: "image/shutdown.png",
+      render: () => <Shutdown />,
+    },
+    {
+      path: "image/wall/muxcharge.png",
+      render: () => <Charging />,
+    },
+    {
+      path: "image/static/muxlaunch/explore.png",
+      render: () => <MainMenu itemIndex={0} />,
+    },
+    {
+      path: "image/static/muxlaunch/favourite.png",
+      render: () => <MainMenu itemIndex={1} />,
+    },
+    {
+      path: "image/static/muxlaunch/history.png",
+      render: () => <MainMenu itemIndex={2} />,
+    },
+    {
+      path: "image/static/muxlaunch/apps.png",
+      render: () => <MainMenu itemIndex={3} />,
+    },
+    {
+      path: "image/static/muxlaunch/info.png",
+      render: () => <MainMenu itemIndex={4} />,
+    },
+    {
+      path: "image/static/muxlaunch/config.png",
+      render: () => <MainMenu itemIndex={5} />,
+    },
+    {
+      path: "image/static/muxlaunch/reboot.png",
+      render: () => <MainMenu itemIndex={6} />,
+    },
+    {
+      path: "image/static/muxlaunch/shutdown.png",
+      render: () => <MainMenu itemIndex={7} />,
+    },
   ],
   schemes: [
-    // {
-    //   path: "scheme/default.txt",
-    //   scheme: defaultScheme,
-    // },
-    // {
-    //   path: "scheme/muxlaunch.txt",
-    //   scheme: muxlaunchScheme,
-    // },
+    {
+      path: "scheme/default.txt",
+      scheme: defaultScheme,
+    },
+    {
+      path: "scheme/muxlaunch.txt",
+      scheme: muxlaunchScheme,
+    },
+    {
+      path: "scheme/muxplore.txt",
+      scheme: muxploreScheme,
+    },
   ],
-  // assets,
+  assets,
   styles: {
     "--background-gradient-top":
       "linear-gradient(to top, #0f2027, #203a43, #2c5364)",
@@ -150,7 +153,7 @@ export const minimalRoundGrid: ThemeConfig = {
     "--item-size": "calc(var(--width) / 7)",
     "--item-size-large": "calc(var(--width) / 4)",
   },
-  languages: ["en"],
+  languages: ["en", "pl"],
   fallbackLanguage: "en",
 };
 
