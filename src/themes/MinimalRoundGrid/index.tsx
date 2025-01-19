@@ -9,9 +9,9 @@ import { MainMenu } from "./MainMenu";
 import { defaultScheme } from "./schemes/default";
 import { muxlaunchScheme } from "./schemes/muxlaunch";
 import { extend } from "@/utils/extend";
+import { assets } from "./assets";
 
 import "./index.css";
-import { assets } from "./assets";
 
 export const minimalRoundGrid: ThemeConfig = {
   name: "Minimal Round Grid",
