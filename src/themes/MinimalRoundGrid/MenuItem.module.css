@@ -1,6 +1,6 @@
 .MenuItem {
-  width: calc(var(--width) / 7);
-  height: calc(var(--width) / 7);
+  width: var(--item-size);
+  height: var(--item-size);
   border-radius: 100%;
   border: 1px solid var(--item-border-color);
   background: var(--background-gradient-top);
@@ -17,6 +17,6 @@
 }
 
 .MenuItem.MenuItem_large {
-  width:  calc(var(--width) / 4);
-  height:  calc(var(--width) / 4);
+  width: var(--item-size-large);
+  height: var(--item-size-large);
 }

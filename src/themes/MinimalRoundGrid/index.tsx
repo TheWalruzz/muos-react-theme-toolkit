@@ -107,6 +107,8 @@ export const minimalRoundGrid: ThemeConfig = {
     "--item-shadow-color": "rgba(0, 0, 0, 0.5)",
     "--item-shadow-color-active": "rgba(221, 221, 221, 0.5)",
     "--background-color": "#0f2027",
+    "--item-size": "calc(var(--width) / 7)",
+    "--item-size-large": "calc(var(--width) / 4)",
   },
   languages: ["en", "pl"],
   fallbackLanguage: "en",
