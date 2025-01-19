@@ -6,5 +6,5 @@ export function extend<T extends object>(
   target: T,
   ...sources: Array<Partial<T>>
 ) {
-  return merge(target, ...sources);
+  return merge(target, ...sources) as T;
 }
