@@ -20,3 +20,8 @@
   width: var(--item-size-large);
   height: var(--item-size-large);
 }
+
+.MenuItem.MenuItem_systemIcon {
+  width: 100%;
+  height: 100%;
+}
