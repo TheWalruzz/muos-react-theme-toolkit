@@ -8,10 +8,10 @@ import { StartScreen } from "./StartScreen";
 import { MainMenu } from "./MainMenu";
 import { defaultScheme } from "./schemes/default";
 import { muxlaunchScheme } from "./schemes/muxlaunch";
+import { assets } from "./assets";
 import { extend } from "@/utils/extend";
 
 import "./index.css";
-import { assets } from "./assets";
 
 export const minimalRoundGrid: ThemeConfig = {
   name: "Minimal Round Grid",
