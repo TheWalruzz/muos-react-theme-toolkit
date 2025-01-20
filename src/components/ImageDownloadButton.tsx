@@ -106,10 +106,12 @@ export function ImageDownloadButton() {
     }
 
     // add credits.txt file
-    await writer.add(
-      "credits.txt",
-      new TextReader(`Created By: ${currentTheme.author}`)
-    );
+    if (!currentTheme.skipCredits) {
+      await writer.add(
+        "credits.txt",
+        new TextReader(`Created By: ${currentTheme.author}`)
+      );
+    }
 
     await writer.close();
 

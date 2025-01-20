@@ -39,4 +39,5 @@ export interface ThemeConfig {
   assets?: AssetConfig[];
   languages: Language[];
   fallbackLanguage: Language;
+  skipCredits?: boolean;
 }
