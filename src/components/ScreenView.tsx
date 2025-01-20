@@ -1,19 +1,22 @@
-import { CSSProperties, ReactNode } from "react";
+import { CSSProperties } from "react";
 import { useResolution } from "@/context/ResolutionContext";
 import { useContextRef } from "react-context-refs";
-import { Resolution } from "@/types";
+import { Resolution, ScreenConfig } from "@/types";
 import { useTranslation } from "react-i18next";
-
-import styles from "./ScreenView.module.css";
 import { useCurrentTheme } from "@/context/CurrentThemeContext";
 
-interface Props {
-  path: string;
-  render: () => ReactNode;
+import styles from "./ScreenView.module.css";
+
+interface Props extends ScreenConfig {
   resolutionGroup: Resolution;
 }
 
-export function ScreenView({ path, render, resolutionGroup }: Props) {
+export function ScreenView({
+  path,
+  render,
+  pathPrefix,
+  resolutionGroup,
+}: Props) {
   const { i18n } = useTranslation();
   const { currentTheme } = useCurrentTheme();
   const { width, height } = useResolution();
@@ -22,11 +25,15 @@ export function ScreenView({ path, render, resolutionGroup }: Props) {
     language: i18n.language,
     width: resolutionGroup.width,
     height: resolutionGroup.height,
+    pathPrefix,
   });
 
   return (
     <div className={styles.ScreenView}>
-      <div className={styles.ScreenView_path}>{path}</div>
+      <div className={styles.ScreenView_path}>
+        {pathPrefix}
+        {path}
+      </div>
       <div
         ref={setRef}
         style={

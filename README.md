@@ -114,6 +114,8 @@ export const config: ThemeConfig = {
 
 Optionally, you can provide an `overrideResolution` function that will force that single screen to be generated at a different resolution from the rest. This is useful for generating preview images. The parameter passed to that function is the original resolution, so you can make changes accordingly. It expects `{ width: number; height: number; }` as a return value. 
 
+Also, there is an optional `pathPrefix` property for those rare cases where you want to put resolution folders inside other folders.
+
 #### Screen creation and styling
 
 Each screen is a simple component that can be styled however you want, but keep in mind that you have to use `var(--width)` and `var(--height)` CSS variables to know the current resolution. Resolution can also be retrieved programatically using a `useResolution` hook:

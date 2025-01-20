@@ -13,6 +13,7 @@ export interface Styles extends CSSProperties {
 export interface ScreenConfig {
   path: string;
   overrideResolution?: (originalResolution: Resolution) => Resolution;
+  pathPrefix?: string;
   render: () => ReactNode;
 }
 

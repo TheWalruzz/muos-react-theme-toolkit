@@ -52,7 +52,9 @@ export function ImageDownloadButton() {
       // add fallback images and preview to main folder
       if (ref.meta.language === currentTheme.fallbackLanguage) {
         await writer.add(
-          `${ref.meta.width}x${ref.meta.height}/${ref.meta.path}`,
+          `${ref.meta.pathPrefix ?? ""}${ref.meta.width}x${ref.meta.height}/${
+            ref.meta.path
+          }`,
           new Data64URIReader(data)
         );
         // only process translated screens with paths including "image/", as preview should be added only once
@@ -67,7 +69,9 @@ export function ImageDownloadButton() {
         );
 
         await writer.add(
-          `${ref.meta.width}x${ref.meta.height}/${newPath}`,
+          `${ref.meta.pathPrefix ?? ""}${ref.meta.width}x${
+            ref.meta.height
+          }/${newPath}`,
           new Data64URIReader(data)
         );
       }
