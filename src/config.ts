@@ -11,6 +11,16 @@ import {
   minimalRoundGridNight,
   minimalRoundGridSummer,
 } from "./themes/MinimalRoundGrid";
+import {
+  hexaneonBlueCyan,
+  hexaneon,
+  hexaneonPurplePink,
+  hexaneonBlackPink,
+  hexaneonBlackCyan,
+  hexaneonBlackGreen,
+  hexaneonBlackRed,
+  hexaneonRed,
+} from "./themes/Hexaneon";
 
 export const themes: ThemeConfig[] = [
   // Minimal Round
@@ -23,4 +33,13 @@ export const themes: ThemeConfig[] = [
   minimalRoundGridSummer,
   minimalRoundGridNight,
   minimalRoundGridLime,
+  // Hexaneon
+  hexaneon,
+  hexaneonBlackPink,
+  hexaneonBlackCyan,
+  hexaneonBlackGreen,
+  hexaneonBlackRed,
+  hexaneonBlueCyan,
+  hexaneonPurplePink,
+  hexaneonRed,
 ];

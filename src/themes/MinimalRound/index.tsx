@@ -1,11 +1,11 @@
 import { Resolution, ThemeConfig } from "@/types";
-import { BootLogo } from "./BootLogo";
-import { Charging } from "./Charging";
-import { Default } from "./Default";
-import { Reboot } from "./Reboot";
-import { Shutdown } from "./Shutdown";
-import { StartScreen } from "./StartScreen";
-import { MainMenu } from "./MainMenu";
+import { BootLogo } from "./components/BootLogo";
+import { Charging } from "./components/Charging";
+import { Default } from "./components/Default";
+import { Reboot } from "./components/Reboot";
+import { Shutdown } from "./components/Shutdown";
+import { StartScreen } from "./components/StartScreen";
+import { MainMenu } from "./components/MainMenu";
 import { defaultScheme } from "./schemes/default";
 import { muxlaunchScheme } from "./schemes/muxlaunch";
 import { assets } from "./assets";
