@@ -13,11 +13,11 @@ export function MenuItem({ icon, text, active }: Props) {
   return (
     <div
       className={classNames(styles.MenuItem, {
-        [styles.MenuItem_active]: active,
+        [styles.active]: active,
       })}
     >
-      <div className={styles.MenuItem_icon}>{icon}</div>
-      <div className={styles.MenuItem_text}>{text}</div>
+      <div className={styles.icon}>{icon}</div>
+      <div className={styles.text}>{text}</div>
     </div>
   );
 }

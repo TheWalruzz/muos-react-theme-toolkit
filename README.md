@@ -6,7 +6,7 @@ This is not a user friendly solution with easy UI, drag'n'drop and other bells a
 
 ## Features
 
-* Templating in React and CSS (or other stylesheet solution if you set it up for yourself).
+* Templating in React and CSS (with PostCSS plugin support).
 * Dynamic generation of each screen in different resolutions (you can change them in `src/resolutions.ts`).
 * Full internationalization support via `i18next` and `react-i18next`.
 * Scheme generation from user-provided templates.

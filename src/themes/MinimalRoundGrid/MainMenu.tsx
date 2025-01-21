@@ -51,7 +51,7 @@ export function MainMenu({ itemIndex }: Props) {
   return (
     <Default>
       <div className={styles.MainMenu}>
-        <div className={styles.MainMenu_grid}>
+        <div className={styles.grid}>
           {items.map((item, index) => (
             <MenuItem
               key={`MainMenu_item-${width}x${height}-${itemIndex}-${index}`}
@@ -60,7 +60,7 @@ export function MainMenu({ itemIndex }: Props) {
             />
           ))}
         </div>
-        <div className={styles.MainMenu_label}>
+        <div className={styles.label}>
           <Label text={items[itemIndex].text} />
         </div>
       </div>

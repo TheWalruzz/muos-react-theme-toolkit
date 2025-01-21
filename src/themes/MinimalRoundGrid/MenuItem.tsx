@@ -13,8 +13,8 @@ export function MenuItem({ icon, active, size = "sm" }: Props) {
   return (
     <div
       className={classNames(styles.MenuItem, {
-        [styles.MenuItem_active]: active,
-        [styles.MenuItem_large]: size === "lg",
+        [styles.active]: active,
+        [styles.large]: size === "lg",
       })}
     >
       {icon}

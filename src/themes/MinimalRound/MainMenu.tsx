@@ -52,7 +52,7 @@ export function MainMenu({ itemIndex }: Props) {
     <Default>
       <div className={styles.MainMenu}>
         <div
-          className={styles.MainMenu_list}
+          className={styles.list}
           style={{
             transform: `translate(calc(${
               width / 2 - (width / 2) * itemIndex
@@ -68,11 +68,11 @@ export function MainMenu({ itemIndex }: Props) {
             />
           ))}
         </div>
-        <div className={styles.MainMenu_dots}>
+        <div className={styles.dots}>
           {items.map((_, index) => (
             <div
               key={`MainMenu_dot-${width}x${height}-${itemIndex}-${index}`}
-              className={classNames(styles.MainMenu_dot, {
+              className={classNames(styles.dot, {
                 [styles.active]: index === itemIndex,
               })}
             />

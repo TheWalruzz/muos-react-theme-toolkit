@@ -21,7 +21,7 @@ export function SingleItemScreen({ icon, text, centered = true }: Props) {
         })}
       >
         <MenuItem active icon={icon} size="lg" />
-        <div className={styles.SingleItemScreen_label}>
+        <div className={styles.label}>
           <Label text={text} />
         </div>
       </div>
