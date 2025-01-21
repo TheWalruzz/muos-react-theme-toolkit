@@ -2,13 +2,15 @@ import { Resolution, ThemeConfig } from "@/types";
 import { Default } from "./components/Default";
 import { MainMenu } from "./components/MainMenu";
 import { BootLogo } from "./components/BootLogo";
-import { extend } from "@/utils/extend";
-
-import "./index.css";
 import { StartScreen } from "./components/StartScreen";
 import { Reboot } from "./components/Reboot";
 import { Shutdown } from "./components/Shutdown";
 import { Charging } from "./components/Charging";
+import { extend } from "@/utils/extend";
+
+import "./index.css";
+import { defaultScheme } from "./schemes/default";
+import { muxlaunchScheme } from "./schemes/muxlaunch";
 
 export const hexaneon: ThemeConfig = {
   name: "Hexaneon Black Yellow",
@@ -83,9 +85,19 @@ export const hexaneon: ThemeConfig = {
       render: () => <MainMenu itemIndex={7} />,
     },
   ],
-  schemes: [],
+  schemes: [
+    {
+      path: "scheme/default.txt",
+      scheme: defaultScheme,
+    },
+    {
+      path: "scheme/muxlaunch.txt",
+      scheme: muxlaunchScheme,
+    },
+  ],
   styles: {
     "--background-gradient": "linear-gradient(to top, #000000, #313131)",
+    "--background-color": "#313131",
     "--item-color-active": "#ffe397",
     "--item-color-glow": "#FDC830",
     "--text-color": "#ffffff",
@@ -96,7 +108,7 @@ export const hexaneon: ThemeConfig = {
     color: "var(--item-color)",
     fontFamily: "'Glitch Goblin'",
   },
-  languages: ["en", "pl"],
+  languages: ["en"],
   fallbackLanguage: "en",
 };
 
@@ -136,6 +148,7 @@ export const hexaneonBlueCyan = extend(hexaneon, {
   name: "Hexaneon Blue Cyan",
   styles: {
     "--background-gradient": "linear-gradient(to top, #000428, #003461)",
+    "--background-color": "#003461",
     "--item-color-active": "#c8ffff",
     "--item-color-glow": "#00FFFF",
   },
@@ -145,6 +158,7 @@ export const hexaneonPurplePink = extend(hexaneon, {
   name: "Hexaneon Purple Pink",
   styles: {
     "--background-gradient": "linear-gradient(to bottom, #41295a, #2f0743)",
+    "--background-color": "#2f0743",
     "--item-color-active": "#ffc8fb",
     "--item-color-glow": "#ff13f0",
   },
@@ -154,6 +168,7 @@ export const hexaneonRed = extend(hexaneon, {
   name: "Hexaneon Red",
   styles: {
     "--background-gradient": "linear-gradient(to bottom, #680000, #190a05)",
+    "--background-color": "#190a05",
     "--item-color-active": "#fd96ab",
     "--item-color-glow": "#ff073a",
   },
