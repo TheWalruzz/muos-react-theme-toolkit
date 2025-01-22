@@ -12,15 +12,20 @@ interface Props extends PropsWithChildren {
 
 export function Default({ children, animationFrame = 0 }: Props) {
   const glitch = useGlitch({
-    glitchTimeSpan: { start: 0.15, end: 0.5 },
-    timing: { duration: 1000, iterations: 1 },
+    glitchTimeSpan: { start: 0, end: 1 },
+    timing: { duration: 1500, iterations: 1 },
+    playMode: "manual",
   });
 
   useEffect(() => {
     let timeout: number | null = null;
-    timeout = window.setTimeout(() => {
-      glitch.stopGlitch();
-    }, animationFrame * (1 / 12) * 1000);
+
+    if (animationFrame > 0) {
+      glitch.startGlitch();
+      timeout = window.setTimeout(() => {
+        glitch.stopGlitch();
+      }, animationFrame * (1 / 12) * 1000);
+    }
 
     return () => {
       if (timeout !== null) {

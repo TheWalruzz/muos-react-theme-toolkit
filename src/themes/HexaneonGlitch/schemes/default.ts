@@ -77,40 +77,40 @@ HELP_RADIUS=2
 
 [navigation]
 ALIGNMENT=0
-NAV_A_GLYPH=${colorVar(styles, "--item-color-glow")}
+NAV_A_GLYPH=${colorVar(styles, "--item-color-active")}
 NAV_A_GLYPH_ALPHA=255
 NAV_A_GLYPH_RECOLOUR_ALPHA=255
-NAV_A_TEXT=${colorVar(styles, "--item-color-glow")}
+NAV_A_TEXT=${colorVar(styles, "--item-color-active")}
 NAV_A_TEXT_ALPHA=255
-NAV_B_GLYPH=${colorVar(styles, "--item-color-glow")}
+NAV_B_GLYPH=${colorVar(styles, "--item-color-active")}
 NAV_B_GLYPH_ALPHA=255
 NAV_B_GLYPH_RECOLOUR_ALPHA=255
-NAV_B_TEXT=${colorVar(styles, "--item-color-glow")}
+NAV_B_TEXT=${colorVar(styles, "--item-color-active")}
 NAV_B_TEXT_ALPHA=255
-NAV_C_GLYPH=${colorVar(styles, "--item-color-glow")}
+NAV_C_GLYPH=${colorVar(styles, "--item-color-active")}
 NAV_C_GLYPH_ALPHA=255
 NAV_C_GLYPH_RECOLOUR_ALPHA=255
-NAV_C_TEXT=${colorVar(styles, "--item-color-glow")}
+NAV_C_TEXT=${colorVar(styles, "--item-color-active")}
 NAV_C_TEXT_ALPHA=255
-NAV_X_GLYPH=${colorVar(styles, "--item-color-glow")}
+NAV_X_GLYPH=${colorVar(styles, "--item-color-active")}
 NAV_X_GLYPH_ALPHA=255
 NAV_X_GLYPH_RECOLOUR_ALPHA=255
-NAV_X_TEXT=${colorVar(styles, "--item-color-glow")}
+NAV_X_TEXT=${colorVar(styles, "--item-color-active")}
 NAV_X_TEXT_ALPHA=255
-NAV_Y_GLYPH=${colorVar(styles, "--item-color-glow")}
+NAV_Y_GLYPH=${colorVar(styles, "--item-color-active")}
 NAV_Y_GLYPH_ALPHA=255
 NAV_Y_GLYPH_RECOLOUR_ALPHA=255
-NAV_Y_TEXT=${colorVar(styles, "--item-color-glow")}
+NAV_Y_TEXT=${colorVar(styles, "--item-color-active")}
 NAV_Y_TEXT_ALPHA=255
-NAV_Z_GLYPH=${colorVar(styles, "--item-color-glow")}
+NAV_Z_GLYPH=${colorVar(styles, "--item-color-active")}
 NAV_Z_GLYPH_ALPHA=255
 NAV_Z_GLYPH_RECOLOUR_ALPHA=255
-NAV_Z_TEXT=${colorVar(styles, "--item-color-glow")}
+NAV_Z_TEXT=${colorVar(styles, "--item-color-active")}
 NAV_Z_TEXT_ALPHA=255
-NAV_MENU_GLYPH=${colorVar(styles, "--item-color-glow")}
+NAV_MENU_GLYPH=${colorVar(styles, "--item-color-active")}
 NAV_MENU_GLYPH_ALPHA=255
 NAV_MENU_GLYPH_RECOLOUR_ALPHA=255
-NAV_MENU_TEXT=${colorVar(styles, "--item-color-glow")}
+NAV_MENU_TEXT=${colorVar(styles, "--item-color-active")}
 NAV_MENU_TEXT_ALPHA=255
 
 [list]
@@ -135,10 +135,10 @@ LIST_FOCUS_GRADIENT_START=0
 LIST_FOCUS_GRADIENT_STOP=255
 LIST_FOCUS_INDICATOR=${colorVar(styles, "--text-color")}
 LIST_FOCUS_INDICATOR_ALPHA=0
-LIST_FOCUS_TEXT=${colorVar(styles, "--item-color-glow")}
+LIST_FOCUS_TEXT=${colorVar(styles, "--item-color-active")}
 LIST_FOCUS_TEXT_ALPHA=255
 LIST_FOCUS_GLYPH_ALPHA=255
-LIST_FOCUS_GLYPH_RECOLOUR=${colorVar(styles, "--item-color-glow")}
+LIST_FOCUS_GLYPH_RECOLOUR=${colorVar(styles, "--item-color-active")}
 LIST_FOCUS_GLYPH_RECOLOUR_ALPHA=255
 
 [image_list]

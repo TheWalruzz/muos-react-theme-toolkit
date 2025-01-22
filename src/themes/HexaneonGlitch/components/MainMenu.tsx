@@ -13,7 +13,6 @@ import { useTranslation } from "react-i18next";
 import { useResolution } from "@/context/ResolutionContext";
 import { Label } from "./Label";
 import { Item } from "./Item";
-import { Scanlines } from "./Scanlines";
 
 import styles from "./MainMenu.module.css";
 
@@ -77,7 +76,6 @@ export function MainMenu({ itemIndex }: Props) {
       <div className={styles.label}>
         <Label text={items[itemIndex].text} />
       </div>
-      <Scanlines />
     </div>
   );
 }

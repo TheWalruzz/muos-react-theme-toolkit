@@ -2,7 +2,6 @@ import { Item } from "./Item";
 import { ReactNode } from "react";
 import classNames from "classnames";
 import { Label } from "./Label";
-import { Scanlines } from "./Scanlines";
 
 import styles from "./SingleItemScreen.module.css";
 
@@ -32,7 +31,6 @@ export function SingleItemScreen({
           <Label text={text} />
         </div>
       </div>
-      <Scanlines />
     </div>
   );
 }

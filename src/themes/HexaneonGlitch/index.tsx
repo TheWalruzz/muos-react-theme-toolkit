@@ -6,7 +6,6 @@ import { StartScreen } from "./components/StartScreen";
 import { Reboot } from "./components/Reboot";
 import { Shutdown } from "./components/Shutdown";
 import { Charging } from "./components/Charging";
-import { Scanlines } from "./components/Scanlines";
 import { defaultScheme } from "./schemes/default";
 import { muxlaunchScheme } from "./schemes/muxlaunch";
 
@@ -29,11 +28,10 @@ export const hexaneonGlitch: ThemeConfig = {
       render: () => (
         <Default>
           <MainMenu itemIndex={0} />
-          <Scanlines />
         </Default>
       ),
     },
-    ...Array.from({ length: 24 }).map((_, index) => ({
+    ...Array.from({ length: 18 }).map((_, index) => ({
       path: `image/wall/default.${index}.png`,
       render: () => <Default animationFrame={index} />,
     })),
@@ -43,14 +41,17 @@ export const hexaneonGlitch: ThemeConfig = {
     },
     {
       path: "image/wall/muxstart.png",
-      render: () => <StartScreen />,
+      render: () => (
+        <Default>
+          <StartScreen />
+        </Default>
+      ),
     },
     {
       path: "image/reboot.png",
       render: () => (
         <Default>
           <Reboot />
-          <Scanlines />
         </Default>
       ),
     },
@@ -59,14 +60,17 @@ export const hexaneonGlitch: ThemeConfig = {
       render: () => (
         <Default>
           <Shutdown />
-          <Scanlines />
         </Default>
       ),
     },
-    {
-      path: "image/wall/muxcharge.png",
-      render: () => <Charging />,
-    },
+    ...Array.from({ length: 18 }).map((_, index) => ({
+      path: `image/wall/muxcharge.${index}.png`,
+      render: () => (
+        <Default animationFrame={index}>
+          <Charging />
+        </Default>
+      ),
+    })),
     {
       path: "image/static/muxlaunch/explore.png",
       render: () => <MainMenu itemIndex={0} />,
