@@ -6,14 +6,14 @@ import { StartScreen } from "./components/StartScreen";
 import { Reboot } from "./components/Reboot";
 import { Shutdown } from "./components/Shutdown";
 import { Charging } from "./components/Charging";
-import { extend } from "@/utils/extend";
+import { Scanlines } from "./components/Scanlines";
 import { defaultScheme } from "./schemes/default";
 import { muxlaunchScheme } from "./schemes/muxlaunch";
 
 import "./index.css";
 
-export const hexaneon: ThemeConfig = {
-  name: "Hexaneon Black Yellow",
+export const hexaneonGlitch: ThemeConfig = {
+  name: "Hexaneon Glitch",
   author: "TheWalruzz",
   screens: [
     {
@@ -26,12 +26,17 @@ export const hexaneon: ThemeConfig = {
         }
         return { width: 288, height: 216 };
       },
-      render: () => <MainMenu itemIndex={0} />,
+      render: () => (
+        <Default>
+          <MainMenu itemIndex={0} />
+          <Scanlines />
+        </Default>
+      ),
     },
-    {
-      path: "image/wall/default.png",
-      render: () => <Default />,
-    },
+    ...Array.from({ length: 24 }).map((_, index) => ({
+      path: `image/wall/default.${index}.png`,
+      render: () => <Default animationFrame={index} />,
+    })),
     {
       path: "image/bootlogo.bmp",
       render: () => <BootLogo />,
@@ -42,11 +47,21 @@ export const hexaneon: ThemeConfig = {
     },
     {
       path: "image/reboot.png",
-      render: () => <Reboot />,
+      render: () => (
+        <Default>
+          <Reboot />
+          <Scanlines />
+        </Default>
+      ),
     },
     {
       path: "image/shutdown.png",
-      render: () => <Shutdown />,
+      render: () => (
+        <Default>
+          <Shutdown />
+          <Scanlines />
+        </Default>
+      ),
     },
     {
       path: "image/wall/muxcharge.png",
@@ -96,10 +111,10 @@ export const hexaneon: ThemeConfig = {
     },
   ],
   styles: {
-    "--background-gradient": "linear-gradient(to top, #000000, #313131)",
+    "--background-gradient": "linear-gradient(to top, #000000, #121212)",
     "--background-color": "#313131",
-    "--item-color-active": "#ffe397",
-    "--item-color-glow": "#FDC830",
+    "--item-color-active": "#ffc8fb",
+    "--item-color-glow": "#ff13f0",
     "--text-color": "#ffffff",
     "--item-color": "#ffffff",
     "--glow": "0px 0px 8px var(--item-color-glow)",
@@ -113,65 +128,3 @@ export const hexaneon: ThemeConfig = {
   languages: ["en"],
   fallbackLanguage: "en",
 };
-
-export const hexaneonBlackPink = extend(hexaneon, {
-  name: "Hexaneon Black Pink",
-  styles: {
-    "--item-color-active": "#ffc8fb",
-    "--item-color-glow": "#ff13f0",
-  },
-});
-
-export const hexaneonBlackCyan = extend(hexaneon, {
-  name: "Hexaneon Black Cyan",
-  styles: {
-    "--item-color-active": "#c8ffff",
-    "--item-color-glow": "#00FFFF",
-  },
-});
-
-export const hexaneonBlackGreen = extend(hexaneon, {
-  name: "Hexaneon Black Green",
-  styles: {
-    "--item-color-active": "#bdffb1",
-    "--item-color-glow": "#2cff05",
-  },
-});
-
-export const hexaneonBlackRed = extend(hexaneon, {
-  name: "Hexaneon Black Red",
-  styles: {
-    "--item-color-active": "#ffc8d3",
-    "--item-color-glow": "#ff073a",
-  },
-});
-
-export const hexaneonBlueCyan = extend(hexaneon, {
-  name: "Hexaneon Blue Cyan",
-  styles: {
-    "--background-gradient": "linear-gradient(to top, #000428, #003461)",
-    "--background-color": "#003461",
-    "--item-color-active": "#c8ffff",
-    "--item-color-glow": "#00FFFF",
-  },
-});
-
-export const hexaneonPurplePink = extend(hexaneon, {
-  name: "Hexaneon Purple Pink",
-  styles: {
-    "--background-gradient": "linear-gradient(to bottom, #41295a, #2f0743)",
-    "--background-color": "#2f0743",
-    "--item-color-active": "#ffc8fb",
-    "--item-color-glow": "#ff13f0",
-  },
-});
-
-export const hexaneonRed = extend(hexaneon, {
-  name: "Hexaneon Red",
-  styles: {
-    "--background-gradient": "linear-gradient(to bottom, #680000, #190a05)",
-    "--background-color": "#190a05",
-    "--item-color-active": "#fd96ab",
-    "--item-color-glow": "#ff073a",
-  },
-});

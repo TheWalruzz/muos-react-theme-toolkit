@@ -1,8 +1,8 @@
-import { Default } from "./Default";
 import { Item } from "./Item";
 import { ReactNode } from "react";
 import classNames from "classnames";
 import { Label } from "./Label";
+import { Scanlines } from "./Scanlines";
 
 import styles from "./SingleItemScreen.module.css";
 
@@ -10,14 +10,21 @@ interface Props {
   icon: ReactNode;
   text: string;
   centered?: boolean;
+  chromaticAberration?: boolean;
 }
 
-export function SingleItemScreen({ icon, text, centered = true }: Props) {
+export function SingleItemScreen({
+  icon,
+  text,
+  centered = true,
+  chromaticAberration = false,
+}: Props) {
   return (
-    <Default>
+    <div className={styles.SingleItemScreen}>
       <div
-        className={classNames(styles.SingleItemScreen, {
+        className={classNames(styles.screen, {
           [styles.centered]: centered,
+          [styles.chromaticAberration]: chromaticAberration,
         })}
       >
         <Item active={false} icon={icon} />
@@ -25,6 +32,7 @@ export function SingleItemScreen({ icon, text, centered = true }: Props) {
           <Label text={text} />
         </div>
       </div>
-    </Default>
+      <Scanlines />
+    </div>
   );
 }

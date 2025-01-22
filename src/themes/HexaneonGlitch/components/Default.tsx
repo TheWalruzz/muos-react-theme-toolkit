@@ -1,12 +1,40 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useEffect } from "react";
+import classNames from "classnames";
+import { useGlitch } from "@/utils/powerglitch";
+
+import background from "./background.png";
 
 import styles from "./Default.module.css";
 
-export function Default({ children }: PropsWithChildren) {
+interface Props extends PropsWithChildren {
+  animationFrame?: number;
+}
+
+export function Default({ children, animationFrame = 0 }: Props) {
+  const glitch = useGlitch({
+    glitchTimeSpan: { start: 0.15, end: 0.5 },
+    timing: { duration: 1000, iterations: 1 },
+  });
+
+  useEffect(() => {
+    let timeout: number | null = null;
+    timeout = window.setTimeout(() => {
+      glitch.stopGlitch();
+    }, animationFrame * (1 / 12) * 1000);
+
+    return () => {
+      if (timeout !== null) {
+        clearTimeout(timeout);
+      }
+    };
+  }, [animationFrame, glitch]);
+
   return (
     <div className={styles.Default}>
+      <div className={classNames(styles.background)}>
+        <img ref={glitch.ref} src={background} />
+      </div>
       {children}
-      <div className={styles.scanlines} />
       <svg width="0" height="0">
         <filter id="rgb-split">
           <feOffset in="SourceGraphic" dx="1" dy="1" result="layer-one" />

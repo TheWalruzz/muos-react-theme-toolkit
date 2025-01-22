@@ -151,3 +151,16 @@ export const minimalRoundGridLime = extend(minimalRoundGrid, {
     "--background-color": "#56ab2f",
   },
 });
+
+export const minimalRoundGridCherry = extend(minimalRoundGrid, {
+  name: "Minimal Round Grid Cherry",
+  styles: {
+    "--background-gradient-top": "linear-gradient(to top, #d31027, #ea384d)",
+    "--background-gradient-bottom":
+      "linear-gradient(to bottom, #d31027, #ea384d)",
+    "--item-border-color": "#ea384d",
+    "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
+    "--text-color": "#ffffff",
+    "--background-color": "#d31027",
+  },
+});

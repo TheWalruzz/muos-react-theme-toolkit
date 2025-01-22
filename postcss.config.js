@@ -1,6 +1,6 @@
-import postcssFor from "postcss-for";
+import postcssAdvancedVariables from "postcss-advanced-variables";
 import postcssNested from "postcss-nested";
 
 export default {
-  plugins: [postcssNested(), postcssFor()],
+  plugins: [postcssNested(), postcssAdvancedVariables()],
 };
