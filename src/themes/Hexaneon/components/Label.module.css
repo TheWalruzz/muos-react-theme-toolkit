@@ -1,7 +1,0 @@
-.Label {
-  /* poor man's font scaling */
-  font-size: calc(var(--height) / 10);
-  white-space: nowrap;
-  text-shadow: var(--shadow);
-  color: var(--text-color);
-}
