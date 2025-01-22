@@ -8,6 +8,7 @@ import {
 import {
   minimalRoundGrid,
   minimalRoundGridCherry,
+  minimalRoundGridDarkCherry,
   minimalRoundGridLime,
   minimalRoundGridNight,
   minimalRoundGridSummer,
@@ -36,6 +37,7 @@ export const themes: ThemeConfig[] = [
   minimalRoundGridNight,
   minimalRoundGridLime,
   minimalRoundGridCherry,
+  minimalRoundGridDarkCherry,
   // Hexaneon
   hexaneon,
   hexaneonBlackPink,

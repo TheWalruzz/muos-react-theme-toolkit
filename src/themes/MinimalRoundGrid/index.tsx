@@ -95,9 +95,9 @@ export const minimalRoundGrid: ThemeConfig = {
   ],
   assets,
   styles: {
-    "--background-gradient-top":
-      "linear-gradient(to top, #0f2027, #203a43, #2c5364)",
-    "--background-gradient-bottom":
+    "--background": "linear-gradient(to top, #0f2027, #203a43, #2c5364)",
+    "--item-background": "linear-gradient(to top, #0f2027, #203a43, #2c5364)",
+    "--item-background-active":
       "linear-gradient(to bottom, #0f2027, #203a43, #2c5364)",
     "--font": "'Dimica Light'",
     "--text-color": "#dddddd",
@@ -117,9 +117,9 @@ export const minimalRoundGrid: ThemeConfig = {
 export const minimalRoundGridSummer = extend(minimalRoundGrid, {
   name: "Minimal Round Grid Summer",
   styles: {
-    "--background-gradient-top": "linear-gradient(to top, #f37335, #fdc830)",
-    "--background-gradient-bottom":
-      "linear-gradient(to bottom, #f37335, #fdc830)",
+    "--background": "linear-gradient(to top, #f37335, #fdc830)",
+    "--item-background": "linear-gradient(to top, #f37335, #fdc830)",
+    "--item-background-active": "linear-gradient(to bottom, #f37335, #fdc830)",
     "--item-border-color": "#fdc830",
     "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
     "--text-color": "#ffffff",
@@ -130,9 +130,9 @@ export const minimalRoundGridSummer = extend(minimalRoundGrid, {
 export const minimalRoundGridNight = extend(minimalRoundGrid, {
   name: "Minimal Round Grid Night",
   styles: {
-    "--background-gradient-top": "linear-gradient(to top, #232526, #414345)",
-    "--background-gradient-bottom":
-      "linear-gradient(to bottom, #232526, #414345)",
+    "--background": "linear-gradient(to top, #232526, #414345)",
+    "--item-background": "linear-gradient(to top, #232526, #414345)",
+    "--item-background-active": "linear-gradient(to bottom, #232526, #414345)",
     "--item-border-color": "#414345",
     "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
     "--background-color": "#232526",
@@ -142,9 +142,9 @@ export const minimalRoundGridNight = extend(minimalRoundGrid, {
 export const minimalRoundGridLime = extend(minimalRoundGrid, {
   name: "Minimal Round Grid Lime",
   styles: {
-    "--background-gradient-top": "linear-gradient(to top, #56ab2f, #a8e063)",
-    "--background-gradient-bottom":
-      "linear-gradient(to bottom, #56ab2f, #a8e063)",
+    "--background": "linear-gradient(to top, #56ab2f, #a8e063)",
+    "--item-background": "linear-gradient(to top, #56ab2f, #a8e063)",
+    "--item-background-active": "linear-gradient(to bottom, #56ab2f, #a8e063)",
     "--item-border-color": "#a8e063",
     "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
     "--text-color": "#ffffff",
@@ -155,10 +155,23 @@ export const minimalRoundGridLime = extend(minimalRoundGrid, {
 export const minimalRoundGridCherry = extend(minimalRoundGrid, {
   name: "Minimal Round Grid Cherry",
   styles: {
-    "--background-gradient-top": "linear-gradient(to top, #d31027, #ea384d)",
-    "--background-gradient-bottom":
-      "linear-gradient(to bottom, #d31027, #ea384d)",
+    "--background": "linear-gradient(to top, #d31027, #ea384d)",
+    "--item-background": "linear-gradient(to top, #d31027, #ea384d)",
+    "--item-background-active": "linear-gradient(to bottom, #d31027, #ea384d)",
     "--item-border-color": "#ea384d",
+    "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
+    "--text-color": "#ffffff",
+    "--background-color": "#d31027",
+  },
+});
+
+export const minimalRoundGridDarkCherry = extend(minimalRoundGrid, {
+  name: "Minimal Round Grid Dark Cherry",
+  styles: {
+    "--background": "linear-gradient(to top, #d31027, #ea384d)",
+    "--item-background": "linear-gradient(to top, #232526, #414345)",
+    "--item-background-active": "linear-gradient(to bottom, #232526, #414345)",
+    "--item-border-color": "#414345",
     "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
     "--text-color": "#ffffff",
     "--background-color": "#d31027",

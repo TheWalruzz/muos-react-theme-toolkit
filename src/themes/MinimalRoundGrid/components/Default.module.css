@@ -1,5 +1,5 @@
 .Default {
-  background: var(--background-gradient-top);
+  background: var(--background);
   color: var(--text-color);
   font-family: var(--font);
   width: 100%;
