@@ -54,8 +54,13 @@ export const minimalRoundGrid: ThemeConfig = {
       path: "image/static/muxlaunch/explore.png",
       render: () => <MainMenu itemIndex={0} />,
     },
+    // this will get deprecated in Pixie and removed in later version
     {
       path: "image/static/muxlaunch/favourite.png",
+      render: () => <MainMenu itemIndex={1} />,
+    },
+    {
+      path: "image/static/muxlaunch/collection.png",
       render: () => <MainMenu itemIndex={1} />,
     },
     {
