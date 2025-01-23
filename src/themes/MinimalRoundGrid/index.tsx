@@ -90,6 +90,15 @@ export const minimalRoundGrid: ThemeConfig = {
   ],
   schemes: [
     {
+      path: "scheme/default.ini",
+      scheme: defaultScheme,
+    },
+    {
+      path: "scheme/muxlaunch.ini",
+      scheme: muxlaunchScheme,
+    },
+    // those will get deprecated in Pixie and removed in later version
+    {
       path: "scheme/default.txt",
       scheme: defaultScheme,
     },
