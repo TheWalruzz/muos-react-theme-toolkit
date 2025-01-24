@@ -168,7 +168,7 @@ VERBOSE_BOOT_Y_POS=${Math.floor(height / 3)}
 [keyboard]
 OSK_BACKGROUND=${colorVar(styles, "--background-color")}
 OSK_BACKGROUND_ALPHA=255
-OSK_BORDER=${colorVar(styles, "--background-color")}
+OSK_BORDER=${colorVar(styles, "--item-border-color")}
 OSK_BORDER_ALPHA=255
 OSK_RADIUS=16
 OSK_TEXT=${colorVar(styles, "--text-color")}
