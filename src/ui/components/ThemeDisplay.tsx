@@ -1,5 +1,5 @@
 import { availableLanguages } from "@/i18n";
-import { useCurrentTheme } from "@/context/CurrentThemeContext";
+import { useCurrentTheme } from "@/ui/context/CurrentThemeContext";
 import { LanguageDisplay } from "./LanguageDisplay";
 
 import styles from "./ThemeDisplay.module.css";

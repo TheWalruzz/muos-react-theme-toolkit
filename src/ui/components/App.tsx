@@ -1,7 +1,7 @@
 import { RefProvider } from "react-context-refs";
-import { ThemeDisplay } from "./components/ThemeDisplay";
-import { ToolBar } from "./components/ToolBar";
-import { CurrentThemeContextProvider } from "./components/CurrentThemeContextProvider";
+import { ThemeDisplay } from "./ThemeDisplay";
+import { ToolBar } from "./ToolBar";
+import { CurrentThemeContextProvider } from "./CurrentThemeContextProvider";
 
 export function App() {
   return (

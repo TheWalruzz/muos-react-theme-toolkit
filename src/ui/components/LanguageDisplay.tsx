@@ -1,6 +1,6 @@
 import { i18nInstances, Language } from "@/i18n";
-import { useCurrentTheme } from "@/context/CurrentThemeContext";
-import { ResolutionContext } from "@/context/ResolutionContext";
+import { useCurrentTheme } from "@/ui/context/CurrentThemeContext";
+import { ResolutionContext } from "@/ui/context/ResolutionContext";
 import { resolutions } from "@/resolutions";
 import { I18nextProvider } from "react-i18next";
 import { ScreenView } from "./ScreenView";

@@ -1,9 +1,9 @@
 import { CSSProperties } from "react";
-import { useResolution } from "@/context/ResolutionContext";
+import { useResolution } from "@/utils/useResolution";
 import { useContextRef } from "react-context-refs";
 import { Resolution, ScreenConfig } from "@/types";
 import { useTranslation } from "react-i18next";
-import { useCurrentTheme } from "@/context/CurrentThemeContext";
+import { useCurrentTheme } from "@/ui/context/CurrentThemeContext";
 
 import styles from "./ScreenView.module.css";
 

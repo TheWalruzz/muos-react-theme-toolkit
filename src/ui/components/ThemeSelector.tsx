@@ -1,5 +1,5 @@
 import { themes } from "@/config";
-import { useCurrentTheme } from "@/context/CurrentThemeContext";
+import { useCurrentTheme } from "@/ui/context/CurrentThemeContext";
 import { ChangeEvent, useCallback } from "react";
 
 import styles from "./ThemeSelector.module.css";

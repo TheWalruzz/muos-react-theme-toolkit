@@ -121,6 +121,8 @@ Also, there is an optional `pathPrefix` property for those rare cases where you 
 Each screen is a simple component that can be styled however you want, but keep in mind that you have to use `var(--width)` and `var(--height)` CSS variables to know the current resolution. Resolution can also be retrieved programatically using a `useResolution` hook:
 
 ```ts
+import { useResolution } from "@/utils/useResolution";
+
 const { width, height } = useResolution();
 ```
 

@@ -1,5 +1,5 @@
 import { themes } from "@/config";
-import { CurrentThemeContext } from "@/context/CurrentThemeContext";
+import { CurrentThemeContext } from "@/ui/context/CurrentThemeContext";
 import { PropsWithChildren, useState } from "react";
 
 export function CurrentThemeContextProvider({ children }: PropsWithChildren) {

@@ -1,3 +1,9 @@
+import { useCallback, useMemo, useState } from "react";
+import { useCurrentTheme } from "../context/CurrentThemeContext";
+import { useRefs } from "react-context-refs";
+import { Language } from "@/i18n";
+import { supportedLanguageNameMap } from "@/locales/supportedLanguages";
+import { resolutions } from "@/resolutions";
 import {
   BlobWriter,
   ZipWriter,
@@ -5,24 +11,16 @@ import {
   TextReader,
   Reader,
 } from "@zip.js/zip.js";
-import { toCanvas, toPng } from "html-to-image";
-import { useCallback, useState } from "react";
-import { useRefs } from "react-context-refs";
-import { CanvasToBMP } from "@/utils/canvasToBMP";
-import { resolutions } from "@/resolutions";
-import { Language } from "@/i18n";
-import { useCurrentTheme } from "@/context/CurrentThemeContext";
-import { supportedLanguageNameMap } from "@/locales/supportedLanguages";
+import { toPng, toCanvas } from "html-to-image";
+import { CanvasToBMP } from "../utils/canvasToBMP";
 
-import styles from "./ImageDownloadButton.module.css";
-
-export function ImageDownloadButton() {
+export function useDownloadTheme() {
   const refs = useRefs();
   const { currentTheme } = useCurrentTheme();
-  const [isWorking, setIsWorking] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
 
-  const downloadImages = useCallback(async () => {
-    setIsWorking(true);
+  const downloadTheme = useCallback(async () => {
+    setIsProcessing(true);
 
     const blobWriter = new BlobWriter();
     const writer = new ZipWriter(blobWriter);
@@ -128,19 +126,14 @@ export function ImageDownloadButton() {
     document.body.removeChild(link);
     window.URL.revokeObjectURL(url);
 
-    setIsWorking(false);
+    setIsProcessing(false);
   }, [currentTheme, refs]);
 
-  return (
-    <div className={styles.ImageDownloadButton}>
-      {isWorking && (
-        <div className={styles.ImageDownloadButton_inProgress}>
-          Preparing ZIP file, please wait...
-        </div>
-      )}
-      <button onClick={downloadImages} disabled={isWorking}>
-        Download
-      </button>
-    </div>
+  return useMemo(
+    () => ({
+      isProcessing,
+      downloadTheme,
+    }),
+    [downloadTheme, isProcessing]
   );
 }
