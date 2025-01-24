@@ -170,20 +170,20 @@ OSK_BACKGROUND=${colorVar(styles, "--background-color")}
 OSK_BACKGROUND_ALPHA=255
 OSK_BORDER=${colorVar(styles, "--background-color")}
 OSK_BORDER_ALPHA=255
-OSK_RADIUS=3
+OSK_RADIUS=16
 OSK_TEXT=${colorVar(styles, "--text-color")}
 OSK_TEXT_ALPHA=225
 OSK_TEXT_FOCUS=${colorVar(styles, "--background-color")}
 OSK_TEXT_FOCUS_ALPHA=255
-OSK_ITEM_BACKGROUND=282525
+OSK_ITEM_BACKGROUND=${colorVar(styles, "--item-border-color")}
 OSK_ITEM_BACKGROUND_ALPHA=255
-OSK_ITEM_BACKGROUND_FOCUS=F7E318
+OSK_ITEM_BACKGROUND_FOCUS=${colorVar(styles, "--text-color")}
 OSK_ITEM_BACKGROUND_FOCUS_ALPHA=255
-OSK_ITEM_BORDER=282525
+OSK_ITEM_BORDER=${colorVar(styles, "--item-border-color")}
 OSK_ITEM_BORDER_ALPHA=0
-OSK_ITEM_BORDER_FOCUS=F7E318
+OSK_ITEM_BORDER_FOCUS=${colorVar(styles, "--text-color")}
 OSK_ITEM_BORDER_FOCUS_ALPHA=255
-OSK_ITEM_RADIUS=3
+OSK_ITEM_RADIUS=10
 
 [notification]
 MSG_BACKGROUND=${colorVar(styles, "--background-color")}
