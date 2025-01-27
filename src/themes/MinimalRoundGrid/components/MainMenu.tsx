@@ -31,7 +31,7 @@ export function MainMenu({ itemIndex }: Props) {
         icon: <Gamepad size="50%" />,
         text: t("menu.explore", "Games"),
       },
-      { icon: <Star size="50%" />, text: t("menu.favourites", "Favourites") },
+      { icon: <Star size="50%" />, text: t("menu.collections", "Collections") },
       { icon: <History size="50%" />, text: t("menu.history", "History") },
       {
         icon: <LayoutGrid size="50%" />,
