@@ -54,13 +54,8 @@ export const minimalRound: ThemeConfig = {
       path: "image/static/muxlaunch/explore.png",
       render: () => <MainMenu itemIndex={0} />,
     },
-    // this will get deprecated in Pixie and removed in later version
     {
       path: "image/static/muxlaunch/favourite.png",
-      render: () => <MainMenu itemIndex={1} />,
-    },
-    {
-      path: "image/static/muxlaunch/collection.png",
       render: () => <MainMenu itemIndex={1} />,
     },
     {
@@ -89,15 +84,6 @@ export const minimalRound: ThemeConfig = {
     },
   ],
   schemes: [
-    {
-      path: "scheme/default.ini",
-      scheme: defaultScheme,
-    },
-    {
-      path: "scheme/muxlaunch.ini",
-      scheme: muxlaunchScheme,
-    },
-    // those will get deprecated in Pixie and removed in later version
     {
       path: "scheme/default.txt",
       scheme: defaultScheme,
