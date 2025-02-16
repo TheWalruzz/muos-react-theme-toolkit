@@ -119,7 +119,7 @@ export function useDownloadTheme() {
     const link = document.createElement("a");
     const url = window.URL.createObjectURL(blob);
     link.href = url;
-    link.download = `${currentTheme.name}.zip`;
+    link.download = `${currentTheme.name}.muxthm`;
 
     document.body.appendChild(link);
     link.click();

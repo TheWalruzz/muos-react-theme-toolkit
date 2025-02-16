@@ -9,7 +9,7 @@ export function ImageDownloadButton() {
     <div className={styles.ImageDownloadButton}>
       {isProcessing && (
         <div className={styles.ImageDownloadButton_inProgress}>
-          Preparing ZIP file, please wait...
+          Preparing theme file, please wait...
         </div>
       )}
       <button onClick={downloadTheme} disabled={isProcessing}>
