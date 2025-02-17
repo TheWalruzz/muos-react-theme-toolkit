@@ -33,6 +33,8 @@ export interface AssetConfig {
 export interface ThemeConfig {
   name: string;
   author: string;
+  osVersion?: string;
+  outputType?: "muxthm" | "zip";
   screens: ScreenConfig[];
   schemes: SchemeConfig[];
   styles?: Styles;

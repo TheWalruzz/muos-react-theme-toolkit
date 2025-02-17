@@ -111,6 +111,10 @@ export function useDownloadTheme() {
       );
     }
 
+    if (currentTheme.osVersion) {
+      await writer.add("version.txt", new TextReader(currentTheme.osVersion));
+    }
+
     await writer.close();
 
     // prepare zip file for download
@@ -119,7 +123,9 @@ export function useDownloadTheme() {
     const link = document.createElement("a");
     const url = window.URL.createObjectURL(blob);
     link.href = url;
-    link.download = `${currentTheme.name}.muxthm`;
+    link.download = `${currentTheme.name}.${
+      currentTheme.outputType ?? "muxthm"
+    }`;
 
     document.body.appendChild(link);
     link.click();

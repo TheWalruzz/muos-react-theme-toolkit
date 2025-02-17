@@ -16,6 +16,7 @@ import "./index.css";
 export const minimalRoundGrid: ThemeConfig = {
   name: "Minimal Round Grid",
   author: "TheWalruzz",
+  osVersion: "2502.0",
   screens: [
     {
       path: "preview.png",

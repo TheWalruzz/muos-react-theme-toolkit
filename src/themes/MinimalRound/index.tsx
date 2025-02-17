@@ -16,6 +16,7 @@ import "./index.css";
 export const minimalRound: ThemeConfig = {
   name: "Minimal Round",
   author: "TheWalruzz",
+  osVersion: "2502.0",
   screens: [
     {
       path: "preview.png",
