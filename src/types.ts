@@ -34,7 +34,7 @@ export interface ThemeConfig {
   name: string;
   author: string;
   osVersion?: string;
-  outputType?: "muxthm" | "zip";
+  outputType?: "muxthm" | "muxzip" | "zip";
   screens: ScreenConfig[];
   schemes: SchemeConfig[];
   styles?: Styles;
