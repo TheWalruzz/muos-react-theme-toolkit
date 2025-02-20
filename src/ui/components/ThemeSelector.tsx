@@ -17,13 +17,17 @@ export function ThemeSelector() {
   return (
     <label className={styles.ThemeSelector}>
       Theme
-      <select value={currentThemeIndex} onChange={handleChange}>
-        {themes.map((theme, index) => (
-          <option key={`${index}-${theme.name}`} value={index.toString()}>
-            {theme.name}
-          </option>
-        ))}
-      </select>
+      {themes.length > 0 ? (
+        <select value={currentThemeIndex} onChange={handleChange}>
+          {themes.map((theme, index) => (
+            <option key={`${index}-${theme.name}`} value={index.toString()}>
+              {theme.name}
+            </option>
+          ))}
+        </select>
+      ) : (
+        <div className={styles.empty}>No themes</div>
+      )}
     </label>
   );
 }

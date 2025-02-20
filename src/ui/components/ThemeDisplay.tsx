@@ -9,7 +9,7 @@ export function ThemeDisplay() {
 
   return (
     <div className={styles.ThemeDisplay}>
-      {currentTheme.languages
+      {currentTheme?.languages
         .filter((language) => availableLanguages.includes(language))
         .map((language) => (
           <LanguageDisplay

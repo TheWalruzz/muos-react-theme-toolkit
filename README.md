@@ -29,6 +29,8 @@ Navigate to http://localhost:5173/ and you'll see a (very) simple page that rend
 
 There, you can click the Download button to generate and download a ZIP file with all the images and schemes.
 
+`main` branch does not come with any themes included. To see working example themes created with this toolkit, check out other branches in this repo.
+
 ## Developing themes
 
 ### Main theme configuration

@@ -1,3 +1,9 @@
-.ThemeSelector select {
-  height: 24px;
+.ThemeSelector {
+  select {
+    height: 24px;
+  }
+
+  .empty {
+    white-space: nowrap;
+  }
 }

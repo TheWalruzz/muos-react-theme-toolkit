@@ -1,0 +1,16 @@
+.ThemeDownloadButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.ThemeDownloadButton button {
+  font-weight: bold;
+  height: 24px;
+  width: 150px;
+}
+
+.ThemeDownloadButton_inProgress {
+  font-size: 10px;
+}
