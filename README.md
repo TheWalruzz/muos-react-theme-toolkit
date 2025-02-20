@@ -44,7 +44,7 @@ export const config: ThemeConfig = {
   name: "My Theme", // name of theme
   author: "Awesome Theme Creator", // name to be added in credits.txt file
   osVersion: "2502.0", // optional muOS version number to include in version.txt file
-  outputType: "muxthm", // optional output file type. Can be either "zip" or "muxthm". Is "muxthm" if not provided.
+  outputType: "muxthm", // optional output file type. Can be either "muxthm", "muxzip" or "zip". "muxthm" is the default option.
   screens: [
     // your screen configs go here
   ],
