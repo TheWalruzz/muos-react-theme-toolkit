@@ -1,0 +1,7 @@
+.Default {
+  background: var(--background);
+  color: var(--text-color);
+  font-family: var(--font);
+  width: 100%;
+  height: 100%;
+}
