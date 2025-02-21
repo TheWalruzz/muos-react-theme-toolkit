@@ -200,3 +200,47 @@ export const minimalRoundGridIconsCherry = extend(minimalRoundGridIcons, {
     "--text-color": "#ffffff",
   },
 });
+
+export const minimalRoundGridIconsFlamingo = extend(minimalRoundGridIcons, {
+  name: "Minimal Round Grid Icons Flamingo",
+  styles: {
+    "--item-background": "linear-gradient(to top, #b91d73, #f953c6)",
+    "--item-background-active": "linear-gradient(to bottom, #b91d73, #f953c6)",
+    "--item-border-color": "#f953c6",
+    "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
+    "--text-color": "#ffffff",
+  },
+});
+
+export const minimalRoundGridIconsSky = extend(minimalRoundGridIcons, {
+  name: "Minimal Round Grid Icons Sky",
+  styles: {
+    "--item-background": "linear-gradient(to top, #0083b0, #00b4db)",
+    "--item-background-active": "linear-gradient(to bottom, #0083b0, #00b4db)",
+    "--item-border-color": "#00b4db",
+    "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
+    "--text-color": "#ffffff",
+  },
+});
+
+export const minimalRoundGridIconsAmethyst = extend(minimalRoundGridIcons, {
+  name: "Minimal Round Grid Icons Amethyst",
+  styles: {
+    "--item-background": "linear-gradient(to top, #6e48aa, #9d50bb)",
+    "--item-background-active": "linear-gradient(to bottom, #6e48aa, #9d50bb)",
+    "--item-border-color": "#9d50bb",
+    "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
+    "--text-color": "#ffffff",
+  },
+});
+
+export const minimalRoundGridIconsEmerald = extend(minimalRoundGridIcons, {
+  name: "Minimal Round Grid Icons Emerald",
+  styles: {
+    "--item-background": "linear-gradient(to top, #093028, #237a57)",
+    "--item-background-active": "linear-gradient(to bottom, #093028, #237a57)",
+    "--item-border-color": "#237a57",
+    "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
+    "--text-color": "#ffffff",
+  },
+});
