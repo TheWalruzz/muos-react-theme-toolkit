@@ -165,7 +165,7 @@ export const minimalRoundGridIconsSummer = extend(minimalRoundGridIcons, {
     "--item-background-active": "linear-gradient(to bottom, #f37335, #fdc830)",
     "--item-border-color": "#fdc830",
     "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
-    "--text-color": "#ffffff",
+    "--text-color": "#e6e6e6",
   },
 });
 
