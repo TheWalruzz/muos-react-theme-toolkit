@@ -76,7 +76,7 @@ HELP_TITLE = ${colorVar(styles, "--text-color")}
 HELP_RADIUS = 10
 
 [navigation]
-ALIGNMENT = 1
+ALIGNMENT = 0
 NAV_A_GLYPH = ${colorVar(styles, "--text-color")}
 NAV_A_GLYPH_ALPHA = 255
 NAV_A_GLYPH_RECOLOUR_ALPHA = 255

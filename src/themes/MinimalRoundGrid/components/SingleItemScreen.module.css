@@ -1,4 +1,7 @@
 .SingleItemScreen {
+  /* only needed for label position calculation to mimic what is on the main menu */
+  --gap: calc(var(--width) / 15);
+  --vertical-offset: calc(-0.2 * (var(--width) / 7));
   display: flex;
   justify-content: center;
   width: 100%;
@@ -14,13 +17,17 @@
 
     .label {
       bottom: calc(var(--height) * -0.17);
+      transform: translate(-50%, 0%);
     }
   }
 
   .label {
     position: absolute;
-    bottom: calc(var(--height) * 0.075);
+    bottom: calc(
+      (var(--height) - (2 * var(--item-size)) - var(--gap)) / 4 -
+        var(--vertical-offset)
+    );
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, 50%);
   }
 }

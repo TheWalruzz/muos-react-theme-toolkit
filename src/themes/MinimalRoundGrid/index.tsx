@@ -188,29 +188,29 @@ export const minimalRoundGridDarkCherry = extend(minimalRoundGrid, {
   },
 });
 
-export const minimalRoundGridFlamingo = extend(minimalRoundGrid, {
-  name: "Minimal Round Grid Flamingo",
+export const minimalRoundGridMetal = extend(minimalRoundGrid, {
+  name: "Minimal Round Grid Metal",
   styles: {
-    "--background": "linear-gradient(to top, #b91d73, #f953c6)",
-    "--item-background": "linear-gradient(to top, #b91d73, #f953c6)",
-    "--item-background-active": "linear-gradient(to bottom, #b91d73, #f953c6)",
-    "--item-border-color": "#f953c6",
+    "--background": "linear-gradient(to top, #424347, #859398)",
+    "--item-background": "linear-gradient(to top, #424347, #859398)",
+    "--item-background-active": "linear-bottom(to bottom, #424347, #859398)",
+    "--item-border-color": "#859398",
     "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
     "--text-color": "#ffffff",
-    "--background-color": "#b91d73",
+    "--background-color": "#424347",
   },
 });
 
-export const minimalRoundGridSky = extend(minimalRoundGrid, {
-  name: "Minimal Round Grid Sky",
+export const minimalRoundGridOcean = extend(minimalRoundGrid, {
+  name: "Minimal Round Grid Ocean",
   styles: {
-    "--background": "linear-gradient(to top, #0083b0, #00b4db)",
-    "--item-background": "linear-gradient(to top, #0083b0, #00b4db)",
-    "--item-background-active": "linear-gradient(to bottom, #0083b0, #00b4db)",
-    "--item-border-color": "#00b4db",
+    "--background": "linear-gradient(to top, #021b79, #0575e6)",
+    "--item-background": "linear-gradient(to top, #021b79, #0575e6)",
+    "--item-background-active": "linear-gradient(to bottom, #021b79, #0575e6)",
+    "--item-border-color": "#0575e6",
     "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
     "--text-color": "#ffffff",
-    "--background-color": "#0083b0",
+    "--background-color": "#021b79",
   },
 });
 

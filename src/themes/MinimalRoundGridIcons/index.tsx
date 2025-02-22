@@ -201,23 +201,23 @@ export const minimalRoundGridIconsCherry = extend(minimalRoundGridIcons, {
   },
 });
 
-export const minimalRoundGridIconsFlamingo = extend(minimalRoundGridIcons, {
-  name: "Minimal Round Grid Icons Flamingo",
+export const minimalRoundGridIconsMetal = extend(minimalRoundGridIcons, {
+  name: "Minimal Round Grid Icons Metal",
   styles: {
-    "--item-background": "linear-gradient(to top, #b91d73, #f953c6)",
-    "--item-background-active": "linear-gradient(to bottom, #b91d73, #f953c6)",
-    "--item-border-color": "#f953c6",
+    "--item-background": "linear-gradient(to top, #424347, #859398)",
+    "--item-background-active": "linear-gradient(to bottom, #424347, #859398)",
+    "--item-border-color": "#859398",
     "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
     "--text-color": "#ffffff",
   },
 });
 
-export const minimalRoundGridIconsSky = extend(minimalRoundGridIcons, {
-  name: "Minimal Round Grid Icons Sky",
+export const minimalRoundGridIconsOcean = extend(minimalRoundGridIcons, {
+  name: "Minimal Round Grid Icons Ocean",
   styles: {
-    "--item-background": "linear-gradient(to top, #0083b0, #00b4db)",
-    "--item-background-active": "linear-gradient(to bottom, #0083b0, #00b4db)",
-    "--item-border-color": "#00b4db",
+    "--item-background": "linear-gradient(to top, #021b79, #0575e6)",
+    "--item-background-active": "linear-gradient(to bottom, #021b79, #0575e6)",
+    "--item-border-color": "#0575e6",
     "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
     "--text-color": "#ffffff",
   },

@@ -6,8 +6,8 @@ import {
   minimalRoundGridLime,
   minimalRoundGridNight,
   minimalRoundGridSummer,
-  minimalRoundGridFlamingo,
-  minimalRoundGridSky,
+  minimalRoundGridMetal,
+  minimalRoundGridOcean,
   minimalRoundGridAmethyst,
   minimalRoundGridEmerald,
 } from "./themes/MinimalRoundGrid";
@@ -17,8 +17,8 @@ import {
   minimalRoundGridIconsNight,
   minimalRoundGridIconsSummer,
   minimalRoundGridIconsCherry,
-  minimalRoundGridIconsFlamingo,
-  minimalRoundGridIconsSky,
+  minimalRoundGridIconsMetal,
+  minimalRoundGridIconsOcean,
   minimalRoundGridIconsAmethyst,
   minimalRoundGridIconsEmerald,
 } from "./themes/MinimalRoundGridIcons";
@@ -31,8 +31,8 @@ export const themes: ThemeConfig[] = [
   minimalRoundGridLime,
   minimalRoundGridCherry,
   minimalRoundGridDarkCherry,
-  minimalRoundGridFlamingo,
-  minimalRoundGridSky,
+  minimalRoundGridMetal,
+  minimalRoundGridOcean,
   minimalRoundGridAmethyst,
   minimalRoundGridEmerald,
   // Minimal Round Grid Icons
@@ -41,8 +41,8 @@ export const themes: ThemeConfig[] = [
   minimalRoundGridIconsNight,
   minimalRoundGridIconsSummer,
   minimalRoundGridIconsCherry,
-  minimalRoundGridIconsFlamingo,
-  minimalRoundGridIconsSky,
+  minimalRoundGridIconsMetal,
+  minimalRoundGridIconsOcean,
   minimalRoundGridIconsAmethyst,
   minimalRoundGridIconsEmerald,
 ];
