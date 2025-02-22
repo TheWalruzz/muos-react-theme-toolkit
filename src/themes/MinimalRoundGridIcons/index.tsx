@@ -149,7 +149,7 @@ export const minimalRoundGridIcons: ThemeConfig = {
       "linear-gradient(to bottom, #0f2027, #203a43, #2c5364)",
     "--item-border-color": "#2c5364",
     "--item-border-color-active": "rgba(221, 221, 221, 0.7)",
-    "--item-shadow-color": "rgba(0, 0, 0, 0.5)",
+    "--item-shadow-color": "rgba(0, 0, 0, 0.25)",
     "--item-shadow-color-active": "rgba(221, 221, 221, 0.5)",
     "--text-color": "#dddddd",
   },
