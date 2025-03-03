@@ -198,14 +198,14 @@ You can provide your own scheme templates that will generate appropriate files b
 import { Scheme } from "@/types";
 
 export const defaultScheme: Scheme = ({ width, height }, styles) => `[background]
-BACKGROUND=DDDDDD
-BACKGROUND_ALPHA=0
+BACKGROUND = DDDDDD
+BACKGROUND_ALPHA = 0
 
 [font]
-FONT_HEADER_PAD_TOP=2
-FONT_HEADER_PAD_BOTTOM=0
-FONT_HEADER_ICON_PAD_TOP=0
-FONT_HEADER_ICON_PAD_BOTTOM=0
+FONT_HEADER_PAD_TOP = 2
+FONT_HEADER_PAD_BOTTOM = 0
+FONT_HEADER_ICON_PAD_TOP = 0
+FONT_HEADER_ICON_PAD_BOTTOM = 0
 // ...other properties go below
 `;
 ```
@@ -216,14 +216,14 @@ This leverages TypeScript's backtick string templates that allow you to easily m
 import { Scheme } from "@/types";
 
 export const defaultScheme: Scheme = ({ height }) => `[background]
-BACKGROUND=DDDDDD
-BACKGROUND_ALPHA=0
+BACKGROUND = DDDDDD
+BACKGROUND_ALPHA = 0
 
 [font]
-FONT_HEADER_PAD_TOP=${height < 720 ? 2 : 4}
-FONT_HEADER_PAD_BOTTOM=0
-FONT_HEADER_ICON_PAD_TOP=0
-FONT_HEADER_ICON_PAD_BOTTOM=0
+FONT_HEADER_PAD_TOP = ${height < 720 ? 2 : 4}
+FONT_HEADER_PAD_BOTTOM = 0
+FONT_HEADER_ICON_PAD_TOP = 0
+FONT_HEADER_ICON_PAD_BOTTOM = 0
 // ...other properties go below
 `;
 ```
@@ -235,14 +235,14 @@ import { Scheme } from "@/types";
 import { colorVar, pxVar } from "@/utils/vars";
 
 export const defaultScheme: Scheme = (resolution, styles) => `[background]
-BACKGROUND=${colorVar(styles, "--background-color")}
-BACKGROUND_ALPHA=0
+BACKGROUND = ${colorVar(styles, "--background-color")}
+BACKGROUND_ALPHA = 0
 
 [font]
-FONT_HEADER_PAD_TOP=${pxVar(styles, "--top-padding")}
-FONT_HEADER_PAD_BOTTOM=0
-FONT_HEADER_ICON_PAD_TOP=0
-FONT_HEADER_ICON_PAD_BOTTOM=0
+FONT_HEADER_PAD_TOP = ${pxVar(styles, "--top-padding")}
+FONT_HEADER_PAD_BOTTOM = 0
+FONT_HEADER_ICON_PAD_TOP = 0
+FONT_HEADER_ICON_PAD_BOTTOM = 0
 // ...other properties go below
 `;
 ```
