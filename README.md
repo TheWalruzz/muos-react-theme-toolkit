@@ -175,11 +175,11 @@ export const config: ThemeConfig = {
   // ...
   schemes: [
     {
-      path: "scheme/default.txt",
+      path: "scheme/default.ini",
       scheme: defaultScheme, // scheme template
     },
     {
-      path: "scheme/muxlaunch.txt",
+      path: "scheme/muxlaunch.ini",
       scheme: muxlaunchScheme, // scheme template
     },
     // ...other schemes
@@ -192,7 +192,7 @@ When creating a ZIP, those schemes will be generated in every resolution's folde
 
 #### Scheme templates
 
-You can provide your own scheme templates that will generate appropriate files based on currently processed resolution. In your `src/themes/THEME_NAME/schemes` folder, add appropriate TypeScript files, e.g. `default.ts` (for default.txt scheme) with a proper template function that receives current resolution as the first param and styles set in theme config as a second param, like so:
+You can provide your own scheme templates that will generate appropriate files based on currently processed resolution. In your `src/themes/THEME_NAME/schemes` folder, add appropriate TypeScript files, e.g. `default.ts` (for default.ini scheme) with a proper template function that receives current resolution as the first param and styles set in theme config as a second param, like so:
 
 ```ts
 import { Scheme } from "@/types";
