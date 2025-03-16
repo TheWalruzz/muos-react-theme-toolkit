@@ -45,7 +45,7 @@ export const minimalRoundGridIcons: ThemeConfig = {
               icon={
                 <img
                   src={systemIcons[system]}
-                  style={{ maxWidth: "75%", maxHeight: "75%" }}
+                  style={{ maxWidth: "85%", maxHeight: "50%" }}
                 />
               }
               active={false}
@@ -74,7 +74,7 @@ export const minimalRoundGridIcons: ThemeConfig = {
               icon={
                 <img
                   src={systemIcons[system]}
-                  style={{ maxWidth: "75%", maxHeight: "75%" }}
+                  style={{ maxWidth: "85%", maxHeight: "50%" }}
                 />
               }
               active
