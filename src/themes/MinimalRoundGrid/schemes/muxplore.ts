@@ -1,6 +1,20 @@
 import { Scheme } from "@/types";
 import { colorVar } from "@/utils/vars";
 
+const getRowCount = (width: number, height: number) => {
+  // square ratio, can hold more rows
+  if (width === height) {
+    return 4;
+  }
+
+  // widescreen resolutions can hold less rows, due to size calculations being width-dependent (but items are bigger in return)
+  if (width / height > 1.5) {
+    return 2;
+  }
+
+  return 3;
+};
+
 export const muxploreScheme: Scheme = (
   { width, height },
   styles
@@ -73,14 +87,14 @@ HEADER_TEXT_ALPHA = 255
 NAVIGATION_TYPE = 2
 BACKGROUND_ALPHA = 0
 COLUMN_COUNT = 4
-ROW_COUNT = ${width === height ? 4 : 3}
+ROW_COUNT = ${getRowCount(width, height)}
 LOCATION_X = ${Math.floor(
   (width - Math.floor(width / 15) * 4 - 4 * (Math.floor(width / 7) + 2)) / 2
 )}
 LOCATION_Y = ${Math.floor(
   (height -
-    Math.floor(width / 15) * (width === height ? 4 : 3) -
-    (width === height ? 4 : 3) * (Math.floor(width / 7) + 2)) /
+    Math.floor(width / 15) * getRowCount(width, height) -
+    getRowCount(width, height) * (Math.floor(width / 7) + 2)) /
     2
 )}
 CELL_WIDTH = ${Math.floor(width / 7) + 2 + 56}
