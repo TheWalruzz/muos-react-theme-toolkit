@@ -175,11 +175,11 @@ export const config: ThemeConfig = {
   // ...
   schemes: [
     {
-      path: "scheme/default.txt",
+      path: "scheme/default.ini",
       scheme: defaultScheme, // scheme template
     },
     {
-      path: "scheme/muxlaunch.txt",
+      path: "scheme/muxlaunch.ini",
       scheme: muxlaunchScheme, // scheme template
     },
     // ...other schemes
@@ -192,20 +192,20 @@ When creating a ZIP, those schemes will be generated in every resolution's folde
 
 #### Scheme templates
 
-You can provide your own scheme templates that will generate appropriate files based on currently processed resolution. In your `src/themes/THEME_NAME/schemes` folder, add appropriate TypeScript files, e.g. `default.ts` (for default.txt scheme) with a proper template function that receives current resolution as the first param and styles set in theme config as a second param, like so:
+You can provide your own scheme templates that will generate appropriate files based on currently processed resolution. In your `src/themes/THEME_NAME/schemes` folder, add appropriate TypeScript files, e.g. `default.ts` (for default.ini scheme) with a proper template function that receives current resolution as the first param and styles set in theme config as a second param, like so:
 
 ```ts
 import { Scheme } from "@/types";
 
 export const defaultScheme: Scheme = ({ width, height }, styles) => `[background]
-BACKGROUND=DDDDDD
-BACKGROUND_ALPHA=0
+BACKGROUND = DDDDDD
+BACKGROUND_ALPHA = 0
 
 [font]
-FONT_HEADER_PAD_TOP=2
-FONT_HEADER_PAD_BOTTOM=0
-FONT_HEADER_ICON_PAD_TOP=0
-FONT_HEADER_ICON_PAD_BOTTOM=0
+FONT_HEADER_PAD_TOP = 2
+FONT_HEADER_PAD_BOTTOM = 0
+FONT_HEADER_ICON_PAD_TOP = 0
+FONT_HEADER_ICON_PAD_BOTTOM = 0
 // ...other properties go below
 `;
 ```
@@ -216,14 +216,14 @@ This leverages TypeScript's backtick string templates that allow you to easily m
 import { Scheme } from "@/types";
 
 export const defaultScheme: Scheme = ({ height }) => `[background]
-BACKGROUND=DDDDDD
-BACKGROUND_ALPHA=0
+BACKGROUND = DDDDDD
+BACKGROUND_ALPHA = 0
 
 [font]
-FONT_HEADER_PAD_TOP=${height < 720 ? 2 : 4}
-FONT_HEADER_PAD_BOTTOM=0
-FONT_HEADER_ICON_PAD_TOP=0
-FONT_HEADER_ICON_PAD_BOTTOM=0
+FONT_HEADER_PAD_TOP = ${height < 720 ? 2 : 4}
+FONT_HEADER_PAD_BOTTOM = 0
+FONT_HEADER_ICON_PAD_TOP = 0
+FONT_HEADER_ICON_PAD_BOTTOM = 0
 // ...other properties go below
 `;
 ```
@@ -235,14 +235,14 @@ import { Scheme } from "@/types";
 import { colorVar, pxVar } from "@/utils/vars";
 
 export const defaultScheme: Scheme = (resolution, styles) => `[background]
-BACKGROUND=${colorVar(styles, "--background-color")}
-BACKGROUND_ALPHA=0
+BACKGROUND = ${colorVar(styles, "--background-color")}
+BACKGROUND_ALPHA = 0
 
 [font]
-FONT_HEADER_PAD_TOP=${pxVar(styles, "--top-padding")}
-FONT_HEADER_PAD_BOTTOM=0
-FONT_HEADER_ICON_PAD_TOP=0
-FONT_HEADER_ICON_PAD_BOTTOM=0
+FONT_HEADER_PAD_TOP = ${pxVar(styles, "--top-padding")}
+FONT_HEADER_PAD_BOTTOM = 0
+FONT_HEADER_ICON_PAD_TOP = 0
+FONT_HEADER_ICON_PAD_BOTTOM = 0
 // ...other properties go below
 `;
 ```
