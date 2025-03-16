@@ -15,7 +15,7 @@ import { extend } from "@/utils/extend";
 import "./index.css";
 
 export const minimalRoundGrid: ThemeConfig = {
-  name: "Minimal Round Grid",
+  name: "Minimal Round Large Grid",
   author: "TheWalruzz",
   osVersion: "2502.0",
   screens: [
@@ -125,7 +125,7 @@ export const minimalRoundGrid: ThemeConfig = {
 };
 
 export const minimalRoundGridSummer = extend(minimalRoundGrid, {
-  name: "Minimal Round Grid Summer",
+  name: "Minimal Round Large Grid Summer",
   styles: {
     "--background": "linear-gradient(to top, #f37335, #fdc830)",
     "--item-background": "linear-gradient(to top, #f37335, #fdc830)",
@@ -138,7 +138,7 @@ export const minimalRoundGridSummer = extend(minimalRoundGrid, {
 });
 
 export const minimalRoundGridNight = extend(minimalRoundGrid, {
-  name: "Minimal Round Grid Night",
+  name: "Minimal Round Large Grid Night",
   styles: {
     "--background": "linear-gradient(to top, #232526, #414345)",
     "--item-background": "linear-gradient(to top, #232526, #414345)",
@@ -150,7 +150,7 @@ export const minimalRoundGridNight = extend(minimalRoundGrid, {
 });
 
 export const minimalRoundGridLime = extend(minimalRoundGrid, {
-  name: "Minimal Round Grid Lime",
+  name: "Minimal Round Large Grid Lime",
   styles: {
     "--background": "linear-gradient(to top, #56ab2f, #a8e063)",
     "--item-background": "linear-gradient(to top, #56ab2f, #a8e063)",
@@ -163,7 +163,7 @@ export const minimalRoundGridLime = extend(minimalRoundGrid, {
 });
 
 export const minimalRoundGridCherry = extend(minimalRoundGrid, {
-  name: "Minimal Round Grid Cherry",
+  name: "Minimal Round Large Grid Cherry",
   styles: {
     "--background": "linear-gradient(to top, #d31027, #ea384d)",
     "--item-background": "linear-gradient(to top, #d31027, #ea384d)",
@@ -176,7 +176,7 @@ export const minimalRoundGridCherry = extend(minimalRoundGrid, {
 });
 
 export const minimalRoundGridDarkCherry = extend(minimalRoundGrid, {
-  name: "Minimal Round Grid Dark Cherry",
+  name: "Minimal Round Large Grid Dark Cherry",
   styles: {
     "--background": "linear-gradient(to top, #d31027, #ea384d)",
     "--item-background": "linear-gradient(to top, #232526, #414345)",
@@ -189,7 +189,7 @@ export const minimalRoundGridDarkCherry = extend(minimalRoundGrid, {
 });
 
 export const minimalRoundGridMetal = extend(minimalRoundGrid, {
-  name: "Minimal Round Grid Metal",
+  name: "Minimal Round Large Grid Metal",
   styles: {
     "--background": "linear-gradient(to top, #424347, #859398)",
     "--item-background": "linear-gradient(to top, #424347, #859398)",
@@ -202,7 +202,7 @@ export const minimalRoundGridMetal = extend(minimalRoundGrid, {
 });
 
 export const minimalRoundGridOcean = extend(minimalRoundGrid, {
-  name: "Minimal Round Grid Ocean",
+  name: "Minimal Round Large Grid Ocean",
   styles: {
     "--background": "linear-gradient(to top, #021b79, #0575e6)",
     "--item-background": "linear-gradient(to top, #021b79, #0575e6)",
@@ -215,7 +215,7 @@ export const minimalRoundGridOcean = extend(minimalRoundGrid, {
 });
 
 export const minimalRoundGridAmethyst = extend(minimalRoundGrid, {
-  name: "Minimal Round Grid Amethyst",
+  name: "Minimal Round Large Grid Amethyst",
   styles: {
     "--background": "linear-gradient(to top, #6e48aa, #9d50bb)",
     "--item-background": "linear-gradient(to top, #6e48aa, #9d50bb)",
@@ -228,7 +228,7 @@ export const minimalRoundGridAmethyst = extend(minimalRoundGrid, {
 });
 
 export const minimalRoundGridEmerald = extend(minimalRoundGrid, {
-  name: "Minimal Round Grid Emerald",
+  name: "Minimal Round Large Grid Emerald",
   styles: {
     "--background": "linear-gradient(to top, #093028, #237a57)",
     "--item-background": "linear-gradient(to top, #093028, #237a57)",

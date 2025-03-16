@@ -20,7 +20,7 @@ const appIcons: Record<string, string> = import.meta.glob("./apps/**/*.png", {
 });
 
 export const minimalRoundGridIcons: ThemeConfig = {
-  name: "Minimal Round Grid Icons",
+  name: "Minimal Round Large Grid Icons",
   outputType: "muxzip",
   author: "TheWalruzz",
   screens: [
@@ -30,8 +30,8 @@ export const minimalRoundGridIcons: ThemeConfig = {
         path: system.replace(/^.\/systems\//, ""),
         pathPrefix: "catalogue/Folder/grid/",
         overrideResolution: ({ width }: Resolution) => ({
-          width: Math.floor(width / 7) + 56,
-          height: Math.floor(width / 7) + 56,
+          width: Math.floor(width / 5) + 56,
+          height: Math.floor(width / 5) + 56,
         }),
         render: () => (
           <div
@@ -59,8 +59,8 @@ export const minimalRoundGridIcons: ThemeConfig = {
           .replace(/\.png$/, "_focused.png"),
         pathPrefix: "catalogue/Folder/grid/",
         overrideResolution: ({ width }: Resolution) => ({
-          width: Math.floor(width / 7) + 56,
-          height: Math.floor(width / 7) + 56,
+          width: Math.floor(width / 5) + 56,
+          height: Math.floor(width / 5) + 56,
         }),
         render: () => (
           <div
@@ -88,8 +88,8 @@ export const minimalRoundGridIcons: ThemeConfig = {
         path: app.replace(/^.\/apps\//, ""),
         pathPrefix: "catalogue/Application/grid/",
         overrideResolution: ({ width }: Resolution) => ({
-          width: Math.floor(width / 7) + 56,
-          height: Math.floor(width / 7) + 56,
+          width: Math.floor(width / 5) + 56,
+          height: Math.floor(width / 5) + 56,
         }),
         render: () => (
           <div
@@ -116,8 +116,8 @@ export const minimalRoundGridIcons: ThemeConfig = {
         path: app.replace(/^.\/apps\//, "").replace(/\.png$/, "_focused.png"),
         pathPrefix: "catalogue/Application/grid/",
         overrideResolution: ({ width }: Resolution) => ({
-          width: Math.floor(width / 7) + 56,
-          height: Math.floor(width / 7) + 56,
+          width: Math.floor(width / 5) + 56,
+          height: Math.floor(width / 5) + 56,
         }),
         render: () => (
           <div
@@ -159,7 +159,7 @@ export const minimalRoundGridIcons: ThemeConfig = {
 };
 
 export const minimalRoundGridIconsSummer = extend(minimalRoundGridIcons, {
-  name: "Minimal Round Grid Icons Summer",
+  name: "Minimal Round Large Grid Icons Summer",
   styles: {
     "--item-background": "linear-gradient(to top, #f37335, #fdc830)",
     "--item-background-active": "linear-gradient(to bottom, #f37335, #fdc830)",
@@ -170,7 +170,7 @@ export const minimalRoundGridIconsSummer = extend(minimalRoundGridIcons, {
 });
 
 export const minimalRoundGridIconsNight = extend(minimalRoundGridIcons, {
-  name: "Minimal Round Grid Icons Night",
+  name: "Minimal Round Large Grid Icons Night",
   styles: {
     "--item-background": "linear-gradient(to top, #232526, #414345)",
     "--item-background-active": "linear-gradient(to bottom, #232526, #414345)",
@@ -180,7 +180,7 @@ export const minimalRoundGridIconsNight = extend(minimalRoundGridIcons, {
 });
 
 export const minimalRoundGridIconsLime = extend(minimalRoundGridIcons, {
-  name: "Minimal Round Grid Icons Lime",
+  name: "Minimal Round Large Grid Icons Lime",
   styles: {
     "--item-background": "linear-gradient(to top, #56ab2f, #a8e063)",
     "--item-background-active": "linear-gradient(to bottom, #56ab2f, #a8e063)",
@@ -191,7 +191,7 @@ export const minimalRoundGridIconsLime = extend(minimalRoundGridIcons, {
 });
 
 export const minimalRoundGridIconsCherry = extend(minimalRoundGridIcons, {
-  name: "Minimal Round Grid Icons Cherry",
+  name: "Minimal Round Large Grid Icons Cherry",
   styles: {
     "--item-background": "linear-gradient(to top, #d31027, #ea384d)",
     "--item-background-active": "linear-gradient(to bottom, #d31027, #ea384d)",
@@ -202,7 +202,7 @@ export const minimalRoundGridIconsCherry = extend(minimalRoundGridIcons, {
 });
 
 export const minimalRoundGridIconsMetal = extend(minimalRoundGridIcons, {
-  name: "Minimal Round Grid Icons Metal",
+  name: "Minimal Round Large Grid Icons Metal",
   styles: {
     "--item-background": "linear-gradient(to top, #424347, #859398)",
     "--item-background-active": "linear-gradient(to bottom, #424347, #859398)",
@@ -213,7 +213,7 @@ export const minimalRoundGridIconsMetal = extend(minimalRoundGridIcons, {
 });
 
 export const minimalRoundGridIconsOcean = extend(minimalRoundGridIcons, {
-  name: "Minimal Round Grid Icons Ocean",
+  name: "Minimal Round Large Grid Icons Ocean",
   styles: {
     "--item-background": "linear-gradient(to top, #021b79, #0575e6)",
     "--item-background-active": "linear-gradient(to bottom, #021b79, #0575e6)",
@@ -224,7 +224,7 @@ export const minimalRoundGridIconsOcean = extend(minimalRoundGridIcons, {
 });
 
 export const minimalRoundGridIconsAmethyst = extend(minimalRoundGridIcons, {
-  name: "Minimal Round Grid Icons Amethyst",
+  name: "Minimal Round Large Grid Icons Amethyst",
   styles: {
     "--item-background": "linear-gradient(to top, #6e48aa, #9d50bb)",
     "--item-background-active": "linear-gradient(to bottom, #6e48aa, #9d50bb)",
@@ -235,7 +235,7 @@ export const minimalRoundGridIconsAmethyst = extend(minimalRoundGridIcons, {
 });
 
 export const minimalRoundGridIconsEmerald = extend(minimalRoundGridIcons, {
-  name: "Minimal Round Grid Icons Emerald",
+  name: "Minimal Round Large Grid Icons Emerald",
   styles: {
     "--item-background": "linear-gradient(to top, #093028, #237a57)",
     "--item-background-active": "linear-gradient(to bottom, #093028, #237a57)",

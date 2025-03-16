@@ -72,23 +72,23 @@ HEADER_TEXT_ALPHA = 255
 [grid]
 NAVIGATION_TYPE = 2
 BACKGROUND_ALPHA = 0
-COLUMN_COUNT = 4
-ROW_COUNT = ${width === height ? 4 : 3}
+COLUMN_COUNT = 3
+ROW_COUNT = ${width === height ? 3 : 2}
 LOCATION_X = ${Math.floor(
-  (width - Math.floor(width / 15) * 4 - 4 * (Math.floor(width / 7) + 2)) / 2
+  (width - Math.floor(width / 15) * 3 - 3 * (Math.floor(width / 5) + 2)) / 2
 )}
 LOCATION_Y = ${Math.floor(
   (height -
-    Math.floor(width / 15) * (width === height ? 4 : 3) -
-    (width === height ? 4 : 3) * (Math.floor(width / 7) + 2)) /
+    Math.floor(width / 15) * (width === height ? 3 : 2) -
+    (width === height ? 3 : 2) * (Math.floor(width / 5) + 2)) /
     2
 )}
-CELL_WIDTH = ${Math.floor(width / 7) + 2 + 56}
-CELL_HEIGHT = ${Math.floor(width / 7) + 2 + 56}
-CELL_RADIUS = ${Math.floor(width / 7) + 2 + 56}
+CELL_WIDTH = ${Math.floor(width / 5) + 2 + 56}
+CELL_HEIGHT = ${Math.floor(width / 5) + 2 + 56}
+CELL_RADIUS = ${Math.floor(width / 5) + 2 + 56}
 CELL_IMAGE_PADDING_SIDE = 28
-COLUMN_WIDTH = ${Math.floor(width / 7) + 2 + Math.floor(width / 15)}
-ROW_HEIGHT = ${Math.floor(width / 7) + 2 + Math.floor(width / 15)}
+COLUMN_WIDTH = ${Math.floor(width / 5) + 2 + Math.floor(width / 15)}
+ROW_HEIGHT = ${Math.floor(width / 5) + 2 + Math.floor(width / 15)}
 CURRENT_ITEM_LABEL_TEXT_ALPHA = 0
 CURRENT_ITEM_LABEL_BORDER_ALPHA = 0
 CELL_IMAGE_PADDING_TOP = 0
