@@ -52,7 +52,7 @@ export function useDownloadTheme() {
       }
 
       // if screen is supposed to be in assets.muxzip
-      if (ref.meta.includeInAssets) {
+      if (ref.meta.includeInAssetsPackage) {
         hasAssetScreens = true;
         await assetsWriter.add(
           `${ref.meta.pathPrefix ?? ""}${ref.meta.width}x${ref.meta.height}/${

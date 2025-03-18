@@ -120,7 +120,7 @@ Optionally, you can provide an `overrideResolution` function that will force tha
 
 Also, there is an optional `pathPrefix` property for those rare cases where you want to put resolution folders inside other folders.
 
-If `includeInAssets` boolean property is set to `true`, the screen will be included in the nested `assets.muxzip` that will be extracted by muOS after installing the theme. This is useful for custom icon packs for grid mode.
+If `includeInAssetsPackage` boolean property is set to `true`, the screen will be included in the nested `assets.muxzip` that will be extracted by muOS after installing the theme. This is useful for custom icon packs for grid mode.
 
 #### Screen creation and styling
 

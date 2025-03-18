@@ -108,7 +108,7 @@ export const minimalRoundGrid: ThemeConfig = {
           width: Math.floor(width / 5) + 56,
           height: Math.floor(width / 5) + 56,
         }),
-        includeInAssets: true,
+        includeInAssetsPackage: true,
         render: () => (
           <div
             style={{
@@ -138,7 +138,7 @@ export const minimalRoundGrid: ThemeConfig = {
           width: Math.floor(width / 5) + 56,
           height: Math.floor(width / 5) + 56,
         }),
-        includeInAssets: true,
+        includeInAssetsPackage: true,
         render: () => (
           <div
             style={{
@@ -168,7 +168,7 @@ export const minimalRoundGrid: ThemeConfig = {
           width: Math.floor(width / 5) + 56,
           height: Math.floor(width / 5) + 56,
         }),
-        includeInAssets: true,
+        includeInAssetsPackage: true,
         render: () => (
           <div
             style={{
@@ -197,7 +197,7 @@ export const minimalRoundGrid: ThemeConfig = {
           width: Math.floor(width / 5) + 56,
           height: Math.floor(width / 5) + 56,
         }),
-        includeInAssets: true,
+        includeInAssetsPackage: true,
         render: () => (
           <div
             style={{
