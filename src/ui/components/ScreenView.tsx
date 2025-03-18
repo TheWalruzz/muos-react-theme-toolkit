@@ -15,7 +15,7 @@ export function ScreenView({
   path,
   render,
   pathPrefix,
-  includeInAssets,
+  includeInAssetsPackage,
   resolutionGroup,
 }: Props) {
   const { i18n } = useTranslation();
@@ -26,7 +26,7 @@ export function ScreenView({
     language: i18n.language,
     width: resolutionGroup.width,
     height: resolutionGroup.height,
-    includeInAssets: !!includeInAssets,
+    includeInAssetsPackage: !!includeInAssetsPackage,
     pathPrefix,
   });
 

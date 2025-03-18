@@ -15,7 +15,7 @@ export interface ScreenConfig {
   overrideResolution?: (originalResolution: Resolution) => Resolution;
   pathPrefix?: string;
   render: () => ReactNode;
-  includeInAssets?: boolean;
+  includeInAssetsPackage?: boolean;
 }
 
 export type Scheme = (resolution: Resolution, styles?: Styles) => string;
