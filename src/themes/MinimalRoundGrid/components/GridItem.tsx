@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { ReactNode, useMemo } from "react";
 
-import styles from "./MenuItem.module.css";
+import styles from "./GridItem.module.css";
 
 const capitalize = (input: string) => input[0].toUpperCase() + input.slice(1);
 
@@ -11,7 +11,7 @@ interface Props {
   itemName?: string;
 }
 
-export function MenuItem({ icon, active, itemName }: Props) {
+export function GridItem({ icon, active, itemName }: Props) {
   const label = useMemo(() => {
     if (!itemName) {
       return "";
@@ -39,7 +39,7 @@ export function MenuItem({ icon, active, itemName }: Props) {
 
   return (
     <div
-      className={classNames(styles.MenuItem, {
+      className={classNames(styles.GridItem, {
         [styles.active]: active,
       })}
     >
