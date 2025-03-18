@@ -120,6 +120,8 @@ Optionally, you can provide an `overrideResolution` function that will force tha
 
 Also, there is an optional `pathPrefix` property for those rare cases where you want to put resolution folders inside other folders.
 
+If `includeInAssets` boolean property is set to `true`, the screen will be included in the nested `assets.muxzip` that will be extracted by muOS after installing the theme. This is useful for custom icon packs for grid mode.
+
 #### Screen creation and styling
 
 Each screen is a simple component that can be styled however you want, but keep in mind that you have to use `var(--width)` and `var(--height)` CSS variables to know the current resolution. Resolution can also be retrieved programatically using a `useResolution` hook:

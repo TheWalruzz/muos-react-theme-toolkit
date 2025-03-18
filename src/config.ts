@@ -11,17 +11,6 @@ import {
   minimalRoundGridAmethyst,
   minimalRoundGridEmerald,
 } from "./themes/MinimalRoundGrid";
-import {
-  minimalRoundGridIcons,
-  minimalRoundGridIconsLime,
-  minimalRoundGridIconsNight,
-  minimalRoundGridIconsSummer,
-  minimalRoundGridIconsCherry,
-  minimalRoundGridIconsMetal,
-  minimalRoundGridIconsOcean,
-  minimalRoundGridIconsAmethyst,
-  minimalRoundGridIconsEmerald,
-} from "./themes/MinimalRoundGridIcons";
 
 export const themes: ThemeConfig[] = [
   // Minimal Round Grid
@@ -35,14 +24,4 @@ export const themes: ThemeConfig[] = [
   minimalRoundGridOcean,
   minimalRoundGridAmethyst,
   minimalRoundGridEmerald,
-  // Minimal Round Grid Icons
-  minimalRoundGridIcons,
-  minimalRoundGridIconsLime,
-  minimalRoundGridIconsNight,
-  minimalRoundGridIconsSummer,
-  minimalRoundGridIconsCherry,
-  minimalRoundGridIconsMetal,
-  minimalRoundGridIconsOcean,
-  minimalRoundGridIconsAmethyst,
-  minimalRoundGridIconsEmerald,
 ];

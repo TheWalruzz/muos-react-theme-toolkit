@@ -11,8 +11,24 @@ import { muxlaunchScheme } from "./schemes/muxlaunch";
 import { muxploreScheme } from "./schemes/muxplore";
 import { assets } from "./assets";
 import { extend } from "@/utils/extend";
+import { GridItem } from "./components/GridItem";
 
 import "./index.css";
+
+const systemIcons: Record<string, string> = import.meta.glob(
+  "./systems/**/*.png",
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  }
+);
+
+const appIcons: Record<string, string> = import.meta.glob("./apps/**/*.png", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
 
 export const minimalRoundGrid: ThemeConfig = {
   name: "Minimal Round Large Grid",
@@ -84,6 +100,126 @@ export const minimalRoundGrid: ThemeConfig = {
       path: "image/static/muxlaunch/shutdown.png",
       render: () => <MainMenu itemIndex={7} />,
     },
+    ...Object.keys(systemIcons).flatMap((system) => [
+      {
+        path: system.replace(/^.\/systems\//, ""),
+        pathPrefix: "catalogue/Folder/grid/",
+        overrideResolution: ({ width }: Resolution) => ({
+          width: Math.floor(width / 5) + 56,
+          height: Math.floor(width / 5) + 56,
+        }),
+        includeInAssets: true,
+        render: () => (
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              padding: "28px 28px 28px 28px",
+            }}
+          >
+            <GridItem
+              icon={
+                <img
+                  src={systemIcons[system]}
+                  style={{ maxWidth: "85%", maxHeight: "50%" }}
+                />
+              }
+              active={false}
+            />
+          </div>
+        ),
+      },
+      {
+        path: system
+          .replace(/^.\/systems\//, "")
+          .replace(/\.png$/, "_focused.png"),
+        pathPrefix: "catalogue/Folder/grid/",
+        overrideResolution: ({ width }: Resolution) => ({
+          width: Math.floor(width / 5) + 56,
+          height: Math.floor(width / 5) + 56,
+        }),
+        includeInAssets: true,
+        render: () => (
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              padding: "28px 28px 28px 28px",
+            }}
+          >
+            <GridItem
+              icon={
+                <img
+                  src={systemIcons[system]}
+                  style={{ maxWidth: "85%", maxHeight: "50%" }}
+                />
+              }
+              active
+            />
+          </div>
+        ),
+      },
+    ]),
+    ...Object.keys(appIcons).flatMap((app) => [
+      {
+        path: app.replace(/^.\/apps\//, ""),
+        pathPrefix: "catalogue/Application/grid/",
+        overrideResolution: ({ width }: Resolution) => ({
+          width: Math.floor(width / 5) + 56,
+          height: Math.floor(width / 5) + 56,
+        }),
+        includeInAssets: true,
+        render: () => (
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              padding: "28px 28px 28px 28px",
+            }}
+          >
+            <GridItem
+              icon={
+                <img
+                  src={appIcons[app]}
+                  style={{ maxWidth: "50%", maxHeight: "50%" }}
+                />
+              }
+              itemName={app.replace(/^.\/apps\//, "").replace(/.png$/, "")}
+              active={false}
+            />
+          </div>
+        ),
+      },
+      {
+        path: app.replace(/^.\/apps\//, "").replace(/\.png$/, "_focused.png"),
+        pathPrefix: "catalogue/Application/grid/",
+        overrideResolution: ({ width }: Resolution) => ({
+          width: Math.floor(width / 5) + 56,
+          height: Math.floor(width / 5) + 56,
+        }),
+        includeInAssets: true,
+        render: () => (
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              padding: "28px 28px 28px 28px",
+            }}
+          >
+            <GridItem
+              icon={
+                <img
+                  src={appIcons[app]}
+                  style={{ maxWidth: "50%", maxHeight: "50%" }}
+                />
+              }
+              itemName={app.replace(/^.\/apps\//, "").replace(/.png$/, "")}
+              active
+            />
+          </div>
+        ),
+      },
+    ]),
   ],
   schemes: [
     {
