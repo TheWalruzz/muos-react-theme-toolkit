@@ -14,13 +14,14 @@ import {
 } from "@zip.js/zip.js";
 import { toPng, toCanvas } from "html-to-image";
 import { CanvasToBMP } from "../utils/canvasToBMP";
+import { downloadFile } from "../utils/downloadFile";
 
 export function useDownloadTheme() {
   const refs = useRefs();
   const { currentTheme } = useCurrentTheme();
   const [isProcessing, setIsProcessing] = useState(false);
 
-  const downloadTheme = useCallback(async () => {
+  const getTheme = useCallback(async () => {
     setIsProcessing(true);
 
     const themeBlobWriter = new BlobWriter();
@@ -145,28 +146,28 @@ export function useDownloadTheme() {
     await themeWriter.close();
 
     // prepare zip file for download
-    const blob = await themeBlobWriter.getData();
-
-    const link = document.createElement("a");
-    const url = window.URL.createObjectURL(blob);
-    link.href = url;
-    link.download = `${currentTheme.name}.${
+    const filename = `${currentTheme.name}.${
       currentTheme.outputType ?? "muxthm"
     }`;
-
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    window.URL.revokeObjectURL(url);
+    const blob = await themeBlobWriter.getData();
 
     setIsProcessing(false);
+
+    return [filename, blob] as const;
   }, [currentTheme, refs]);
+
+  const downloadTheme = useCallback(async () => {
+    const [filename, blob] = await getTheme();
+
+    downloadFile(filename, blob);
+  }, [getTheme]);
 
   return useMemo(
     () => ({
       isProcessing,
+      getTheme,
       downloadTheme,
     }),
-    [downloadTheme, isProcessing]
+    [downloadTheme, getTheme, isProcessing]
   );
 }
