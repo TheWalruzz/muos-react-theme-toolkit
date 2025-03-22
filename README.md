@@ -44,7 +44,7 @@ export const config: ThemeConfig = {
   name: "My Theme", // name of theme
   author: "Awesome Theme Creator", // name to be added in credits.txt file
   osVersion: "2502.0", // optional muOS version number to include in version.txt file
-  outputType: "muxthm", // optional output file type. Can be either "zip" or "muxthm". Is "muxthm" if not provided.
+  outputType: "muxthm", // optional output file type. Can be either "muxthm", "muxzip" or "zip". "muxthm" is the default option.
   screens: [
     // your screen configs go here
   ],
@@ -120,6 +120,8 @@ Optionally, you can provide an `overrideResolution` function that will force tha
 
 Also, there is an optional `pathPrefix` property for those rare cases where you want to put resolution folders inside other folders.
 
+If `includeInAssetsPackage` boolean property is set to `true`, the screen will be included in the nested `assets.muxzip` that will be extracted by muOS after installing the theme. This is useful for custom icon packs for grid mode.
+
 #### Screen creation and styling
 
 Each screen is a simple component that can be styled however you want, but keep in mind that you have to use `var(--width)` and `var(--height)` CSS variables to know the current resolution. Resolution can also be retrieved programatically using a `useResolution` hook:
@@ -175,11 +177,11 @@ export const config: ThemeConfig = {
   // ...
   schemes: [
     {
-      path: "scheme/default.txt",
+      path: "scheme/default.ini",
       scheme: defaultScheme, // scheme template
     },
     {
-      path: "scheme/muxlaunch.txt",
+      path: "scheme/muxlaunch.ini",
       scheme: muxlaunchScheme, // scheme template
     },
     // ...other schemes
@@ -192,20 +194,20 @@ When creating a ZIP, those schemes will be generated in every resolution's folde
 
 #### Scheme templates
 
-You can provide your own scheme templates that will generate appropriate files based on currently processed resolution. In your `src/themes/THEME_NAME/schemes` folder, add appropriate TypeScript files, e.g. `default.ts` (for default.txt scheme) with a proper template function that receives current resolution as the first param and styles set in theme config as a second param, like so:
+You can provide your own scheme templates that will generate appropriate files based on currently processed resolution. In your `src/themes/THEME_NAME/schemes` folder, add appropriate TypeScript files, e.g. `default.ts` (for default.ini scheme) with a proper template function that receives current resolution as the first param and styles set in theme config as a second param, like so:
 
 ```ts
 import { Scheme } from "@/types";
 
 export const defaultScheme: Scheme = ({ width, height }, styles) => `[background]
-BACKGROUND=DDDDDD
-BACKGROUND_ALPHA=0
+BACKGROUND = DDDDDD
+BACKGROUND_ALPHA = 0
 
 [font]
-FONT_HEADER_PAD_TOP=2
-FONT_HEADER_PAD_BOTTOM=0
-FONT_HEADER_ICON_PAD_TOP=0
-FONT_HEADER_ICON_PAD_BOTTOM=0
+FONT_HEADER_PAD_TOP = 2
+FONT_HEADER_PAD_BOTTOM = 0
+FONT_HEADER_ICON_PAD_TOP = 0
+FONT_HEADER_ICON_PAD_BOTTOM = 0
 // ...other properties go below
 `;
 ```
@@ -216,14 +218,14 @@ This leverages TypeScript's backtick string templates that allow you to easily m
 import { Scheme } from "@/types";
 
 export const defaultScheme: Scheme = ({ height }) => `[background]
-BACKGROUND=DDDDDD
-BACKGROUND_ALPHA=0
+BACKGROUND = DDDDDD
+BACKGROUND_ALPHA = 0
 
 [font]
-FONT_HEADER_PAD_TOP=${height < 720 ? 2 : 4}
-FONT_HEADER_PAD_BOTTOM=0
-FONT_HEADER_ICON_PAD_TOP=0
-FONT_HEADER_ICON_PAD_BOTTOM=0
+FONT_HEADER_PAD_TOP = ${height < 720 ? 2 : 4}
+FONT_HEADER_PAD_BOTTOM = 0
+FONT_HEADER_ICON_PAD_TOP = 0
+FONT_HEADER_ICON_PAD_BOTTOM = 0
 // ...other properties go below
 `;
 ```
@@ -235,14 +237,14 @@ import { Scheme } from "@/types";
 import { colorVar, pxVar } from "@/utils/vars";
 
 export const defaultScheme: Scheme = (resolution, styles) => `[background]
-BACKGROUND=${colorVar(styles, "--background-color")}
-BACKGROUND_ALPHA=0
+BACKGROUND = ${colorVar(styles, "--background-color")}
+BACKGROUND_ALPHA = 0
 
 [font]
-FONT_HEADER_PAD_TOP=${pxVar(styles, "--top-padding")}
-FONT_HEADER_PAD_BOTTOM=0
-FONT_HEADER_ICON_PAD_TOP=0
-FONT_HEADER_ICON_PAD_BOTTOM=0
+FONT_HEADER_PAD_TOP = ${pxVar(styles, "--top-padding")}
+FONT_HEADER_PAD_BOTTOM = 0
+FONT_HEADER_ICON_PAD_TOP = 0
+FONT_HEADER_ICON_PAD_BOTTOM = 0
 // ...other properties go below
 `;
 ```
