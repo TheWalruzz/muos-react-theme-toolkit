@@ -10,6 +10,7 @@ import {
   Data64URIReader,
   TextReader,
   Reader,
+  BlobReader,
 } from "@zip.js/zip.js";
 import { toPng, toCanvas } from "html-to-image";
 import { CanvasToBMP } from "../utils/canvasToBMP";
@@ -22,8 +23,11 @@ export function useDownloadTheme() {
   const downloadTheme = useCallback(async () => {
     setIsProcessing(true);
 
-    const blobWriter = new BlobWriter();
-    const writer = new ZipWriter(blobWriter);
+    const themeBlobWriter = new BlobWriter();
+    const themeWriter = new ZipWriter(themeBlobWriter);
+    const assetsBlobWriter = new BlobWriter();
+    const assetsWriter = new ZipWriter(assetsBlobWriter);
+    let hasAssetScreens = false;
 
     for (const ref of refs) {
       if (!ref.current) {
@@ -47,9 +51,21 @@ export function useDownloadTheme() {
           throw new Error(`Unsupported file extension for '${ref.meta.path}'`);
       }
 
+      // if screen is supposed to be in assets.muxzip
+      if (ref.meta.includeInAssetsPackage) {
+        hasAssetScreens = true;
+        await assetsWriter.add(
+          `${ref.meta.pathPrefix ?? ""}${ref.meta.width}x${ref.meta.height}/${
+            ref.meta.path
+          }`,
+          new Data64URIReader(data)
+        );
+        continue;
+      }
+
       // add fallback images and preview to main folder
       if (ref.meta.language === currentTheme.fallbackLanguage) {
-        await writer.add(
+        await themeWriter.add(
           `${ref.meta.pathPrefix ?? ""}${ref.meta.width}x${ref.meta.height}/${
             ref.meta.path
           }`,
@@ -66,7 +82,7 @@ export function useDownloadTheme() {
           `image/${supportedLanguageNameMap[ref.meta.language as Language]}/`
         );
 
-        await writer.add(
+        await themeWriter.add(
           `${ref.meta.pathPrefix ?? ""}${ref.meta.width}x${
             ref.meta.height
           }/${newPath}`,
@@ -78,7 +94,7 @@ export function useDownloadTheme() {
     // create and add scheme files for every resolution
     for (const resolution of resolutions) {
       for (const scheme of currentTheme.schemes) {
-        await writer.add(
+        await themeWriter.add(
           `${resolution.width}x${resolution.height}/${scheme.path}`,
           new TextReader(scheme.scheme(resolution, currentTheme.styles))
         );
@@ -99,26 +115,37 @@ export function useDownloadTheme() {
             break;
         }
 
-        await writer.add(asset.path, reader);
+        await themeWriter.add(asset.path, reader);
       }
     }
 
     // add credits.txt file
     if (!currentTheme.skipCredits) {
-      await writer.add(
+      await themeWriter.add(
         "credits.txt",
         new TextReader(`Created By: ${currentTheme.author}`)
       );
     }
 
     if (currentTheme.osVersion) {
-      await writer.add("version.txt", new TextReader(currentTheme.osVersion));
+      await themeWriter.add(
+        "version.txt",
+        new TextReader(currentTheme.osVersion)
+      );
     }
 
-    await writer.close();
+    // handle assets.muxzip if applicable
+    await assetsWriter.close();
+
+    if (hasAssetScreens) {
+      const assets = await assetsBlobWriter.getData();
+      await themeWriter.add("assets.muxzip", new BlobReader(assets));
+    }
+
+    await themeWriter.close();
 
     // prepare zip file for download
-    const blob = await blobWriter.getData();
+    const blob = await themeBlobWriter.getData();
 
     const link = document.createElement("a");
     const url = window.URL.createObjectURL(blob);
