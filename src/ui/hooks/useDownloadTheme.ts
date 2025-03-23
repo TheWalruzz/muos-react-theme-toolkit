@@ -20,8 +20,12 @@ export function useDownloadTheme() {
   const refs = useRefs();
   const { currentTheme } = useCurrentTheme();
   const [isProcessing, setIsProcessing] = useState(false);
+  const [totalProgress, setTotalProgress] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   const getTheme = useCallback(async () => {
+    setProgress(0);
+    setTotalProgress(refs.length + 1);
     setIsProcessing(true);
 
     const themeBlobWriter = new BlobWriter();
@@ -61,6 +65,7 @@ export function useDownloadTheme() {
           }`,
           new Data64URIReader(data)
         );
+        setProgress((current) => current + 1);
         continue;
       }
 
@@ -90,6 +95,7 @@ export function useDownloadTheme() {
           new Data64URIReader(data)
         );
       }
+      setProgress((current) => current + 1);
     }
 
     // create and add scheme files for every resolution
@@ -145,6 +151,8 @@ export function useDownloadTheme() {
 
     await themeWriter.close();
 
+    setProgress((current) => current + 1);
+
     // prepare zip file for download
     const filename = `${currentTheme.name}.${
       currentTheme.outputType ?? "muxthm"
@@ -167,7 +175,9 @@ export function useDownloadTheme() {
       isProcessing,
       getTheme,
       downloadTheme,
+      progress,
+      totalProgress,
     }),
-    [downloadTheme, getTheme, isProcessing]
+    [downloadTheme, getTheme, isProcessing, progress, totalProgress]
   );
 }
