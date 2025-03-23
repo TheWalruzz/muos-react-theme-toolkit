@@ -329,7 +329,7 @@ export const minimalRoundGridMetal = extend(minimalRoundGrid, {
   styles: {
     "--background": "linear-gradient(to top, #424347, #859398)",
     "--item-background": "linear-gradient(to top, #424347, #859398)",
-    "--item-background-active": "linear-bottom(to bottom, #424347, #859398)",
+    "--item-background-active": "linear-gradient(to bottom, #424347, #859398)",
     "--item-border-color": "#859398",
     "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
     "--text-color": "#ffffff",
