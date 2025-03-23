@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  box-shadow: 5px 5px 14px 1px var(--item-shadow-color);
+  box-shadow: 5px 5px 14px 1px var(--grid-item-shadow-color);
   font-family: "DM Sans";
   color: var(--text-color);
   font-size: calc(var(--width) / 13);

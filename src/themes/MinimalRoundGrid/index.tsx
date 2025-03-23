@@ -251,6 +251,7 @@ export const minimalRoundGrid: ThemeConfig = {
     "--item-border-color": "#2c5364",
     "--item-border-color-active": "rgba(221, 221, 221, 0.7)",
     "--item-shadow-color": "rgba(0, 0, 0, 0.5)",
+    "--grid-item-shadow-color": "rgba(0, 0, 0, 0.5)",
     "--item-shadow-color-active": "rgba(221, 221, 221, 0.5)",
     "--background-color": "#0f2027",
     "--item-size": "calc(var(--width) / 7)",
@@ -269,6 +270,7 @@ export const minimalRoundGridSummer = extend(minimalRoundGrid, {
     "--item-border-color": "#fdc830",
     "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
     "--text-color": "#fff0cc",
+    "--grid-item-shadow-color": "rgba(0, 0, 0, 0.3)",
     "--background-color": "#f37335",
   },
 });
@@ -294,6 +296,7 @@ export const minimalRoundGridLime = extend(minimalRoundGrid, {
     "--item-border-color": "#a8e063",
     "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
     "--text-color": "#ffffff",
+    "--grid-item-shadow-color": "rgba(0, 0, 0, 0.3)",
     "--background-color": "#56ab2f",
   },
 });
@@ -307,6 +310,7 @@ export const minimalRoundGridCherry = extend(minimalRoundGrid, {
     "--item-border-color": "#ea384d",
     "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
     "--text-color": "#ffffff",
+    "--grid-item-shadow-color": "rgba(0, 0, 0, 0.3)",
     "--background-color": "#d31027",
   },
 });
@@ -320,6 +324,7 @@ export const minimalRoundGridDarkCherry = extend(minimalRoundGrid, {
     "--item-border-color": "#414345",
     "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
     "--text-color": "#ffffff",
+    "--grid-item-shadow-color": "rgba(0, 0, 0, 0.3)",
     "--background-color": "#d31027",
   },
 });
@@ -346,6 +351,7 @@ export const minimalRoundGridOcean = extend(minimalRoundGrid, {
     "--item-border-color": "#0575e6",
     "--item-border-color-active": "rgba(255, 255, 255, 0.7)",
     "--text-color": "#ffffff",
+    "--grid-item-shadow-color": "rgba(0, 0, 0, 0.3)",
     "--background-color": "#021b79",
   },
 });
