@@ -32,6 +32,8 @@ export function GridItem({ icon, active, itemName }: Props) {
         return "ScummVM";
       case "task":
         return "Tasks";
+      case "iptvviewer":
+        return "IPTV";
       default:
         return capitalize(itemName);
     }
