@@ -45,7 +45,7 @@ export const minimalRoundGrid: ThemeConfig = {
         }
         return { width: 288, height: 216 };
       },
-      render: () => <MainMenu itemIndex={0} />,
+      render: () => <MainMenu itemIndex={0} showBackground />,
     },
     { path: "image/wall/default.png", render: () => <Default /> },
     {

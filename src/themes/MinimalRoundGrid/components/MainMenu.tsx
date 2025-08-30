@@ -19,9 +19,10 @@ import { Label } from "./Label";
 
 interface Props {
   itemIndex: number;
+  showBackground?: boolean;
 }
 
-export function MainMenu({ itemIndex }: Props) {
+export function MainMenu({ itemIndex, showBackground }: Props) {
   const { width, height } = useResolution();
   const { t } = useTranslation();
 
@@ -49,7 +50,7 @@ export function MainMenu({ itemIndex }: Props) {
   );
 
   return (
-    <Default>
+    <Default hideBackground={!showBackground}>
       <div className={styles.MainMenu}>
         <div className={styles.grid}>
           {items.map((item, index) => (

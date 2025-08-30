@@ -95,6 +95,12 @@ HELP_RADIUS = 10
 
 [navigation]
 ALIGNMENT = 0
+NAV_LR_GLYPH = ${colorVar(styles, "--text-color")}
+NAV_LR_GLYPH_ALPHA = 255
+NAV_LR_GLYPH_RECOLOUR_ALPHA = 255
+NAV_UD_GLYPH = ${colorVar(styles, "--text-color")}
+NAV_UD_GLYPH_ALPHA = 255
+NAV_UD_GLYPH_RECOLOUR_ALPHA = 255
 NAV_A_GLYPH = ${colorVar(styles, "--text-color")}
 NAV_A_GLYPH_ALPHA = 255
 NAV_A_GLYPH_RECOLOUR_ALPHA = 255
