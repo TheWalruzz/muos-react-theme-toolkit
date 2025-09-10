@@ -12,6 +12,7 @@
     "font:generate": "lv_font_conv --bpp 4 --size 20 --format bin --no-compress --no-prefilter"
   },
   "dependencies": {
+    "@fluentui/react-icons": "^2.0.309",
     "@zip.js/zip.js": "^2.7.54",
     "classnames": "^2.5.1",
     "html-to-image": "^1.11.11",

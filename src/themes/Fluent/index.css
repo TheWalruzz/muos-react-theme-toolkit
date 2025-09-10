@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "Selawik";
+  src: url("/fonts/selawkb.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Selawik";
+  src: url("/fonts/selawk.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Selawik Semilight";
+  src: url("/fonts/selawksl") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Selawik";
+  src: url("/fonts/selawkl.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Selawik";
+  src: url("/fonts/selawksb.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}

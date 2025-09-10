@@ -1,0 +1,11 @@
+.MainMenu {
+  .list {
+    --menu-padding: round(calc(var(--width) / 26.66), 1px);
+    position: absolute;
+    left: var(--menu-padding);
+    right: var(--menu-padding);
+    display: flex;
+    flex-direction: column;
+    gap: round(calc(var(--height) / 120), 1px);
+  }
+}

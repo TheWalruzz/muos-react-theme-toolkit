@@ -1,15 +1,15 @@
 {
   "charging": "Charging...",
   "menu": {
-    "explore": "Games",
+    "explore": "Content",
     "collections": "Collections",
     "history": "History",
     "applications": "Applications",
     "information": "Information",
-    "configuration": "Configuration",
-    "reboot": "Reboot",
-    "shutdown": "Shutdown"
+    "configuration": "Settings",
+    "reboot": "Restart",
+    "shutdown": "Shut down"
   },
-  "rebooting": "Rebooting...",
-  "shuttingDown": "Shutting Down..."
+  "rebooting": "Restarting",
+  "shuttingDown": "Shutting down"
 }

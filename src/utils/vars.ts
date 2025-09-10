@@ -55,3 +55,12 @@ export function pxVar(styles: Styles | undefined, key: `--${string}`) {
 
   return Number(styles[key].replace("px", ""));
 }
+
+export function numberVar(styles: Styles | undefined, key: `--${string}`) {
+  if (!styles || !styles[key]) {
+    console.error(`Invalid variable '${key}!`);
+    return 0;
+  }
+
+  return Number(styles[key]);
+}

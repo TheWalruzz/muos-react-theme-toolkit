@@ -1,0 +1,32 @@
+.SingleItemScreen {
+  --vertical-offset: calc(-0.2 * (var(--width) / 7));
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+
+  &.centered {
+    height: 100%;
+    align-items: center;
+  }
+
+  &:not(.centered) {
+    transform: translateY(calc(-50% + 0.33 * var(--height)));
+
+    .label {
+      bottom: 0;
+      transform: translate(-50%, 0%);
+    }
+  }
+
+  .label {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    /* poor man's font scaling */
+    font-size: calc(var(--height) / 15);
+    text-shadow: var(--shadow);
+    white-space: nowrap;
+  }
+}
