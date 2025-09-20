@@ -33,7 +33,7 @@ const appIcons: Record<string, string> = import.meta.glob("./apps/**/*.png", {
 export const minimalRoundGrid: ThemeConfig = {
   name: "Minimal Round Grid",
   author: "TheWalruzz",
-  osVersion: "2502.0",
+  osVersion: "2508.1",
   screens: [
     {
       path: "preview.png",
@@ -108,7 +108,6 @@ export const minimalRoundGrid: ThemeConfig = {
           width: Math.floor(width / 7) + 56,
           height: Math.floor(width / 7) + 56,
         }),
-        includeInAssetsPackage: true,
         render: () => (
           <div
             style={{
@@ -138,7 +137,6 @@ export const minimalRoundGrid: ThemeConfig = {
           width: Math.floor(width / 7) + 56,
           height: Math.floor(width / 7) + 56,
         }),
-        includeInAssetsPackage: true,
         render: () => (
           <div
             style={{
@@ -168,7 +166,6 @@ export const minimalRoundGrid: ThemeConfig = {
           width: Math.floor(width / 7) + 56,
           height: Math.floor(width / 7) + 56,
         }),
-        includeInAssetsPackage: true,
         render: () => (
           <div
             style={{
@@ -197,7 +194,6 @@ export const minimalRoundGrid: ThemeConfig = {
           width: Math.floor(width / 7) + 56,
           height: Math.floor(width / 7) + 56,
         }),
-        includeInAssetsPackage: true,
         render: () => (
           <div
             style={{
