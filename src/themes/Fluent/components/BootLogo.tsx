@@ -5,7 +5,7 @@ import muosLogo from "./muOS_logo.png";
 
 export function BootLogo() {
   return (
-    <Default>
+    <Default showHeader={false} showBackground>
       <div className={styles.BootLogo}>
         <img src={muosLogo} />
       </div>

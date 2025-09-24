@@ -1,7 +1,5 @@
-import classNames from "classnames";
 import { ReactNode } from "react";
-
-import styles from "./MenuItem.module.css";
+import { Box } from "./Box";
 
 interface Props {
   icon: ReactNode;
@@ -11,13 +9,9 @@ interface Props {
 
 export function MenuItem({ icon, active, label }: Props) {
   return (
-    <div
-      className={classNames(styles.MenuItem, {
-        [styles.active]: active,
-      })}
-    >
+    <Box active={active} centered>
       {icon}
-      <div className={styles.label}>{label}</div>
-    </div>
+      <div>{label}</div>
+    </Box>
   );
 }

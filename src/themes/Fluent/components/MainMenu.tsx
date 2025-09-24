@@ -13,26 +13,24 @@ import {
   PowerRegular,
 } from "@fluentui/react-icons";
 import { MenuItem } from "./MenuItem";
-import { ScreenWithHeaderAndFooter } from "./ScreenWithHeaderAndFooter";
 
 import styles from "./MainMenu.module.css";
+import { Box } from "./Box";
 
 interface Props {
   itemIndex: number;
   showBackground?: boolean;
+  showHeader?: boolean;
 }
 
-export function MainMenu({ itemIndex, showBackground }: Props) {
+export function MainMenu({ itemIndex, showBackground, showHeader }: Props) {
   const { width, height } = useResolution();
   const { t } = useTranslation();
 
-  const iconSize = useMemo(() => Math.round(height / 10), [height]);
-  const itemHeight = useMemo(
-    () => iconSize + 2 * Math.round(height / 27),
-    [height, iconSize]
-  );
+  const iconSize = useMemo(() => Math.round(height / 8), [height]);
+  const iconSizeSmall = useMemo(() => Math.round(height / 20), [height]);
 
-  const items = useMemo(
+  const itemsMain = useMemo(
     () => [
       {
         icon: <GamesRegular fontSize={iconSize} />,
@@ -50,49 +48,60 @@ export function MainMenu({ itemIndex, showBackground }: Props) {
         icon: <AppsRegular fontSize={iconSize} />,
         text: t("menu.applications", "Applications"),
       },
-      {
-        icon: <InfoRegular fontSize={iconSize} />,
-        text: t("menu.information", "Information"),
-      },
-      {
-        icon: <SettingsRegular fontSize={iconSize} />,
-        text: t("menu.configuration", "Settings"),
-      },
-      {
-        icon: <ArrowCounterclockwiseRegular fontSize={iconSize} />,
-        text: t("menu.reboot", "Restart"),
-      },
-      {
-        icon: <PowerRegular fontSize={iconSize} />,
-        text: t("menu.shutdown", "Shut down"),
-      },
     ],
     [t, iconSize]
   );
 
+  const itemsMisc = useMemo(
+    () => [
+      {
+        icon: <InfoRegular fontSize={iconSizeSmall} />,
+        text: t("menu.information", "Information"),
+      },
+      {
+        icon: <SettingsRegular fontSize={iconSizeSmall} />,
+        text: t("menu.configuration", "Settings"),
+      },
+      {
+        icon: <ArrowCounterclockwiseRegular fontSize={iconSizeSmall} />,
+        text: t("menu.reboot", "Restart"),
+      },
+      {
+        icon: <PowerRegular fontSize={iconSizeSmall} />,
+        text: t("menu.shutdown", "Shut down"),
+      },
+    ],
+    [iconSizeSmall, t]
+  );
+
   return (
-    <Default hideBackground={!showBackground}>
-      <ScreenWithHeaderAndFooter className={styles.MainMenu}>
-        <div
-          className={styles.list}
-          style={{
-            top:
-              Math.round(height / 2) -
-              Math.round(itemHeight / 2) -
-              itemIndex * Math.round((1.5 * height) / 120) -
-              itemIndex * itemHeight,
-          }}
-        >
-          {items.map((item, index) => (
+    <Default showBackground={showBackground} showHeader={showHeader}>
+      <div className={styles.MainMenu}>
+        <div className={styles.mainList}>
+          {itemsMain.map((item, index) => (
             <MenuItem
-              key={`MainMenu_item-${width}x${height}-${itemIndex}-${index}`}
+              key={`MainMenu_mainItem-${width}x${height}-${itemIndex}-${index}`}
               active={index === itemIndex}
               icon={item.icon}
               label={item.text}
             />
           ))}
         </div>
-      </ScreenWithHeaderAndFooter>
+        <div className={styles.miscListContainer}>
+          <Box className={styles.miscList} smallPadding>
+            {itemsMisc.map((item, index) => (
+              <Box
+                key={`MainMenu_miscItem-${width}x${height}-${itemIndex}-${index}`}
+                active={index + 4 === itemIndex}
+                withBorders={false}
+                small
+              >
+                {item.icon}
+              </Box>
+            ))}
+          </Box>
+        </div>
+      </div>
     </Default>
   );
 }

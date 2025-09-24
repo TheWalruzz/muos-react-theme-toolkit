@@ -10,7 +10,7 @@ interface Props {
 
 export function SingleItemScreen({ text, centered = true }: Props) {
   return (
-    <Default>
+    <Default showBackground showHeader={false}>
       <div
         className={classNames(styles.SingleItemScreen, {
           [styles.centered]: centered,

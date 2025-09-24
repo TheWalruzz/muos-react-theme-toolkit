@@ -1,5 +1,5 @@
 import { Scheme } from "@/types";
-import { colorVar, numberVar, pxVar } from "@/utils/vars";
+import { colorVar, pxVar } from "@/utils/vars";
 
 export const defaultScheme: Scheme = (
   { width, height },
@@ -21,7 +21,7 @@ FONT_MESSAGE_PAD_TOP = 0
 FONT_MESSAGE_PAD_BOTTOM = 0
 FONT_MESSAGE_ICON_PAD_TOP = 0
 FONT_MESSAGE_ICON_PAD_BOTTOM = 0
-FONT_LIST_PAD_LEFT = ${Math.round(height / 18) + Math.round(height / 27)}
+FONT_LIST_PAD_LEFT = ${6 * pxVar(styles, "--padding")}
 FONT_LIST_PAD_TOP = 0
 FONT_LIST_PAD_BOTTOM = 0
 FONT_LIST_ICON_PAD_TOP = 0
@@ -57,18 +57,14 @@ DATETIME_ALPHA = 255
 PADDING_LEFT = 10
 
 [footer]
-FOOTER_HEIGHT = ${Math.round(
-  height / numberVar(styles, "--header-footer-height-divider")
-)}
+FOOTER_HEIGHT = ${Math.round(height / pxVar(styles, "--header-height-divider"))}
 FOOTER_BACKGROUND = FFFFFF
 FOOTER_BACKGROUND_ALPHA = 0
 FOOTER_TEXT = ${colorVar(styles, "--text-color")}
 FOOTER_TEXT_ALPHA = 255
 
 [header]
-HEADER_HEIGHT = ${Math.round(
-  height / numberVar(styles, "--header-footer-height-divider")
-)}
+HEADER_HEIGHT = ${Math.round(height / pxVar(styles, "--header-height-divider"))}
 HEADER_BACKGROUND = FFFFFF
 HEADER_BACKGROUND_ALPHA = 0
 HEADER_TEXT = ${colorVar(styles, "--text-color")}
@@ -77,8 +73,8 @@ HEADER_TEXT_ALIGN = 1
 PADDING_LEFT = 12
 
 [help]
-HELP_BACKGROUND = ${colorVar(styles, "--panel-background")}
-HELP_BACKGROUND_ALPHA = ${numberVar(styles, "--panel-background-alpha")}
+HELP_BACKGROUND = ${colorVar(styles, "--item-color")}
+HELP_BACKGROUND_ALPHA = 255
 HELP_BORDER = ${colorVar(styles, "--item-border-color")}
 HELP_BORDER_ALPHA = 255
 HELP_CONTENT = ${colorVar(styles, "--text-color")}
@@ -145,7 +141,7 @@ LIST_DEFAULT_INDICATOR = ${colorVar(styles, "--item-border-color")}
 LIST_DEFAULT_INDICATOR_ALPHA = 255
 LIST_DEFAULT_TEXT = ${colorVar(styles, "--text-color")}
 LIST_DEFAULT_TEXT_ALPHA = 255
-LIST_DEFAULT_GLYPH_PAD_LEFT = ${Math.round(height / 18)}
+LIST_DEFAULT_GLYPH_PAD_LEFT = ${3 * pxVar(styles, "--padding")}
 LIST_DEFAULT_GLYPH_ALPHA = 255
 LIST_DEFAULT_GLYPH_RECOLOUR = ${colorVar(styles, "--text-color")}
 LIST_DEFAULT_GLYPH_RECOLOUR_ALPHA = 255
@@ -191,8 +187,8 @@ VERBOSE_BOOT_TEXT_ALPHA = 255
 VERBOSE_BOOT_Y_POS = ${Math.floor(height / 3)}
 
 [keyboard]
-OSK_BACKGROUND = ${colorVar(styles, "--panel-background")}
-OSK_BACKGROUND_ALPHA = ${numberVar(styles, "--panel-background-alpha")}
+OSK_BACKGROUND = ${colorVar(styles, "--item-color")}
+OSK_BACKGROUND_ALPHA = 255
 OSK_BORDER = ${colorVar(styles, "--item-border-color")}
 OSK_BORDER_ALPHA = 255
 OSK_RADIUS = ${Math.round(height / 54)}
@@ -211,8 +207,8 @@ OSK_ITEM_BORDER_FOCUS_ALPHA = 255
 OSK_ITEM_RADIUS = ${Math.round(height / 54)}
 
 [notification]
-MSG_BACKGROUND = ${colorVar(styles, "--panel-background")}
-MSG_BACKGROUND_ALPHA = ${numberVar(styles, "--panel-background-alpha")}
+MSG_BACKGROUND = ${colorVar(styles, "--item-color")}
+MSG_BACKGROUND_ALPHA = 255
 MSG_BORDER = ${colorVar(styles, "--item-border-color")}
 MSG_BORDER_ALPHA = 255
 MSG_RADIUS = ${Math.round(height / 54)}
@@ -220,8 +216,8 @@ MSG_TEXT = ${colorVar(styles, "--text-color")}
 MSG_TEXT_ALPHA = 255
 
 [bar]
-BAR_BACKGROUND = ${colorVar(styles, "--panel-background")}
-BAR_BACKGROUND_ALPHA = ${numberVar(styles, "--panel-background-alpha")}
+BAR_BACKGROUND = ${colorVar(styles, "--item-color")}
+BAR_BACKGROUND_ALPHA = 255
 BAR_BORDER = ${colorVar(styles, "--item-border-color")}
 BAR_BORDER_ALPHA = 255
 BAR_RADIUS = ${Math.round(height / 54)}
@@ -236,8 +232,8 @@ BAR_ICON_ALPHA = 255
 [roll]
 ROLL_TEXT = ${colorVar(styles, "--text-color")}
 ROLL_TEXT_ALPHA = 255
-ROLL_BACKGROUND = ${colorVar(styles, "--panel-background")}
-ROLL_BACKGROUND_ALPHA = ${numberVar(styles, "--panel-background-alpha")}
+ROLL_BACKGROUND = ${colorVar(styles, "--item-color")}
+ROLL_BACKGROUND_ALPHA = 255
 ROLL_RADIUS = ${Math.round(height / 54)}
 ROLL_SELECT_TEXT = ${colorVar(styles, "--text-color")}
 ROLL_SELECT_TEXT_ALPHA = 255
@@ -250,15 +246,15 @@ ROLL_BORDER_RADIUS = ${Math.round(height / 54)}
 
 [counter]
 COUNTER_ALIGNMENT = 2
-COUNTER_PADDING_AROUND = 5
+COUNTER_PADDING_AROUND = ${pxVar(styles, "--padding")}
 COUNTER_PADDING_SIDE = 5
 COUNTER_PADDING_TOP = 50
 COUNTER_BORDER_COLOUR = ${colorVar(styles, "--item-border-color")}
 COUNTER_BORDER_ALPHA = 255
 COUNTER_BORDER_WIDTH = ${pxVar(styles, "--item-border-width")}
-COUNTER_RADIUS = 32
-COUNTER_BACKGROUND = ${colorVar(styles, "--panel-background")}
-COUNTER_BACKGROUND_ALPHA = ${numberVar(styles, "--panel-background-alpha")}
+COUNTER_RADIUS = ${Math.round(height / 54)}
+COUNTER_BACKGROUND = ${colorVar(styles, "--item-color")}
+COUNTER_BACKGROUND_ALPHA = 255
 COUNTER_TEXT = ${colorVar(styles, "--text-color")}
 COUNTER_TEXT_ALPHA = 255
 COUNTER_TEXT_FADE_TIME = 24
@@ -270,16 +266,14 @@ META_CUT = 40
 [misc]
 STATIC_ALIGNMENT = 0
 CONTENT_SIZE_TO_CONTENT = 0
-CONTENT_ITEM_COUNT = 7
-CONTENT_WIDTH = ${width - 2 * Math.round(width / 26.66)}
+CONTENT_ITEM_COUNT = 6
+CONTENT_WIDTH = ${width - 2 * pxVar(styles, "--padding")}
 CONTENT_HEIGHT = ${
-  height -
-  2 * Math.round(height / numberVar(styles, "--header-footer-height-divider"))
+  height - 2 * Math.round(height / pxVar(styles, "--header-height-divider"))
 }
 CONTENT_ALIGNMENT = 0
-CONTENT_PADDING_LEFT = ${Math.round(width / 26.66)}
+CONTENT_PADDING_LEFT = ${pxVar(styles, "--padding")}
 CONTENT_PADDING_TOP = 0
 ANIMATED_BACKGROUND = 0
-IMAGE_OVERLAY = 1
 NAVIGATION_TYPE = 0
 `;

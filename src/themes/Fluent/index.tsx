@@ -11,7 +11,7 @@ import { BootLogo } from "./components/BootLogo";
 import { Reboot } from "./components/Reboot";
 import { Shutdown } from "./components/Shutdown";
 import { Charging } from "./components/Charging";
-import { ScreenWithHeaderAndFooter } from "./components/ScreenWithHeaderAndFooter";
+import { ScreenWithHeader } from "./components/ScreenWithHeaderAndFooter";
 
 const systemIcons: Record<string, string> = import.meta.glob(
   "./systems/**/*.png",
@@ -31,7 +31,7 @@ const appIcons: Record<string, string> = import.meta.glob("./apps/**/*.png", {
 export const fluentLight: ThemeConfig = {
   name: "Fluent Light",
   author: "TheWalruzz",
-  osVersion: "2508.0",
+  osVersion: "2508.1",
   screens: [
     {
       path: "preview.png",
@@ -62,48 +62,40 @@ export const fluentLight: ThemeConfig = {
       render: () => <Shutdown />,
     },
     {
-      path: "image/overlay.png",
-      render: () => (
-        <Default hideBackground>
-          <ScreenWithHeaderAndFooter />
-        </Default>
-      ),
-    },
-    {
       path: "image/wall/muxcharge.png",
       render: () => <Charging />,
     },
     {
       path: "image/static/muxlaunch/explore.png",
-      render: () => <MainMenu itemIndex={0} />,
+      render: () => <MainMenu itemIndex={0} showBackground={false} />,
     },
     {
       path: "image/static/muxlaunch/collection.png",
-      render: () => <MainMenu itemIndex={1} />,
+      render: () => <MainMenu itemIndex={1} showBackground={false} />,
     },
     {
       path: "image/static/muxlaunch/history.png",
-      render: () => <MainMenu itemIndex={2} />,
+      render: () => <MainMenu itemIndex={2} showBackground={false} />,
     },
     {
       path: "image/static/muxlaunch/apps.png",
-      render: () => <MainMenu itemIndex={3} />,
+      render: () => <MainMenu itemIndex={3} showBackground={false} />,
     },
     {
       path: "image/static/muxlaunch/info.png",
-      render: () => <MainMenu itemIndex={4} />,
+      render: () => <MainMenu itemIndex={4} showBackground={false} />,
     },
     {
       path: "image/static/muxlaunch/config.png",
-      render: () => <MainMenu itemIndex={5} />,
+      render: () => <MainMenu itemIndex={5} showBackground={false} />,
     },
     {
       path: "image/static/muxlaunch/reboot.png",
-      render: () => <MainMenu itemIndex={6} />,
+      render: () => <MainMenu itemIndex={6} showBackground={false} />,
     },
     {
       path: "image/static/muxlaunch/shutdown.png",
-      render: () => <MainMenu itemIndex={7} />,
+      render: () => <MainMenu itemIndex={7} showBackground={false} />,
     },
     // ...Object.keys(systemIcons).flatMap((system) => [
     //   {
@@ -247,20 +239,21 @@ export const fluentLight: ThemeConfig = {
   assets,
   styles: {
     "--font": "'Selawik'",
-    "--header-footer-height-divider": "9",
     "--item-border-width": "1px",
     "--shadow": "0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.14)",
     "--drop-shadow":
       "drop-shadow(0 0 2px rgba(0, 0, 0, 0.12)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.14))",
     "--background": "#fafafa",
-    "--panel-background": "#ffffff",
-    "--panel-background-color-alpha": "#ffffff4c",
-    "--panel-background-alpha": "76",
     "--text-color": "#242424",
     "--item-color": "#ffffff",
     "--item-color-active": "#f5f5f5",
-    "--item-border-color": "#d1d1d1",
-    "--item-border-color-active": "#c7c7c7",
+    "--item-border-color": "#f1f1f1",
+    "--item-border-color-active": "#f9f9f9",
+    "--item-grid-gap": "8px",
+    "--header-height-divider": "9",
+    "--header-height":
+      "round(calc(var(--height) / var(--header-height-divider)), 1px)",
+    "--padding": "8px",
   },
   languages: ["en", "pl"],
   fallbackLanguage: "en",
@@ -278,7 +271,7 @@ export const fluentDark = extend(fluentLight, {
     "--text-color": "#ffffff",
     "--item-color": "#292929",
     "--item-color-active": "#3d3d3d",
-    "--item-border-color": "#666666",
-    "--item-border-color-active": "#757575",
+    "--item-border-color": "#333333",
+    "--item-border-color-active": "#3f3f3f",
   },
 });

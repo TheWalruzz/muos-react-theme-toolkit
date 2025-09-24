@@ -1,0 +1,37 @@
+.Box {
+  background-color: var(--item-color);
+  border-radius: round(calc(var(--height) / 54), 1px);
+  display: flex;
+  flex-direction: column;
+  padding: round(calc(var(--height) / 54), 1px);
+  gap: round(calc(var(--height) / 27), 1px);
+  font-size: round(calc(var(--height) / 26), 1px);
+  font-weight: 600;
+
+  &.active {
+    background-color: var(--item-color-active);
+
+    &.withBorders {
+      border-color: var(--item-border-color-active);
+    }
+  }
+
+  &.centered {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.withBorders {
+    border: 1px solid var(--item-border-color);
+    box-shadow: var(--shadow);
+  }
+
+  &.small {
+    padding: round(calc(var(--height) / 54), 1px);
+    border-radius: round(calc(var(--height) / 108), 1px);
+  }
+
+  &.smallPadding {
+    padding: round(calc(var(--height) / 72), 1px);
+  }
+}

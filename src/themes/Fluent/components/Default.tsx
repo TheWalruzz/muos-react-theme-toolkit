@@ -4,19 +4,22 @@ import styles from "./Default.module.css";
 import classNames from "classnames";
 
 interface Props {
-  hideBackground?: boolean;
+  showBackground?: boolean;
+  showHeader?: boolean;
 }
 
 export function Default({
   children,
-  hideBackground,
+  showBackground = true,
+  showHeader = true,
 }: PropsWithChildren<Props>) {
   return (
     <div
       className={classNames(styles.Default, {
-        [styles.BackgroundHidden]: hideBackground,
+        [styles.BackgroundShown]: showBackground,
       })}
     >
+      {showHeader && <div className={styles.header} />}
       {children}
     </div>
   );
