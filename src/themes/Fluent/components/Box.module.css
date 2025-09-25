@@ -3,7 +3,7 @@
   border-radius: round(calc(var(--height) / 54), 1px);
   display: flex;
   flex-direction: column;
-  padding: round(calc(var(--height) / 54), 1px);
+  padding: round(calc(var(--height) / 48), 1px);
   gap: round(calc(var(--height) / 27), 1px);
   font-size: round(calc(var(--height) / 26), 1px);
   font-weight: 600;
@@ -27,11 +27,10 @@
   }
 
   &.small {
-    padding: round(calc(var(--height) / 54), 1px);
     border-radius: round(calc(var(--height) / 108), 1px);
   }
 
   &.smallPadding {
-    padding: round(calc(var(--height) / 72), 1px);
+    padding: round(calc(var(--height) / 82), 1px);
   }
 }

@@ -1,59 +1,68 @@
 import { Scheme } from "@/types";
-import { pxVar } from "@/utils/vars";
-
-const getRowCount = (width: number, height: number) => {
-  // square ratio, can hold more rows
-  if (width === height) {
-    return 4;
-  }
-
-  // widescreen resolutions can hold less rows, due to size calculations being width-dependent (but items are bigger in return)
-  if (width / height > 1.5) {
-    return 2;
-  }
-
-  return 3;
-};
+import { colorVar, numberVar, pxVar } from "@/utils/vars";
 
 export const muxploreScheme: Scheme = ({ width, height }, styles) => `[grid]
 NAVIGATION_TYPE = 2
 BACKGROUND_ALPHA = 0
 COLUMN_COUNT = 4
-ROW_COUNT = ${getRowCount(width, height)}
-LOCATION_X = ${Math.floor(
-  (width - Math.floor(width / 15) * 4 - 4 * (Math.floor(width / 7) + 2)) / 2
-)}
-LOCATION_Y = ${Math.floor(
+ROW_COUNT = 2
+LOCATION_X = ${pxVar(styles, "--padding")}
+LOCATION_Y = ${
+  Math.round(height / numberVar(styles, "--header-height-divider")) +
+  pxVar(styles, "--padding")
+}
+COLUMN_WIDTH = ${Math.round((width - pxVar(styles, "--padding")) / 4)}
+ROW_HEIGHT = ${Math.round(
   (height -
-    Math.floor(width / 15) * getRowCount(width, height) -
-    getRowCount(width, height) * (Math.floor(width / 7) + 2)) /
+    2 * Math.round(height / numberVar(styles, "--header-height-divider"))) /
     2
 )}
-CELL_WIDTH = ${Math.floor(width / 7) + 2 + 56}
-CELL_HEIGHT = ${Math.floor(width / 7) + 2 + 56}
-CELL_RADIUS = ${Math.floor(width / 7) + 2 + 56}
-CELL_IMAGE_PADDING_SIDE = 28
-COLUMN_WIDTH = ${Math.floor(width / 7) + 2 + Math.floor(width / 15)}
-ROW_HEIGHT = ${Math.floor(width / 7) + 2 + Math.floor(width / 15)}
 CURRENT_ITEM_LABEL_TEXT_ALPHA = 0
-CURRENT_ITEM_LABEL_BORDER_ALPHA = 0
+CELL_WIDTH = ${Math.round(
+  (width -
+    2 * pxVar(styles, "--padding") -
+    3 * pxVar(styles, "--item-grid-gap")) /
+    4
+)}
+CELL_HEIGHT = ${Math.round(
+  (height -
+    2 * Math.round(height / numberVar(styles, "--header-height-divider")) -
+    2 * pxVar(styles, "--item-grid-gap")) /
+    2
+)}
+CELL_RADIUS = ${Math.round(height / 54)}
 CELL_IMAGE_PADDING_TOP = 0
-CELL_TEXT_PADDING_BOTTOM = 0
-CELL_TEXT_PADDING_SIDE = 0
-CELL_BORDER_WIDTH = 2
-CELL_DEFAULT_BACKGROUND_ALPHA = 0
+CELL_IMAGE_PADDING_SIDE = ${Math.round(height / 48)}
+CELL_TEXT_PADDING_BOTTOM = ${Math.round(height / 48)}
+CELL_COLUMN_ALIGN = 0
+CELL_ROW_ALIGN = 0
+CELL_BORDER_WIDTH = 1
+CELL_SHADOW = ${colorVar(styles, "--fake-shadow-color")}
+CELL_SHADOW_X_OFFSET = 0
+CELL_SHADOW_Y_OFFSET = 2
+CELL_SHADOW_WIDTH = 4
+CELL_DEFAULT_BACKGROUND = ${colorVar(styles, "--item-color")}
+CELL_DEFAULT_BACKGROUND_ALPHA = 255
+CELL_DEFAULT_BORDER = ${colorVar(styles, "--item-border-color")}
+CELL_DEFAULT_BORDER_ALPHA = 255
 CELL_DEFAULT_IMAGE_ALPHA = 255
-CELL_DEFAULT_IMAGE_RECOLOUR_ALPHA = 0
-CELL_DEFAULT_TEXT_ALPHA = 0
-CELL_DEFAULT_BORDER_ALPHA = 0
-CELL_FOCUS_BACKGROUND_ALPHA = 0
-CELL_FOCUS_BORDER = ffffff
-CELL_FOCUS_BORDER_ALPHA = 0
-CELL_FOCUS_IMAGE_ALPHA = 255
-CELL_FOCUS_IMAGE_RECOLOUR_ALPHA = 0
-CELL_FOCUS_TEXT_ALPHA = 0
+CELL_DEFAULT_IMAGE_RECOLOUR = ${colorVar(styles, "--text-color")}
+CELL_DEFAULT_IMAGE_RECOLOUR_ALPHA = 255
+CELL_DEFAULT_TEXT = ${colorVar(styles, "--text-color")}
+CELL_DEFAULT_TEXT_ALPHA = 255
+CELL_FOCUS_BACKGROUND = ${colorVar(styles, "--item-color-active")}
+CELL_FOCUS_BACKGROUND_ALPHA = 255
+CELL_FOCUS_BORDER = ${colorVar(styles, "--item-border-color-active")}
+CELL_FOCUS_BORDER_ALPHA = 255
+CELL_FOCUS_IMAGE_RECOLOUR = ${colorVar(styles, "--text-color")}
+CELL_FOCUS_IMAGE_RECOLOUR_ALPHA = 255
+CELL_FOCUS_TEXT = ${colorVar(styles, "--text-color")}
+CELL_FOCUS_TEXT_ALPHA = 255
+
+[list]
+LIST_DEFAULT_LABEL_LONG_MODE = 1
 
 [misc]
-CONTENT_WIDTH = ${Math.round(width / 2 - 2 * pxVar(styles, "--padding"))}
-NAVIGATION_TYPE = 2
+CONTENT_WIDTH = ${Math.round(width / 2 - pxVar(styles, "--padding"))}
+NAVIGATION_TYPE = 0
 `;

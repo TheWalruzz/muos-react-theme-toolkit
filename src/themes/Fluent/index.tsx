@@ -11,22 +11,22 @@ import { BootLogo } from "./components/BootLogo";
 import { Reboot } from "./components/Reboot";
 import { Shutdown } from "./components/Shutdown";
 import { Charging } from "./components/Charging";
-import { ScreenWithHeader } from "./components/ScreenWithHeaderAndFooter";
+import { muxhistoryScheme } from "./schemes/muxhistory";
 
-const systemIcons: Record<string, string> = import.meta.glob(
-  "./systems/**/*.png",
-  {
-    eager: true,
-    query: "?url",
-    import: "default",
-  }
-);
+// const systemIcons: Record<string, string> = import.meta.glob(
+//   "./systems/**/*.png",
+//   {
+//     eager: true,
+//     query: "?url",
+//     import: "default",
+//   }
+// );
 
-const appIcons: Record<string, string> = import.meta.glob("./apps/**/*.png", {
-  eager: true,
-  query: "?url",
-  import: "default",
-});
+// const appIcons: Record<string, string> = import.meta.glob("./apps/**/*.png", {
+//   eager: true,
+//   query: "?url",
+//   import: "default",
+// });
 
 export const fluentLight: ThemeConfig = {
   name: "Fluent Light",
@@ -97,126 +97,57 @@ export const fluentLight: ThemeConfig = {
       path: "image/static/muxlaunch/shutdown.png",
       render: () => <MainMenu itemIndex={7} showBackground={false} />,
     },
-    // ...Object.keys(systemIcons).flatMap((system) => [
-    //   {
-    //     path: system.replace(/^.\/systems\//, ""),
-    //     pathPrefix: "catalogue/Folder/grid/",
-    //     overrideResolution: ({ width }: Resolution) => ({
-    //       width: Math.floor(width / 7) + 56,
-    //       height: Math.floor(width / 7) + 56,
-    //     }),
-    //     includeInAssetsPackage: true,
-    //     render: () => (
-    //       <div
-    //         style={{
-    //           width: "100%",
-    //           height: "100%",
-    //           padding: "28px 28px 28px 28px",
-    //         }}
-    //       >
-    //         <GridItem
-    //           icon={
-    //             <img
-    //               src={systemIcons[system]}
-    //               style={{ maxWidth: "85%", maxHeight: "50%" }}
-    //             />
-    //           }
-    //           active={false}
-    //         />
-    //       </div>
-    //     ),
-    //   },
-    //   {
-    //     path: system
-    //       .replace(/^.\/systems\//, "")
-    //       .replace(/\.png$/, "_focused.png"),
-    //     pathPrefix: "catalogue/Folder/grid/",
-    //     overrideResolution: ({ width }: Resolution) => ({
-    //       width: Math.floor(width / 7) + 56,
-    //       height: Math.floor(width / 7) + 56,
-    //     }),
-    //     includeInAssetsPackage: true,
-    //     render: () => (
-    //       <div
-    //         style={{
-    //           width: "100%",
-    //           height: "100%",
-    //           padding: "28px 28px 28px 28px",
-    //         }}
-    //       >
-    //         <GridItem
-    //           icon={
-    //             <img
-    //               src={systemIcons[system]}
-    //               style={{ maxWidth: "85%", maxHeight: "50%" }}
-    //             />
-    //           }
-    //           active
-    //         />
-    //       </div>
-    //     ),
-    //   },
-    // ]),
-    // ...Object.keys(appIcons).flatMap((app) => [
-    //   {
-    //     path: app.replace(/^.\/apps\//, ""),
-    //     pathPrefix: "catalogue/Application/grid/",
-    //     overrideResolution: ({ width }: Resolution) => ({
-    //       width: Math.floor(width / 7) + 56,
-    //       height: Math.floor(width / 7) + 56,
-    //     }),
-    //     includeInAssetsPackage: true,
-    //     render: () => (
-    //       <div
-    //         style={{
-    //           width: "100%",
-    //           height: "100%",
-    //           padding: "28px 28px 28px 28px",
-    //         }}
-    //       >
-    //         <GridItem
-    //           icon={
-    //             <img
-    //               src={appIcons[app]}
-    //               style={{ maxWidth: "50%", maxHeight: "50%" }}
-    //             />
-    //           }
-    //           itemName={app.replace(/^.\/apps\//, "").replace(/.png$/, "")}
-    //           active={false}
-    //         />
-    //       </div>
-    //     ),
-    //   },
-    //   {
-    //     path: app.replace(/^.\/apps\//, "").replace(/\.png$/, "_focused.png"),
-    //     pathPrefix: "catalogue/Application/grid/",
-    //     overrideResolution: ({ width }: Resolution) => ({
-    //       width: Math.floor(width / 7) + 56,
-    //       height: Math.floor(width / 7) + 56,
-    //     }),
-    //     includeInAssetsPackage: true,
-    //     render: () => (
-    //       <div
-    //         style={{
-    //           width: "100%",
-    //           height: "100%",
-    //           padding: "28px 28px 28px 28px",
-    //         }}
-    //       >
-    //         <GridItem
-    //           icon={
-    //             <img
-    //               src={appIcons[app]}
-    //               style={{ maxWidth: "50%", maxHeight: "50%" }}
-    //             />
-    //           }
-    //           itemName={app.replace(/^.\/apps\//, "").replace(/.png$/, "")}
-    //           active
-    //         />
-    //       </div>
-    //     ),
-    //   },
-    // ]),
+    // NOTE: those were only used to generate the images once, since we only need one resolution
+    // ...Object.keys(systemIcons).map((system) => ({
+    //   path: system.replace(/^.\/systems\//, ""),
+    //   pathPrefix: "catalogue/Folder/grid/",
+    //   includeInAssetsPackage: true,
+    //   overrideResolution: () => ({
+    //     width: 104,
+    //     height: 104,
+    //   }),
+    //   render: () => (
+    //     <div
+    //       style={{
+    //         display: "flex",
+    //         alignItems: "center",
+    //         justifyContent: "center",
+    //         width: "100%",
+    //         height: "100%",
+    //       }}
+    //     >
+    //       <img
+    //         src={systemIcons[system]}
+    //         style={{ maxWidth: "80%", maxHeight: "80%" }}
+    //       />
+    //     </div>
+    //   ),
+    // })),
+    // ...Object.keys(appIcons).map((app) => ({
+    //   path: app.replace(/^.\/apps\//, ""),
+    //   pathPrefix: "catalogue/Application/grid/",
+    //   includeInAssetsPackage: true,
+    //   overrideResolution: () => ({
+    //     width: 104,
+    //     height: 104,
+    //   }),
+    //   render: () => (
+    //     <div
+    //       style={{
+    //         display: "flex",
+    //         alignItems: "center",
+    //         justifyContent: "center",
+    //         width: "100%",
+    //         height: "100%",
+    //       }}
+    //     >
+    //       <img
+    //         src={appIcons[app]}
+    //         style={{ maxWidth: "80%", maxHeight: "80%" }}
+    //       />
+    //     </div>
+    //   ),
+    // })),
   ],
   schemes: [
     {
@@ -227,14 +158,22 @@ export const fluentLight: ThemeConfig = {
       path: "scheme/muxlaunch.ini",
       scheme: muxlaunchScheme,
     },
-    // {
-    //   path: "scheme/muxplore.ini",
-    //   scheme: muxploreScheme,
-    // },
-    // {
-    //   path: "scheme/muxapp.ini",
-    //   scheme: muxploreScheme,
-    // },
+    {
+      path: "scheme/muxplore.ini",
+      scheme: muxploreScheme,
+    },
+    {
+      path: "scheme/muxapp.ini",
+      scheme: muxploreScheme,
+    },
+    {
+      path: "scheme/muxhistory.ini",
+      scheme: muxhistoryScheme,
+    },
+    {
+      path: "scheme/muxcollect.ini",
+      scheme: muxhistoryScheme,
+    },
   ],
   assets,
   styles: {
@@ -243,12 +182,13 @@ export const fluentLight: ThemeConfig = {
     "--shadow": "0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.14)",
     "--drop-shadow":
       "drop-shadow(0 0 2px rgba(0, 0, 0, 0.12)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.14))",
+    "--fake-shadow-color": "#bdbdbd",
     "--background": "#fafafa",
     "--text-color": "#242424",
     "--item-color": "#ffffff",
-    "--item-color-active": "#f5f5f5",
+    "--item-color-active": "#eaeaea",
     "--item-border-color": "#f1f1f1",
-    "--item-border-color-active": "#f9f9f9",
+    "--item-border-color-active": "#ededed",
     "--item-grid-gap": "8px",
     "--header-height-divider": "9",
     "--header-height":
@@ -265,6 +205,7 @@ export const fluentDark = extend(fluentLight, {
     "--shadow": "0 0 2px rgba(0,0,0,0.24), 0 2px 4px rgba(0,0,0,0.28)",
     "--drop-shadow":
       "drop-shadow(0 0 2px rgba(0,0,0,0.24)) drop-shadow(0 2px 4px rgba(0,0,0,0.28))",
+    "--fake-shadow-color": "#111111",
     "--background": "#1f1f1f",
     "--panel-background-color": "#000000",
     "--panel-background-color-alpha": "#0000004c",

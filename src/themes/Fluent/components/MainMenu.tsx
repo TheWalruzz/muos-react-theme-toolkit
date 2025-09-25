@@ -27,8 +27,8 @@ export function MainMenu({ itemIndex, showBackground, showHeader }: Props) {
   const { width, height } = useResolution();
   const { t } = useTranslation();
 
-  const iconSize = useMemo(() => Math.round(height / 8), [height]);
-  const iconSizeSmall = useMemo(() => Math.round(height / 20), [height]);
+  const iconSize = useMemo(() => Math.round(height / 7), [height]);
+  const iconSizeSmall = useMemo(() => Math.round(height / 15), [height]);
 
   const itemsMain = useMemo(
     () => [
@@ -88,7 +88,7 @@ export function MainMenu({ itemIndex, showBackground, showHeader }: Props) {
           ))}
         </div>
         <div className={styles.miscListContainer}>
-          <Box className={styles.miscList} smallPadding>
+          <Box className={styles.miscList}>
             {itemsMisc.map((item, index) => (
               <Box
                 key={`MainMenu_miscItem-${width}x${height}-${itemIndex}-${index}`}

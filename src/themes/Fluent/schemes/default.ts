@@ -32,8 +32,8 @@ PADDING_RIGHT = 12
 
 [battery]
 BATTERY_NORMAL = ${colorVar(styles, "--text-color")}
-BATTERY_ACTIVE = 85F718
-BATTERY_LOW = D35C54
+BATTERY_ACTIVE = 86d72f
+BATTERY_LOW = f8312f
 BATTERY_NORMAL_ALPHA = 255
 BATTERY_ACTIVE_ALPHA = 255
 BATTERY_LOW_ALPHA = 255
@@ -207,8 +207,8 @@ OSK_ITEM_BORDER_FOCUS_ALPHA = 255
 OSK_ITEM_RADIUS = ${Math.round(height / 54)}
 
 [notification]
-MSG_BACKGROUND = ${colorVar(styles, "--item-color")}
-MSG_BACKGROUND_ALPHA = 255
+MSG_BACKGROUND = ${colorVar(styles, "--item-color-active")}
+MSG_BACKGROUND_ALPHA = 200
 MSG_BORDER = ${colorVar(styles, "--item-border-color")}
 MSG_BORDER_ALPHA = 255
 MSG_RADIUS = ${Math.round(height / 54)}
@@ -237,7 +237,7 @@ ROLL_BACKGROUND_ALPHA = 255
 ROLL_RADIUS = ${Math.round(height / 54)}
 ROLL_SELECT_TEXT = ${colorVar(styles, "--text-color")}
 ROLL_SELECT_TEXT_ALPHA = 255
-ROLL_SELECT_BACKGROUND = ${colorVar(styles, "--item-color")}
+ROLL_SELECT_BACKGROUND = ${colorVar(styles, "--item-color-active")}
 ROLL_SELECT_BACKGROUND_ALPHA = 255
 ROLL_SELECT_RADIUS = ${Math.round(height / 54)}
 ROLL_BORDER_COLOUR = ${colorVar(styles, "--item-border-color")}
@@ -248,13 +248,16 @@ ROLL_BORDER_RADIUS = ${Math.round(height / 54)}
 COUNTER_ALIGNMENT = 2
 COUNTER_PADDING_AROUND = ${pxVar(styles, "--padding")}
 COUNTER_PADDING_SIDE = 5
-COUNTER_PADDING_TOP = 50
-COUNTER_BORDER_COLOUR = ${colorVar(styles, "--item-border-color")}
+COUNTER_PADDING_TOP = ${
+  Math.round(height / pxVar(styles, "--header-height-divider")) +
+  pxVar(styles, "--padding")
+}
+COUNTER_BORDER_COLOUR = ${colorVar(styles, "--item-border-color-active")}
 COUNTER_BORDER_ALPHA = 255
 COUNTER_BORDER_WIDTH = ${pxVar(styles, "--item-border-width")}
 COUNTER_RADIUS = ${Math.round(height / 54)}
-COUNTER_BACKGROUND = ${colorVar(styles, "--item-color")}
-COUNTER_BACKGROUND_ALPHA = 255
+COUNTER_BACKGROUND = ${colorVar(styles, "--item-color-active")}
+COUNTER_BACKGROUND_ALPHA = 200
 COUNTER_TEXT = ${colorVar(styles, "--text-color")}
 COUNTER_TEXT_ALPHA = 255
 COUNTER_TEXT_FADE_TIME = 24
@@ -269,11 +272,13 @@ CONTENT_SIZE_TO_CONTENT = 0
 CONTENT_ITEM_COUNT = 6
 CONTENT_WIDTH = ${width - 2 * pxVar(styles, "--padding")}
 CONTENT_HEIGHT = ${
-  height - 2 * Math.round(height / pxVar(styles, "--header-height-divider"))
+  height -
+  2 * Math.round(height / pxVar(styles, "--header-height-divider")) -
+  pxVar(styles, "--padding")
 }
 CONTENT_ALIGNMENT = 0
 CONTENT_PADDING_LEFT = ${pxVar(styles, "--padding")}
-CONTENT_PADDING_TOP = 0
+CONTENT_PADDING_TOP = ${pxVar(styles, "--padding") - 2}
 ANIMATED_BACKGROUND = 0
 NAVIGATION_TYPE = 0
 `;

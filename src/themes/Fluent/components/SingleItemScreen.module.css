@@ -11,7 +11,7 @@
   }
 
   &:not(.centered) {
-    transform: translateY(calc(-50% + 0.33 * var(--height)));
+    transform: translateY(calc(-50% + 0.4 * var(--height)));
 
     .label {
       bottom: 0;

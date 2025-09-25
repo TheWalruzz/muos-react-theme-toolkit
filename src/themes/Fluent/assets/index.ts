@@ -15,4 +15,11 @@ export const assets = [
       import: "default",
     })
   ),
+  ...importBinaryAssets(
+    import.meta.glob("./catalogue/**/*.png", {
+      eager: true,
+      query: "?data-url",
+      import: "default",
+    })
+  ),
 ];

@@ -9,7 +9,7 @@ interface Props {
 
 export function MenuItem({ icon, active, label }: Props) {
   return (
-    <Box active={active} centered>
+    <Box active={active} centered smallPadding>
       {icon}
       <div>{label}</div>
     </Box>
