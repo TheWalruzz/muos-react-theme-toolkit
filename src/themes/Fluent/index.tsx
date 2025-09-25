@@ -119,7 +119,7 @@ export const fluentLight: ThemeConfig = {
     //     >
     //       <img
     //         src={systemIcons[system]}
-    //         style={{ maxWidth: "95%", maxHeight: "95%" }}
+    //         style={{ maxWidth: "100%", maxHeight: "100%" }}
     //       />
     //     </div>
     //   ),
