@@ -12,6 +12,7 @@ import { Reboot } from "./components/Reboot";
 import { Shutdown } from "./components/Shutdown";
 import { Charging } from "./components/Charging";
 import { muxhistoryScheme } from "./schemes/muxhistory";
+import { muxappScheme } from "./schemes/muxapp";
 
 // const systemIcons: Record<string, string> = import.meta.glob(
 //   "./systems/**/*.png",
@@ -118,7 +119,7 @@ export const fluentLight: ThemeConfig = {
     //     >
     //       <img
     //         src={systemIcons[system]}
-    //         style={{ maxWidth: "80%", maxHeight: "80%" }}
+    //         style={{ maxWidth: "95%", maxHeight: "95%" }}
     //       />
     //     </div>
     //   ),
@@ -164,7 +165,7 @@ export const fluentLight: ThemeConfig = {
     },
     {
       path: "scheme/muxapp.ini",
-      scheme: muxploreScheme,
+      scheme: muxappScheme,
     },
     {
       path: "scheme/muxhistory.ini",
