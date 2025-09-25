@@ -22,7 +22,7 @@
   }
 
   &.withBorders {
-    border: 1px solid var(--item-border-color);
+    border: var(--item-border-width) solid var(--item-border-color);
     box-shadow: var(--shadow);
   }
 

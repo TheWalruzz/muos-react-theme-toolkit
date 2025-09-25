@@ -207,7 +207,7 @@ OSK_ITEM_BORDER_FOCUS_ALPHA = 255
 OSK_ITEM_RADIUS = ${Math.round(height / 54)}
 
 [notification]
-MSG_BACKGROUND = ${colorVar(styles, "--item-color-active")}
+MSG_BACKGROUND = ${colorVar(styles, "--item-color")}
 MSG_BACKGROUND_ALPHA = 200
 MSG_BORDER = ${colorVar(styles, "--item-border-color")}
 MSG_BORDER_ALPHA = 255
@@ -252,11 +252,11 @@ COUNTER_PADDING_TOP = ${
   Math.round(height / pxVar(styles, "--header-height-divider")) +
   pxVar(styles, "--padding")
 }
-COUNTER_BORDER_COLOUR = ${colorVar(styles, "--item-border-color-active")}
+COUNTER_BORDER_COLOUR = ${colorVar(styles, "--item-border-color")}
 COUNTER_BORDER_ALPHA = 255
-COUNTER_BORDER_WIDTH = ${pxVar(styles, "--item-border-width")}
+COUNTER_BORDER_WIDTH = ${pxVar(styles, "--item-border-width") + 1}
 COUNTER_RADIUS = ${Math.round(height / 54)}
-COUNTER_BACKGROUND = ${colorVar(styles, "--item-color-active")}
+COUNTER_BACKGROUND = ${colorVar(styles, "--item-color")}
 COUNTER_BACKGROUND_ALPHA = 200
 COUNTER_TEXT = ${colorVar(styles, "--text-color")}
 COUNTER_TEXT_ALPHA = 255
