@@ -54,24 +54,12 @@ export function MainMenu({ itemIndex, showBackground, showHeader }: Props) {
 
   const itemsMisc = useMemo(
     () => [
-      {
-        icon: <InfoRegular fontSize={iconSizeSmall} />,
-        text: t("menu.information", "Information"),
-      },
-      {
-        icon: <SettingsRegular fontSize={iconSizeSmall} />,
-        text: t("menu.configuration", "Settings"),
-      },
-      {
-        icon: <ArrowCounterclockwiseRegular fontSize={iconSizeSmall} />,
-        text: t("menu.reboot", "Restart"),
-      },
-      {
-        icon: <PowerRegular fontSize={iconSizeSmall} />,
-        text: t("menu.shutdown", "Shut down"),
-      },
+      <InfoRegular fontSize={iconSizeSmall} />,
+      <SettingsRegular fontSize={iconSizeSmall} />,
+      <ArrowCounterclockwiseRegular fontSize={iconSizeSmall} />,
+      <PowerRegular fontSize={iconSizeSmall} />,
     ],
-    [iconSizeSmall, t]
+    [iconSizeSmall]
   );
 
   return (
@@ -96,7 +84,7 @@ export function MainMenu({ itemIndex, showBackground, showHeader }: Props) {
                 withBorders={false}
                 small
               >
-                {item.icon}
+                {item}
               </Box>
             ))}
           </Box>

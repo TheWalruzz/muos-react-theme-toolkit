@@ -4,11 +4,7 @@
     "explore": "Zawartość",
     "collections": "Kolekcje",
     "history": "Historia",
-    "applications": "Aplikacje",
-    "information": "Informacje",
-    "configuration": "Ustawienia",
-    "reboot": "Uruchom ponownie",
-    "shutdown": "Zamknij"
+    "applications": "Aplikacje"
   },
   "rebooting": "Ponowne uruchomienie",
   "shuttingDown": "Zamykanie"

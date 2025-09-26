@@ -4,11 +4,7 @@
     "explore": "Content",
     "collections": "Collections",
     "history": "History",
-    "applications": "Apps",
-    "information": "Information",
-    "configuration": "Settings",
-    "reboot": "Restart",
-    "shutdown": "Shut down"
+    "applications": "Apps"
   },
   "rebooting": "Restarting",
   "shuttingDown": "Shutting down"
