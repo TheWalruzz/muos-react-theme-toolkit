@@ -1,12 +1,11 @@
 {
+  "charging": "충전 중",
   "menu": {
     "explore": "콘텐츠",
     "collections": "컬렉션",
     "history": "실행 기록",
     "applications": "앱"
   },
-  "status": {
-    "rebooting": "시스템 재시작",
-    "shuttingDown": "시스템 종료"
-  }
+  "rebooting": "시스템 재시작",
+  "shuttingDown": "시스템 종료"
 }
