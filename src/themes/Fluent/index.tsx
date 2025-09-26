@@ -178,7 +178,7 @@ export const fluentLight: ThemeConfig = {
   ],
   assets,
   styles: {
-    "--font": "'Selawik'",
+    "--font": "'NotoSansKR', 'Selawik'",
     "--item-border-width": "1px",
     "--shadow": "0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.14)",
     "--drop-shadow":
