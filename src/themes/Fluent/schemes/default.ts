@@ -209,7 +209,7 @@ OSK_ITEM_RADIUS = ${Math.round(height / 54)}
 [notification]
 MSG_BACKGROUND = ${colorVar(styles, "--item-color")}
 MSG_BACKGROUND_ALPHA = 255
-MSG_BORDER = ${colorVar(styles, "--item-border-color")}
+MSG_BORDER = ${colorVar(styles, "--item-border-color-active")}
 MSG_BORDER_ALPHA = 255
 MSG_RADIUS = ${Math.round(height / 54)}
 MSG_TEXT = ${colorVar(styles, "--text-color")}
@@ -251,7 +251,7 @@ COUNTER_PADDING_SIDE = 5
 COUNTER_PADDING_TOP = ${
   Math.round(height / pxVar(styles, "--header-height-divider")) + 4
 }
-COUNTER_BORDER_COLOUR = ${colorVar(styles, "--item-border-color")}
+COUNTER_BORDER_COLOUR = ${colorVar(styles, "--item-border-color-active")}
 COUNTER_BORDER_ALPHA = 255
 COUNTER_BORDER_WIDTH = ${pxVar(styles, "--item-border-width") + 1}
 COUNTER_RADIUS = ${Math.round(height / 54)}
