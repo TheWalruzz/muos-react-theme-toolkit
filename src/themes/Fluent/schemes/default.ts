@@ -41,7 +41,7 @@ BATTERY_LOW_ALPHA = 255
 [network]
 NETWORK_NORMAL = ${colorVar(styles, "--text-color")}
 NETWORK_ACTIVE = ${colorVar(styles, "--text-color")}
-NETWORK_NORMAL_ALPHA = 100
+NETWORK_NORMAL_ALPHA = 255
 NETWORK_ACTIVE_ALPHA = 255
 
 [bluetooth]
@@ -193,7 +193,7 @@ OSK_BORDER = ${colorVar(styles, "--item-border-color")}
 OSK_BORDER_ALPHA = 255
 OSK_RADIUS = ${Math.round(height / 54)}
 OSK_TEXT = ${colorVar(styles, "--text-color")}
-OSK_TEXT_ALPHA = 225
+OSK_TEXT_ALPHA = 255
 OSK_TEXT_FOCUS = ${colorVar(styles, "--text-color")}
 OSK_TEXT_FOCUS_ALPHA = 255
 OSK_ITEM_BACKGROUND = ${colorVar(styles, "--item-color")}
@@ -208,7 +208,7 @@ OSK_ITEM_RADIUS = ${Math.round(height / 54)}
 
 [notification]
 MSG_BACKGROUND = ${colorVar(styles, "--item-color")}
-MSG_BACKGROUND_ALPHA = 200
+MSG_BACKGROUND_ALPHA = 255
 MSG_BORDER = ${colorVar(styles, "--item-border-color")}
 MSG_BORDER_ALPHA = 255
 MSG_RADIUS = ${Math.round(height / 54)}
@@ -223,7 +223,7 @@ BAR_BORDER_ALPHA = 255
 BAR_RADIUS = ${Math.round(height / 54)}
 BAR_PROGRESS_BACKGROUND = ${colorVar(styles, "--item-color")}
 BAR_PROGRESS_BACKGROUND_ALPHA = 255
-BAR_PROGRESS_ACTIVE_BACKGROUND = ${colorVar(styles, "--item-color-active")}
+BAR_PROGRESS_ACTIVE_BACKGROUND = ${colorVar(styles, "--text-color")}
 BAR_PROGRESS_ACTIVE_BACKGROUND_ALPHA = 255
 BAR_PROGRESS_RADIUS = ${Math.round(height / 54)}
 BAR_ICON = ${colorVar(styles, "--text-color")}
@@ -249,8 +249,7 @@ COUNTER_ALIGNMENT = 2
 COUNTER_PADDING_AROUND = ${pxVar(styles, "--padding")}
 COUNTER_PADDING_SIDE = 5
 COUNTER_PADDING_TOP = ${
-  Math.round(height / pxVar(styles, "--header-height-divider")) +
-  pxVar(styles, "--padding")
+  Math.round(height / pxVar(styles, "--header-height-divider")) + 4
 }
 COUNTER_BORDER_COLOUR = ${colorVar(styles, "--item-border-color")}
 COUNTER_BORDER_ALPHA = 255
