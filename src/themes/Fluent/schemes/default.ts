@@ -218,7 +218,7 @@ MSG_TEXT_ALPHA = 255
 [bar]
 BAR_BACKGROUND = ${colorVar(styles, "--item-color")}
 BAR_BACKGROUND_ALPHA = 255
-BAR_BORDER = ${colorVar(styles, "--item-border-color")}
+BAR_BORDER = ${colorVar(styles, "--item-border-color-active")}
 BAR_BORDER_ALPHA = 255
 BAR_RADIUS = ${Math.round(height / 54)}
 BAR_PROGRESS_BACKGROUND = ${colorVar(styles, "--item-color")}
