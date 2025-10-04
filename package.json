@@ -12,15 +12,15 @@
     "font:generate": "lv_font_conv --bpp 4 --size 20 --format bin --no-compress --no-prefilter"
   },
   "dependencies": {
-    "@zip.js/zip.js": "^2.7.54",
+    "@zip.js/zip.js": "^2.8.7",
     "classnames": "^2.5.1",
-    "html-to-image": "^1.11.11",
+    "html-to-image": "^1.11.13",
     "i18next": "^24.2.1",
     "react": "^18.3.1",
     "react-context-refs": "^0.2.1",
     "react-dom": "^18.3.1",
     "react-i18next": "^15.4.0",
-    "ts-deepmerge": "^7.0.2"
+    "ts-deepmerge": "^7.0.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
