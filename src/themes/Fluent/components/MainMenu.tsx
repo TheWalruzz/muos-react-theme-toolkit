@@ -20,10 +20,14 @@ import { Box } from "./Box";
 interface Props {
   itemIndex: number;
   showBackground?: boolean;
-  showHeader?: boolean;
+  transparentHeader?: boolean;
 }
 
-export function MainMenu({ itemIndex, showBackground, showHeader }: Props) {
+export function MainMenu({
+  itemIndex,
+  showBackground,
+  transparentHeader = true,
+}: Props) {
   const { width, height } = useResolution();
   const { t } = useTranslation();
 
@@ -63,7 +67,10 @@ export function MainMenu({ itemIndex, showBackground, showHeader }: Props) {
   );
 
   return (
-    <Default showBackground={showBackground} showHeader={showHeader}>
+    <Default
+      showBackground={showBackground}
+      transparentHeader={transparentHeader}
+    >
       <div className={styles.MainMenu}>
         <div className={styles.mainList}>
           {itemsMain.map((item, index) => (

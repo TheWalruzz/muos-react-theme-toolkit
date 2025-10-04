@@ -17,5 +17,9 @@
     background-color: var(--item-color);
     border-bottom: 1px solid var(--item-border-color);
     box-shadow: var(--shadow);
+
+    &.transparentHeader {
+      visibility: hidden;
+    }
   }
 }

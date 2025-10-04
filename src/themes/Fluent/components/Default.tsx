@@ -6,12 +6,14 @@ import classNames from "classnames";
 interface Props {
   showBackground?: boolean;
   showHeader?: boolean;
+  transparentHeader?: boolean;
 }
 
 export function Default({
   children,
   showBackground = true,
   showHeader = true,
+  transparentHeader = false,
 }: PropsWithChildren<Props>) {
   return (
     <div
@@ -19,7 +21,13 @@ export function Default({
         [styles.BackgroundShown]: showBackground,
       })}
     >
-      {showHeader && <div className={styles.header} />}
+      {showHeader && (
+        <div
+          className={classNames(styles.header, {
+            [styles.transparentHeader]: transparentHeader,
+          })}
+        />
+      )}
       {children}
     </div>
   );

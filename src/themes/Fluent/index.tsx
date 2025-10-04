@@ -45,7 +45,9 @@ export const fluentLight: ThemeConfig = {
         }
         return { width: 288, height: 216 };
       },
-      render: () => <MainMenu itemIndex={0} showBackground />,
+      render: () => (
+        <MainMenu itemIndex={0} showBackground transparentHeader={false} />
+      ),
     },
     {
       path: "image/wall/default.png",
