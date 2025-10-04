@@ -13,6 +13,7 @@ import { Shutdown } from "./components/Shutdown";
 import { Charging } from "./components/Charging";
 import { muxhistoryScheme } from "./schemes/muxhistory";
 import { muxappScheme } from "./schemes/muxapp";
+import { muxcollectScheme } from "./schemes/muxcollect";
 
 // const systemIcons: Record<string, string> = import.meta.glob(
 //   "./systems/**/*.png",
@@ -173,7 +174,7 @@ export const fluentLight: ThemeConfig = {
     },
     {
       path: "scheme/muxcollect.ini",
-      scheme: muxhistoryScheme,
+      scheme: muxcollectScheme,
     },
   ],
   assets,
