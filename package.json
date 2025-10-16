@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "i18n:extract": "i18next 'src/**/*.{ts,tsx}'",
-    "font:generate": "lv_font_conv --bpp 4 --size 20 --format bin --no-compress --no-prefilter"
+    "font:generate": "lv_font_conv --bpp 4 --format bin --no-compress --no-prefilter"
   },
   "dependencies": {
     "@fluentui/react-icons": "^2.0.309",

@@ -1,4 +1,5 @@
 import { importBinaryAssets } from "@/utils/importAssets";
+import { fontAssets } from "./font";
 
 export const assets = [
   ...importBinaryAssets(
@@ -8,13 +9,7 @@ export const assets = [
       import: "default",
     })
   ),
-  ...importBinaryAssets(
-    import.meta.glob("./font/**/*.bin", {
-      eager: true,
-      query: "?data-url",
-      import: "default",
-    })
-  ),
+  ...fontAssets,
   ...importBinaryAssets(
     import.meta.glob("./catalogue/**/*.png", {
       eager: true,
