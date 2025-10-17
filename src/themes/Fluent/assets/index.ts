@@ -1,14 +1,9 @@
 import { importBinaryAssets } from "@/utils/importAssets";
 import { fontAssets } from "./font";
+import { glyphAssets } from "./glyph";
 
 export const assets = [
-  ...importBinaryAssets(
-    import.meta.glob("./glyph/**/*.{png,bmp,gif}", {
-      eager: true,
-      query: "?data-url",
-      import: "default",
-    })
-  ),
+  ...glyphAssets,
   ...fontAssets,
   ...importBinaryAssets(
     import.meta.glob("./catalogue/**/*.png", {
