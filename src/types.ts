@@ -16,6 +16,7 @@ export interface ScreenConfig {
   pathPrefix?: string;
   render: () => ReactNode;
   includeInAssetsPackage?: boolean;
+  ignoreInLocalized?: boolean;
 }
 
 export type Scheme = (resolution: Resolution, styles?: Styles) => string;

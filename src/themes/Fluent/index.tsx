@@ -15,20 +15,20 @@ import { muxhistoryScheme } from "./schemes/muxhistory";
 import { muxappScheme } from "./schemes/muxapp";
 import { muxcollectScheme } from "./schemes/muxcollect";
 
-// const systemIcons: Record<string, string> = import.meta.glob(
-//   "./systems/**/*.png",
-//   {
-//     eager: true,
-//     query: "?url",
-//     import: "default",
-//   }
-// );
+const systemIcons: Record<string, string> = import.meta.glob(
+  "./systems/**/*.png",
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  }
+);
 
-// const appIcons: Record<string, string> = import.meta.glob("./apps/**/*.png", {
-//   eager: true,
-//   query: "?url",
-//   import: "default",
-// });
+const appIcons: Record<string, string> = import.meta.glob("./apps/**/*.png", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
 
 export const fluentLight: ThemeConfig = {
   name: "Fluent Light",
@@ -101,57 +101,56 @@ export const fluentLight: ThemeConfig = {
       path: "image/static/muxlaunch/shutdown.png",
       render: () => <MainMenu itemIndex={7} showBackground={false} />,
     },
-    // NOTE: those were only used to generate the images once, since we only need one resolution
-    // ...Object.keys(systemIcons).map((system) => ({
-    //   path: system.replace(/^.\/systems\//, ""),
-    //   pathPrefix: "catalogue/Folder/grid/",
-    //   includeInAssetsPackage: true,
-    //   overrideResolution: () => ({
-    //     width: 104,
-    //     height: 104,
-    //   }),
-    //   render: () => (
-    //     <div
-    //       style={{
-    //         display: "flex",
-    //         alignItems: "center",
-    //         justifyContent: "center",
-    //         width: "100%",
-    //         height: "100%",
-    //       }}
-    //     >
-    //       <img
-    //         src={systemIcons[system]}
-    //         style={{ maxWidth: "100%", maxHeight: "100%" }}
-    //       />
-    //     </div>
-    //   ),
-    // })),
-    // ...Object.keys(appIcons).map((app) => ({
-    //   path: app.replace(/^.\/apps\//, ""),
-    //   pathPrefix: "catalogue/Application/grid/",
-    //   includeInAssetsPackage: true,
-    //   overrideResolution: () => ({
-    //     width: 104,
-    //     height: 104,
-    //   }),
-    //   render: () => (
-    //     <div
-    //       style={{
-    //         display: "flex",
-    //         alignItems: "center",
-    //         justifyContent: "center",
-    //         width: "100%",
-    //         height: "100%",
-    //       }}
-    //     >
-    //       <img
-    //         src={appIcons[app]}
-    //         style={{ maxWidth: "80%", maxHeight: "80%" }}
-    //       />
-    //     </div>
-    //   ),
-    // })),
+    ...Object.keys(systemIcons).map((system) => ({
+      path: system.replace(/^.\/systems\//, ""),
+      pathPrefix: "catalogue/Folder/grid/",
+      ignoreInLocalized: true,
+      overrideResolution: ({ height }: Resolution) => ({
+        width: Math.round(height / 4.5),
+        height: Math.round(height / 4.5),
+      }),
+      render: () => (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <img
+            src={systemIcons[system]}
+            style={{ maxWidth: "90%", maxHeight: "90%" }}
+          />
+        </div>
+      ),
+    })),
+    ...Object.keys(appIcons).map((app) => ({
+      path: app.replace(/^.\/apps\//, ""),
+      pathPrefix: "catalogue/Application/grid/",
+      ignoreInLocalized: true,
+      overrideResolution: ({ height }: Resolution) => ({
+        width: Math.round(height / 7.5),
+        height: Math.round(height / 7.5),
+      }),
+      render: () => (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <img
+            src={appIcons[app]}
+            style={{ maxWidth: "90%", maxHeight: "90%" }}
+          />
+        </div>
+      ),
+    })),
   ],
   schemes: [
     {
