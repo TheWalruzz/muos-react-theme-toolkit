@@ -15,20 +15,21 @@ import { muxhistoryScheme } from "./schemes/muxhistory";
 import { muxappScheme } from "./schemes/muxapp";
 import { muxcollectScheme } from "./schemes/muxcollect";
 
-const systemIcons: Record<string, string> = import.meta.glob(
-  "./systems/**/*.png",
-  {
-    eager: true,
-    query: "?url",
-    import: "default",
-  }
-);
+// uncomment only if you want to regenerate grid images
+// const systemIcons: Record<string, string> = import.meta.glob(
+//   "./systems/**/*.png",
+//   {
+//     eager: true,
+//     query: "?url",
+//     import: "default",
+//   }
+// );
 
-const appIcons: Record<string, string> = import.meta.glob("./apps/**/*.png", {
-  eager: true,
-  query: "?url",
-  import: "default",
-});
+// const appIcons: Record<string, string> = import.meta.glob("./apps/**/*.png", {
+//   eager: true,
+//   query: "?url",
+//   import: "default",
+// });
 
 export const fluentLight: ThemeConfig = {
   name: "Fluent Light",
@@ -101,56 +102,57 @@ export const fluentLight: ThemeConfig = {
       path: "image/static/muxlaunch/shutdown.png",
       render: () => <MainMenu itemIndex={7} showBackground={false} />,
     },
-    ...Object.keys(systemIcons).map((system) => ({
-      path: system.replace(/^.\/systems\//, ""),
-      pathPrefix: "catalogue/Folder/grid/",
-      ignoreInLocalized: true,
-      overrideResolution: ({ height }: Resolution) => ({
-        width: Math.round(height / 4.5),
-        height: Math.round(height / 4.5),
-      }),
-      render: () => (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          <img
-            src={systemIcons[system]}
-            style={{ maxWidth: "90%", maxHeight: "90%" }}
-          />
-        </div>
-      ),
-    })),
-    ...Object.keys(appIcons).map((app) => ({
-      path: app.replace(/^.\/apps\//, ""),
-      pathPrefix: "catalogue/Application/grid/",
-      ignoreInLocalized: true,
-      overrideResolution: ({ height }: Resolution) => ({
-        width: Math.round(height / 7.5),
-        height: Math.round(height / 7.5),
-      }),
-      render: () => (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          <img
-            src={appIcons[app]}
-            style={{ maxWidth: "90%", maxHeight: "90%" }}
-          />
-        </div>
-      ),
-    })),
+    // uncomment only if you want to regenerate grid images
+    // ...Object.keys(systemIcons).map((system) => ({
+    //   path: system.replace(/^.\/systems\//, ""),
+    //   pathPrefix: "catalogue/Folder/grid/",
+    //   ignoreInLocalized: true,
+    //   overrideResolution: ({ height }: Resolution) => ({
+    //     width: Math.round(height / 4.5),
+    //     height: Math.round(height / 4.5),
+    //   }),
+    //   render: () => (
+    //     <div
+    //       style={{
+    //         display: "flex",
+    //         alignItems: "center",
+    //         justifyContent: "center",
+    //         width: "100%",
+    //         height: "100%",
+    //       }}
+    //     >
+    //       <img
+    //         src={systemIcons[system]}
+    //         style={{ maxWidth: "90%", maxHeight: "90%" }}
+    //       />
+    //     </div>
+    //   ),
+    // })),
+    // ...Object.keys(appIcons).map((app) => ({
+    //   path: app.replace(/^.\/apps\//, ""),
+    //   pathPrefix: "catalogue/Application/grid/",
+    //   ignoreInLocalized: true,
+    //   overrideResolution: ({ height }: Resolution) => ({
+    //     width: Math.round(height / 7.5),
+    //     height: Math.round(height / 7.5),
+    //   }),
+    //   render: () => (
+    //     <div
+    //       style={{
+    //         display: "flex",
+    //         alignItems: "center",
+    //         justifyContent: "center",
+    //         width: "100%",
+    //         height: "100%",
+    //       }}
+    //     >
+    //       <img
+    //         src={appIcons[app]}
+    //         style={{ maxWidth: "90%", maxHeight: "90%" }}
+    //       />
+    //     </div>
+    //   ),
+    // })),
   ],
   schemes: [
     {
