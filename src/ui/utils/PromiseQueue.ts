@@ -8,13 +8,11 @@ export class PromiseQueue<T> {
   }>;
   pendingPromises: number;
   maxConcurrent: number;
-  resolvedCallback: () => void;
 
-  constructor(maxConcurrent = Infinity, resolvedCallback = () => {}) {
+  constructor(maxConcurrent = Infinity) {
     this.queue = [];
     this.pendingPromises = 0;
     this.maxConcurrent = maxConcurrent;
-    this.resolvedCallback = resolvedCallback;
   }
 
   enqueue(promiseGenerator: () => Promise<T>) {
@@ -30,9 +28,6 @@ export class PromiseQueue<T> {
     }
 
     if (this.queue.length === 0) {
-      if (this.pendingPromises === 0) {
-        this.resolvedCallback();
-      }
       return;
     }
 
@@ -55,12 +50,7 @@ export class PromiseQueue<T> {
     factories: (() => Promise<T>)[],
     maxConcurrent: number = 8
   ) {
-    return new Promise((resolve) => {
-      const queue = new PromiseQueue(maxConcurrent, () => resolve(null));
-
-      for (const factory of factories) {
-        queue.enqueue(factory);
-      }
-    });
+    const queue = new PromiseQueue<T>(maxConcurrent);
+    await Promise.all(factories.map((factory) => queue.enqueue(factory)));
   }
 }
