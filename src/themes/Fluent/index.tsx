@@ -200,7 +200,7 @@ export const fluentLight: ThemeConfig = {
       "round(calc(var(--height) / var(--header-height-divider)), 1px)",
     "--padding": "8px",
   },
-  languages: ["en", "pl", "ko"],
+  languages: ["en", "pl", "ko", "fr"],
   fallbackLanguage: "en",
 };
 

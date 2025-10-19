@@ -1,0 +1,11 @@
+{
+  "charging": "Chargement de la batterie...",
+  "menu": {
+    "explore": "Jeux",
+    "collections": "Collections",
+    "history": "Historique",
+    "applications": "Applications"
+  },
+  "rebooting": "Redémarrage en cours",
+  "shuttingDown": "Extinction de la console"
+}
