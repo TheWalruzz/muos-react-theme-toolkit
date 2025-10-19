@@ -27,7 +27,7 @@ export function useDownloadTheme() {
 
   const getTheme = useCallback(async () => {
     setProgress(0);
-    setTotalProgress(refs.length + (currentTheme.assets?.length ?? 0) + 1);
+    setTotalProgress(refs.length + 1);
     setIsProcessing(true);
 
     const themeBlobWriter = new BlobWriter();
@@ -129,7 +129,6 @@ export function useDownloadTheme() {
         }
 
         await themeWriter.add(asset.path, reader);
-        setProgress((current) => current + 1);
       };
 
       await PromiseQueue.all(
