@@ -15,6 +15,8 @@ import {
 import { toPng, toCanvas } from "html-to-image";
 import { CanvasToBMP } from "../utils/canvasToBMP";
 import { downloadFile } from "../utils/downloadFile";
+import { PromiseQueue } from "../utils/PromiseQueue";
+import { AssetConfig } from "@/types";
 
 export function useDownloadTheme() {
   const refs = useRefs();
@@ -25,7 +27,7 @@ export function useDownloadTheme() {
 
   const getTheme = useCallback(async () => {
     setProgress(0);
-    setTotalProgress(refs.length + 1);
+    setTotalProgress(refs.length + (currentTheme.assets?.length ?? 0) + 1);
     setIsProcessing(true);
 
     const themeBlobWriter = new BlobWriter();
@@ -34,9 +36,11 @@ export function useDownloadTheme() {
     const assetsWriter = new ZipWriter(assetsBlobWriter);
     let hasAssetScreens = false;
 
-    for (const ref of refs) {
+    console.info("start:", new Date());
+
+    const handleRef = async (ref: (typeof refs)[number]) => {
       if (!ref.current) {
-        continue;
+        return;
       }
 
       // get DataURLs of images in specified file format
@@ -66,7 +70,7 @@ export function useDownloadTheme() {
           new Data64URIReader(data)
         );
         setProgress((current) => current + 1);
-        continue;
+        return;
       }
 
       // add fallback images and preview to main folder
@@ -96,7 +100,9 @@ export function useDownloadTheme() {
         );
       }
       setProgress((current) => current + 1);
-    }
+    };
+
+    await PromiseQueue.all(refs.map((ref) => () => handleRef(ref)));
 
     // create and add scheme files for every resolution
     for (const resolution of resolutions) {
@@ -110,7 +116,7 @@ export function useDownloadTheme() {
 
     // add all other assets
     if (currentTheme.assets) {
-      for (const asset of currentTheme.assets) {
+      const handleAsset = async (asset: AssetConfig) => {
         let reader: Reader<unknown>;
 
         switch (asset.type) {
@@ -123,7 +129,12 @@ export function useDownloadTheme() {
         }
 
         await themeWriter.add(asset.path, reader);
-      }
+        setProgress((current) => current + 1);
+      };
+
+      await PromiseQueue.all(
+        currentTheme.assets.map((asset) => () => handleAsset(asset))
+      );
     }
 
     // add credits.txt file
@@ -158,6 +169,8 @@ export function useDownloadTheme() {
       currentTheme.outputType ?? "muxthm"
     }`;
     const blob = await themeBlobWriter.getData();
+
+    console.info("stop:", new Date());
 
     setIsProcessing(false);
 
