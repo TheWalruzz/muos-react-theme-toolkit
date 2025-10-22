@@ -1,13 +1,17 @@
 // based on this article: https://medium.com/@lcgarcia/mastering-javascript-promises-building-a-promise-queue-from-scratch-d04902cbd6aa
 
+export type PromiseGenerator<T> = () => Promise<T>;
+
+type PromiseQueueItem<T> = {
+  promiseGenerator: PromiseGenerator<T>;
+  resolve: (value: T) => void;
+  reject: (reason?: unknown) => void;
+};
+
 export class PromiseQueue<T> {
-  queue: Array<{
-    promiseGenerator: () => Promise<T>;
-    resolve: (value: T) => void;
-    reject: (reason?: unknown) => void;
-  }>;
-  pendingPromises: number;
-  maxConcurrent: number;
+  private queue: PromiseQueueItem<T>[];
+  private pendingPromises: number;
+  private maxConcurrent: number;
 
   constructor(maxConcurrent = Infinity) {
     this.queue = [];
@@ -15,7 +19,7 @@ export class PromiseQueue<T> {
     this.maxConcurrent = maxConcurrent;
   }
 
-  enqueue(promiseGenerator: () => Promise<T>) {
+  enqueue(promiseGenerator: PromiseGenerator<T>) {
     return new Promise((resolve, reject) => {
       this.queue.push({ promiseGenerator, resolve, reject });
       this._dequeue();
@@ -47,10 +51,12 @@ export class PromiseQueue<T> {
   }
 
   static async all<T>(
-    factories: (() => Promise<T>)[],
+    promiseGenerators: PromiseGenerator<T>[],
     maxConcurrent: number = 8
   ) {
     const queue = new PromiseQueue<T>(maxConcurrent);
-    await Promise.all(factories.map((factory) => queue.enqueue(factory)));
+    await Promise.all(
+      promiseGenerators.map((generator) => queue.enqueue(generator))
+    );
   }
 }

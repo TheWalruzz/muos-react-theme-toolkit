@@ -4,6 +4,8 @@ This is a simple toolkit that allows you to generate images and schemes for muOS
 
 This is not a user friendly solution with easy UI, drag'n'drop and other bells and whistles - you still have to add and modify React components in code and style them in CSS for the images to generate correctly, so previous knowledge of React and CSS is probably needed. However, if you do manage to wrap your head around it, you can create fully working themes in no time.
 
+**NOTE: `main` branch is just an entrypoint for new themes. If you want to see working projects, check the branches of this repo**
+
 ## Features
 
 * Templating in React and CSS (with PostCSS plugin support).
