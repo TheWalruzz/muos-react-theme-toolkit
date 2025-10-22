@@ -5,7 +5,7 @@
   flex-direction: column;
   padding: round(calc(var(--height) / 48), 1px);
   gap: round(calc(var(--height) / 27), 1px);
-  font-size: round(calc(var(--height) / 28), 1px);
+  font-size: round(calc(var(--height) / (26 + (var(--is-square) * 2))), 1px);
   font-weight: 600;
 
   &.active {
