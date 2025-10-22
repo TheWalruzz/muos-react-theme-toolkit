@@ -123,7 +123,10 @@ export const fluentLight: ThemeConfig = {
     //     >
     //       <img
     //         src={systemIcons[system]}
-    //         style={{ maxWidth: "90%", maxHeight: "90%" }}
+    //         style={{
+    //           maxWidth: "calc(100% - (var(--is-square) * 10%))",
+    //           maxHeight: "calc(100% - (var(--is-square) * 10%))",
+    //         }}
     //       />
     //     </div>
     //   ),
@@ -148,7 +151,10 @@ export const fluentLight: ThemeConfig = {
     //     >
     //       <img
     //         src={appIcons[app]}
-    //         style={{ maxWidth: "90%", maxHeight: "90%" }}
+    //         style={{
+    //           maxWidth: "calc(100% - (var(--is-square) * 10%))",
+    //           maxHeight: "calc(100% - (var(--is-square) * 10%))",
+    //         }}
     //       />
     //     </div>
     //   ),

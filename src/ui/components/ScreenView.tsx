@@ -47,7 +47,8 @@ export function ScreenView({
             overflow: "hidden",
             "--width": `${width}px`,
             "--height": `${height}px`,
-            "--is-square": width === height ? 1 : 0,
+            "--is-square":
+              resolutionGroup.width === resolutionGroup.height ? 1 : 0,
             ...(currentTheme?.styles ?? {}),
           } as CSSProperties
         }
