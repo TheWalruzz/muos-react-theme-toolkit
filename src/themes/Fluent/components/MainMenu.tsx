@@ -31,7 +31,7 @@ export function MainMenu({
   const { width, height } = useResolution();
   const { t } = useTranslation();
 
-  const iconSize = useMemo(() => Math.round(height / 7), [height]);
+  const iconSize = useMemo(() => Math.round(height / 7.5), [height]);
   const iconSizeSmall = useMemo(() => Math.round(height / 15), [height]);
 
   const itemsMain = useMemo(
