@@ -107,9 +107,9 @@ export const fluentLight: ThemeConfig = {
     //   path: system.replace(/^.\/systems\//, ""),
     //   pathPrefix: "catalogue/Folder/grid/",
     //   ignoreInLocalized: true,
-    //   overrideResolution: ({ height }: Resolution) => ({
-    //     width: Math.round(height / 4.5),
-    //     height: Math.round(height / 4.5),
+    //   overrideResolution: ({ width, height }: Resolution) => ({
+    //     width: Math.round(height / (height === width ? 4.5 : 4)),
+    //     height: Math.round(height / (height === width ? 4.5 : 4)),
     //   }),
     //   render: () => (
     //     <div
@@ -136,8 +136,8 @@ export const fluentLight: ThemeConfig = {
     //   pathPrefix: "catalogue/Application/grid/",
     //   ignoreInLocalized: true,
     //   overrideResolution: ({ height }: Resolution) => ({
-    //     width: Math.round(height / 7.5),
-    //     height: Math.round(height / 7.5),
+    //     width: Math.round(height / 8),
+    //     height: Math.round(height / 8),
     //   }),
     //   render: () => (
     //     <div
