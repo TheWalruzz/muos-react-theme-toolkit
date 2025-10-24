@@ -227,3 +227,21 @@ export const fluentDark = extend(fluentLight, {
     "--item-border-color-active": "#3f3f3f",
   },
 });
+
+export const fluentPurple = extend(fluentLight, {
+  name: "Fluent Purple",
+  styles: {
+    "--shadow": "0 0 2px rgba(0,0,0,0.24), 0 2px 4px rgba(0,0,0,0.28)",
+    "--drop-shadow":
+      "drop-shadow(0 0 2px rgba(0,0,0,0.24)) drop-shadow(0 2px 4px rgba(0,0,0,0.28))",
+    "--fake-shadow-color": "#290041",
+    "--background": "#4A0077",
+    "--panel-background-color": "#2A0044",
+    "--panel-background-color-alpha": "#2A00444c",
+    "--text-color": "#ffffff",
+    "--item-color": "#5b0094",
+    "--item-color-active": "#744da9",
+    "--item-border-color": "#5f0498",
+    "--item-border-color-active": "#764fab",
+  },
+});

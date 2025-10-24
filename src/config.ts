@@ -1,4 +1,4 @@
-import { fluentDark, fluentLight } from "./themes/Fluent";
+import { fluentDark, fluentLight, fluentPurple } from "./themes/Fluent";
 import { ThemeConfig } from "./types";
 
-export const themes: ThemeConfig[] = [fluentLight, fluentDark];
+export const themes: ThemeConfig[] = [fluentLight, fluentDark, fluentPurple];
