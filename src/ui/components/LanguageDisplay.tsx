@@ -44,7 +44,8 @@ export function LanguageDisplay({ language, initialOpen }: Props) {
               {currentTheme.screens
                 .filter(
                   (screen) =>
-                    !screen.includeInAssetsPackage ||
+                    (!screen.includeInAssetsPackage &&
+                      !screen.ignoreInLocalized) ||
                     language === currentTheme.fallbackLanguage
                 )
                 .map((screen, index) => (
