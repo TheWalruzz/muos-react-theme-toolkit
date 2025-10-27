@@ -102,54 +102,62 @@ export function useDownloadTheme() {
       setProgress((current) => current + 1);
     };
 
-    await PromiseQueue.all(refs.map((ref) => () => handleRef(ref)));
-
-    // create and add scheme files for every resolution
-    for (const resolution of resolutions) {
-      for (const scheme of currentTheme.schemes) {
-        await themeWriter.add(
-          `${resolution.width}x${resolution.height}/${scheme.path}`,
-          new TextReader(scheme.scheme(resolution, currentTheme.styles))
-        );
-      }
-    }
-
     // add all other assets
-    if (currentTheme.assets) {
-      const handleAsset = async (asset: AssetConfig) => {
-        let reader: Reader<unknown>;
+    const handleAsset = async (asset: AssetConfig) => {
+      let reader: Reader<unknown>;
 
-        switch (asset.type) {
-          case "dataUrl":
-            reader = new Data64URIReader(asset.data);
-            break;
-          case "text":
-            reader = new TextReader(asset.data);
-            break;
+      switch (asset.type) {
+        case "dataUrl":
+          reader = new Data64URIReader(asset.data);
+          break;
+        case "text":
+          reader = new TextReader(asset.data);
+          break;
+      }
+
+      await themeWriter.add(asset.path, reader);
+    };
+
+    await PromiseQueue.all([
+      // get all screens
+      () => PromiseQueue.all(refs.map((ref) => () => handleRef(ref))),
+      // create and add scheme files for every resolution
+      () =>
+        PromiseQueue.all(
+          currentTheme.schemes.flatMap((scheme) =>
+            resolutions.map(
+              (resolution) => () =>
+                themeWriter.add(
+                  `${resolution.width}x${resolution.height}/${scheme.path}`,
+                  new TextReader(scheme.scheme(resolution, currentTheme.styles))
+                )
+            )
+          )
+        ),
+      // get all static assets
+      () =>
+        PromiseQueue.all(
+          currentTheme.assets?.map((asset) => () => handleAsset(asset)) ?? []
+        ),
+      // add credits.txt file
+      async () => {
+        if (!currentTheme.skipCredits) {
+          await themeWriter.add(
+            "credits.txt",
+            new TextReader(`Created By: ${currentTheme.author}`)
+          );
         }
-
-        await themeWriter.add(asset.path, reader);
-      };
-
-      await PromiseQueue.all(
-        currentTheme.assets.map((asset) => () => handleAsset(asset))
-      );
-    }
-
-    // add credits.txt file
-    if (!currentTheme.skipCredits) {
-      await themeWriter.add(
-        "credits.txt",
-        new TextReader(`Created By: ${currentTheme.author}`)
-      );
-    }
-
-    if (currentTheme.osVersion) {
-      await themeWriter.add(
-        "version.txt",
-        new TextReader(currentTheme.osVersion)
-      );
-    }
+      },
+      // add version.txt file
+      async () => {
+        if (currentTheme.osVersion) {
+          await themeWriter.add(
+            "version.txt",
+            new TextReader(currentTheme.osVersion)
+          );
+        }
+      },
+    ]);
 
     // handle assets.muxzip if applicable
     await assetsWriter.close();
