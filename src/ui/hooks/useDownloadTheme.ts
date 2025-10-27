@@ -118,45 +118,43 @@ export function useDownloadTheme() {
       await themeWriter.add(asset.path, reader);
     };
 
-    await PromiseQueue.all([
+    await Promise.all([
       // get all screens
-      () => PromiseQueue.all(refs.map((ref) => () => handleRef(ref))),
+      PromiseQueue.all(refs.map((ref) => () => handleRef(ref))),
       // create and add scheme files for every resolution
-      () =>
-        PromiseQueue.all(
-          currentTheme.schemes.flatMap((scheme) =>
-            resolutions.map(
-              (resolution) => () =>
-                themeWriter.add(
-                  `${resolution.width}x${resolution.height}/${scheme.path}`,
-                  new TextReader(scheme.scheme(resolution, currentTheme.styles))
-                )
-            )
+      PromiseQueue.all(
+        currentTheme.schemes.flatMap((scheme) =>
+          resolutions.map(
+            (resolution) => () =>
+              themeWriter.add(
+                `${resolution.width}x${resolution.height}/${scheme.path}`,
+                new TextReader(scheme.scheme(resolution, currentTheme.styles))
+              )
           )
-        ),
+        )
+      ),
       // get all static assets
-      () =>
-        PromiseQueue.all(
-          currentTheme.assets?.map((asset) => () => handleAsset(asset)) ?? []
-        ),
+      PromiseQueue.all(
+        currentTheme.assets?.map((asset) => () => handleAsset(asset)) ?? []
+      ),
       // add credits.txt file
-      async () => {
+      (async () => {
         if (!currentTheme.skipCredits) {
           await themeWriter.add(
             "credits.txt",
             new TextReader(`Created By: ${currentTheme.author}`)
           );
         }
-      },
+      })(),
       // add version.txt file
-      async () => {
+      (async () => {
         if (currentTheme.osVersion) {
           await themeWriter.add(
             "version.txt",
             new TextReader(currentTheme.osVersion)
           );
         }
-      },
+      })(),
     ]);
 
     // handle assets.muxzip if applicable
