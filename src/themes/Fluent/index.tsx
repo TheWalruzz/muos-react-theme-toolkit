@@ -124,6 +124,7 @@ export const fluentLight: ThemeConfig = {
     //       <img
     //         src={systemIcons[system]}
     //         style={{
+    //           width: "100%",
     //           maxWidth: "calc(100% - (var(--is-square) * 10%))",
     //           maxHeight: "calc(100% - (var(--is-square) * 10%))",
     //         }}
