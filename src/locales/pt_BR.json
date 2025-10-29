@@ -1,0 +1,11 @@
+{
+  "charging": "Carregando...",
+  "menu": {
+    "explore": "Conteúdo",
+    "collections": "Coleções",
+    "history": "Histórico",
+    "applications": "Apps"
+  },
+  "rebooting": "Reiniciando",
+  "shuttingDown": "Desligando"
+}
