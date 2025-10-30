@@ -1,0 +1,15 @@
+{
+  "charging": "Cargando...",
+  "menu": {
+    "explore": "Juegos",
+    "collections": "Favoritos",
+    "history": "Historial",
+    "applications": "Aplicaciones",
+    "information": "Información",
+    "configuration": "Configuración",
+    "reboot": "Reiniciar",
+    "shutdown": "Apagar"
+  },
+  "rebooting": "Reiniciando...",
+  "shuttingDown": "Apagando..."
+}
