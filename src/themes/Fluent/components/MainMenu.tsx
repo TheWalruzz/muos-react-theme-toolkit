@@ -32,7 +32,7 @@ export function MainMenu({
   const { t } = useTranslation();
 
   const iconSize = useMemo(
-    () => Math.round((height / 7.5) * (width === height ? 0.9 : 1)),
+    () => Math.round((height / 7) * (width === height ? 0.9 : 1)),
     [width, height]
   );
   const iconSizeSmall = useMemo(() => Math.round(height / 15), [height]);
