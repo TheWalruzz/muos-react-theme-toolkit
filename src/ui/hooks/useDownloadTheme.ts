@@ -15,6 +15,8 @@ import {
 import { toPng, toCanvas } from "html-to-image";
 import { CanvasToBMP } from "../utils/canvasToBMP";
 import { downloadFile } from "../utils/downloadFile";
+import { PromiseQueue } from "../utils/PromiseQueue";
+import { AssetConfig } from "@/types";
 
 export function useDownloadTheme() {
   const refs = useRefs();
@@ -34,9 +36,11 @@ export function useDownloadTheme() {
     const assetsWriter = new ZipWriter(assetsBlobWriter);
     let hasAssetScreens = false;
 
-    for (const ref of refs) {
+    console.info("start:", new Date());
+
+    const handleRef = async (ref: (typeof refs)[number]) => {
       if (!ref.current) {
-        continue;
+        return;
       }
 
       // get DataURLs of images in specified file format
@@ -66,7 +70,7 @@ export function useDownloadTheme() {
           new Data64URIReader(data)
         );
         setProgress((current) => current + 1);
-        continue;
+        return;
       }
 
       // add fallback images and preview to main folder
@@ -96,50 +100,62 @@ export function useDownloadTheme() {
         );
       }
       setProgress((current) => current + 1);
-    }
-
-    // create and add scheme files for every resolution
-    for (const resolution of resolutions) {
-      for (const scheme of currentTheme.schemes) {
-        await themeWriter.add(
-          `${resolution.width}x${resolution.height}/${scheme.path}`,
-          new TextReader(scheme.scheme(resolution, currentTheme.styles))
-        );
-      }
-    }
+    };
 
     // add all other assets
-    if (currentTheme.assets) {
-      for (const asset of currentTheme.assets) {
-        let reader: Reader<unknown>;
+    const handleAsset = async (asset: AssetConfig) => {
+      let reader: Reader<unknown>;
 
-        switch (asset.type) {
-          case "dataUrl":
-            reader = new Data64URIReader(asset.data);
-            break;
-          case "text":
-            reader = new TextReader(asset.data);
-            break;
-        }
-
-        await themeWriter.add(asset.path, reader);
+      switch (asset.type) {
+        case "dataUrl":
+          reader = new Data64URIReader(asset.data);
+          break;
+        case "text":
+          reader = new TextReader(asset.data);
+          break;
       }
-    }
 
-    // add credits.txt file
-    if (!currentTheme.skipCredits) {
-      await themeWriter.add(
-        "credits.txt",
-        new TextReader(`Created By: ${currentTheme.author}`)
-      );
-    }
+      await themeWriter.add(asset.path, reader);
+    };
 
-    if (currentTheme.osVersion) {
-      await themeWriter.add(
-        "version.txt",
-        new TextReader(currentTheme.osVersion)
-      );
-    }
+    await Promise.all([
+      // get all screens
+      PromiseQueue.all(refs.map((ref) => () => handleRef(ref))),
+      // create and add scheme files for every resolution
+      PromiseQueue.all(
+        currentTheme.schemes.flatMap((scheme) =>
+          resolutions.map(
+            (resolution) => () =>
+              themeWriter.add(
+                `${resolution.width}x${resolution.height}/${scheme.path}`,
+                new TextReader(scheme.scheme(resolution, currentTheme.styles))
+              )
+          )
+        )
+      ),
+      // get all static assets
+      PromiseQueue.all(
+        currentTheme.assets?.map((asset) => () => handleAsset(asset)) ?? []
+      ),
+      // add credits.txt file
+      (async () => {
+        if (!currentTheme.skipCredits) {
+          await themeWriter.add(
+            "credits.txt",
+            new TextReader(`Created By: ${currentTheme.author}`)
+          );
+        }
+      })(),
+      // add version.txt file
+      (async () => {
+        if (currentTheme.osVersion) {
+          await themeWriter.add(
+            "version.txt",
+            new TextReader(currentTheme.osVersion)
+          );
+        }
+      })(),
+    ]);
 
     // handle assets.muxzip if applicable
     await assetsWriter.close();
@@ -158,6 +174,8 @@ export function useDownloadTheme() {
       currentTheme.outputType ?? "muxthm"
     }`;
     const blob = await themeBlobWriter.getData();
+
+    console.info("stop:", new Date());
 
     setIsProcessing(false);
 
