@@ -75,6 +75,9 @@ HELP_CONTENT = ${colorVar(styles, "--text-color")}
 HELP_TITLE = ${colorVar(styles, "--text-color")}
 HELP_RADIUS = 10
 
+[grid]
+CELL_DEFAULT_BORDER_ALPHA = 0
+
 [navigation]
 ALIGNMENT = 0
 NAV_LR_GLYPH = ${colorVar(styles, "--text-color")}
