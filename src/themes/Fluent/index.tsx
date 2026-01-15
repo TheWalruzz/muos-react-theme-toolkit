@@ -14,6 +14,8 @@ import { Charging } from "./components/Charging";
 import { muxhistoryScheme } from "./schemes/muxhistory";
 import { muxappScheme } from "./schemes/muxapp";
 import { muxcollectScheme } from "./schemes/muxcollect";
+import { lightIcons } from "./assets/light";
+import { darkIcons } from "./assets/dark";
 
 // uncomment only if you want to regenerate grid images
 // const systemIcons: Record<string, string> = import.meta.glob(
@@ -31,8 +33,8 @@ import { muxcollectScheme } from "./schemes/muxcollect";
 //   import: "default",
 // });
 
-export const fluentLight: ThemeConfig = {
-  name: "Fluent Light",
+const fluentBase: ThemeConfig = {
+  name: "Fluent Base",
   author: "TheWalruzz",
   osVersion: "2508.1",
   screens: [
@@ -127,6 +129,11 @@ export const fluentLight: ThemeConfig = {
     //           width: "100%",
     //           maxWidth: "calc(100% - (var(--is-square) * 10%))",
     //           maxHeight: "calc(100% - (var(--is-square) * 10%))",
+    //           // recolor the image
+    //           backgroundColor: "transparent",
+    //           filter: "drop-shadow(400px 0px 0 var(--text-color))",
+    //           transform: "translateX(-400px)",
+    //           overflow: "hidden",
     //         }}
     //       />
     //     </div>
@@ -155,6 +162,11 @@ export const fluentLight: ThemeConfig = {
     //         style={{
     //           maxWidth: "calc(100% - (var(--is-square) * 10%))",
     //           maxHeight: "calc(100% - (var(--is-square) * 10%))",
+    //           // recolor the image
+    //           backgroundColor: "transparent",
+    //           filter: "drop-shadow(400px 0px 0 var(--text-color))",
+    //           transform: "translateX(-400px)",
+    //           overflow: "hidden",
     //         }}
     //       />
     //     </div>
@@ -187,7 +199,6 @@ export const fluentLight: ThemeConfig = {
       scheme: muxcollectScheme,
     },
   ],
-  assets,
   styles: {
     "--font": "'NotoSansKR', 'Selawik'",
     "--item-border-width": "1px",
@@ -211,8 +222,14 @@ export const fluentLight: ThemeConfig = {
   fallbackLanguage: "en",
 };
 
-export const fluentDark = extend(fluentLight, {
+export const fluentLight = extend(fluentBase, {
+  name: "Fluent Light",
+  assets: [...assets, ...lightIcons],
+});
+
+export const fluentDark = extend(fluentBase, {
   name: "Fluent Dark",
+  assets: [...assets, ...darkIcons],
   styles: {
     "--shadow": "0 0 2px rgba(0,0,0,0.24), 0 2px 4px rgba(0,0,0,0.28)",
     "--drop-shadow":
@@ -229,8 +246,9 @@ export const fluentDark = extend(fluentLight, {
   },
 });
 
-export const fluentPurple = extend(fluentLight, {
+export const fluentPurple = extend(fluentBase, {
   name: "Fluent Purple",
+  assets: [...assets, ...darkIcons],
   styles: {
     "--shadow": "0 0 2px rgba(0,0,0,0.24), 0 2px 4px rgba(0,0,0,0.28)",
     "--drop-shadow":
