@@ -3,7 +3,7 @@ import { colorVar, pxVar } from "@/utils/vars";
 
 export const defaultScheme: Scheme = (
   { width, height },
-  styles
+  styles,
 ) => `[background]
 BACKGROUND = ${colorVar(styles, "--item-color")}
 BACKGROUND_ALPHA = 0
@@ -29,6 +29,7 @@ FONT_LIST_ICON_PAD_BOTTOM = 0
 
 [status]
 PADDING_RIGHT = 12
+ALIGN=1
 
 [battery]
 BATTERY_NORMAL = ${colorVar(styles, "--text-color")}
@@ -51,7 +52,7 @@ BLUETOOTH_NORMAL_ALPHA = 100
 BLUETOOTH_ACTIVE_ALPHA = 255
 
 [date]
-DATETIME_ALIGN = 2
+DATETIME_ALIGN = 1
 DATETIME_TEXT = ${colorVar(styles, "--text-color")}
 DATETIME_ALPHA = 255
 PADDING_LEFT = 10
@@ -69,7 +70,7 @@ HEADER_BACKGROUND = FFFFFF
 HEADER_BACKGROUND_ALPHA = 0
 HEADER_TEXT = ${colorVar(styles, "--text-color")}
 HEADER_TEXT_ALPHA = 255
-HEADER_TEXT_ALIGN = 1
+HEADER_TEXT_ALIGN = 2
 PADDING_LEFT = 12
 
 [help]
