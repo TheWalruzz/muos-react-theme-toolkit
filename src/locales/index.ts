@@ -6,6 +6,7 @@ import ko from "./ko.json";
 import fr from "./fr.json";
 import pt_BR from "./pt_BR.json";
 import es from "./es.json";
+import it from "./it.json";
 
 export const resources: SupportedTranslations = {
   en: { translation: en },
@@ -14,4 +15,5 @@ export const resources: SupportedTranslations = {
   fr: { translation: fr },
   pt_BR: { translation: pt_BR },
   es: { translation: es },
+  it: { translation: it },
 };

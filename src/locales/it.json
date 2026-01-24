@@ -1,0 +1,11 @@
+{
+  "charging": "Caricamento In Corso...",
+  "menu": {
+    "explore": "Giochi",
+    "collections": "Collezioni",
+    "history": "Cronologia",
+    "applications": "Applicazioni"
+  },
+  "rebooting": "Riavvio",
+  "shuttingDown": "Spegnimento"
+}
