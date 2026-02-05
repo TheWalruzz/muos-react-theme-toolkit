@@ -16,6 +16,12 @@ import { muxappScheme } from "./schemes/muxapp";
 import { muxcollectScheme } from "./schemes/muxcollect";
 import { lightIcons } from "./assets/light";
 import { darkIcons } from "./assets/dark";
+import {
+  BatteryChargeRegular,
+  BrightnessHighRegular,
+  Speaker2Regular,
+} from "@fluentui/react-icons";
+import { OverlayIndicator } from "./components/OverlayIndicator";
 
 // uncomment only if you want to regenerate grid images
 // const systemIcons: Record<string, string> = import.meta.glob(
@@ -104,6 +110,52 @@ const fluentBase: ThemeConfig = {
       path: "image/static/muxlaunch/shutdown.png",
       render: () => <MainMenu itemIndex={7} showBackground={false} />,
     },
+    // overlays for brightness, volume and battery
+    ...Array.from(Array(10).keys()).map((index) => ({
+      path: `overlay/battery/battery_${index}.png`,
+      ignoreInLocalized: true,
+      ignoreOtherResolutions: true,
+      overrideResolution: () => ({
+        width: 140,
+        height: 50,
+      }),
+      render: () => (
+        <OverlayIndicator
+          index={index}
+          icon={<BatteryChargeRegular fontSize={34} />}
+        />
+      ),
+    })),
+    ...Array.from(Array(10).keys()).map((index) => ({
+      path: `overlay/bright/bright_${index}.png`,
+      ignoreInLocalized: true,
+      ignoreOtherResolutions: true,
+      overrideResolution: () => ({
+        width: 140,
+        height: 50,
+      }),
+      render: () => (
+        <OverlayIndicator
+          index={index}
+          icon={<BrightnessHighRegular fontSize={34} />}
+        />
+      ),
+    })),
+    ...Array.from(Array(10).keys()).map((index) => ({
+      path: `overlay/volume/volume_${index}.png`,
+      ignoreInLocalized: true,
+      ignoreOtherResolutions: true,
+      overrideResolution: () => ({
+        width: 140,
+        height: 50,
+      }),
+      render: () => (
+        <OverlayIndicator
+          index={index}
+          icon={<Speaker2Regular fontSize={34} />}
+        />
+      ),
+    })),
     // uncomment only if you want to regenerate grid images
     // ...Object.keys(systemIcons).map((system) => ({
     //   path: system.replace(/^.\/systems\//, ""),

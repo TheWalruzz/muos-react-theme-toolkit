@@ -67,19 +67,25 @@ export function useDownloadTheme() {
           `${ref.meta.pathPrefix ?? ""}${ref.meta.width}x${ref.meta.height}/${
             ref.meta.path
           }`,
-          new Data64URIReader(data)
+          new Data64URIReader(data),
         );
         setProgress((current) => current + 1);
         return;
       }
 
-      // add fallback images and preview to main folder
-      if (ref.meta.language === currentTheme.fallbackLanguage) {
+      // handle non-screen items that will just go into theme root
+      if (ref.meta.ignoreOtherResolutions) {
+        await themeWriter.add(
+          `${ref.meta.pathPrefix ?? ""}${ref.meta.path}`,
+          new Data64URIReader(data),
+        );
+        // add fallback images and preview to main folder
+      } else if (ref.meta.language === currentTheme.fallbackLanguage) {
         await themeWriter.add(
           `${ref.meta.pathPrefix ?? ""}${ref.meta.width}x${ref.meta.height}/${
             ref.meta.path
           }`,
-          new Data64URIReader(data)
+          new Data64URIReader(data),
         );
         // only process translated screens with paths including "image/", as preview should be added only once
       } else if (
@@ -89,14 +95,14 @@ export function useDownloadTheme() {
         // do some path substitution to get translated images into subfolders
         const newPath = ref.meta.path.replace(
           "image/",
-          `image/${supportedLanguageNameMap[ref.meta.language as Language]}/`
+          `image/${supportedLanguageNameMap[ref.meta.language as Language]}/`,
         );
 
         await themeWriter.add(
           `${ref.meta.pathPrefix ?? ""}${ref.meta.width}x${
             ref.meta.height
           }/${newPath}`,
-          new Data64URIReader(data)
+          new Data64URIReader(data),
         );
       }
       setProgress((current) => current + 1);
@@ -128,21 +134,21 @@ export function useDownloadTheme() {
             (resolution) => () =>
               themeWriter.add(
                 `${resolution.width}x${resolution.height}/${scheme.path}`,
-                new TextReader(scheme.scheme(resolution, currentTheme.styles))
-              )
-          )
-        )
+                new TextReader(scheme.scheme(resolution, currentTheme.styles)),
+              ),
+          ),
+        ),
       ),
       // get all static assets
       PromiseQueue.all(
-        currentTheme.assets?.map((asset) => () => handleAsset(asset)) ?? []
+        currentTheme.assets?.map((asset) => () => handleAsset(asset)) ?? [],
       ),
       // add credits.txt file
       (async () => {
         if (!currentTheme.skipCredits) {
           await themeWriter.add(
             "credits.txt",
-            new TextReader(`Created By: ${currentTheme.author}`)
+            new TextReader(`Created By: ${currentTheme.author}`),
           );
         }
       })(),
@@ -151,7 +157,7 @@ export function useDownloadTheme() {
         if (currentTheme.osVersion) {
           await themeWriter.add(
             "version.txt",
-            new TextReader(currentTheme.osVersion)
+            new TextReader(currentTheme.osVersion),
           );
         }
       })(),
@@ -196,6 +202,6 @@ export function useDownloadTheme() {
       progress,
       totalProgress,
     }),
-    [downloadTheme, getTheme, isProcessing, progress, totalProgress]
+    [downloadTheme, getTheme, isProcessing, progress, totalProgress],
   );
 }

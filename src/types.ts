@@ -23,6 +23,8 @@ export interface ScreenConfig {
   includeInAssetsPackage?: boolean;
   /** Should this screen not be rendered for localized assets? */
   ignoreInLocalized?: boolean;
+  /** Should this screen be re-rendered for each resolution */
+  ignoreOtherResolutions?: boolean;
 }
 
 export type Scheme = (resolution: Resolution, styles?: Styles) => string;

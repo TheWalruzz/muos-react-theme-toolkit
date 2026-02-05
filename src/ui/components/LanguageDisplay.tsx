@@ -44,9 +44,11 @@ export function LanguageDisplay({ language, initialOpen }: Props) {
               {currentTheme.screens
                 .filter(
                   (screen) =>
-                    (!screen.includeInAssetsPackage &&
+                    ((!screen.includeInAssetsPackage &&
                       !screen.ignoreInLocalized) ||
-                    language === currentTheme.fallbackLanguage
+                      language === currentTheme.fallbackLanguage) &&
+                    (!screen.ignoreOtherResolutions ||
+                      resolution === resolutions[0]),
                 )
                 .map((screen, index) => (
                   <ResolutionContext.Provider
@@ -55,7 +57,7 @@ export function LanguageDisplay({ language, initialOpen }: Props) {
                       screen.overrideResolution?.(resolution) ?? resolution
                     }
                   >
-                    <ScreenView resolutionGroup={resolution} {...screen} />
+                    <ScreenView resolutionGroup={resolution} config={screen} />
                   </ResolutionContext.Provider>
                 ))}
             </div>

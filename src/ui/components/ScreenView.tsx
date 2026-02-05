@@ -7,27 +7,21 @@ import { useCurrentTheme } from "@/ui/context/CurrentThemeContext";
 
 import styles from "./ScreenView.module.css";
 
-interface Props extends ScreenConfig {
+interface Props {
   resolutionGroup: Resolution;
+  config: ScreenConfig;
 }
 
-export function ScreenView({
-  path,
-  render,
-  pathPrefix,
-  includeInAssetsPackage,
-  resolutionGroup,
-}: Props) {
+export function ScreenView({ config, resolutionGroup }: Props) {
+  const { path, render, pathPrefix } = config;
   const { i18n } = useTranslation();
   const { currentTheme } = useCurrentTheme();
   const { width, height } = useResolution();
   const setRef = useContextRef({
-    path,
     language: i18n.language,
     width: resolutionGroup.width,
     height: resolutionGroup.height,
-    includeInAssetsPackage: !!includeInAssetsPackage,
-    pathPrefix,
+    ...config,
   });
 
   return (
