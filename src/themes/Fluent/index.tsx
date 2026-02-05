@@ -117,12 +117,12 @@ const fluentBase: ThemeConfig = {
       ignoreOtherResolutions: true,
       overrideResolution: () => ({
         width: 140,
-        height: 50,
+        height: 35,
       }),
       render: () => (
         <OverlayIndicator
           index={index}
-          icon={<BatteryChargeRegular fontSize={34} />}
+          icon={<BatteryChargeRegular fontSize={22} />}
         />
       ),
     })),
@@ -132,12 +132,12 @@ const fluentBase: ThemeConfig = {
       ignoreOtherResolutions: true,
       overrideResolution: () => ({
         width: 140,
-        height: 50,
+        height: 35,
       }),
       render: () => (
         <OverlayIndicator
           index={index}
-          icon={<BrightnessHighRegular fontSize={34} />}
+          icon={<BrightnessHighRegular fontSize={22} />}
         />
       ),
     })),
@@ -147,12 +147,12 @@ const fluentBase: ThemeConfig = {
       ignoreOtherResolutions: true,
       overrideResolution: () => ({
         width: 140,
-        height: 50,
+        height: 35,
       }),
       render: () => (
         <OverlayIndicator
           index={index}
-          icon={<Speaker2Regular fontSize={34} />}
+          icon={<Speaker2Regular fontSize={22} />}
         />
       ),
     })),
