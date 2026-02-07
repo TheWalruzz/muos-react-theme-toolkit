@@ -18,7 +18,7 @@ export interface ScreenConfig {
   /** Static prefix for the destination path */
   pathPrefix?: string;
   /** Function that returns the component to render for the screen. */
-  render: () => ReactNode;
+  render: (resolution: Resolution) => ReactNode;
   /** @deprecated Should this screen be included in internal assets.muxzip? */
   includeInAssetsPackage?: boolean;
   /** Should this screen not be rendered for localized assets? */

@@ -41,13 +41,15 @@ export function ScreenView({ config, resolutionGroup }: Props) {
             overflow: "hidden",
             "--width": `${width}px`,
             "--height": `${height}px`,
+            "--resolution-width": `${resolutionGroup.width}px`,
+            "--resolution-height": `${resolutionGroup.height}px`,
             "--is-square":
               resolutionGroup.width === resolutionGroup.height ? 1 : 0,
             ...(currentTheme?.styles ?? {}),
           } as CSSProperties
         }
       >
-        {render()}
+        {render(resolutionGroup)}
       </div>
     </div>
   );

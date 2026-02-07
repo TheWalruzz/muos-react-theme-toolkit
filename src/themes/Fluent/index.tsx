@@ -112,47 +112,47 @@ const fluentBase: ThemeConfig = {
     },
     // overlays for brightness, volume and battery
     ...Array.from(Array(10).keys()).map((index) => ({
-      path: `overlay/battery/battery_${index}.png`,
+      path: `battery_${index}.png`,
       ignoreInLocalized: true,
-      ignoreOtherResolutions: true,
-      overrideResolution: () => ({
-        width: 140,
-        height: 35,
+      pathPrefix: "overlay/battery/",
+      overrideResolution: ({ width, height }: Resolution) => ({
+        width: Math.round(width / 3.5),
+        height: Math.round(height / 10),
       }),
-      render: () => (
+      render: ({ height }: Resolution) => (
         <OverlayIndicator
           index={index}
-          icon={<BatteryChargeRegular fontSize={22} />}
+          icon={<BatteryChargeRegular fontSize={Math.round(height / 18)} />}
         />
       ),
     })),
     ...Array.from(Array(10).keys()).map((index) => ({
-      path: `overlay/bright/bright_${index}.png`,
+      path: `bright_${index}.png`,
       ignoreInLocalized: true,
-      ignoreOtherResolutions: true,
-      overrideResolution: () => ({
-        width: 140,
-        height: 35,
+      pathPrefix: "overlay/bright/",
+      overrideResolution: ({ width, height }: Resolution) => ({
+        width: Math.round(width / 3.5),
+        height: Math.round(height / 10),
       }),
-      render: () => (
+      render: ({ height }: Resolution) => (
         <OverlayIndicator
           index={index}
-          icon={<BrightnessHighRegular fontSize={22} />}
+          icon={<BrightnessHighRegular fontSize={Math.round(height / 18)} />}
         />
       ),
     })),
     ...Array.from(Array(10).keys()).map((index) => ({
-      path: `overlay/volume/volume_${index}.png`,
+      path: `volume_${index}.png`,
       ignoreInLocalized: true,
-      ignoreOtherResolutions: true,
-      overrideResolution: () => ({
-        width: 140,
-        height: 35,
+      pathPrefix: "overlay/volume/",
+      overrideResolution: ({ width, height }: Resolution) => ({
+        width: Math.round(width / 3.5),
+        height: Math.round(height / 10),
       }),
-      render: () => (
+      render: ({ height }: Resolution) => (
         <OverlayIndicator
           index={index}
-          icon={<Speaker2Regular fontSize={22} />}
+          icon={<Speaker2Regular fontSize={Math.round(height / 18)} />}
         />
       ),
     })),
