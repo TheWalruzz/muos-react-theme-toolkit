@@ -156,6 +156,55 @@ const fluentBase: ThemeConfig = {
         />
       ),
     })),
+    // duplicate the 640x480 as the default overlays
+    ...Array.from(Array(10).keys()).map((index) => ({
+      path: `battery_${index}.png`,
+      ignoreInLocalized: true,
+      ignoreOtherResolutions: true,
+      pathPrefix: "overlay/battery/",
+      overrideResolution: ({ width, height }: Resolution) => ({
+        width: Math.round(width / 3.5),
+        height: Math.round(height / 10),
+      }),
+      render: ({ height }: Resolution) => (
+        <OverlayIndicator
+          index={index}
+          icon={<BatteryChargeRegular fontSize={Math.round(height / 18)} />}
+        />
+      ),
+    })),
+    ...Array.from(Array(10).keys()).map((index) => ({
+      path: `bright_${index}.png`,
+      ignoreInLocalized: true,
+      ignoreOtherResolutions: true,
+      pathPrefix: "overlay/bright/",
+      overrideResolution: ({ width, height }: Resolution) => ({
+        width: Math.round(width / 3.5),
+        height: Math.round(height / 10),
+      }),
+      render: ({ height }: Resolution) => (
+        <OverlayIndicator
+          index={index}
+          icon={<BrightnessHighRegular fontSize={Math.round(height / 18)} />}
+        />
+      ),
+    })),
+    ...Array.from(Array(10).keys()).map((index) => ({
+      path: `volume_${index}.png`,
+      ignoreInLocalized: true,
+      ignoreOtherResolutions: true,
+      pathPrefix: "overlay/volume/",
+      overrideResolution: ({ width, height }: Resolution) => ({
+        width: Math.round(width / 3.5),
+        height: Math.round(height / 10),
+      }),
+      render: ({ height }: Resolution) => (
+        <OverlayIndicator
+          index={index}
+          icon={<Speaker2Regular fontSize={Math.round(height / 18)} />}
+        />
+      ),
+    })),
     // uncomment only if you want to regenerate grid images
     // ...Object.keys(systemIcons).map((system) => ({
     //   path: system.replace(/^.\/systems\//, ""),
