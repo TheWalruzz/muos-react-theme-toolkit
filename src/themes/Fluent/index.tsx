@@ -17,7 +17,7 @@ import { muxcollectScheme } from "./schemes/muxcollect";
 import { lightIcons } from "./assets/light";
 import { darkIcons } from "./assets/dark";
 import {
-  BatteryChargeRegular,
+  Battery0Regular,
   BrightnessHighRegular,
   Speaker2Regular,
 } from "@fluentui/react-icons";
@@ -51,7 +51,7 @@ const getOverlayScreens = (): ScreenConfig[] => [
     render: ({ height }: Resolution) => (
       <OverlayIndicator
         index={index}
-        icon={<BatteryChargeRegular fontSize={Math.round(height / 18)} />}
+        icon={<Battery0Regular fontSize={Math.round(height / 18)} />}
       />
     ),
   })),
