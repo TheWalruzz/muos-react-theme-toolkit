@@ -259,6 +259,11 @@ const fluentBase: ThemeConfig = {
       path: "scheme/muxcollect.ini",
       scheme: muxcollectScheme,
     },
+    {
+      path: "scheme/muxactivity.ini",
+      // re-use muxhistory scheme
+      scheme: muxhistoryScheme,
+    },
   ],
   styles: {
     "--font": "'NotoSansKR', 'Selawik'",
