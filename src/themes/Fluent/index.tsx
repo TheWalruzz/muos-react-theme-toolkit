@@ -90,7 +90,7 @@ const getOverlayScreens = (): ScreenConfig[] => [
 const fluentBase: ThemeConfig = {
   name: "Fluent Base",
   author: "TheWalruzz",
-  osVersion: "2508.1",
+  osVersion: "2601.2",
   screens: [
     {
       path: "preview.png",
