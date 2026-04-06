@@ -111,7 +111,7 @@ const fluentBase: ThemeConfig = {
       render: () => <Default />,
     },
     {
-      path: "image/bootlogo.bmp",
+      path: "image/bootlogo.png",
       render: () => <BootLogo />,
     },
     {
