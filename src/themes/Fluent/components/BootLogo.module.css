@@ -6,7 +6,13 @@
   justify-content: center;
 
   img {
+    --image-offset: 2000px;
     height: calc(var(--height) / 2);
-    filter: var(--drop-shadow);
+    background-color: transparent;
+    filter: drop-shadow(var(--image-offset) 0px 0 var(--text-color))
+      drop-shadow(var(--image-offset) 0 2px rgba(0, 0, 0, 0.12))
+      drop-shadow(var(--image-offset) 2px 4px rgba(0, 0, 0, 0.14));
+    transform: translateX(calc(-1 * var(--image-offset)));
+    overflow: hidden;
   }
 }
