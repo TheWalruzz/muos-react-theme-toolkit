@@ -330,3 +330,22 @@ export const fluentPurple = extend(fluentBase, {
     "--item-border-color-active": "#764fab",
   },
 });
+
+export const fluentBlue = extend(fluentBase, {
+  name: "Fluent Blue",
+  assets: [...assets, ...darkIcons],
+  styles: {
+    "--shadow": "0 0 2px rgba(0,0,0,0.24), 0 2px 4px rgba(0,0,0,0.28)",
+    "--drop-shadow":
+      "drop-shadow(0 0 2px rgba(0,0,0,0.24)) drop-shadow(0 2px 4px rgba(0,0,0,0.28))",
+    "--fake-shadow-color": "#061c32",
+    "--background": "#1976d2",
+    "--panel-background-color": "#1565c0",
+    "--panel-background-color-alpha": "#1565c04c",
+    "--text-color": "#ffffff",
+    "--item-color": "#1e88e5",
+    "--item-color-active": "#42a5f5",
+    "--item-border-color": "#2196f3",
+    "--item-border-color-active": "#64b5f6",
+  },
+});
