@@ -10,8 +10,14 @@
     color: var(--text-color);
     width: 100%;
     height: 100%;
-    padding: var(--padding);
-    gap: var(--item-grid-gap);
+    padding: round(
+      calc(var(--resolution-height) / var(--padding-divider)),
+      1px
+    );
+    gap: round(
+      calc(var(--resolution-height) / var(--item-grid-gap-divider)),
+      1px
+    );
     border-radius: calc(var(--resolution-height) / 54);
     border: calc(var(--item-border-width) + 1px) solid
       var(--item-border-color-active);

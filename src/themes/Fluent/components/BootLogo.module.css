@@ -10,8 +10,13 @@
     height: calc(var(--height) / 2);
     background-color: transparent;
     filter: drop-shadow(var(--image-offset) 0px 0 var(--text-color))
-      drop-shadow(var(--image-offset) 0 2px rgba(0, 0, 0, 0.18))
-      drop-shadow(var(--image-offset) 2px 4px rgba(0, 0, 0, 0.21));
+      drop-shadow(
+        var(--image-offset) 0 calc(var(--height) / 240) rgba(0, 0, 0, 0.18)
+      )
+      drop-shadow(
+        var(--image-offset) calc(var(--height) / 240) calc(var(--height) / 120)
+          rgba(0, 0, 0, 0.21)
+      );
     transform: translateX(calc(-1 * var(--image-offset)));
     overflow: hidden;
   }

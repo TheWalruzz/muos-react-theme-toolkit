@@ -268,9 +268,10 @@ const fluentBase: ThemeConfig = {
   styles: {
     "--font": "'NotoSansKR', 'Selawik'",
     "--item-border-width": "1px",
-    "--shadow": "0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.14)",
+    "--shadow":
+      "0 0 calc(var(--height) / 240) rgba(0, 0, 0, 0.12), 0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0, 0, 0, 0.14)",
     "--drop-shadow":
-      "drop-shadow(0 0 2px rgba(0, 0, 0, 0.12)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.14))",
+      "drop-shadow(0 0 calc(var(--height) / 240) rgba(0, 0, 0, 0.12)) drop-shadow(0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0, 0, 0, 0.14))",
     "--fake-shadow-color": "#bdbdbd",
     "--background": "#fafafa",
     "--text-color": "#242424",
@@ -278,11 +279,14 @@ const fluentBase: ThemeConfig = {
     "--item-color-active": "#eaeaea",
     "--item-border-color": "#f1f1f1",
     "--item-border-color-active": "#ededed",
-    "--item-grid-gap": "8px",
     "--header-height-divider": "9",
     "--header-height":
       "round(calc(var(--height) / var(--header-height-divider)), 1px)",
-    "--padding": "8px",
+    "--padding-divider": "60",
+    "--padding": "round(calc(var(--height) / var(--padding-divider)), 1px)",
+    "--item-grid-gap-divider": "60",
+    "--item-grid-gap":
+      "round(calc(var(--height) / var(--item-grid-gap-divider)), 1px)",
   },
   languages: ["en", "pl", "ko", "fr", "pt_BR", "es", "it"],
   fallbackLanguage: "en",
@@ -297,9 +301,10 @@ export const fluentDark = extend(fluentBase, {
   name: "Fluent Dark",
   assets: [...assets, ...darkIcons],
   styles: {
-    "--shadow": "0 0 2px rgba(0,0,0,0.24), 0 2px 4px rgba(0,0,0,0.28)",
+    "--shadow":
+      "0 0 calc(var(--height) / 240) rgba(0,0,0,0.24), 0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0,0,0,0.28)",
     "--drop-shadow":
-      "drop-shadow(0 0 2px rgba(0,0,0,0.24)) drop-shadow(0 2px 4px rgba(0,0,0,0.28))",
+      "drop-shadow(0 0 calc(var(--height) / 240) rgba(0,0,0,0.24)) drop-shadow(0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0,0,0,0.28))",
     "--fake-shadow-color": "#111111",
     "--background": "#1f1f1f",
     "--panel-background-color": "#000000",
@@ -316,9 +321,10 @@ export const fluentPurple = extend(fluentBase, {
   name: "Fluent Purple",
   assets: [...assets, ...darkIcons],
   styles: {
-    "--shadow": "0 0 2px rgba(0,0,0,0.24), 0 2px 4px rgba(0,0,0,0.28)",
+    "--shadow":
+      "0 0 calc(var(--height) / 240) rgba(0,0,0,0.24), 0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0,0,0,0.28)",
     "--drop-shadow":
-      "drop-shadow(0 0 2px rgba(0,0,0,0.24)) drop-shadow(0 2px 4px rgba(0,0,0,0.28))",
+      "drop-shadow(0 0 calc(var(--height) / 240) rgba(0,0,0,0.24)) drop-shadow(0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0,0,0,0.28))",
     "--fake-shadow-color": "#290041",
     "--background": "#4A0077",
     "--panel-background-color": "#2A0044",
@@ -335,9 +341,10 @@ export const fluentBlue = extend(fluentBase, {
   name: "Fluent Blue",
   assets: [...assets, ...darkIcons],
   styles: {
-    "--shadow": "0 0 2px rgba(0,0,0,0.24), 0 2px 4px rgba(0,0,0,0.28)",
+    "--shadow":
+      "0 0 calc(var(--height) / 240) rgba(0,0,0,0.24), 0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0,0,0,0.28)",
     "--drop-shadow":
-      "drop-shadow(0 0 2px rgba(0,0,0,0.24)) drop-shadow(0 2px 4px rgba(0,0,0,0.28))",
+      "drop-shadow(0 0 calc(var(--height) / 240) rgba(0,0,0,0.24)) drop-shadow(0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0,0,0,0.28))",
     "--fake-shadow-color": "#061c32",
     "--background": "#1976d2",
     "--panel-background-color": "#1565c0",

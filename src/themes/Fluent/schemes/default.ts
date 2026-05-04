@@ -1,5 +1,5 @@
 import { Scheme } from "@/types";
-import { colorVar, pxVar } from "@/utils/vars";
+import { colorVar, numberVar, pxVar } from "@/utils/vars";
 
 export const defaultScheme: Scheme = (
   { width, height },
@@ -22,13 +22,14 @@ FONT_MESSAGE_PAD_BOTTOM = 0
 FONT_MESSAGE_ICON_PAD_TOP = 0
 FONT_MESSAGE_ICON_PAD_BOTTOM = 0
 FONT_LIST_PAD_LEFT = ${Math.round(height / 19) * 2}
+FONT_LIST_PAD_RIGHT = ${Math.round(height / 38)}
 FONT_LIST_PAD_TOP = 0
 FONT_LIST_PAD_BOTTOM = 0
 FONT_LIST_ICON_PAD_TOP = 0
 FONT_LIST_ICON_PAD_BOTTOM = 0
 
 [status]
-PADDING_RIGHT = 12
+PADDING_RIGHT = ${Math.round(height / 38)}
 ALIGN=1
 
 [battery]
@@ -55,7 +56,7 @@ BLUETOOTH_ACTIVE_ALPHA = 255
 DATETIME_ALIGN = 1
 DATETIME_TEXT = ${colorVar(styles, "--text-color")}
 DATETIME_ALPHA = 255
-PADDING_LEFT = 10
+PADDING_LEFT = ${Math.round(height / 38)}
 
 [footer]
 FOOTER_HEIGHT = ${Math.round(height / pxVar(styles, "--header-height-divider"))}
@@ -71,7 +72,6 @@ HEADER_BACKGROUND_ALPHA = 0
 HEADER_TEXT = ${colorVar(styles, "--text-color")}
 HEADER_TEXT_ALPHA = 255
 HEADER_TEXT_ALIGN = 2
-PADDING_LEFT = 12
 
 [help]
 HELP_BACKGROUND = ${colorVar(styles, "--item-color")}
@@ -247,10 +247,10 @@ ROLL_BORDER_RADIUS = ${Math.round(height / 54)}
 
 [counter]
 COUNTER_ALIGNMENT = 2
-COUNTER_PADDING_AROUND = ${pxVar(styles, "--padding")}
+COUNTER_PADDING_AROUND = ${Math.round(height / numberVar(styles, "--padding-divider"))}
 COUNTER_PADDING_SIDE = 5
 COUNTER_PADDING_TOP = ${
-  Math.round(height / pxVar(styles, "--header-height-divider")) + 4
+  Math.round(height / numberVar(styles, "--header-height-divider")) + 4
 }
 COUNTER_BORDER_COLOUR = ${colorVar(styles, "--item-border-color-active")}
 COUNTER_BORDER_ALPHA = 255
@@ -270,15 +270,15 @@ META_CUT = 40
 STATIC_ALIGNMENT = 0
 CONTENT_SIZE_TO_CONTENT = 0
 CONTENT_ITEM_COUNT = 6
-CONTENT_WIDTH = ${width - 2 * pxVar(styles, "--padding")}
+CONTENT_WIDTH = ${width - 2 * Math.round(height / numberVar(styles, "--padding-divider"))}
 CONTENT_HEIGHT = ${
   height -
   2 * Math.round(height / pxVar(styles, "--header-height-divider")) -
-  pxVar(styles, "--padding")
+  Math.round(height / numberVar(styles, "--padding-divider"))
 }
 CONTENT_ALIGNMENT = 0
-CONTENT_PADDING_LEFT = ${pxVar(styles, "--padding")}
-CONTENT_PADDING_TOP = ${pxVar(styles, "--padding") - 2}
+CONTENT_PADDING_LEFT = ${Math.round(height / numberVar(styles, "--padding-divider"))}
+CONTENT_PADDING_TOP = ${Math.round(height / numberVar(styles, "--padding-divider")) - 2}
 ANIMATED_BACKGROUND = 0
 NAVIGATION_TYPE = 0
 `;

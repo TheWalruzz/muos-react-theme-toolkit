@@ -1,34 +1,34 @@
 import { Scheme } from "@/types";
-import { colorVar, numberVar, pxVar } from "@/utils/vars";
+import { colorVar, numberVar } from "@/utils/vars";
 
 export const muxcollectScheme: Scheme = ({ width, height }, styles) => `[grid]
 NAVIGATION_TYPE = 2
 BACKGROUND_ALPHA = 0
 COLUMN_COUNT = 4
 ROW_COUNT = 2
-LOCATION_X = ${pxVar(styles, "--padding")}
+LOCATION_X = ${Math.round(height / numberVar(styles, "--padding-divider"))}
 LOCATION_Y = ${
   Math.round(height / numberVar(styles, "--header-height-divider")) +
-  pxVar(styles, "--padding")
+  Math.round(height / numberVar(styles, "--padding-divider"))
 }
-COLUMN_WIDTH = ${Math.round((width - pxVar(styles, "--padding")) / 4)}
+COLUMN_WIDTH = ${Math.round((width - Math.round(height / numberVar(styles, "--padding-divider"))) / 4)}
 ROW_HEIGHT = ${Math.round(
   (height -
     2 * Math.round(height / numberVar(styles, "--header-height-divider"))) /
-    2
+    2,
 )}
 CURRENT_ITEM_LABEL_TEXT_ALPHA = 0
 CELL_WIDTH = ${Math.round(
   (width -
-    2 * pxVar(styles, "--padding") -
-    3 * pxVar(styles, "--item-grid-gap")) /
-    4
+    2 * Math.round(height / numberVar(styles, "--padding-divider")) -
+    3 * Math.round(height / numberVar(styles, "--item-grid-gap-divider"))) /
+    4,
 )}
 CELL_HEIGHT = ${Math.round(
   (height -
     2 * Math.round(height / numberVar(styles, "--header-height-divider")) -
-    2 * pxVar(styles, "--item-grid-gap")) /
-    2
+    2 * Math.round(height / numberVar(styles, "--item-grid-gap-divider"))) /
+    2,
 )}
 CELL_RADIUS = ${Math.round(height / 54)}
 CELL_IMAGE_PADDING_TOP = 0
@@ -36,18 +36,18 @@ CELL_TEXT_PADDING_BOTTOM = ${
   Math.round(
     (height -
       2 * Math.round(height / numberVar(styles, "--header-height-divider")) -
-      2 * pxVar(styles, "--item-grid-gap")) /
-      4
+      2 * Math.round(height / numberVar(styles, "--item-grid-gap-divider"))) /
+      4,
   ) -
-  2 * pxVar(styles, "--padding")
+  2 * Math.round(height / numberVar(styles, "--padding-divider"))
 }
 CELL_COLUMN_ALIGN = 0
 CELL_ROW_ALIGN = 0
 CELL_BORDER_WIDTH = 1
 CELL_SHADOW = ${colorVar(styles, "--fake-shadow-color")}
 CELL_SHADOW_X_OFFSET = 0
-CELL_SHADOW_Y_OFFSET = 2
-CELL_SHADOW_WIDTH = 4
+CELL_SHADOW_Y_OFFSET = ${Math.round(height / 240)}
+CELL_SHADOW_WIDTH = ${Math.round(height / 120)}
 CELL_DEFAULT_BACKGROUND = ${colorVar(styles, "--item-color")}
 CELL_DEFAULT_BACKGROUND_ALPHA = 255
 CELL_DEFAULT_BORDER = ${colorVar(styles, "--item-border-color")}
@@ -67,6 +67,6 @@ CELL_FOCUS_TEXT_ALPHA = 255
 LIST_DEFAULT_LABEL_LONG_MODE = 1
 
 [misc]
-CONTENT_WIDTH = ${Math.round(width / 2 - pxVar(styles, "--padding"))}
+CONTENT_WIDTH = ${Math.round(width / 2 - Math.round(height / numberVar(styles, "--padding-divider")))}
 NAVIGATION_TYPE = 0
 `;
