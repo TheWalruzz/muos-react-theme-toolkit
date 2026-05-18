@@ -27,6 +27,10 @@ FONT_LIST_PAD_TOP = 0
 FONT_LIST_PAD_BOTTOM = 0
 FONT_LIST_ICON_PAD_TOP = 0
 FONT_LIST_ICON_PAD_BOTTOM = 0
+FONT_LIST_SIZE = ${Math.round(height / 24)}
+FONT_HEADER_SIZE = ${Math.round(height / 24)}
+FONT_FOOTER_SIZE = ${Math.round(height / 24)}
+FONT_PANEL_SIZE = ${Math.round(height / 24)}
 
 [status]
 PADDING_RIGHT = ${Math.round(height / 38)}
