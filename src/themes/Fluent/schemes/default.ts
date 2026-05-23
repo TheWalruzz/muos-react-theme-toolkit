@@ -86,6 +86,20 @@ HELP_CONTENT = ${colorVar(styles, "--text-color")}
 HELP_TITLE = ${colorVar(styles, "--text-color")}
 HELP_RADIUS = ${Math.round(height / 54)}
 
+[dialogue]
+DIALOGUE_BACKGROUND = ${colorVar(styles, "--item-color")}
+DIALOGUE_BACKGROUND_ALPHA = 255
+DIALOGUE_BORDER = ${colorVar(styles, "--item-border-color")}
+DIALOGUE_BORDER_ALPHA = 255
+DIALOGUE_TITLE = ${colorVar(styles, "--text-color")}
+DIALOGUE_CONTENT = ${colorVar(styles, "--text-color")}
+DIALOGUE_OPTION = ${colorVar(styles, "--text-color")}
+DIALOGUE_DIM_ALPHA = 200
+DIALOGUE_SELECTION = ${colorVar(styles, "--item-color-active")}
+DIALOGUE_SELECTION_ALPHA = 255
+DIALOGUE_RADIUS_MAIN = ${Math.round(height / 54)}
+DIALOGUE_RADIUS_SELECTED = ${Math.round(height / 54)}
+
 [navigation]
 ALIGNMENT = 0
 NAV_LR_GLYPH = ${colorVar(styles, "--text-color")}
