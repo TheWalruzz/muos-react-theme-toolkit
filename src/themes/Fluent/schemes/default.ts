@@ -53,7 +53,7 @@ NETWORK_ACTIVE_ALPHA = 255
 [bluetooth]
 BLUETOOTH_NORMAL = ${colorVar(styles, "--text-color")}
 BLUETOOTH_ACTIVE = ${colorVar(styles, "--text-color")}
-BLUETOOTH_NORMAL_ALPHA = 100
+BLUETOOTH_NORMAL_ALPHA = 255
 BLUETOOTH_ACTIVE_ALPHA = 255
 
 [date]

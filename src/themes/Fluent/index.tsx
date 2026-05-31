@@ -14,30 +14,12 @@ import { Charging } from "./components/Charging";
 import { muxhistoryScheme } from "./schemes/muxhistory";
 import { muxappScheme } from "./schemes/muxapp";
 import { muxcollectScheme } from "./schemes/muxcollect";
-import { lightIcons } from "./assets/light";
-import { darkIcons } from "./assets/dark";
 import {
   Battery0Regular,
   BrightnessHighRegular,
   Speaker2Regular,
 } from "@fluentui/react-icons";
 import { OverlayIndicator } from "./components/OverlayIndicator";
-
-// uncomment only if you want to regenerate grid images
-// const systemIcons: Record<string, string> = import.meta.glob(
-//   "./systems/**/*.png",
-//   {
-//     eager: true,
-//     query: "?url",
-//     import: "default",
-//   }
-// );
-
-// const appIcons: Record<string, string> = import.meta.glob("./apps/**/*.png", {
-//   eager: true,
-//   query: "?url",
-//   import: "default",
-// });
 
 const getOverlayScreens = (): ScreenConfig[] => [
   ...Array.from(Array(10).keys()).map((index) => ({
@@ -87,8 +69,8 @@ const getOverlayScreens = (): ScreenConfig[] => [
   })),
 ];
 
-const fluentBase: ThemeConfig = {
-  name: "Fluent Base",
+export const fluentLight: ThemeConfig = {
+  name: "Fluent Light",
   author: "TheWalruzz",
   osVersion: "2606.0",
   screens: [
@@ -165,75 +147,8 @@ const fluentBase: ThemeConfig = {
       ...screen,
       ignoreOtherResolutions: true,
     })),
-    // uncomment only if you want to regenerate grid images
-    // ...Object.keys(systemIcons).map((system) => ({
-    //   path: system.replace(/^.\/systems\//, ""),
-    //   pathPrefix: "catalogue/Folder/grid/",
-    //   ignoreInLocalized: true,
-    //   overrideResolution: ({ width, height }: Resolution) => ({
-    //     width: Math.round(height / (height === width ? 4.5 : 4)),
-    //     height: Math.round(height / (height === width ? 4.5 : 4)),
-    //   }),
-    //   render: () => (
-    //     <div
-    //       style={{
-    //         display: "flex",
-    //         alignItems: "center",
-    //         justifyContent: "center",
-    //         width: "100%",
-    //         height: "100%",
-    //       }}
-    //     >
-    //       <img
-    //         src={systemIcons[system]}
-    //         style={{
-    //           width: "100%",
-    //           maxWidth: "calc(100% - (var(--is-square) * 10%))",
-    //           maxHeight: "calc(100% - (var(--is-square) * 10%))",
-    //           // recolor the image
-    //           backgroundColor: "transparent",
-    //           filter: "drop-shadow(400px 0px 0 var(--text-color))",
-    //           transform: "translateX(-400px)",
-    //           overflow: "hidden",
-    //         }}
-    //       />
-    //     </div>
-    //   ),
-    // })),
-    // ...Object.keys(appIcons).map((app) => ({
-    //   path: app.replace(/^.\/apps\//, ""),
-    //   pathPrefix: "catalogue/Application/grid/",
-    //   ignoreInLocalized: true,
-    //   overrideResolution: ({ height }: Resolution) => ({
-    //     width: Math.round(height / 8),
-    //     height: Math.round(height / 8),
-    //   }),
-    //   render: () => (
-    //     <div
-    //       style={{
-    //         display: "flex",
-    //         alignItems: "center",
-    //         justifyContent: "center",
-    //         width: "100%",
-    //         height: "100%",
-    //       }}
-    //     >
-    //       <img
-    //         src={appIcons[app]}
-    //         style={{
-    //           maxWidth: "calc(100% - (var(--is-square) * 10%))",
-    //           maxHeight: "calc(100% - (var(--is-square) * 10%))",
-    //           // recolor the image
-    //           backgroundColor: "transparent",
-    //           filter: "drop-shadow(400px 0px 0 var(--text-color))",
-    //           transform: "translateX(-400px)",
-    //           overflow: "hidden",
-    //         }}
-    //       />
-    //     </div>
-    //   ),
-    // })),
   ],
+  assets,
   schemes: [
     {
       path: "scheme/default.ini",
@@ -292,14 +207,8 @@ const fluentBase: ThemeConfig = {
   fallbackLanguage: "en",
 };
 
-export const fluentLight = extend(fluentBase, {
-  name: "Fluent Light",
-  assets: [...assets, ...lightIcons],
-});
-
-export const fluentDark = extend(fluentBase, {
+export const fluentDark = extend(fluentLight, {
   name: "Fluent Dark",
-  assets: [...assets, ...darkIcons],
   styles: {
     "--shadow":
       "0 0 calc(var(--height) / 240) rgba(0,0,0,0.24), 0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0,0,0,0.28)",
@@ -317,9 +226,8 @@ export const fluentDark = extend(fluentBase, {
   },
 });
 
-export const fluentPurple = extend(fluentBase, {
+export const fluentPurple = extend(fluentLight, {
   name: "Fluent Purple",
-  assets: [...assets, ...darkIcons],
   styles: {
     "--shadow":
       "0 0 calc(var(--height) / 240) rgba(0,0,0,0.24), 0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0,0,0,0.28)",
@@ -337,9 +245,8 @@ export const fluentPurple = extend(fluentBase, {
   },
 });
 
-export const fluentBlue = extend(fluentBase, {
+export const fluentBlue = extend(fluentLight, {
   name: "Fluent Blue",
-  assets: [...assets, ...darkIcons],
   styles: {
     "--shadow":
       "0 0 calc(var(--height) / 240) rgba(0,0,0,0.24), 0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0,0,0,0.28)",

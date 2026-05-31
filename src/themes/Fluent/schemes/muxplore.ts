@@ -46,7 +46,7 @@ CELL_DEFAULT_BORDER = ${colorVar(styles, "--item-border-color")}
 CELL_DEFAULT_BORDER_ALPHA = 255
 CELL_DEFAULT_IMAGE_ALPHA = 255
 CELL_DEFAULT_IMAGE_RECOLOUR = ${colorVar(styles, "--text-color")}
-CELL_DEFAULT_IMAGE_RECOLOUR_ALPHA = 0
+CELL_DEFAULT_IMAGE_RECOLOUR_ALPHA = 255
 CELL_DEFAULT_TEXT = ${colorVar(styles, "--text-color")}
 CELL_DEFAULT_TEXT_ALPHA = 0
 CELL_FOCUS_BACKGROUND = ${colorVar(styles, "--item-color-active")}
@@ -54,7 +54,7 @@ CELL_FOCUS_BACKGROUND_ALPHA = 255
 CELL_FOCUS_BORDER = ${colorVar(styles, "--item-border-color-active")}
 CELL_FOCUS_BORDER_ALPHA = 255
 CELL_FOCUS_IMAGE_RECOLOUR = ${colorVar(styles, "--text-color")}
-CELL_FOCUS_IMAGE_RECOLOUR_ALPHA = 0
+CELL_FOCUS_IMAGE_RECOLOUR_ALPHA = 255
 CELL_FOCUS_TEXT = ${colorVar(styles, "--text-color")}
 CELL_FOCUS_TEXT_ALPHA = 0
 
