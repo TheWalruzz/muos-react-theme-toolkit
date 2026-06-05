@@ -31,8 +31,8 @@ CELL_HEIGHT = ${Math.round(
     2,
 )}
 CELL_RADIUS = ${Math.round(height / 54)}
-CELL_IMAGE_PADDING_TOP = ${Math.round(height / 15)}
-CELL_TEXT_PADDING_BOTTOM = ${Math.round(height / 15)}
+CELL_IMAGE_PADDING_TOP = ${Math.round(height / 30) /* was / 15 */}
+CELL_TEXT_PADDING_BOTTOM = ${Math.round(height / 30) /* was / 15 */}
 CELL_COLUMN_ALIGN = 0
 CELL_ROW_ALIGN = 0
 CELL_BORDER_WIDTH = 1
