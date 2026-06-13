@@ -188,6 +188,8 @@ export const fluentLight: ThemeConfig = {
     "--drop-shadow":
       "drop-shadow(0 0 calc(var(--height) / 240) rgba(0, 0, 0, 0.12)) drop-shadow(0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0, 0, 0, 0.14))",
     "--fake-shadow-color": "#bdbdbd",
+    "--font-shadow-color": "#000000",
+    "--font-shadow-opacity": "0.14",
     "--background": "#fafafa",
     "--text-color": "#242424",
     "--item-color": "#ffffff",
