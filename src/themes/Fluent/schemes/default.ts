@@ -99,6 +99,14 @@ DIALOGUE_SELECTION = ${colorVar(styles, "--item-color-active")}
 DIALOGUE_SELECTION_ALPHA = 255
 DIALOGUE_RADIUS_MAIN = ${Math.round(height / 54)}
 DIALOGUE_RADIUS_SELECTED = ${Math.round(height / 54)}
+DIALOGUE_SHADOW_COLOUR = ${colorVar(styles, "--font-shadow-color")}
+DIALOGUE_SHADOW_ALPHA = ${Math.round(255 * numberVar(styles, "--font-shadow-opacity"))}
+DIALOGUE_SHADOW_X_OFFSET = ${Math.round(height / 480)}
+DIALOGUE_SHADOW_Y_OFFSET = ${Math.round(height / 480)}
+DIALOGUE_SHADOW_COLOUR_FOCUS = ${colorVar(styles, "--font-shadow-color")}
+DIALOGUE_SHADOW_ALPHA_FOCUS = ${Math.round(255 * numberVar(styles, "--font-shadow-opacity"))}
+DIALOGUE_SHADOW_X_OFFSET_FOCUS = ${Math.round(height / 480)}
+DIALOGUE_SHADOW_Y_OFFSET_FOCUS = ${Math.round(height / 480)}
 
 [navigation]
 ALIGNMENT = 0
@@ -232,6 +240,14 @@ OSK_ITEM_BORDER_ALPHA = 255
 OSK_ITEM_BORDER_FOCUS = ${colorVar(styles, "--item-border-color-active")}
 OSK_ITEM_BORDER_FOCUS_ALPHA = 255
 OSK_ITEM_RADIUS = ${Math.round(height / 54)}
+OSK_ITEM_SHADOW_COLOUR = ${colorVar(styles, "--font-shadow-color")}
+OSK_ITEM_SHADOW_ALPHA = ${Math.round(255 * numberVar(styles, "--font-shadow-opacity"))}
+OSK_ITEM_SHADOW_X_OFFSET = ${Math.round(height / 480)}
+OSK_ITEM_SHADOW_Y_OFFSET = ${Math.round(height / 480)}
+OSK_ITEM_SHADOW_COLOUR_FOCUS = ${colorVar(styles, "--font-shadow-color")}
+OSK_ITEM_SHADOW_ALPHA_FOCUS = ${Math.round(255 * numberVar(styles, "--font-shadow-opacity"))}
+OSK_ITEM_SHADOW_X_OFFSET_FOCUS = ${Math.round(height / 480)}
+OSK_ITEM_SHADOW_Y_OFFSET_FOCUS = ${Math.round(height / 480)}
 
 [notification]
 MSG_BACKGROUND = ${colorVar(styles, "--item-color")}
