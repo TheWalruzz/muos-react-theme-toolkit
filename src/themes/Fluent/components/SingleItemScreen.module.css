@@ -26,7 +26,7 @@
     transform: translate(-50%, 50%);
     /* poor man's font scaling */
     font-size: calc(var(--height) / 15);
-    text-shadow: var(--shadow);
+    text-shadow: var(--font-shadow);
     white-space: nowrap;
   }
 }

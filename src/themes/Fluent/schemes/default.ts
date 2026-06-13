@@ -166,12 +166,8 @@ LIST_DEFAULT_GLYPH_RECOLOUR = ${colorVar(styles, "--text-color")}
 LIST_DEFAULT_GLYPH_RECOLOUR_ALPHA = 255
 LIST_DEFAULT_SHADOW_COLOUR = ${colorVar(styles, "--font-shadow-color")}
 LIST_DEFAULT_SHADOW_ALPHA = ${Math.round(255 * numberVar(styles, "--font-shadow-opacity"))}
-LIST_DEFAULT_SHADOW_X_OFFSET = 0
-LIST_DEFAULT_SHADOW_Y_OFFSET = ${Math.round(height / 240)}
-LIST_FOCUS_SHADOW_COLOUR = ${colorVar(styles, "--font-shadow-color")}
-LIST_FOCUS_SHADOW_ALPHA = ${Math.round(255 * numberVar(styles, "--font-shadow-opacity"))}
-LIST_FOCUS_SHADOW_X_OFFSET = 0
-LIST_FOCUS_SHADOW_Y_OFFSET = ${Math.round(height / 240)}
+LIST_DEFAULT_SHADOW_X_OFFSET = ${Math.round(height / 480)}
+LIST_DEFAULT_SHADOW_Y_OFFSET = ${Math.round(height / 480)}
 LIST_DISABLED_TEXT = ${colorVar(styles, "--text-color")}
 LIST_DISABLED_TEXT_ALPHA = 128
 LIST_FOCUS_BACKGROUND = ${colorVar(styles, "--item-color-active")}
@@ -188,6 +184,10 @@ LIST_FOCUS_TEXT_ALPHA = 255
 LIST_FOCUS_GLYPH_ALPHA = 255
 LIST_FOCUS_GLYPH_RECOLOUR = ${colorVar(styles, "--text-color")}
 LIST_FOCUS_GLYPH_RECOLOUR_ALPHA = 255
+LIST_FOCUS_SHADOW_COLOUR = ${colorVar(styles, "--font-shadow-color")}
+LIST_FOCUS_SHADOW_ALPHA = ${Math.round(255 * numberVar(styles, "--font-shadow-opacity"))}
+LIST_FOCUS_SHADOW_X_OFFSET = ${Math.round(height / 480)}
+LIST_FOCUS_SHADOW_Y_OFFSET = ${Math.round(height / 480)}
 
 [image_list]
 IMAGE_LIST_ALPHA = 255
