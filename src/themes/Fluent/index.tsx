@@ -191,7 +191,7 @@ export const fluentLight: ThemeConfig = {
     "--font-shadow-color": "#000000",
     "--font-shadow-opacity": "0.14",
     "--font-shadow":
-      "calc(var(--height) / 480) calc(var(--height) / 480) rgba(0, 0, 0, 0.14)",
+      "calc(var(--height) / 240) calc(var(--height) / 240) rgba(0, 0, 0, 0.14)",
     "--background": "#fafafa",
     "--text-color": "#242424",
     "--item-color": "#ffffff",
@@ -222,7 +222,7 @@ export const fluentDark = extend(fluentLight, {
     "--font-shadow-color": "#000000",
     "--font-shadow-opacity": "0.24",
     "--font-shadow":
-      "calc(var(--height) / 480) calc(var(--height) / 480) rgba(0, 0, 0, 0.24)",
+      "calc(var(--height) / 240) calc(var(--height) / 240) rgba(0, 0, 0, 0.24)",
     "--background": "#1f1f1f",
     "--panel-background-color": "#000000",
     "--panel-background-color-alpha": "#0000004c",
@@ -245,7 +245,7 @@ export const fluentPurple = extend(fluentLight, {
     "--font-shadow-color": "#000000",
     "--font-shadow-opacity": "0.24",
     "--font-shadow":
-      "calc(var(--height) / 480) calc(var(--height) / 480) rgba(0, 0, 0, 0.24)",
+      "calc(var(--height) / 240) calc(var(--height) / 240) rgba(0, 0, 0, 0.24)",
     "--background": "#4A0077",
     "--panel-background-color": "#2A0044",
     "--panel-background-color-alpha": "#2A00444c",
@@ -268,7 +268,7 @@ export const fluentBlue = extend(fluentLight, {
     "--font-shadow-color": "#000000",
     "--font-shadow-opacity": "0.24",
     "--font-shadow":
-      "calc(var(--height) / 480) calc(var(--height) / 480) rgba(0, 0, 0, 0.24)",
+      "calc(var(--height) / 240) calc(var(--height) / 240) rgba(0, 0, 0, 0.24)",
     "--background": "#1976d2",
     "--panel-background-color": "#1565c0",
     "--panel-background-color-alpha": "#1565c04c",
@@ -277,5 +277,28 @@ export const fluentBlue = extend(fluentLight, {
     "--item-color-active": "#42a5f5",
     "--item-border-color": "#2196f3",
     "--item-border-color-active": "#64b5f6",
+  },
+});
+
+export const fluentMustard = extend(fluentLight, {
+  name: "Fluent Mustard",
+  styles: {
+    "--shadow":
+      "0 0 calc(var(--height) / 240) rgba(0,0,0,0.16), 0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0,0,0,0.18)",
+    "--drop-shadow":
+      "drop-shadow(0 0 calc(var(--height) / 240) rgba(0,0,0,0.16)) drop-shadow(0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0,0,0,0.18))",
+    "--fake-shadow-color": "#8B6914",
+    "--font-shadow-color": "#000000",
+    "--font-shadow-opacity": "0.18",
+    "--font-shadow":
+      "calc(var(--height) / 240) calc(var(--height) / 240) rgba(0, 0, 0, 0.18)",
+    "--background": "#E8B923",
+    "--panel-background-color": "#D4A017",
+    "--panel-background-color-alpha": "#D4A0174c",
+    "--text-color": "#2D2D2D",
+    "--item-color": "#FFD54F",
+    "--item-color-active": "#FFE082",
+    "--item-border-color": "#E8B923",
+    "--item-border-color-active": "#FFD54F",
   },
 });

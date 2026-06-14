@@ -33,7 +33,7 @@ export function MainMenu({
 
   const iconSize = useMemo(
     () => Math.round((height / 7) * (width === height ? 0.9 : 1)),
-    [width, height]
+    [width, height],
   );
   const iconSizeSmall = useMemo(() => Math.round(height / 15), [height]);
 
@@ -56,7 +56,7 @@ export function MainMenu({
         text: t("menu.applications", "Applications"),
       },
     ],
-    [t, iconSize]
+    [t, iconSize],
   );
 
   const itemsMisc = useMemo(
@@ -66,7 +66,7 @@ export function MainMenu({
       <ArrowCounterclockwiseRegular fontSize={iconSizeSmall} />,
       <PowerRegular fontSize={iconSizeSmall} />,
     ],
-    [iconSizeSmall]
+    [iconSizeSmall],
   );
 
   return (

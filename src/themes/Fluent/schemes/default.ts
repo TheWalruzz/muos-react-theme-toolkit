@@ -32,9 +32,15 @@ FONT_HEADER_SIZE = ${Math.round(height / 24) - 1}
 FONT_FOOTER_SIZE = ${Math.round(height / 24)}
 FONT_PANEL_SIZE = ${Math.round(height / 24)}
 
+[glyph]
+LIST = ${Math.round(height / 17)}
+FOOTER = ${Math.round(height / 19)}
+HEADER = ${Math.round(height / 14)}
+GRID = 0
+
 [status]
 PADDING_RIGHT = ${Math.round(height / 38)}
-ALIGN=1
+ALIGN = 1
 
 [battery]
 BATTERY_NORMAL = ${colorVar(styles, "--text-color")}
@@ -101,12 +107,12 @@ DIALOGUE_RADIUS_MAIN = ${Math.round(height / 54)}
 DIALOGUE_RADIUS_SELECTED = ${Math.round(height / 54)}
 DIALOGUE_SHADOW_COLOUR = ${colorVar(styles, "--font-shadow-color")}
 DIALOGUE_SHADOW_ALPHA = ${Math.round(255 * numberVar(styles, "--font-shadow-opacity"))}
-DIALOGUE_SHADOW_X_OFFSET = ${Math.round(height / 480)}
-DIALOGUE_SHADOW_Y_OFFSET = ${Math.round(height / 480)}
+DIALOGUE_SHADOW_X_OFFSET = ${Math.round(height / 240)}
+DIALOGUE_SHADOW_Y_OFFSET = ${Math.round(height / 240)}
 DIALOGUE_SHADOW_COLOUR_FOCUS = ${colorVar(styles, "--font-shadow-color")}
 DIALOGUE_SHADOW_ALPHA_FOCUS = ${Math.round(255 * numberVar(styles, "--font-shadow-opacity"))}
-DIALOGUE_SHADOW_X_OFFSET_FOCUS = ${Math.round(height / 480)}
-DIALOGUE_SHADOW_Y_OFFSET_FOCUS = ${Math.round(height / 480)}
+DIALOGUE_SHADOW_X_OFFSET_FOCUS = ${Math.round(height / 240)}
+DIALOGUE_SHADOW_Y_OFFSET_FOCUS = ${Math.round(height / 240)}
 
 [navigation]
 ALIGNMENT = 0
@@ -174,8 +180,8 @@ LIST_DEFAULT_GLYPH_RECOLOUR = ${colorVar(styles, "--text-color")}
 LIST_DEFAULT_GLYPH_RECOLOUR_ALPHA = 255
 LIST_DEFAULT_SHADOW_COLOUR = ${colorVar(styles, "--font-shadow-color")}
 LIST_DEFAULT_SHADOW_ALPHA = ${Math.round(255 * numberVar(styles, "--font-shadow-opacity"))}
-LIST_DEFAULT_SHADOW_X_OFFSET = ${Math.round(height / 480)}
-LIST_DEFAULT_SHADOW_Y_OFFSET = ${Math.round(height / 480)}
+LIST_DEFAULT_SHADOW_X_OFFSET = ${Math.round(height / 240)}
+LIST_DEFAULT_SHADOW_Y_OFFSET = ${Math.round(height / 240)}
 LIST_DISABLED_TEXT = ${colorVar(styles, "--text-color")}
 LIST_DISABLED_TEXT_ALPHA = 128
 LIST_FOCUS_BACKGROUND = ${colorVar(styles, "--item-color-active")}
@@ -194,8 +200,8 @@ LIST_FOCUS_GLYPH_RECOLOUR = ${colorVar(styles, "--text-color")}
 LIST_FOCUS_GLYPH_RECOLOUR_ALPHA = 255
 LIST_FOCUS_SHADOW_COLOUR = ${colorVar(styles, "--font-shadow-color")}
 LIST_FOCUS_SHADOW_ALPHA = ${Math.round(255 * numberVar(styles, "--font-shadow-opacity"))}
-LIST_FOCUS_SHADOW_X_OFFSET = ${Math.round(height / 480)}
-LIST_FOCUS_SHADOW_Y_OFFSET = ${Math.round(height / 480)}
+LIST_FOCUS_SHADOW_X_OFFSET = ${Math.round(height / 240)}
+LIST_FOCUS_SHADOW_Y_OFFSET = ${Math.round(height / 240)}
 
 [image_list]
 IMAGE_LIST_ALPHA = 255
@@ -242,12 +248,12 @@ OSK_ITEM_BORDER_FOCUS_ALPHA = 255
 OSK_ITEM_RADIUS = ${Math.round(height / 54)}
 OSK_ITEM_SHADOW_COLOUR = ${colorVar(styles, "--font-shadow-color")}
 OSK_ITEM_SHADOW_ALPHA = ${Math.round(255 * numberVar(styles, "--font-shadow-opacity"))}
-OSK_ITEM_SHADOW_X_OFFSET = ${Math.round(height / 480)}
-OSK_ITEM_SHADOW_Y_OFFSET = ${Math.round(height / 480)}
+OSK_ITEM_SHADOW_X_OFFSET = ${Math.round(height / 240)}
+OSK_ITEM_SHADOW_Y_OFFSET = ${Math.round(height / 240)}
 OSK_ITEM_SHADOW_COLOUR_FOCUS = ${colorVar(styles, "--font-shadow-color")}
 OSK_ITEM_SHADOW_ALPHA_FOCUS = ${Math.round(255 * numberVar(styles, "--font-shadow-opacity"))}
-OSK_ITEM_SHADOW_X_OFFSET_FOCUS = ${Math.round(height / 480)}
-OSK_ITEM_SHADOW_Y_OFFSET_FOCUS = ${Math.round(height / 480)}
+OSK_ITEM_SHADOW_X_OFFSET_FOCUS = ${Math.round(height / 240)}
+OSK_ITEM_SHADOW_Y_OFFSET_FOCUS = ${Math.round(height / 240)}
 
 [notification]
 MSG_BACKGROUND = ${colorVar(styles, "--item-color")}

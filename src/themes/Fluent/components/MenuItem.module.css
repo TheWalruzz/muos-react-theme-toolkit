@@ -1,0 +1,9 @@
+.MenuItem {
+  & svg {
+    filter: drop-shadow(var(--font-shadow));
+  }
+
+  & .label {
+    text-shadow: var(--font-shadow);
+  }
+}

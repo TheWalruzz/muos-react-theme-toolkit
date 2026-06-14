@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 356.44141 356.44141"
+   version="1.1"
+   sodipodi:docname="c.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   width="356.44141"
+   height="356.44141"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview11"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.57245266"
+     inkscape:cx="-25.329605"
+     inkscape:cy="-36.684256"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1" />
+  <defs
+     id="defs4">
+    <rect
+       x="154.40289"
+       y="187.75392"
+       width="113.02292"
+       height="139.58022"
+       id="rect294" />
+    <style
+       id="style2">.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:24px;}</style>
+  </defs>
+  <path
+     style="color:#000000;fill:#000000;stroke-miterlimit:10;-inkscape-stroke:none"
+     d="M 178.2207,0 C 79.934753,0 0,79.934753 0,178.2207 c 0,98.28595 79.934753,178.2207 178.2207,178.2207 98.28595,0 178.2207,-79.93475 178.2207,-178.2207 C 356.4414,79.934753 276.50665,0 178.2207,0 Z m 0,24.000003 c 85.31541,0 154.2207,68.90529 154.2207,154.220697 0,85.31541 -68.90529,154.2207 -154.2207,154.2207 -85.315407,0 -154.220697,-68.90529 -154.220697,-154.2207 0,-85.315407 68.90529,-154.220697 154.220697,-154.220697 z"
+     id="circle6" />
+  <g
+     aria-label="C"
+     transform="matrix(15.961067,0,0,15.961067,-2360.9031,-2940.1871)"
+     id="text292"
+     style="font-weight:bold;font-size:13.3333px;font-family:'DM Sans';-inkscape-font-specification:'DM Sans Bold';text-align:center;text-anchor:middle;white-space:pre;shape-inside:url(#rect294);stroke-linecap:square;stroke-miterlimit:0.3">
+    <path
+       d="m 159.69566,200.13589 q -0.99999,0 -1.85332,-0.36 -0.85334,-0.37334 -1.49333,-1.02667 -0.62667,-0.65333 -0.97334,-1.51999 -0.34666,-0.86667 -0.34666,-1.85333 0,-1 0.34666,-1.86666 0.34667,-0.86667 0.97334,-1.50667 0.63999,-0.65333 1.47999,-1.01333 0.85333,-0.37333 1.85333,-0.37333 1.09333,0 1.92,0.37333 0.82666,0.37333 1.46666,1.01333 l -0.86667,0.86667 q -0.43999,-0.49333 -1.07999,-0.77333 -0.62667,-0.28 -1.44,-0.28 -0.73333,0 -1.34666,0.26666 -0.61333,0.25334 -1.06667,0.73333 -0.45333,0.48 -0.70666,1.13333 -0.24,0.65334 -0.24,1.42667 0,0.77333 0.24,1.42666 0.25333,0.65333 0.70666,1.13333 0.45334,0.48 1.06667,0.74667 0.61333,0.25333 1.34666,0.25333 0.86666,0 1.50666,-0.28 0.64,-0.29333 1.08,-0.78667 l 0.86667,0.85334 q -0.64,0.66666 -1.50667,1.03999 -0.85333,0.37334 -1.93333,0.37334 z"
+       style="font-weight:normal;font-family:Outfit;-inkscape-font-specification:Outfit;text-align:start;text-anchor:start"
+       id="path428" />
+  </g>
+</svg>
