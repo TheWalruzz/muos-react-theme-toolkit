@@ -35,7 +35,7 @@ FONT_PANEL_SIZE = ${Math.round(height / 24)}
 [glyph]
 LIST = ${Math.round(height / 17)}
 FOOTER = ${Math.round(height / 19)}
-HEADER = ${Math.round(height / 14)}
+HEADER = ${Math.round(height / 12)}
 GRID = 0
 
 [status]
