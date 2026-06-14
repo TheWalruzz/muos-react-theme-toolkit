@@ -296,7 +296,7 @@ export const fluentMustard = extend(fluentLight, {
     "--panel-background-color": "#D4A017",
     "--panel-background-color-alpha": "#D4A0174c",
     "--text-color": "#2D2D2D",
-    "--item-color": "#F5D86E",
+    "--item-color": "#FFDE59",
     "--item-color-active": "#FFF7A5",
     "--item-border-color": "#E0B428",
     "--item-border-color-active": "#FFDD4D",
