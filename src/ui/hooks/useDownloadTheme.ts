@@ -17,6 +17,15 @@ import { CanvasToBMP } from "../utils/canvasToBMP";
 import { downloadFile } from "../utils/downloadFile";
 import { PromiseQueue } from "../utils/PromiseQueue";
 import { AssetConfig } from "@/types";
+import imageCompression from "browser-image-compression";
+
+const optimizePNG = async (dataUrl: string, filename: string) => {
+  const file = await imageCompression.getFilefromDataUrl(dataUrl, filename);
+  const optimizedFile = await imageCompression(file, {
+    fileType: "image/png",
+  });
+  return imageCompression.getDataUrlFromFile(optimizedFile);
+};
 
 export function useDownloadTheme() {
   const refs = useRefs();
@@ -49,6 +58,7 @@ export function useDownloadTheme() {
       switch (fileExtension) {
         case "png":
           data = await toPng(ref.current);
+          data = await optimizePNG(data, ref.meta.path);
           break;
         case "bmp": {
           const canvas = await toCanvas(ref.current, { type: "image/bmp" });
@@ -113,9 +123,14 @@ export function useDownloadTheme() {
       let reader: Reader<unknown>;
 
       switch (asset.type) {
-        case "dataUrl":
-          reader = new Data64URIReader(asset.data);
+        case "dataUrl": {
+          let data = asset.data;
+          if (asset.path.endsWith(".png")) {
+            data = await optimizePNG(data, asset.path);
+          }
+          reader = new Data64URIReader(data);
           break;
+        }
         case "text":
           reader = new TextReader(asset.data);
           break;
