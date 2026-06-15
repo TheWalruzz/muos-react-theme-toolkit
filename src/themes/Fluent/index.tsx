@@ -220,9 +220,9 @@ export const fluentDark = extend(fluentLight, {
       "drop-shadow(0 0 calc(var(--height) / 240) rgba(0,0,0,0.24)) drop-shadow(0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0,0,0,0.28))",
     "--fake-shadow-color": "#111111",
     "--font-shadow-color": "#000000",
-    "--font-shadow-opacity": "0.24",
+    "--font-shadow-opacity": "0.4",
     "--font-shadow":
-      "calc(var(--height) / 240) calc(var(--height) / 240) rgba(0, 0, 0, 0.24)",
+      "calc(var(--height) / 240) calc(var(--height) / 240) rgba(0, 0, 0, 0.4)",
     "--background": "#1f1f1f",
     "--panel-background-color": "#000000",
     "--panel-background-color-alpha": "#0000004c",
@@ -243,9 +243,9 @@ export const fluentPurple = extend(fluentLight, {
       "drop-shadow(0 0 calc(var(--height) / 240) rgba(0,0,0,0.24)) drop-shadow(0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0,0,0,0.28))",
     "--fake-shadow-color": "#290041",
     "--font-shadow-color": "#000000",
-    "--font-shadow-opacity": "0.24",
+    "--font-shadow-opacity": "0.3",
     "--font-shadow":
-      "calc(var(--height) / 240) calc(var(--height) / 240) rgba(0, 0, 0, 0.24)",
+      "calc(var(--height) / 240) calc(var(--height) / 240) rgba(0, 0, 0, 0.3)",
     "--background": "#4A0077",
     "--panel-background-color": "#2A0044",
     "--panel-background-color-alpha": "#2A00444c",

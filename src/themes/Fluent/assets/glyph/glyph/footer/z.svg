@@ -23,8 +23,8 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="0.57245266"
-     inkscape:cx="-25.329605"
-     inkscape:cy="-36.684256"
+     inkscape:cx="-201.76341"
+     inkscape:cy="-34.937387"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="1912"
@@ -43,12 +43,12 @@
        id="style2">.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:24px;}</style>
   </defs>
   <path
-     style="color:#000000;fill:#000000;stroke-miterlimit:10;-inkscape-stroke:none"
-     d="M 178.2207,0 C 79.934753,0 0,79.934753 0,178.2207 c 0,98.28595 79.934753,178.2207 178.2207,178.2207 98.28595,0 178.2207,-79.93475 178.2207,-178.2207 C 356.4414,79.934753 276.50665,0 178.2207,0 Z m 0,24.000003 c 85.31541,0 154.2207,68.90529 154.2207,154.220697 0,85.31541 -68.90529,154.2207 -154.2207,154.2207 -85.315407,0 -154.220697,-68.90529 -154.220697,-154.2207 0,-85.315407 68.90529,-154.220697 154.220697,-154.220697 z"
+     style="color:#000000;fill:#000000;stroke-width:0.901983;stroke-miterlimit:10;-inkscape-stroke:none"
+     d="m 178.2207,17.468693 c -88.652234,0 -160.752007,72.099773 -160.752007,160.752007 0,88.65224 72.099773,160.75201 160.752007,160.75201 88.65224,0 160.75201,-72.09977 160.75201,-160.75201 0,-88.652234 -72.09977,-160.752007 -160.75201,-160.752007 z m 0,21.64759 c 76.95303,0 139.10442,62.151387 139.10442,139.104417 0,76.95303 -62.15139,139.10442 -139.10442,139.10442 -76.95303,0 -139.104417,-62.15139 -139.104417,-139.10442 0,-76.95303 62.151387,-139.104417 139.104417,-139.104417 z"
      id="circle6" />
   <g
      aria-label="Z"
-     transform="matrix(15.961067,0,0,15.961067,-2347.9214,-2940.1871)"
+     transform="matrix(14.396608,0,0,14.396608,-2100.316,-2634.5295)"
      id="text292"
      style="font-weight:bold;font-size:13.3333px;font-family:'DM Sans';-inkscape-font-specification:'DM Sans Bold';text-align:center;text-anchor:middle;white-space:pre;shape-inside:url(#rect294);display:inline;stroke-linecap:square;stroke-miterlimit:0.3">
     <path
