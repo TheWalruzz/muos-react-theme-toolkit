@@ -86,7 +86,7 @@ HEADER_TEXT_ALIGN = 2
 [help]
 HELP_BACKGROUND = ${colorVar(styles, "--item-color")}
 HELP_BACKGROUND_ALPHA = 255
-HELP_BORDER = ${colorVar(styles, "--item-border-color")}
+HELP_BORDER = ${colorVar(styles, "--item-border-color-active")}
 HELP_BORDER_ALPHA = 255
 HELP_CONTENT = ${colorVar(styles, "--text-color")}
 HELP_TITLE = ${colorVar(styles, "--text-color")}
@@ -95,7 +95,7 @@ HELP_RADIUS = ${Math.round(height / 54)}
 [dialogue]
 DIALOGUE_BACKGROUND = ${colorVar(styles, "--item-color")}
 DIALOGUE_BACKGROUND_ALPHA = 255
-DIALOGUE_BORDER = ${colorVar(styles, "--item-border-color")}
+DIALOGUE_BORDER = ${colorVar(styles, "--item-border-color-active")}
 DIALOGUE_BORDER_ALPHA = 255
 DIALOGUE_TITLE = ${colorVar(styles, "--text-color")}
 DIALOGUE_CONTENT = ${colorVar(styles, "--text-color")}
@@ -230,7 +230,7 @@ VERBOSE_BOOT_Y_POS = ${Math.floor(height / 3)}
 [keyboard]
 OSK_BACKGROUND = ${colorVar(styles, "--item-color")}
 OSK_BACKGROUND_ALPHA = 255
-OSK_BORDER = ${colorVar(styles, "--item-border-color")}
+OSK_BORDER = ${colorVar(styles, "--item-border-color-active")}
 OSK_BORDER_ALPHA = 255
 OSK_RADIUS = ${Math.round(height / 54)}
 OSK_TEXT = ${colorVar(styles, "--text-color")}
@@ -289,7 +289,7 @@ ROLL_SELECT_TEXT_ALPHA = 255
 ROLL_SELECT_BACKGROUND = ${colorVar(styles, "--item-color-active")}
 ROLL_SELECT_BACKGROUND_ALPHA = 255
 ROLL_SELECT_RADIUS = ${Math.round(height / 54)}
-ROLL_BORDER_COLOUR = ${colorVar(styles, "--item-border-color")}
+ROLL_BORDER_COLOUR = ${colorVar(styles, "--item-border-color-active")}
 ROLL_BORDER_ALPHA = 255
 ROLL_BORDER_RADIUS = ${Math.round(height / 54)}
 
