@@ -156,6 +156,7 @@ export function useDownloadTheme() {
           ),
         ),
       ),
+      // create alternates
       PromiseQueue.all(
         Object.keys(currentTheme.altSchemes ?? {}).flatMap((alternative) => {
           if (!(alternative in altSchemesBlobWriters)) {
