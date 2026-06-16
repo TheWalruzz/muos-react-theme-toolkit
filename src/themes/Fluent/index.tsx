@@ -20,6 +20,7 @@ import {
   Speaker2Regular,
 } from "@fluentui/react-icons";
 import { OverlayIndicator } from "./components/OverlayIndicator";
+import { muxploreCarouselScheme } from "./schemes/muxploreCarousel";
 
 const getOverlayScreens = (): ScreenConfig[] => [
   ...Array.from(Array(10).keys()).map((index) => ({
@@ -180,6 +181,20 @@ export const fluentLight: ThemeConfig = {
       scheme: muxhistoryScheme,
     },
   ],
+  altSchemes: {
+    Default: [
+      {
+        path: "scheme/muxplore.ini",
+        scheme: muxploreScheme,
+      },
+    ],
+    Carousel: [
+      {
+        path: "scheme/muxplore.ini",
+        scheme: muxploreCarouselScheme,
+      },
+    ],
+  },
   styles: {
     "--font": "'NotoSansKR', 'Selawik'",
     "--item-border-width": "1px",

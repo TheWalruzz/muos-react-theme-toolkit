@@ -53,6 +53,8 @@ export interface ThemeConfig {
   screens: ScreenConfig[];
   /** Generators of scheme files. */
   schemes: SchemeConfig[];
+  /** Generators of scheme files. */
+  altSchemes?: Record<string, SchemeConfig[]>;
   /** Styles and variables to inject into each screen's DOM. */
   styles?: Styles;
   /** Static assets to include in the package. */

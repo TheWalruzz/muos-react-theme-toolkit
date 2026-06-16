@@ -43,6 +43,8 @@ export function useDownloadTheme() {
     const themeWriter = new ZipWriter(themeBlobWriter);
     const assetsBlobWriter = new BlobWriter();
     const assetsWriter = new ZipWriter(assetsBlobWriter);
+    const altSchemesBlobWriters: Record<string, BlobWriter> = {};
+    const altSchemesWriters: Record<string, ZipWriter<Blob>> = {};
     let hasAssetScreens = false;
 
     console.info("start:", new Date());
@@ -154,6 +156,33 @@ export function useDownloadTheme() {
           ),
         ),
       ),
+      PromiseQueue.all(
+        Object.keys(currentTheme.altSchemes ?? {}).flatMap((alternative) => {
+          if (!(alternative in altSchemesBlobWriters)) {
+            altSchemesBlobWriters[alternative] = new BlobWriter();
+            altSchemesWriters[alternative] = new ZipWriter(
+              altSchemesBlobWriters[alternative],
+            );
+          }
+
+          return (
+            currentTheme.altSchemes?.[alternative].flatMap((scheme) =>
+              resolutions.map(
+                (resolution) => () =>
+                  altSchemesWriters[alternative].add(
+                    scheme.path.replace(
+                      "scheme",
+                      `${resolution.width}x${resolution.height}/scheme`,
+                    ),
+                    new TextReader(
+                      scheme.scheme(resolution, currentTheme.styles),
+                    ),
+                  ),
+              ),
+            ) ?? []
+          );
+        }),
+      ),
       // get all static assets
       PromiseQueue.all(
         currentTheme.assets?.map((asset) => () => handleAsset(asset)) ?? [],
@@ -184,6 +213,23 @@ export function useDownloadTheme() {
     if (hasAssetScreens) {
       const assets = await assetsBlobWriter.getData();
       await themeWriter.add("assets.muxzip", new BlobReader(assets));
+    }
+
+    // handle alternatives
+    if (currentTheme.altSchemes) {
+      for (const alternative in currentTheme.altSchemes) {
+        await altSchemesWriters[alternative].close();
+        const data = await altSchemesBlobWriters[alternative].getData();
+        await themeWriter.add(
+          `alternate/${alternative}.muxalt`,
+          new BlobReader(data),
+        );
+      }
+
+      await themeWriter.add(
+        "active.txt",
+        new TextReader(Object.keys(currentTheme.altSchemes)[0]),
+      );
     }
 
     await themeWriter.close();
