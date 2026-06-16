@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    clip-rule="evenodd"
    fill-rule="evenodd"
    stroke-linejoin="round"
    stroke-miterlimit="2"
-   viewBox="0 0 362.39276 111.32052"
+   viewBox="-11.132052 -11.132052 384.656864 133.584624"
    version="1.1"
    id="svg26"
    sodipodi:docname="Nintendo Game Boy Color.svg"
-   width="362.39276"
-   height="111.32052"
+   width="384.656864"
+   height="133.584624"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -30,8 +30,8 @@
      inkscape:zoom="1.4601755"
      inkscape:cx="139.36681"
      inkscape:cy="107.52132"
-     inkscape:window-width="1536"
-     inkscape:window-height="793"
+     inkscape:window-width="384.656864"
+     inkscape:window-height="133.584624"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -85,3 +85,4 @@
        style="fill:#1a1a1a;fill-rule:nonzero" />
   </g>
 </svg>
+

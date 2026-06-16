@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    clip-rule="evenodd"
    fill-rule="evenodd"
    stroke-linejoin="round"
    stroke-miterlimit="2"
-   viewBox="0 0 366.7605 174.66734"
+   viewBox="-17.466734 -17.466734 401.693968 209.600808"
    version="1.1"
    id="svg497"
    sodipodi:docname="Sega 32X.svg"
-   width="366.7605"
-   height="174.66733"
+   width="401.693968"
+   height="209.600808"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -30,8 +30,8 @@
      inkscape:zoom="1.4601755"
      inkscape:cx="376.32463"
      inkscape:cy="105.46677"
-     inkscape:window-width="1920"
-     inkscape:window-height="1009"
+     inkscape:window-width="401.693968"
+     inkscape:window-height="209.600808"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -175,3 +175,4 @@
        style="fill:#000000;fill-rule:nonzero;stroke-width:0.86379" />
   </g>
 </svg>
+

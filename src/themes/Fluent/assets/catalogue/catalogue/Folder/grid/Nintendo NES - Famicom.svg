@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    clip-rule="evenodd"
    fill-rule="evenodd"
    stroke-linejoin="round"
    stroke-miterlimit="2"
-   viewBox="0 0 521.03802 217.20914"
+   viewBox="-21.720914 -21.720914 564.479848 260.650968"
    version="1.1"
    id="svg44"
    sodipodi:docname="Nintendo NES - Famicom.svg"
-   width="521.03802"
-   height="217.20914"
+   width="564.479848"
+   height="260.650968"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -30,8 +30,8 @@
      inkscape:zoom="0.73008775"
      inkscape:cx="141.76378"
      inkscape:cy="442.41257"
-     inkscape:window-width="1920"
-     inkscape:window-height="1009"
+     inkscape:window-width="564.479848"
+     inkscape:window-height="260.650968"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -117,3 +117,4 @@
      id="path40"
      style="fill:#ffffff;fill-rule:nonzero" />
 </svg>
+

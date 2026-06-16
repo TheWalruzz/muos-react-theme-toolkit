@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    clip-rule="evenodd"
    fill-rule="evenodd"
    stroke-linejoin="round"
    stroke-miterlimit="2"
-   viewBox="0 0 321.78568 114.2606"
+   viewBox="-11.42606 -11.42606 344.6378 137.11272"
    version="1.1"
    id="svg28"
    sodipodi:docname="Sega Super 32X.svg"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
-   width="321.78568"
-   height="114.2606"
+   width="344.6378"
+   height="137.11272"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -30,8 +30,8 @@
      inkscape:zoom="2.065"
      inkscape:cx="34.624697"
      inkscape:cy="107.99032"
-     inkscape:window-width="1536"
-     inkscape:window-height="793"
+     inkscape:window-width="344.6378"
+     inkscape:window-height="137.11272"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -75,3 +75,4 @@
        id="path305" />
   </g>
 </svg>
+
