@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="232.577508"
-   height="116.1380496"
-   viewBox="-19.381459 -9.6781708 232.577508 116.1380496"
+   width="193.81459mm"
+   height="96.781708mm"
+   viewBox="0 0 193.81459 96.781708"
    version="1.1"
    id="svg408"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
@@ -27,14 +27,14 @@
      inkscape:zoom="0.5946522"
      inkscape:cx="325.40029"
      inkscape:cy="294.28967"
-     inkscape:window-width="232.577508"
-     inkscape:window-height="116.1380496"
+     inkscape:window-width="1536"
+     inkscape:window-height="793"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" /><defs
      id="defs405" /><g
-     inkscape:label="ĐˇĐ»ĐľĐą 1"
+     inkscape:label="Слой 1"
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(376.76859,183.04764)"><path
@@ -79,4 +79,3 @@
          d="m -204.81848,-93.121788 h -9.27948 v -16.120552 h 9.27948 v 2.79965 h -5.87023 v 3.54471 h 5.46383 v 2.79965 h -5.46383 v 4.154317 h 5.87023 z"
          id="path3011"
          style="fill:#1a1a1a" /></g></g></svg>
-

@@ -1,15 +1,15 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    clip-rule="evenodd"
    fill-rule="evenodd"
    stroke-linejoin="round"
    stroke-miterlimit="2"
-   viewBox="-42.66763 -35.036258 512.01156 420.435096"
+   viewBox="0 0 426.6763 350.36258"
    version="1.1"
    id="svg50"
    sodipodi:docname="NEC PC Engine SuperGrafx.svg"
-   width="512.01156"
-   height="420.435096"
+   width="426.6763"
+   height="350.36258"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -30,8 +30,8 @@
      inkscape:zoom="1.4601755"
      inkscape:cx="300.30637"
      inkscape:cy="351.32763"
-     inkscape:window-width="512.01156"
-     inkscape:window-height="420.435096"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -128,4 +128,3 @@
        style="fill:#ffffff" />
   </g>
 </svg>
-

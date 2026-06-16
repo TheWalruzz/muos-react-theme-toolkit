@@ -1,12 +1,12 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    version="1.1"
-   width="247.98234"
-   height="39.0322956"
+   width="206.65195"
+   height="32.526913"
    id="svg2">
   <defs
      id="defs4" />
@@ -14,8 +14,8 @@
      transform="translate(-246.24994,-515.49133)"
      id="layer1">
     <rect
-       width="247.98234"
-       height="39.0322956"
+       width="206.65195"
+       height="32.526913"
        x="246.24994"
        y="515.49133"
        id="rect3838"
@@ -78,4 +78,3 @@
        style="fill:#f1d941;fill-opacity:1;stroke:none" />
   </g>
 </svg>
-

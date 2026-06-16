@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="153.079368"
-   height="37.3503144"
-   viewBox="-12.756614 -3.1125262 153.079368 37.3503144"
+   width="127.56615mm"
+   height="31.125261mm"
+   viewBox="0 0 127.56614 31.125262"
    version="1.1"
    id="svg5"
    xml:space="preserve"
@@ -27,8 +27,8 @@
      inkscape:zoom="0.73851712"
      inkscape:cx="-52.131493"
      inkscape:cy="274.87514"
-     inkscape:window-width="153.079368"
-     inkscape:window-height="37.3503144"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -108,4 +108,3 @@
          d="m 371.462,42.995 h -17.816 v 6.683 H 380.76 L 366.658,7.957 c -1.235,-4.069 -5.309,-7.063 -10.131,-7.063 -4.83,0 -8.891,2.98 -10.136,7.046 L 332.16,49.679 h 7.099 L 353.076,9.107 c 0.577,-1.386 1.938,-2.292 3.439,-2.29 1.498,0.002 2.857,0.903 3.443,2.281 z"
          id="path24-8-8"
          style="fill:#000000" /></g></g></svg>
-

@@ -1,15 +1,15 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    clip-rule="evenodd"
    fill-rule="evenodd"
    stroke-linejoin="round"
    stroke-miterlimit="2"
-   viewBox="-36.67605 -9.0523474 440.1126 108.6281688"
+   viewBox="0 0 366.7605 90.523474"
    version="1.1"
    id="svg497"
    sodipodi:docname="Sega Mega Drive - Genesis.svg"
-   width="440.1126"
-   height="108.6281688"
+   width="366.7605"
+   height="90.523468"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -30,8 +30,8 @@
      inkscape:zoom="1.4601755"
      inkscape:cx="74.306136"
      inkscape:cy="132.86074"
-     inkscape:window-width="440.1126"
-     inkscape:window-height="108.6281688"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -154,4 +154,3 @@
        id="path491" />
   </g>
 </svg>
-
