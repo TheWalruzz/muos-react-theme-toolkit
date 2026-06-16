@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    xml:space="preserve"
    enable-background="new 0 0 792 612"
-   viewBox="0 0 1389.7874 837.17588"
-   height="892.98761"
-   width="1482.4399"
+   viewBox="-138.97874 -83.717588 1667.74488 1004.611056"
+   height="1004.611056"
+   width="1667.74488"
    y="0px"
    x="0px"
    id="Logo"
@@ -30,8 +30,8 @@
      inkscape:zoom="0.33143163"
      inkscape:cx="-82.973373"
      inkscape:cy="437.49597"
-     inkscape:window-width="1920"
-     inkscape:window-height="1009"
+     inkscape:window-width="1667.74488"
+     inkscape:window-height="1004.611056"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -99,3 +99,4 @@
      transform="translate(0,-67.389199)"
      style="opacity:0.31"
      id="layer4" /></svg>
+

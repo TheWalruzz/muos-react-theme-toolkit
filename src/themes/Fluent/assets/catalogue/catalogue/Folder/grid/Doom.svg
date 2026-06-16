@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -7,9 +7,9 @@
    xmlns="http://www.w3.org/2000/svg"
    version="1.1"
    id="svg2"
-   viewBox="0 0 1680 869.19995"
-   height="869.19995"
-   width="1680">
+   viewBox="-168 -86.919995 2016 1043.03994"
+   height="1043.03994"
+   width="2016">
   <defs
      id="defs4" />
   <metadata
@@ -33,3 +33,4 @@
        style="fill:#000000;fill-opacity:1;stroke:none" />
   </g>
 </svg>
+

@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    clip-rule="evenodd"
    fill-rule="evenodd"
    stroke-linejoin="round"
    stroke-miterlimit="2"
-   viewBox="0 0 600 179.25339"
+   viewBox="-60 -17.925339 720 215.104068"
    version="1.1"
    id="svg58"
    sodipodi:docname="SNK Neo Geo Pocket - Color.svg"
-   width="600"
-   height="179.25339"
+   width="720"
+   height="215.104068"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -30,8 +30,8 @@
      inkscape:zoom="2.065"
      inkscape:cx="287.4092"
      inkscape:cy="381.59806"
-     inkscape:window-width="1920"
-     inkscape:window-height="1009"
+     inkscape:window-width="720"
+     inkscape:window-height="215.104068"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -148,3 +148,4 @@
        style="fill:#ffffff" />
   </g>
 </svg>
+

@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   viewBox="0 0 287.64161 77.761622"
+   viewBox="-28.764161 -7.7761622 345.169932 93.3139464"
    version="1.1"
    id="svg79"
    sodipodi:docname="Uzebox.svg"
-   width="287.6416"
-   height="77.76162"
+   width="345.169932"
+   height="93.3139464"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -25,8 +25,8 @@
      inkscape:zoom="2.5184921"
      inkscape:cx="126.66309"
      inkscape:cy="28.588535"
-     inkscape:window-width="1920"
-     inkscape:window-height="1009"
+     inkscape:window-width="345.169932"
+     inkscape:window-height="93.3139464"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -255,3 +255,4 @@
      style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.412024;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path75" />
 </svg>
+

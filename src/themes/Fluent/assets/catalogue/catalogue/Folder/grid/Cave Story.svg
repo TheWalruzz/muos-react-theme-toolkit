@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    version="1.1"
-   width="993.56403"
-   height="299.99988"
+   width="1192.276836"
+   height="359.999856"
    style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
    id="svg82"
    sodipodi:docname="Cave Story.svg"
@@ -26,8 +26,8 @@
      inkscape:zoom="0.23150224"
      inkscape:cx="447.07991"
      inkscape:cy="272.1356"
-     inkscape:window-width="1920"
-     inkscape:window-height="1009"
+     inkscape:window-width="1192.276836"
+     inkscape:window-height="359.999856"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -217,3 +217,4 @@
     </g>
   </g>
 </svg>
+

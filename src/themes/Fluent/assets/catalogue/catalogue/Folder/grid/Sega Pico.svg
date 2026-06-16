@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    version="1.1"
-   width="1001.34855"
-   height="253.75832"
+   width="1201.61826"
+   height="304.509984"
    viewBox="0,0,1001.34855,253.75832"
    id="svg56"
    sodipodi:docname="Sega Pico.svg"
@@ -26,8 +26,8 @@
      inkscape:zoom="2.4746627"
      inkscape:cx="338.83405"
      inkscape:cy="86.47643"
-     inkscape:window-width="1920"
-     inkscape:window-height="1009"
+     inkscape:window-width="1201.61826"
+     inkscape:window-height="304.509984"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -39,7 +39,7 @@
   <path
      d="m 364.56304,54.42448 c 0,10.44902 -8.75272,24.12253 -22.46706,24.12253 -13.71434,0 -27.19697,-13.67351 -27.19697,-24.12253 0,-10.44902 11.11767,-18.91963 24.83202,-18.91963 13.71434,0 24.83202,8.47061 24.83202,18.91963 z"
      fill="#ffffff"
-     stroke-width="0"
+     stroke-width="1201.61826"
      stroke-linecap="butt"
      id="path4"
      style="mix-blend-mode:normal;fill-rule:nonzero;stroke:none;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;fill:none" />
@@ -76,3 +76,4 @@
      id="path44"
      style="mix-blend-mode:normal;fill:#000000;fill-rule:nonzero;stroke:none;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0" />
 </svg>
+
