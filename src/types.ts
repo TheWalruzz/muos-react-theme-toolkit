@@ -55,6 +55,8 @@ export interface ThemeConfig {
   schemes: SchemeConfig[];
   /** Generators of scheme files. */
   altSchemes?: Record<string, SchemeConfig[]>;
+  /** Assets to add for each alternate theme. */
+  altAssets?: Record<string, AssetConfig[]>;
   /** Styles and variables to inject into each screen's DOM. */
   styles?: Styles;
   /** Static assets to include in the package. */

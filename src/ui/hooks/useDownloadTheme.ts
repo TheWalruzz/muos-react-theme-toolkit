@@ -43,8 +43,8 @@ export function useDownloadTheme() {
     const themeWriter = new ZipWriter(themeBlobWriter);
     const assetsBlobWriter = new BlobWriter();
     const assetsWriter = new ZipWriter(assetsBlobWriter);
-    const altSchemesBlobWriters: Record<string, BlobWriter> = {};
-    const altSchemesWriters: Record<string, ZipWriter<Blob>> = {};
+    const altAssetsBlobWriters: Record<string, BlobWriter> = {};
+    const altAssetsWriters: Record<string, ZipWriter<Blob>> = {};
     let hasAssetScreens = false;
 
     console.info("start:", new Date());
@@ -121,7 +121,10 @@ export function useDownloadTheme() {
     };
 
     // add all other assets
-    const handleAsset = async (asset: AssetConfig) => {
+    const handleAsset = async (
+      asset: AssetConfig,
+      zipWriter: ZipWriter<Blob>,
+    ) => {
       let reader: Reader<unknown>;
 
       switch (asset.type) {
@@ -138,7 +141,7 @@ export function useDownloadTheme() {
           break;
       }
 
-      await themeWriter.add(asset.path, reader);
+      await zipWriter.add(asset.path, reader);
     };
 
     await Promise.all([
@@ -156,13 +159,13 @@ export function useDownloadTheme() {
           ),
         ),
       ),
-      // create alternates
+      // create alternate schemes
       PromiseQueue.all(
         Object.keys(currentTheme.altSchemes ?? {}).flatMap((alternative) => {
-          if (!(alternative in altSchemesBlobWriters)) {
-            altSchemesBlobWriters[alternative] = new BlobWriter();
-            altSchemesWriters[alternative] = new ZipWriter(
-              altSchemesBlobWriters[alternative],
+          if (!(alternative in altAssetsBlobWriters)) {
+            altAssetsBlobWriters[alternative] = new BlobWriter();
+            altAssetsWriters[alternative] = new ZipWriter(
+              altAssetsBlobWriters[alternative],
             );
           }
 
@@ -170,7 +173,7 @@ export function useDownloadTheme() {
             currentTheme.altSchemes?.[alternative].flatMap((scheme) =>
               resolutions.map(
                 (resolution) => () =>
-                  altSchemesWriters[alternative].add(
+                  altAssetsWriters[alternative].add(
                     scheme.path.replace(
                       "scheme",
                       `${resolution.width}x${resolution.height}/scheme`,
@@ -184,9 +187,29 @@ export function useDownloadTheme() {
           );
         }),
       ),
+      // create alternate assets
+      PromiseQueue.all(
+        Object.keys(currentTheme.altAssets ?? {}).flatMap((alternative) => {
+          if (!(alternative in altAssetsBlobWriters)) {
+            altAssetsBlobWriters[alternative] = new BlobWriter();
+            altAssetsWriters[alternative] = new ZipWriter(
+              altAssetsBlobWriters[alternative],
+            );
+          }
+
+          return (
+            currentTheme.altAssets?.[alternative].map(
+              (asset) => () =>
+                handleAsset(asset, altAssetsWriters[alternative]),
+            ) ?? []
+          );
+        }),
+      ),
       // get all static assets
       PromiseQueue.all(
-        currentTheme.assets?.map((asset) => () => handleAsset(asset)) ?? [],
+        currentTheme.assets?.map(
+          (asset) => () => handleAsset(asset, themeWriter),
+        ) ?? [],
       ),
       // add credits.txt file
       (async () => {
@@ -217,10 +240,10 @@ export function useDownloadTheme() {
     }
 
     // handle alternatives
-    if (currentTheme.altSchemes) {
-      for (const alternative in currentTheme.altSchemes) {
-        await altSchemesWriters[alternative].close();
-        const data = await altSchemesBlobWriters[alternative].getData();
+    if (Object.keys(altAssetsWriters).length > 0) {
+      for (const alternative in altAssetsWriters) {
+        await altAssetsWriters[alternative].close();
+        const data = await altAssetsBlobWriters[alternative].getData();
         await themeWriter.add(
           `alternate/${alternative}.muxalt`,
           new BlobReader(data),
@@ -229,7 +252,7 @@ export function useDownloadTheme() {
 
       await themeWriter.add(
         "active.txt",
-        new TextReader(Object.keys(currentTheme.altSchemes)[0]),
+        new TextReader(Object.keys(altAssetsWriters)[0]),
       );
     }
 

@@ -21,6 +21,8 @@ import {
 } from "@fluentui/react-icons";
 import { OverlayIndicator } from "./components/OverlayIndicator";
 import { muxploreCarouselScheme } from "./schemes/muxploreCarousel";
+import { defaultCatalogueAssets } from "./assets/alternates/Default";
+import { carouselCatalogueAssets } from "./assets/alternates/Carousel";
 
 const getOverlayScreens = (): ScreenConfig[] => [
   ...Array.from(Array(10).keys()).map((index) => ({
@@ -194,6 +196,10 @@ export const fluentLight: ThemeConfig = {
         scheme: muxploreCarouselScheme,
       },
     ],
+  },
+  altAssets: {
+    Default: defaultCatalogueAssets,
+    Carousel: carouselCatalogueAssets,
   },
   styles: {
     "--font": "'NotoSansKR', 'Selawik'",
