@@ -1,11 +1,12 @@
-import { availableLanguages } from "@/i18n";
 import { useCurrentTheme } from "@/ui/context/CurrentThemeContext";
 import { LanguageDisplay } from "./LanguageDisplay";
+import { useTranslationResources } from "../context/TranslationResourcesContext";
 
 import styles from "./ThemeDisplay.module.css";
 
 export function ThemeDisplay() {
   const { currentTheme } = useCurrentTheme();
+  const { availableLanguages } = useTranslationResources();
 
   return (
     <div className={styles.ThemeDisplay}>

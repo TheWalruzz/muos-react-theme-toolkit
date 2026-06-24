@@ -1,8 +1,15 @@
-import { themes } from "@/config";
+import { ThemeConfig } from "@/types";
 import { CurrentThemeContext } from "@/ui/context/CurrentThemeContext";
 import { PropsWithChildren, useState } from "react";
 
-export function CurrentThemeContextProvider({ children }: PropsWithChildren) {
+interface Props {
+  themes: ThemeConfig[];
+}
+
+export function CurrentThemeContextProvider({
+  themes,
+  children,
+}: PropsWithChildren<Props>) {
   // it uses indices to make sure configs update when `styles` property changes
   const [currentThemeIndex, setCurrentThemeIndex] = useState<number>(0);
 

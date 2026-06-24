@@ -4,7 +4,7 @@ import {
   fluentLight,
   fluentMustard,
   fluentPurple,
-} from "./themes/Fluent";
+} from "../../fluent/src/config";
 import { ThemeConfig } from "./types";
 
 export const themes: ThemeConfig[] = [
