@@ -1,3 +1,6 @@
+# WIP README
+**This project has been refactored to be a monorepo with the core app exported as a library and themes as npm modules. It will require some changes to the contents below!**
+
 # muOS React Theme Toolkit
 
 This is a simple toolkit that allows you to generate images and schemes for muOS themes based on React components you create, with a little bit of additional configuration.
