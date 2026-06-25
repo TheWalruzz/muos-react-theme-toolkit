@@ -1,8 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
-import { useCurrentTheme } from "../context/CurrentThemeContext";
+import { useThemes } from "../context/ThemesContext";
 import { useRefs } from "react-context-refs";
-import { Language } from "@/i18n";
-import { supportedLanguageNameMap } from "@/locales/supportedLanguages";
 import { resolutions } from "@/resolutions";
 import {
   BlobWriter,
@@ -16,7 +14,7 @@ import { toPng, toCanvas } from "html-to-image";
 import { CanvasToBMP } from "../utils/canvasToBMP";
 import { downloadFile } from "../utils/downloadFile";
 import { PromiseQueue } from "../utils/PromiseQueue";
-import { AssetConfig } from "@/types";
+import { AssetConfig, Language, supportedLanguageNameMap } from "@/types";
 import imageCompression from "browser-image-compression";
 
 const optimizePNG = async (dataUrl: string, filename: string) => {
@@ -29,7 +27,7 @@ const optimizePNG = async (dataUrl: string, filename: string) => {
 
 export function useDownloadTheme() {
   const refs = useRefs();
-  const { currentTheme } = useCurrentTheme();
+  const { currentTheme } = useThemes();
   const [isProcessing, setIsProcessing] = useState(false);
   const [totalProgress, setTotalProgress] = useState(0);
   const [progress, setProgress] = useState(0);

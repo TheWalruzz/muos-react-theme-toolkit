@@ -1,4 +1,4 @@
-import { importTextAssets } from "@/utils/importAssets";
+import { importTextAssets } from "@mustardos-react-ttk/core";
 
 export const defaultCatalogueAssets = importTextAssets(
   import.meta.glob("./**/*.svg", {

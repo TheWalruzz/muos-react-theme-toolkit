@@ -1,12 +1,10 @@
 import "./index.css";
-import { ThemeConfig, Resolution, ScreenConfig } from "@/types";
 import { assets } from "./assets";
 import { defaultScheme } from "./schemes/default";
 import { muxlaunchScheme } from "./schemes/muxlaunch";
 import { muxploreScheme } from "./schemes/muxplore";
 import { MainMenu } from "./components/MainMenu";
 import { Default } from "./components/Default";
-import { extend } from "@/utils/extend";
 import { BootLogo } from "./components/BootLogo";
 import { Reboot } from "./components/Reboot";
 import { Shutdown } from "./components/Shutdown";
@@ -23,6 +21,12 @@ import { OverlayIndicator } from "./components/OverlayIndicator";
 import { muxploreCarouselScheme } from "./schemes/muxploreCarousel";
 import { defaultCatalogueAssets } from "./assets/alternates/Default";
 import { carouselCatalogueAssets } from "./assets/alternates/Carousel";
+import {
+  extend,
+  type Resolution,
+  type ScreenConfig,
+  type ThemeConfig,
+} from "@mustardos-react-ttk/core";
 
 const getOverlayScreens = (): ScreenConfig[] => [
   ...Array.from(Array(10).keys()).map((index) => ({

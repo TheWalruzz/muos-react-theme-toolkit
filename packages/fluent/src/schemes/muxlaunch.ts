@@ -1,4 +1,5 @@
-import { Scheme } from "@/types";
+import { type Scheme } from "@mustardos-react-ttk/core";
+
 export const muxlaunchScheme: Scheme = ({ width }) => `[list]
 LIST_DEFAULT_BACKGROUND_ALPHA = 0
 LIST_DEFAULT_INDICATOR_ALPHA = 0

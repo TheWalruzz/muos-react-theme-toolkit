@@ -1,5 +1,9 @@
-import { Scheme } from "@/types";
-import { colorVar, numberVar, pxVar } from "@/utils/vars";
+import {
+  colorVar,
+  numberVar,
+  pxVar,
+  type Scheme,
+} from "@mustardos-react-ttk/core";
 
 export const defaultScheme: Scheme = (
   { width, height },

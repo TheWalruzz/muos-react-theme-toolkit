@@ -1,5 +1,4 @@
-import { Scheme } from "@/types";
-import { numberVar } from "@/utils/vars";
+import { numberVar, type Scheme } from "@mustardos-react-ttk/core";
 
 export const muxhistoryScheme: Scheme = ({ height, width }, styles) => `[list]
 LIST_DEFAULT_LABEL_LONG_MODE = 1

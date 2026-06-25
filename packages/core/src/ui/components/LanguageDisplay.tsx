@@ -1,12 +1,12 @@
-import { i18nInstances, Language } from "@/i18n";
-import { useCurrentTheme } from "@/ui/context/CurrentThemeContext";
+import { useThemes } from "@/ui/context/ThemesContext";
 import { ResolutionContext } from "@/ui/context/ResolutionContext";
 import { resolutions } from "@/resolutions";
 import { I18nextProvider } from "react-i18next";
 import { ScreenView } from "./ScreenView";
 import { useCallback, useState } from "react";
 import classNames from "classnames";
-import { supportedLanguageNameMap } from "@/locales/supportedLanguages";
+import { Language, supportedLanguageNameMap } from "@/types";
+import { useTranslationResources } from "../context/TranslationResourcesContext";
 
 import styles from "./LanguageDisplay.module.css";
 
@@ -16,8 +16,9 @@ interface Props {
 }
 
 export function LanguageDisplay({ language, initialOpen }: Props) {
-  const { currentTheme } = useCurrentTheme();
+  const { currentTheme } = useThemes();
   const [isOpen, setIsOpen] = useState(initialOpen);
+  const { instances } = useTranslationResources();
 
   const toggle = useCallback(() => setIsOpen((open) => !open), []);
 
@@ -32,7 +33,7 @@ export function LanguageDisplay({ language, initialOpen }: Props) {
           [styles.open]: isOpen,
         })}
       >
-        <I18nextProvider i18n={i18nInstances[language]} defaultNS="translation">
+        <I18nextProvider i18n={instances[language]} defaultNS="translation">
           {resolutions.map((resolution) => (
             <div
               key={`${currentTheme.name}-${language}-${resolution.width}x${resolution.height}`}

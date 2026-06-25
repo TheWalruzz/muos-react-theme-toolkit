@@ -1,5 +1,4 @@
-import { Scheme } from "@/types";
-import { colorVar, numberVar } from "@/utils/vars";
+import { colorVar, numberVar, type Scheme } from "@mustardos-react-ttk/core";
 
 export const muxappScheme: Scheme = ({ width, height }, styles) => `[glyph]
 GRID = ${Math.round(height / 7)}

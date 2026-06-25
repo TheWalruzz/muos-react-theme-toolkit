@@ -1,7 +1,7 @@
-import { PropsWithChildren } from "react";
+import { type PropsWithChildren } from "react";
+import classNames from "classnames";
 
 import styles from "./Default.module.css";
-import classNames from "classnames";
 
 interface Props {
   showBackground?: boolean;

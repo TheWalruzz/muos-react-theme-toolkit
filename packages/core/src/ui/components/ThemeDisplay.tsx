@@ -1,11 +1,11 @@
-import { useCurrentTheme } from "@/ui/context/CurrentThemeContext";
+import { useThemes } from "@/ui/context/ThemesContext";
 import { LanguageDisplay } from "./LanguageDisplay";
 import { useTranslationResources } from "../context/TranslationResourcesContext";
 
 import styles from "./ThemeDisplay.module.css";
 
 export function ThemeDisplay() {
-  const { currentTheme } = useCurrentTheme();
+  const { currentTheme } = useThemes();
   const { availableLanguages } = useTranslationResources();
 
   return (

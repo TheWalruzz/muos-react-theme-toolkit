@@ -1,17 +1,16 @@
-import { themes } from "@/config";
-import { useCurrentTheme } from "@/ui/context/CurrentThemeContext";
+import { useThemes } from "@/ui/context/ThemesContext";
 import { ChangeEvent, useCallback } from "react";
 
 import styles from "./ThemeSelector.module.css";
 
 export function ThemeSelector() {
-  const { currentThemeIndex, setCurrentThemeIndex } = useCurrentTheme();
+  const { currentThemeIndex, setCurrentThemeIndex, themes } = useThemes();
 
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
       setCurrentThemeIndex(Number(e.target.value));
     },
-    [setCurrentThemeIndex]
+    [setCurrentThemeIndex],
   );
 
   return (

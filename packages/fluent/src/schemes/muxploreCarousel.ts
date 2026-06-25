@@ -1,5 +1,4 @@
-import { Scheme } from "@/types";
-import { colorVar, numberVar } from "@/utils/vars";
+import { colorVar, numberVar, type Scheme } from "@mustardos-react-ttk/core";
 
 export const muxploreCarouselScheme: Scheme = (
   { width, height },

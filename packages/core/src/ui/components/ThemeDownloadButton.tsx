@@ -1,16 +1,17 @@
 import { useMemo } from "react";
-import { themes } from "@/config";
 import { useDownloadTheme } from "../hooks/useDownloadTheme";
+import { useThemes } from "../context/ThemesContext";
 
 import styles from "./ThemeDownloadButton.module.css";
 
 export function ThemeDownloadButton() {
+  const { themes } = useThemes();
   const { isProcessing, downloadTheme, progress, totalProgress } =
     useDownloadTheme();
 
   const progressDisplay = useMemo(
     () => Math.floor((progress / totalProgress) * 100),
-    [progress, totalProgress]
+    [progress, totalProgress],
   );
 
   return (

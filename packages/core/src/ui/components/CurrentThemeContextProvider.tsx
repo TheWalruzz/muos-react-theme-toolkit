@@ -1,5 +1,5 @@
 import { ThemeConfig } from "@/types";
-import { CurrentThemeContext } from "@/ui/context/CurrentThemeContext";
+import { ThemesContext } from "@/ui/context/ThemesContext";
 import { PropsWithChildren, useState } from "react";
 
 interface Props {
@@ -14,14 +14,15 @@ export function CurrentThemeContextProvider({
   const [currentThemeIndex, setCurrentThemeIndex] = useState<number>(0);
 
   return (
-    <CurrentThemeContext.Provider
+    <ThemesContext.Provider
       value={{
         currentTheme: themes[currentThemeIndex],
         currentThemeIndex,
         setCurrentThemeIndex,
+        themes,
       }}
     >
       {children}
-    </CurrentThemeContext.Provider>
+    </ThemesContext.Provider>
   );
 }

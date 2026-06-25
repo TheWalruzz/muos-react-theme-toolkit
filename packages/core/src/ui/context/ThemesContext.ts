@@ -1,12 +1,13 @@
 import { createContext, useContext } from "react";
 import { ThemeConfig } from "@/types";
 
-interface CurrentTheme {
+interface Themes {
   currentTheme: ThemeConfig;
   currentThemeIndex: number;
   setCurrentThemeIndex: (index: number) => void;
+  themes: ThemeConfig[];
 }
 
-export const CurrentThemeContext = createContext<CurrentTheme>(null as never);
+export const ThemesContext = createContext<Themes>(null as never);
 
-export const useCurrentTheme = () => useContext(CurrentThemeContext);
+export const useThemes = () => useContext(ThemesContext);

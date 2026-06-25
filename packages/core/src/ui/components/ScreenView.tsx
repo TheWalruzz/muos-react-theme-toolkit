@@ -3,7 +3,7 @@ import { useResolution } from "@/utils/useResolution";
 import { useContextRef } from "react-context-refs";
 import { Resolution, ScreenConfig } from "@/types";
 import { useTranslation } from "react-i18next";
-import { useCurrentTheme } from "@/ui/context/CurrentThemeContext";
+import { useThemes } from "@/ui/context/ThemesContext";
 
 import styles from "./ScreenView.module.css";
 
@@ -15,7 +15,7 @@ interface Props {
 export function ScreenView({ config, resolutionGroup }: Props) {
   const { path, render, pathPrefix } = config;
   const { i18n } = useTranslation();
-  const { currentTheme } = useCurrentTheme();
+  const { currentTheme } = useThemes();
   const { width, height } = useResolution();
   const setRef = useContextRef({
     language: i18n.language,

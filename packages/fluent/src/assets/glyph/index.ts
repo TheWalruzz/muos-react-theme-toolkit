@@ -1,4 +1,7 @@
-import { importBinaryAssets, importTextAssets } from "@/utils/importAssets";
+import {
+  importTextAssets,
+  importBinaryAssets,
+} from "@mustardos-react-ttk/core";
 
 export const glyphAssets = [
   ...importBinaryAssets(

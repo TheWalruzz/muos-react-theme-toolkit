@@ -1,4 +1,4 @@
-import { importBinaryAssets } from "@/utils/importAssets";
+import { importBinaryAssets } from "@mustardos-react-ttk/core";
 
 export const fontAssets = importBinaryAssets(
   import.meta.glob("./**/*.{ttf,bin}", {
