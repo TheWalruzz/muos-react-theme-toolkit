@@ -209,14 +209,14 @@ export const fluentLight: ThemeConfig = {
     "--font": "'NotoSansKR', 'Selawik'",
     "--item-border-width": "1px",
     "--shadow":
-      "0 0 calc(var(--height) / 240) rgba(0, 0, 0, 0.18), 0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0, 0, 0, 0.20)",
+      "0 0 calc(var(--height) / 240) rgba(0, 0, 0, 0.12), 0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0, 0, 0, 0.14)",
     "--drop-shadow":
-      "drop-shadow(0 0 calc(var(--height) / 240) rgba(0, 0, 0, 0.18)) drop-shadow(0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0, 0, 0, 0.20))",
-    "--fake-shadow-color": "#b8b8b8",
+      "drop-shadow(0 0 calc(var(--height) / 240) rgba(0, 0, 0, 0.12)) drop-shadow(0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0, 0, 0, 0.14))",
+    "--fake-shadow-color": "#bcbcbc",
     "--font-shadow-color": "#000000",
-    "--font-shadow-opacity": "0.24",
+    "--font-shadow-opacity": "0.14",
     "--font-shadow":
-      "calc(var(--height) / 240) calc(var(--height) / 240) rgba(0, 0, 0, 0.24)",
+      "calc(var(--height) / 240) calc(var(--height) / 240) rgba(0, 0, 0, 0.14)",
     "--background": "#e0e0e0",
     "--panel-background-color": "#d8d8d8",
     "--panel-background-color-alpha": "#8080804c",
