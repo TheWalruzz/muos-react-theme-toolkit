@@ -7,12 +7,12 @@ import { TranslationResourcesContextProvider } from "./TranslationResourcesConte
 
 export interface ThemeToolkitAppProps {
   themes: ThemeConfig[];
-  translations?: TranslationResources;
+  translations: TranslationResources;
 }
 
 export function ThemeToolkitApp({
   themes,
-  translations = {},
+  translations,
 }: ThemeToolkitAppProps) {
   return (
     <RefProvider>
