@@ -212,7 +212,7 @@ export const fluentLight: ThemeConfig = {
       "0 0 calc(var(--height) / 240) rgba(0, 0, 0, 0.18), 0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0, 0, 0, 0.20)",
     "--drop-shadow":
       "drop-shadow(0 0 calc(var(--height) / 240) rgba(0, 0, 0, 0.18)) drop-shadow(0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0, 0, 0, 0.20))",
-    "--fake-shadow-color": "#757575",
+    "--fake-shadow-color": "#b8b8b8",
     "--font-shadow-color": "#000000",
     "--font-shadow-opacity": "0.24",
     "--font-shadow":
@@ -223,8 +223,8 @@ export const fluentLight: ThemeConfig = {
     "--text-color": "#424242",
     "--item-color": "#f0f0f0",
     "--item-color-active": "#e0e0e0",
-    "--item-border-color": "#d8d8d8",
-    "--item-border-color-active": "#d0d0d0",
+    "--item-border-color": "#ededed",
+    "--item-border-color-active": "#dadada",
     "--header-height-divider": "9",
     "--header-height":
       "round(calc(var(--height) / var(--header-height-divider)), 1px)",
