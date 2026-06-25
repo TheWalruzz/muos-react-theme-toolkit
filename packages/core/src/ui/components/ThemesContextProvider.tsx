@@ -6,7 +6,7 @@ interface Props {
   themes: ThemeConfig[];
 }
 
-export function CurrentThemeContextProvider({
+export function ThemesContextProvider({
   themes,
   children,
 }: PropsWithChildren<Props>) {

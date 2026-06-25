@@ -1,7 +1,7 @@
 import { RefProvider } from "react-context-refs";
 import { ThemeDisplay } from "./ThemeDisplay";
 import { ToolBar } from "./ToolBar";
-import { CurrentThemeContextProvider } from "./CurrentThemeContextProvider";
+import { ThemesContextProvider } from "./ThemesContextProvider";
 import { ThemeConfig, TranslationResources } from "@/types";
 import { TranslationResourcesContextProvider } from "./TranslationResourcesContextProvider";
 
@@ -17,10 +17,10 @@ export function ThemeToolkitApp({
   return (
     <RefProvider>
       <TranslationResourcesContextProvider translations={translations}>
-        <CurrentThemeContextProvider themes={themes}>
+        <ThemesContextProvider themes={themes}>
           <ToolBar />
           <ThemeDisplay />
-        </CurrentThemeContextProvider>
+        </ThemesContextProvider>
       </TranslationResourcesContextProvider>
     </RefProvider>
   );
