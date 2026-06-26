@@ -209,22 +209,20 @@ export const fluentLight: ThemeConfig = {
     "--font": "'NotoSansKR', 'Selawik'",
     "--item-border-width": "1px",
     "--shadow":
-      "0 0 calc(var(--height) / 240) rgba(0, 0, 0, 0.12), 0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0, 0, 0, 0.14)",
+      "0 0 calc(var(--height) / 240) rgba(0, 0, 0, 0.08), 0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0, 0, 0, 0.1)",
     "--drop-shadow":
-      "drop-shadow(0 0 calc(var(--height) / 240) rgba(0, 0, 0, 0.12)) drop-shadow(0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0, 0, 0, 0.14))",
-    "--fake-shadow-color": "#bcbcbc",
+      "drop-shadow(0 0 calc(var(--height) / 240) rgba(0, 0, 0, 0.08)) drop-shadow(0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0, 0, 0, 0.1))",
+    "--fake-shadow-color": "#c1c1c1",
     "--font-shadow-color": "#000000",
-    "--font-shadow-opacity": "0.14",
+    "--font-shadow-opacity": "0.1",
     "--font-shadow":
       "calc(var(--height) / 240) calc(var(--height) / 240) rgba(0, 0, 0, 0.14)",
     "--background": "#e0e0e0",
-    "--panel-background-color": "#d8d8d8",
-    "--panel-background-color-alpha": "#8080804c",
     "--text-color": "#424242",
     "--item-color": "#f0f0f0",
     "--item-color-active": "#e0e0e0",
-    "--item-border-color": "#ededed",
-    "--item-border-color-active": "#dadada",
+    "--item-border-color": "#f4f4f4",
+    "--item-border-color-active": "#eaeaea",
     "--header-height-divider": "9",
     "--header-height":
       "round(calc(var(--height) / var(--header-height-divider)), 1px)",
@@ -251,8 +249,6 @@ export const fluentDark = extend(fluentLight, {
     "--font-shadow":
       "calc(var(--height) / 240) calc(var(--height) / 240) rgba(0, 0, 0, 0.4)",
     "--background": "#1f1f1f",
-    "--panel-background-color": "#000000",
-    "--panel-background-color-alpha": "#0000004c",
     "--text-color": "#ffffff",
     "--item-color": "#292929",
     "--item-color-active": "#3d3d3d",
@@ -274,8 +270,6 @@ export const fluentPurple = extend(fluentLight, {
     "--font-shadow":
       "calc(var(--height) / 240) calc(var(--height) / 240) rgba(0, 0, 0, 0.3)",
     "--background": "#4A0077",
-    "--panel-background-color": "#2A0044",
-    "--panel-background-color-alpha": "#2A00444c",
     "--text-color": "#ffffff",
     "--item-color": "#5b0094",
     "--item-color-active": "#744da9",
@@ -297,8 +291,6 @@ export const fluentBlue = extend(fluentLight, {
     "--font-shadow":
       "calc(var(--height) / 240) calc(var(--height) / 240) rgba(0, 0, 0, 0.24)",
     "--background": "#1976d2",
-    "--panel-background-color": "#1565c0",
-    "--panel-background-color-alpha": "#1565c04c",
     "--text-color": "#eeeeee",
     "--item-color": "#1e88e5",
     "--item-color-active": "#42a5f5",
@@ -320,8 +312,6 @@ export const fluentMustard = extend(fluentLight, {
     "--font-shadow":
       "calc(var(--height) / 240) calc(var(--height) / 240) rgba(0, 0, 0, 0.18)",
     "--background": "#E8B923",
-    "--panel-background-color": "#b48100",
-    "--panel-background-color-alpha": "#b481004c",
     "--text-color": "#2D2D2D",
     "--item-color": "#FFDE59",
     "--item-color-active": "#FFF7A5",
