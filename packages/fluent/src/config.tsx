@@ -218,7 +218,7 @@ export const fluentLight: ThemeConfig = {
     "--background": "#e0e0e0",
     "--text-color": "#424242",
     "--item-color": "#f0f0f0",
-    "--item-color-active": "#e4e4e4",
+    "--item-color-active": "#e3e3e3",
     "--item-border-color": "#d8d8d8",
     "--item-border-color-active": "#d0d0d0",
     "--header-height-divider": "9",
