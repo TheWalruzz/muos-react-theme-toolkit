@@ -17,6 +17,11 @@ import { PromiseQueue } from "../utils/PromiseQueue";
 import { AssetConfig, Language, supportedLanguageNameMap } from "@/types";
 import imageCompression from "browser-image-compression";
 
+const defaultZipOptions = {
+  bufferedWrite: true,
+  level: 8,
+};
+
 const optimizePNG = async (dataUrl: string, filename: string) => {
   const file = await imageCompression.getFilefromDataUrl(dataUrl, filename);
   const optimizedFile = await imageCompression(file, {
@@ -38,9 +43,9 @@ export function useDownloadTheme() {
     setIsProcessing(true);
 
     const themeBlobWriter = new BlobWriter();
-    const themeWriter = new ZipWriter(themeBlobWriter);
+    const themeWriter = new ZipWriter(themeBlobWriter, defaultZipOptions);
     const assetsBlobWriter = new BlobWriter();
-    const assetsWriter = new ZipWriter(assetsBlobWriter);
+    const assetsWriter = new ZipWriter(assetsBlobWriter, defaultZipOptions);
     const altAssetsBlobWriters: Record<string, BlobWriter> = {};
     const altAssetsWriters: Record<string, ZipWriter<Blob>> = {};
     let hasAssetScreens = false;
@@ -164,6 +169,7 @@ export function useDownloadTheme() {
             altAssetsBlobWriters[alternative] = new BlobWriter();
             altAssetsWriters[alternative] = new ZipWriter(
               altAssetsBlobWriters[alternative],
+              defaultZipOptions,
             );
           }
 
@@ -192,6 +198,7 @@ export function useDownloadTheme() {
             altAssetsBlobWriters[alternative] = new BlobWriter();
             altAssetsWriters[alternative] = new ZipWriter(
               altAssetsBlobWriters[alternative],
+              defaultZipOptions,
             );
           }
 
