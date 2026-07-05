@@ -206,7 +206,7 @@ export const fluentLight: ThemeConfig = {
     Carousel: carouselCatalogueAssets,
   },
   styles: {
-    "--font": "'NotoSansKR', 'Selawik'",
+    "--font": "'NotoSansKR', 'NotoSans', 'Selawik'",
     "--item-border-width": "1px",
     "--shadow":
       "0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0, 0, 0, 0.1)",
@@ -230,7 +230,7 @@ export const fluentLight: ThemeConfig = {
     "--item-grid-gap":
       "round(calc(var(--height) / var(--item-grid-gap-divider)), 1px)",
   },
-  languages: ["en", "pl", "ko", "fr", "pt_BR", "es", "it"],
+  languages: ["en", "pl", "ko", "fr", "pt_BR", "es", "it", "ru"],
   fallbackLanguage: "en",
 };
 

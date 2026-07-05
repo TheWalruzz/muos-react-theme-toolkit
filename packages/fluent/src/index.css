@@ -31,3 +31,21 @@
   font-display: swap;
   unicode-range: U+AC00-D7AF, U+1100-11FF;
 }
+
+@font-face {
+  font-family: "NotoSans";
+  src: url("/fonts/NotoSans/NotoSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0400-04FF;
+}
+
+@font-face {
+  font-family: "NotoSans";
+  src: url("/fonts/NotoSans/NotoSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+AC00-D7AF, U+0400-04FF;
+}

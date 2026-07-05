@@ -1,0 +1,11 @@
+{
+  "charging": "Зарядка...",
+  "menu": {
+    "explore": "Библиотека",
+    "collections": "Коллекция",
+    "history": "История",
+    "applications": "Приложения"
+  },
+  "rebooting": "Перезагрузка...",
+  "shuttingDown": "Выключение..."
+}

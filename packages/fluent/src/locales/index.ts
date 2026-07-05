@@ -7,6 +7,7 @@ import fr from "./fr.json";
 import pt_BR from "./pt_BR.json";
 import es from "./es.json";
 import it from "./it.json";
+import ru from "./ru.json";
 
 export const translations: TranslationResources = {
   en: { translation: en },
@@ -16,4 +17,5 @@ export const translations: TranslationResources = {
   pt_BR: { translation: pt_BR },
   es: { translation: es },
   it: { translation: it },
+  ru: { translation: ru },
 };
