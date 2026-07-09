@@ -230,7 +230,7 @@ export const fluentLight: ThemeConfig = {
     "--item-grid-gap":
       "round(calc(var(--height) / var(--item-grid-gap-divider)), 1px)",
   },
-  languages: ["en", "pl", "ko", "fr", "pt_BR", "es", "it", "ru"],
+  languages: ["en", "pl", "ko", "fr", "pt_BR", "es", "it", "ru", "tr"],
   fallbackLanguage: "en",
 };
 

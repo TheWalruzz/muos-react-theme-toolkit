@@ -1,0 +1,11 @@
+{
+  "charging": "Şarj Oluyor...",
+  "menu": {
+    "explore": "Keşfet",
+    "collections": "Koleksiyonlar",
+    "history": "Geçmiş",
+    "applications": "Uygulamalar"
+  },
+  "rebooting": "Yeniden Başlatılıyor",
+  "shuttingDown": "Kapatılıyor"
+}
