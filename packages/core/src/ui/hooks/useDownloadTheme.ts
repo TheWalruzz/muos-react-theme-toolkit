@@ -19,7 +19,7 @@ import imageCompression from "browser-image-compression";
 
 const defaultZipOptions = {
   bufferedWrite: true,
-  level: 4,
+  level: 2,
 };
 
 const optimizePNG = async (dataUrl: string, filename: string) => {
