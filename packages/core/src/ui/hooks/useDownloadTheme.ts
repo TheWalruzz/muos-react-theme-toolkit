@@ -10,7 +10,7 @@ import {
   Reader,
   BlobReader,
 } from "@zip.js/zip.js";
-import { toPng, toCanvas } from "html-to-image";
+import { toCanvas, toBlob } from "html-to-image";
 import { CanvasToBMP } from "../utils/canvasToBMP";
 import { downloadFile } from "../utils/downloadFile";
 import { PromiseQueue } from "../utils/PromiseQueue";
@@ -22,12 +22,24 @@ const defaultZipOptions = {
   level: 9,
 };
 
-const optimizePNG = async (dataUrl: string, filename: string) => {
+const defaultCompressionOptions = {
+  fileType: "image/png",
+  useWebWorker: true,
+  maxIteration: 15,
+};
+
+const optimizePNGFromDataUrl = async (dataUrl: string, filename: string) => {
   const file = await imageCompression.getFilefromDataUrl(dataUrl, filename);
-  const optimizedFile = await imageCompression(file, {
-    fileType: "image/png",
-  });
-  return imageCompression.getDataUrlFromFile(optimizedFile);
+  const optimizedFile = await imageCompression(file, defaultCompressionOptions);
+  return optimizedFile as Blob;
+};
+
+const optimizePNGFromBlob = async (blob: Blob, filename: string) => {
+  const optimizedFile = await imageCompression(
+    new File([blob], filename, { type: "image/png" }),
+    defaultCompressionOptions,
+  );
+  return optimizedFile as Blob;
 };
 
 export function useDownloadTheme() {
@@ -58,17 +70,19 @@ export function useDownloadTheme() {
       }
 
       // get DataURLs of images in specified file format
-      let data: string = "";
+      let reader: Reader<unknown>;
       const fileExtension: string = ref.meta.path.split(".").pop();
       switch (fileExtension) {
         case "png":
-          data = await toPng(ref.current);
-          data = await optimizePNG(data, ref.meta.path);
+          const blob = await toBlob(ref.current);
+          const optimizedBlob = await optimizePNGFromBlob(blob!, ref.meta.path);
+          reader = new BlobReader(optimizedBlob);
           break;
         case "bmp": {
           const canvas = await toCanvas(ref.current, { type: "image/bmp" });
           const canvasConverter = new CanvasToBMP();
-          data = canvasConverter.toDataURL(canvas);
+          const data = canvasConverter.toDataURL(canvas);
+          reader = new Data64URIReader(data);
           break;
         }
         default:
@@ -82,7 +96,7 @@ export function useDownloadTheme() {
           `${ref.meta.pathPrefix ?? ""}${ref.meta.width}x${ref.meta.height}/${
             ref.meta.path
           }`,
-          new Data64URIReader(data),
+          reader,
         );
         setProgress((current) => current + 1);
         return;
@@ -92,7 +106,7 @@ export function useDownloadTheme() {
       if (ref.meta.ignoreOtherResolutions) {
         await themeWriter.add(
           `${ref.meta.pathPrefix ?? ""}${ref.meta.path}`,
-          new Data64URIReader(data),
+          reader,
         );
         // add fallback images and preview to main folder
       } else if (ref.meta.language === currentTheme.fallbackLanguage) {
@@ -100,7 +114,7 @@ export function useDownloadTheme() {
           `${ref.meta.pathPrefix ?? ""}${ref.meta.width}x${ref.meta.height}/${
             ref.meta.path
           }`,
-          new Data64URIReader(data),
+          reader,
         );
         // only process translated screens with paths including "image/", as preview should be added only once
       } else if (
@@ -117,7 +131,7 @@ export function useDownloadTheme() {
           `${ref.meta.pathPrefix ?? ""}${ref.meta.width}x${
             ref.meta.height
           }/${newPath}`,
-          new Data64URIReader(data),
+          reader,
         );
       }
       setProgress((current) => current + 1);
@@ -132,11 +146,12 @@ export function useDownloadTheme() {
 
       switch (asset.type) {
         case "dataUrl": {
-          let data = asset.data;
           if (asset.path.endsWith(".png")) {
-            data = await optimizePNG(data, asset.path);
+            const blob = await optimizePNGFromDataUrl(asset.data, asset.path);
+            reader = new BlobReader(blob);
+          } else {
+            reader = new Data64URIReader(asset.data);
           }
-          reader = new Data64URIReader(data);
           break;
         }
         case "text":
