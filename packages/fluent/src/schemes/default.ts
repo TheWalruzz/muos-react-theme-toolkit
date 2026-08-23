@@ -25,7 +25,7 @@ FONT_MESSAGE_PAD_TOP = 0
 FONT_MESSAGE_PAD_BOTTOM = 0
 FONT_MESSAGE_ICON_PAD_TOP = 0
 FONT_MESSAGE_ICON_PAD_BOTTOM = 0
-FONT_LIST_PAD_LEFT = ${Math.round(height / 19) * 2}
+FONT_LIST_PAD_LEFT = ${Math.round(height / 38) * 2}
 FONT_LIST_PAD_RIGHT = ${Math.round(height / 38)}
 FONT_LIST_PAD_TOP = 0
 FONT_LIST_PAD_BOTTOM = 0
@@ -333,4 +333,5 @@ CONTENT_PADDING_LEFT = ${Math.round(height / numberVar(styles, "--padding-divide
 CONTENT_PADDING_TOP = ${Math.round(height / numberVar(styles, "--padding-divider")) - 2}
 ANIMATED_BACKGROUND = 0
 NAVIGATION_TYPE = 0
+PEEK_OPACITY = 200
 `;
