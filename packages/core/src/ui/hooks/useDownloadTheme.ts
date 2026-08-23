@@ -20,6 +20,7 @@ import imageCompression from "browser-image-compression";
 const defaultZipOptions = {
   bufferedWrite: true,
   level: 9,
+  unixMode: 0o100644,
 };
 
 const defaultCompressionOptions = {
