@@ -299,17 +299,17 @@ export const fluentMustard = extend(fluentLight, {
   name: "Fluent Mustard",
   styles: {
     "--shadow":
-      "0 0 calc(var(--height) / 240) rgba(0,0,0,0.16), 0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0,0,0,0.18)",
-    "--fake-shadow-color": "#8B6914",
+      "0 0 calc(var(--height) / 240) rgba(0,0,0,0.24), 0 calc(var(--height) / 240) calc(var(--height) / 120) rgba(0,0,0,0.28)",
+    "--fake-shadow-color": "#111111",
     "--font-shadow-color": "#000000",
-    "--font-shadow-opacity": "0.18",
+    "--font-shadow-opacity": "0.4",
     "--font-shadow":
-      "calc(var(--height) / 240) calc(var(--height) / 240) rgba(0, 0, 0, 0.18)",
-    "--background": "#E8B923",
-    "--text-color": "#2D2D2D",
-    "--item-color": "#FFDE59",
-    "--item-color-active": "#FFF7A5",
-    "--item-border-color": "#D4A017",
-    "--item-border-color-active": "#E8B923",
+      "calc(var(--height) / 240) calc(var(--height) / 240) rgba(0, 0, 0, 0.4)",
+    "--background": "#1f1f1f",
+    "--text-color": "#E8B923",
+    "--item-color": "#292929",
+    "--item-color-active": "#3d3d3d",
+    "--item-border-color": "#1a1404",
+    "--item-border-color-active": "#2b2006",
   },
 });
