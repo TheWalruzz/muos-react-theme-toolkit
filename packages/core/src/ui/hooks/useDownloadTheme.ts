@@ -250,6 +250,12 @@ export function useDownloadTheme() {
           );
         }
       })(),
+      // add name.txt file
+      (async () => {
+        if (currentTheme.osVersion) {
+          await themeWriter.add("name.txt", new TextReader(currentTheme.name));
+        }
+      })(),
     ]);
 
     // handle assets.muxzip if applicable
