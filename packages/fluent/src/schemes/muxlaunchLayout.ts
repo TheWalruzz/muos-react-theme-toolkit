@@ -16,69 +16,69 @@ export const muxlaunchLayout: Scheme = ({ width, height }, styles) => {
   const xSmallStart = width - 5.5 * gap - 4 * smallItemSize;
   const ySmallStart = 2.5 * gap + bigItemHeight;
 
-  return `{
-  "mode": "items",
-  "items": {
-    "explore": {
-      "x": ${xStart},
-      "y": ${yStart},
-      "w": ${bigItemWidth},
-      "h": ${bigItemHeight}
+  return JSON.stringify({
+    mode: "items",
+    items: {
+      explore: {
+        x: xStart,
+        y: yStart,
+        w: bigItemWidth,
+        h: bigItemHeight,
+      },
+      collection: {
+        x: xStart + bigItemWidth + gap,
+        y: yStart,
+        w: bigItemWidth,
+        h: bigItemHeight,
+      },
+      history: {
+        x: xStart + 2 * bigItemWidth + 2 * gap,
+        y: yStart,
+        w: bigItemWidth,
+        h: bigItemHeight,
+      },
+      apps: {
+        x: xStart + 3 * bigItemWidth + 3 * gap,
+        y: yStart,
+        w: bigItemWidth,
+        h: bigItemHeight,
+      },
+      info: {
+        x: xSmallStart,
+        y: ySmallStart,
+        w: smallItemSize,
+        h: smallItemSize,
+        radius: smallItemRadius,
+        label: "none",
+        glyph: smallItemGlyphSize,
+      },
+      config: {
+        x: xSmallStart + gap + smallItemSize,
+        y: ySmallStart,
+        w: smallItemSize,
+        h: smallItemSize,
+        radius: smallItemRadius,
+        label: "none",
+        glyph: smallItemGlyphSize,
+      },
+      reboot: {
+        x: xSmallStart + 2 * gap + 2 * smallItemSize,
+        y: ySmallStart,
+        w: smallItemSize,
+        h: smallItemSize,
+        radius: smallItemRadius,
+        label: "none",
+        glyph: smallItemGlyphSize,
+      },
+      shutdown: {
+        x: xSmallStart + 3 * gap + 3 * smallItemSize,
+        y: ySmallStart,
+        w: smallItemSize,
+        h: smallItemSize,
+        radius: smallItemRadius,
+        label: "none",
+        glyph: smallItemGlyphSize,
+      },
     },
-    "collection": {
-      "x": ${xStart + bigItemWidth + gap},
-      "y": ${yStart},
-      "w": ${bigItemWidth},
-      "h": ${bigItemHeight}
-    },
-    "history": {
-      "x": ${xStart + 2 * bigItemWidth + 2 * gap},
-      "y": ${yStart},
-      "w": ${bigItemWidth},
-      "h": ${bigItemHeight}
-    },
-    "apps": {
-      "x": ${xStart + 3 * bigItemWidth + 3 * gap},
-      "y": ${yStart},
-      "w": ${bigItemWidth},
-      "h": ${bigItemHeight}
-    },
-    "info": {
-      "x": ${xSmallStart},
-      "y": ${ySmallStart},
-      "w": ${smallItemSize},
-      "h": ${smallItemSize},
-      "radius": ${smallItemRadius},
-      "label": "none",
-      "glyph": ${smallItemGlyphSize}
-    },
-    "config": {
-      "x": ${xSmallStart + gap + smallItemSize},
-      "y": ${ySmallStart},
-      "w": ${smallItemSize},
-      "h": ${smallItemSize},
-      "radius": ${smallItemRadius},
-      "label": "none",
-      "glyph": ${smallItemGlyphSize}
-    },
-    "reboot": {
-      "x": ${xSmallStart + 2 * gap + 2 * smallItemSize},
-      "y": ${ySmallStart},
-      "w": ${smallItemSize},
-      "h": ${smallItemSize},
-      "radius": ${smallItemRadius},
-      "label": "none",
-      "glyph": ${smallItemGlyphSize}
-    },
-    "shutdown": {
-      "x": ${xSmallStart + 3 * gap + 3 * smallItemSize},
-      "y": ${ySmallStart},
-      "w": ${smallItemSize},
-      "h": ${smallItemSize},
-      "radius": ${smallItemRadius},
-      "label": "none",
-      "glyph": ${smallItemGlyphSize}
-    }
-  }
-}`;
+  });
 };
