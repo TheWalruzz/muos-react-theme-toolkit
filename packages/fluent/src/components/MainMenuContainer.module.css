@@ -1,4 +1,4 @@
-.MainMenu {
+.MainMenuContainer {
   display: flex;
   flex-direction: column;
   gap: var(--item-grid-gap);

@@ -3,7 +3,7 @@ import { assets } from "./assets";
 import { defaultScheme } from "./schemes/default";
 import { muxlaunchScheme } from "./schemes/muxlaunch";
 import { muxploreScheme } from "./schemes/muxplore";
-import { MainMenu } from "./components/MainMenu";
+import { MainMenuPreview } from "./components/MainMenuPreview";
 import { Default } from "./components/Default";
 import { BootLogo } from "./components/BootLogo";
 import { Reboot } from "./components/Reboot";
@@ -27,6 +27,8 @@ import {
   type ScreenConfig,
   type ThemeConfig,
 } from "@mustardos-react-ttk/core";
+import { MainMenu } from "./components/MainMenu";
+import { muxlaunchLayout } from "./schemes/muxlaunchLayout";
 
 const getOverlayScreens = (): ScreenConfig[] => [
   ...Array.from(Array(10).keys()).map((index) => ({
@@ -92,12 +94,17 @@ export const fluentLight: ThemeConfig = {
         return { width: 288, height: 216 };
       },
       render: () => (
-        <MainMenu itemIndex={0} showBackground transparentHeader={false} />
+        <MainMenuPreview
+          itemIndex={0}
+          showBackground
+          transparentHeader={false}
+        />
       ),
     },
     {
       path: "image/wall/default.png",
       render: () => <Default />,
+      ignoreInLocalized: true,
     },
     {
       path: "image/wall/muxmessage.png",
@@ -120,36 +127,9 @@ export const fluentLight: ThemeConfig = {
       render: () => <Charging />,
     },
     {
-      path: "image/static/muxlaunch/explore.png",
-      render: () => <MainMenu itemIndex={0} showBackground={false} />,
-    },
-    {
-      path: "image/static/muxlaunch/collection.png",
-      render: () => <MainMenu itemIndex={1} showBackground={false} />,
-    },
-    {
-      path: "image/static/muxlaunch/history.png",
-      render: () => <MainMenu itemIndex={2} showBackground={false} />,
-    },
-    {
-      path: "image/static/muxlaunch/apps.png",
-      render: () => <MainMenu itemIndex={3} showBackground={false} />,
-    },
-    {
-      path: "image/static/muxlaunch/info.png",
-      render: () => <MainMenu itemIndex={4} showBackground={false} />,
-    },
-    {
-      path: "image/static/muxlaunch/config.png",
-      render: () => <MainMenu itemIndex={5} showBackground={false} />,
-    },
-    {
-      path: "image/static/muxlaunch/reboot.png",
-      render: () => <MainMenu itemIndex={6} showBackground={false} />,
-    },
-    {
-      path: "image/static/muxlaunch/shutdown.png",
-      render: () => <MainMenu itemIndex={7} showBackground={false} />,
+      path: "image/wall/muxlaunch.png",
+      render: () => <MainMenu />,
+      ignoreInLocalized: true,
     },
     // overlays for brightness, volume and battery
     ...getOverlayScreens(),
@@ -168,6 +148,10 @@ export const fluentLight: ThemeConfig = {
     {
       path: "scheme/muxlaunch.ini",
       scheme: muxlaunchScheme,
+    },
+    {
+      path: "layout/muxlaunch.json",
+      scheme: muxlaunchLayout,
     },
     {
       path: "scheme/muxplore.ini",
