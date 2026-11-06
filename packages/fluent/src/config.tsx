@@ -109,10 +109,12 @@ export const fluentLight: ThemeConfig = {
     {
       path: "image/wall/muxmessage.png",
       render: () => <Default showHeader={false} />,
+      ignoreInLocalized: true,
     },
     {
       path: "image/bootlogo.bmp",
       render: () => <BootLogo />,
+      ignoreInLocalized: true,
     },
     {
       path: "image/reboot.png",
