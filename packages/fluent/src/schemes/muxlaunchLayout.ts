@@ -13,8 +13,8 @@ export const muxlaunchLayout: Scheme = ({ width, height }, styles) => {
   const smallItemSize = smallItemGlyphSize + 2 * Math.round(height / 48);
   const xStart = 0;
   const yStart = 0;
-  const xSmallStart = width - 5.5 * gap - 4 * smallItemSize;
-  const ySmallStart = 2.5 * gap + bigItemHeight;
+  const xSmallStart = width - 6.25 * gap - 4 * smallItemSize;
+  const ySmallStart = 2.375 * gap + bigItemHeight;
 
   return JSON.stringify({
     mode: "items",
@@ -51,6 +51,8 @@ export const muxlaunchLayout: Scheme = ({ width, height }, styles) => {
         radius: smallItemRadius,
         label: "none",
         glyph: smallItemGlyphSize,
+        shadow: 0,
+        border: 0,
       },
       config: {
         x: xSmallStart + gap + smallItemSize,
@@ -60,6 +62,8 @@ export const muxlaunchLayout: Scheme = ({ width, height }, styles) => {
         radius: smallItemRadius,
         label: "none",
         glyph: smallItemGlyphSize,
+        shadow: 0,
+        border: 0,
       },
       reboot: {
         x: xSmallStart + 2 * gap + 2 * smallItemSize,
@@ -69,6 +73,8 @@ export const muxlaunchLayout: Scheme = ({ width, height }, styles) => {
         radius: smallItemRadius,
         label: "none",
         glyph: smallItemGlyphSize,
+        shadow: 0,
+        border: 0,
       },
       shutdown: {
         x: xSmallStart + 3 * gap + 3 * smallItemSize,
@@ -78,6 +84,8 @@ export const muxlaunchLayout: Scheme = ({ width, height }, styles) => {
         radius: smallItemRadius,
         label: "none",
         glyph: smallItemGlyphSize,
+        shadow: 0,
+        border: 0,
       },
     },
   });

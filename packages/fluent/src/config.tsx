@@ -13,7 +13,7 @@ import { muxhistoryScheme } from "./schemes/muxhistory";
 import { muxappScheme } from "./schemes/muxapp";
 import { muxcollectScheme } from "./schemes/muxcollect";
 import {
-  Battery0Regular,
+  Battery7Regular,
   BrightnessHighRegular,
   Speaker2Regular,
 } from "@fluentui/react-icons";
@@ -42,7 +42,7 @@ const getOverlayScreens = (): ScreenConfig[] => [
     render: ({ height }: Resolution) => (
       <OverlayIndicator
         index={index}
-        icon={<Battery0Regular fontSize={Math.round(height / 18)} />}
+        icon={<Battery7Regular fontSize={Math.round(height / 18)} />}
       />
     ),
   })),
@@ -103,7 +103,7 @@ export const fluentLight: ThemeConfig = {
     },
     {
       path: "image/wall/default.png",
-      render: () => <Default />,
+      render: () => <Default showBackground={false} />,
       ignoreInLocalized: true,
     },
     {

@@ -9,8 +9,8 @@ export const defaultScheme: Scheme = (
   { width, height },
   styles,
 ) => `[background]
-BACKGROUND = ${colorVar(styles, "--item-color")}
-BACKGROUND_ALPHA = 0
+BACKGROUND = ${colorVar(styles, "--background")}
+BACKGROUND_ALPHA = 255
 
 [font]
 FONT_HEADER_PAD_TOP = 2

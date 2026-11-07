@@ -27,7 +27,7 @@ export function MainMenu() {
 
   return (
     <MainMenuContainer
-      showBackground
+      showBackground={false}
       transparentHeader={false}
       miscItems={miscItems}
     />
