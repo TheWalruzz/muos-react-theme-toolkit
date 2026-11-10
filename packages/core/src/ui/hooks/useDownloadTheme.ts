@@ -62,11 +62,8 @@ export function useDownloadTheme() {
     const workQueue = new PromiseQueue<unknown>(8);
     const themeBlobWriter = new BlobWriter();
     const themeWriter = new ZipWriter(themeBlobWriter, defaultZipOptions);
-    const assetsBlobWriter = new BlobWriter();
-    const assetsWriter = new ZipWriter(assetsBlobWriter, defaultZipOptions);
     const altAssetsBlobWriters: Record<string, BlobWriter> = {};
     const altAssetsWriters: Record<string, ZipWriter<Blob>> = {};
-    let hasAssetScreens = false;
 
     console.info("start:", new Date());
 
@@ -92,19 +89,6 @@ export function useDownloadTheme() {
         }
         default:
           throw new Error(`Unsupported file extension for '${ref.meta.path}'`);
-      }
-
-      // if screen is supposed to be in assets.muxzip
-      if (ref.meta.includeInAssetsPackage) {
-        hasAssetScreens = true;
-        await assetsWriter.add(
-          `${ref.meta.pathPrefix ?? ""}${ref.meta.width}x${ref.meta.height}/${
-            ref.meta.path
-          }`,
-          reader,
-        );
-        setProgress((current) => current + 1);
-        return;
       }
 
       // handle non-screen items that will just go into theme root
@@ -268,14 +252,6 @@ export function useDownloadTheme() {
         }
       })(),
     ]);
-
-    // handle assets.muxzip if applicable
-    await assetsWriter.close();
-
-    if (hasAssetScreens) {
-      const assets = await assetsBlobWriter.getData();
-      await themeWriter.add("assets.muxzip", new BlobReader(assets));
-    }
 
     // handle alternatives
     if (Object.keys(altAssetsWriters).length > 0) {

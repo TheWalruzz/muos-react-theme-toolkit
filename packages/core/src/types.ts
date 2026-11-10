@@ -55,8 +55,6 @@ export interface ScreenConfig {
   pathPrefix?: string;
   /** Function that returns the component to render for the screen. */
   render: (resolution: Resolution) => ReactNode;
-  /** @deprecated Should this screen be included in internal assets.muxzip? */
-  includeInAssetsPackage?: boolean;
   /** Should this screen not be rendered for localized assets? */
   ignoreInLocalized?: boolean;
   /** Should this screen be re-rendered for each resolution */
