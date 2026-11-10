@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@jsquash/oxipng": "^2.3.0",
     "@zip.js/zip.js": "^2.8.7",
-    "browser-image-compression": "^2.0.2",
     "classnames": "^2.5.1",
     "html-to-image": "1.11.11",
     "react-context-refs": "^0.2.1",

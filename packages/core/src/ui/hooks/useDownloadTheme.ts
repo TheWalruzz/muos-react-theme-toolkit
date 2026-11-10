@@ -15,7 +15,7 @@ import { CanvasToBMP } from "../utils/canvasToBMP";
 import { downloadFile } from "../utils/downloadFile";
 import { PromiseQueue } from "../utils/PromiseQueue";
 import { AssetConfig, Language, supportedLanguageNameMap } from "@/types";
-import imageCompression from "browser-image-compression";
+import { optimise } from "@jsquash/oxipng";
 
 const defaultZipOptions = {
   bufferedWrite: true,
@@ -23,25 +23,29 @@ const defaultZipOptions = {
   unixMode: 0o100644,
 };
 
-const defaultCompressionOptions = {
-  fileType: "image/png",
-  useWebWorker: true,
-  maxIteration: 15,
+const optimizePNG = async (blob: Blob) => {
+  const optimizedData = await optimise(await blob.arrayBuffer(), { level: 2 });
+  return new Blob([optimizedData], { type: "image/png" });
 };
 
-const optimizePNGFromDataUrl = async (dataUrl: string, filename: string) => {
-  const file = await imageCompression.getFilefromDataUrl(dataUrl, filename);
-  const optimizedFile = await imageCompression(file, defaultCompressionOptions);
-  return optimizedFile as Blob;
+const optimizePNGFromDataUrl = async (dataUrl: string) => {
+  const response = await fetch(dataUrl);
+  if (!response.ok) {
+    throw new Error(`Failed to read PNG data URL: ${response.status}`);
+  }
+  const buffer = await response.arrayBuffer();
+  const optimizedData = await optimise(buffer, { level: 2 });
+  return new Blob([optimizedData], { type: "image/png" });
 };
 
-const optimizePNGFromBlob = async (blob: Blob, filename: string) => {
-  const optimizedFile = await imageCompression(
-    new File([blob], filename, { type: "image/png" }),
-    defaultCompressionOptions,
-  );
-  return optimizedFile as Blob;
+const queueAllTasks = <T>(
+  queue: PromiseQueue<T>,
+  tasks: Array<() => Promise<T>>,
+) => {
+  return Promise.all(tasks.map((task) => queue.enqueue(task)));
 };
+
+const canvasConverter = new CanvasToBMP();
 
 export function useDownloadTheme() {
   const refs = useRefs();
@@ -55,6 +59,7 @@ export function useDownloadTheme() {
     setTotalProgress(refs.length + 1);
     setIsProcessing(true);
 
+    const workQueue = new PromiseQueue<unknown>(8);
     const themeBlobWriter = new BlobWriter();
     const themeWriter = new ZipWriter(themeBlobWriter, defaultZipOptions);
     const assetsBlobWriter = new BlobWriter();
@@ -76,12 +81,11 @@ export function useDownloadTheme() {
       switch (fileExtension) {
         case "png":
           const blob = await toBlob(ref.current);
-          const optimizedBlob = await optimizePNGFromBlob(blob!, ref.meta.path);
+          const optimizedBlob = await optimizePNG(blob!);
           reader = new BlobReader(optimizedBlob);
           break;
         case "bmp": {
           const canvas = await toCanvas(ref.current, { type: "image/bmp" });
-          const canvasConverter = new CanvasToBMP();
           const data = canvasConverter.toDataURL(canvas);
           reader = new Data64URIReader(data);
           break;
@@ -148,7 +152,7 @@ export function useDownloadTheme() {
       switch (asset.type) {
         case "dataUrl": {
           if (asset.path.endsWith(".png")) {
-            const blob = await optimizePNGFromDataUrl(asset.data, asset.path);
+            const blob = await optimizePNGFromDataUrl(asset.data);
             reader = new BlobReader(blob);
           } else {
             reader = new Data64URIReader(asset.data);
@@ -165,9 +169,13 @@ export function useDownloadTheme() {
 
     await Promise.all([
       // get all screens
-      PromiseQueue.all(refs.map((ref) => () => handleRef(ref))),
+      queueAllTasks(
+        workQueue,
+        refs.map((ref) => () => handleRef(ref)),
+      ),
       // create and add scheme files for every resolution
-      PromiseQueue.all(
+      queueAllTasks(
+        workQueue,
         currentTheme.schemes.flatMap((scheme) =>
           resolutions.map(
             (resolution) => () =>
@@ -179,7 +187,8 @@ export function useDownloadTheme() {
         ),
       ),
       // create alternate schemes
-      PromiseQueue.all(
+      queueAllTasks(
+        workQueue,
         Object.keys(currentTheme.altSchemes ?? {}).flatMap((alternative) => {
           if (!(alternative in altAssetsBlobWriters)) {
             altAssetsBlobWriters[alternative] = new BlobWriter();
@@ -208,7 +217,8 @@ export function useDownloadTheme() {
         }),
       ),
       // create alternate assets
-      PromiseQueue.all(
+      queueAllTasks(
+        workQueue,
         Object.keys(currentTheme.altAssets ?? {}).flatMap((alternative) => {
           if (!(alternative in altAssetsBlobWriters)) {
             altAssetsBlobWriters[alternative] = new BlobWriter();
@@ -227,7 +237,8 @@ export function useDownloadTheme() {
         }),
       ),
       // get all static assets
-      PromiseQueue.all(
+      queueAllTasks(
+        workQueue,
         currentTheme.assets?.map(
           (asset) => () => handleAsset(asset, themeWriter),
         ) ?? [],

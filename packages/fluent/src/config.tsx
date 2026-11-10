@@ -100,6 +100,7 @@ export const fluentLight: ThemeConfig = {
           transparentHeader={false}
         />
       ),
+      ignoreInLocalized: true,
     },
     {
       path: "image/wall/default.png",
