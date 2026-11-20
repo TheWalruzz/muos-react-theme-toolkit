@@ -1,24 +1,17 @@
 import "./index.css";
 import { assets } from "./assets";
-import { defaultScheme } from "./schemes/default";
-import { muxlaunchScheme } from "./schemes/muxlaunch";
-import { muxploreScheme } from "./schemes/muxplore";
 import { MainMenuPreview } from "./components/MainMenuPreview";
 import { Default } from "./components/Default";
 import { BootLogo } from "./components/BootLogo";
 import { Reboot } from "./components/Reboot";
 import { Shutdown } from "./components/Shutdown";
 import { Charging } from "./components/Charging";
-import { muxhistoryScheme } from "./schemes/muxhistory";
-import { muxappScheme } from "./schemes/muxapp";
-import { muxcollectScheme } from "./schemes/muxcollect";
 import {
   Battery7Regular,
   BrightnessHighRegular,
   Speaker2Regular,
 } from "@fluentui/react-icons";
 import { OverlayIndicator } from "./components/OverlayIndicator";
-import { muxploreCarouselScheme } from "./schemes/muxploreCarousel";
 import { defaultCatalogueAssets } from "./assets/alternates/Default";
 import { carouselCatalogueAssets } from "./assets/alternates/Carousel";
 import {
@@ -28,7 +21,10 @@ import {
   type ThemeConfig,
 } from "@mustardos-react-ttk/core";
 import { MainMenu } from "./components/MainMenu";
-import { muxlaunchLayout } from "./schemes/muxlaunchLayout";
+import {
+  muxploreCarouselThemeJsonTemplate,
+  themeJsonTemplate,
+} from "./templates/layout";
 
 const getOverlayScreens = (): ScreenConfig[] => [
   ...Array.from(Array(10).keys()).map((index) => ({
@@ -143,52 +139,23 @@ export const fluentLight: ThemeConfig = {
     })),
   ],
   assets,
-  schemes: [
+  templates: [
     {
-      path: "scheme/default.ini",
-      scheme: defaultScheme,
-    },
-    {
-      path: "scheme/muxlaunch.ini",
-      scheme: muxlaunchScheme,
-    },
-    {
-      path: "layout/muxlaunch.json",
-      scheme: muxlaunchLayout,
-    },
-    {
-      path: "scheme/muxplore.ini",
-      scheme: muxploreScheme,
-    },
-    {
-      path: "scheme/muxapp.ini",
-      scheme: muxappScheme,
-    },
-    {
-      path: "scheme/muxhistory.ini",
-      scheme: muxhistoryScheme,
-    },
-    {
-      path: "scheme/muxcollect.ini",
-      scheme: muxcollectScheme,
-    },
-    {
-      path: "scheme/muxactivity.ini",
-      // re-use muxhistory scheme
-      scheme: muxhistoryScheme,
+      path: "theme.json",
+      template: themeJsonTemplate,
     },
   ],
-  altSchemes: {
+  altTemplates: {
     Default: [
       {
-        path: "scheme/muxplore.ini",
-        scheme: muxploreScheme,
+        path: "theme.json",
+        template: themeJsonTemplate,
       },
     ],
     Carousel: [
       {
-        path: "scheme/muxplore.ini",
-        scheme: muxploreCarouselScheme,
+        path: "theme.json",
+        template: muxploreCarouselThemeJsonTemplate,
       },
     ],
   },

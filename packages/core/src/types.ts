@@ -61,11 +61,11 @@ export interface ScreenConfig {
   ignoreOtherResolutions?: boolean;
 }
 
-export type Scheme = (resolution: Resolution, styles?: Styles) => string;
+export type Template = (resolution: Resolution, styles?: Styles) => string;
 
-export interface SchemeConfig {
+export interface TemplateConfig {
   path: string;
-  scheme: Scheme;
+  template: Template;
 }
 
 export interface AssetConfig {
@@ -85,10 +85,10 @@ export interface ThemeConfig {
   outputType?: "muxthm" | "muxzip" | "zip";
   /** Screens to be rendered. */
   screens: ScreenConfig[];
-  /** Generators of scheme files. */
-  schemes: SchemeConfig[];
-  /** Generators of scheme files. */
-  altSchemes?: Record<string, SchemeConfig[]>;
+  /** Generators of template files such as INI schemes and JSON layouts. */
+  templates: TemplateConfig[];
+  /** Alternate templates packaged with each alternate theme. */
+  altTemplates?: Record<string, TemplateConfig[]>;
   /** Assets to add for each alternate theme. */
   altAssets?: Record<string, AssetConfig[]>;
   /** Styles and variables to inject into each screen's DOM. */

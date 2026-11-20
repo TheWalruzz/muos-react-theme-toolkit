@@ -157,23 +157,25 @@ export function useDownloadTheme() {
         workQueue,
         refs.map((ref) => () => handleRef(ref)),
       ),
-      // create and add scheme files for every resolution
+      // create and add template files for every resolution
       queueAllTasks(
         workQueue,
-        currentTheme.schemes.flatMap((scheme) =>
+        currentTheme.templates.flatMap((template) =>
           resolutions.map(
             (resolution) => () =>
               themeWriter.add(
-                `${resolution.width}x${resolution.height}/${scheme.path}`,
-                new TextReader(scheme.scheme(resolution, currentTheme.styles)),
+                `${resolution.width}x${resolution.height}/${template.path}`,
+                new TextReader(
+                  template.template(resolution, currentTheme.styles),
+                ),
               ),
           ),
         ),
       ),
-      // create alternate schemes
+      // create alternate templates
       queueAllTasks(
         workQueue,
-        Object.keys(currentTheme.altSchemes ?? {}).flatMap((alternative) => {
+        Object.keys(currentTheme.altTemplates ?? {}).flatMap((alternative) => {
           if (!(alternative in altAssetsBlobWriters)) {
             altAssetsBlobWriters[alternative] = new BlobWriter();
             altAssetsWriters[alternative] = new ZipWriter(
@@ -183,16 +185,13 @@ export function useDownloadTheme() {
           }
 
           return (
-            currentTheme.altSchemes?.[alternative].flatMap((scheme) =>
+            currentTheme.altTemplates?.[alternative].flatMap((template) =>
               resolutions.map(
                 (resolution) => () =>
                   altAssetsWriters[alternative].add(
-                    scheme.path.replace(
-                      "scheme",
-                      `${resolution.width}x${resolution.height}/scheme`,
-                    ),
+                    `${resolution.width}x${resolution.height}/${template.path}`,
                     new TextReader(
-                      scheme.scheme(resolution, currentTheme.styles),
+                      template.template(resolution, currentTheme.styles),
                     ),
                   ),
               ),
