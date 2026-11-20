@@ -331,7 +331,11 @@ const buildMuxlaunchLayout = (
   };
 };
 
-export const themeJsonTemplate: Template = ({ width, height }, styles) => {
+const buildThemeJson = (
+  width: number,
+  height: number,
+  styles: Styles | undefined,
+) => {
   const headerHeight = Math.round(
     height / pxVar(styles, "--header-height-divider"),
   );
@@ -348,8 +352,7 @@ export const themeJsonTemplate: Template = ({ width, height }, styles) => {
   const shadowOffset = Math.round(height / 240);
   const radius = Math.round(height / 54);
 
-  return JSON.stringify(
-    {
+  return {
       scheme: {
         background: {
           background: color(styles, "--background"),
@@ -764,20 +767,22 @@ export const themeJsonTemplate: Template = ({ width, height }, styles) => {
           scheme: buildMuxploreTemplate(width, height, styles),
         },
       },
-    },
-    null,
-    2,
-  );
+    };
 };
 
 export const muxploreCarouselThemeJsonTemplate: Template = (
   { width, height },
   styles,
-) =>
-  JSON.stringify(
+) => {
+  const defaultTheme = buildThemeJson(width, height, styles);
+
+  return JSON.stringify(
     {
+      ...defaultTheme,
       modules: {
+        ...defaultTheme.modules,
         muxplore: {
+          ...defaultTheme.modules.muxplore,
           scheme: buildMuxploreTemplate(width, height, styles, true),
         },
       },
@@ -785,3 +790,7 @@ export const muxploreCarouselThemeJsonTemplate: Template = (
     null,
     2,
   );
+};
+
+export const themeJsonTemplate: Template = ({ width, height }, styles) =>
+  JSON.stringify(buildThemeJson(width, height, styles), null, 2);
