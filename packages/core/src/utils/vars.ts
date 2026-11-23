@@ -22,19 +22,29 @@ function rgbaToAlpha(colorStr: string) {
     .pop()!;
 }
 
-export function colorVar(styles: Styles | undefined, key: `--${string}`) {
+export function colorVar(
+  styles: Styles | undefined,
+  key: `--${string}`,
+  noHash = false,
+) {
   if (!styles || !styles[key]) {
     console.error(`Invalid variable '${key}!`);
     return "";
   }
 
   if (styles[key].startsWith("rgb")) {
-    // convert to hex
-    return rgbaToHex(styles[key]);
+    // convert to hex; add hash if needed
+    return `${noHash ? "" : "#"}${rgbaToHex(styles[key])}`;
   }
 
-  // it's a regular hex value, so strip the hex
-  return styles[key].replace(/^#/, "");
+  // regular color;
+  // no hash wanted: strip the hash
+  if (noHash) {
+    return styles[key].replace(/^#/, "");
+  }
+
+  // if hash is requested, just send it as-is
+  return styles[key];
 }
 
 /** Extracts alpha value from rgba() colors */

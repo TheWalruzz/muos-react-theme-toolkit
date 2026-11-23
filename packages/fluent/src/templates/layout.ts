@@ -6,9 +6,6 @@ import {
   type Styles,
 } from "@mustardos-react-ttk/core";
 
-const color = (styles: Styles | undefined, key: `--${string}`) =>
-  `#${colorVar(styles, key)}`;
-
 const buildMuxploreTemplate = (
   width: number,
   height: number,
@@ -61,33 +58,33 @@ const buildMuxploreTemplate = (
         column_align: 0,
         row_align: 0,
         border_width: 1,
-        shadow: color(styles, "--fake-shadow-color"),
+        shadow: colorVar(styles, "--fake-shadow-color"),
         shadow_x_offset: 0,
         shadow_y_offset: Math.round(height / 240),
         shadow_width: Math.round(height / 120),
         default: {
-          background: color(styles, "--item-color"),
+          background: colorVar(styles, "--item-color"),
           background_alpha: 255,
-          border: color(styles, "--item-border-color"),
+          border: colorVar(styles, "--item-border-color"),
           border_alpha: 255,
           image: {
             alpha: 255,
-            recolour: color(styles, "--text-color"),
+            recolour: colorVar(styles, "--text-color"),
             recolour_alpha: 255,
           },
-          text: color(styles, "--text-color"),
+          text: colorVar(styles, "--text-color"),
           text_alpha: 0,
         },
         focus: {
-          background: color(styles, "--item-color-active"),
+          background: colorVar(styles, "--item-color-active"),
           background_alpha: 255,
-          border: color(styles, "--item-border-color-active"),
+          border: colorVar(styles, "--item-border-color-active"),
           border_alpha: 255,
           image: {
-            recolour: color(styles, "--text-color"),
+            recolour: colorVar(styles, "--text-color"),
             recolour_alpha: 255,
           },
-          text: color(styles, "--text-color"),
+          text: colorVar(styles, "--text-color"),
           text_alpha: 0,
         },
         animation_time: 250,
@@ -157,37 +154,37 @@ const buildGridModule = (
         column_align: 0,
         row_align: 0,
         border_width: 1,
-        shadow: color(styles, "--fake-shadow-color"),
+        shadow: colorVar(styles, "--fake-shadow-color"),
         shadow_x_offset: 0,
         shadow_y_offset: Math.round(height / 240),
         shadow_width: Math.round(height / 120),
         default: {
-          background: color(styles, "--item-color"),
+          background: colorVar(styles, "--item-color"),
           background_alpha: 255,
-          border: color(styles, "--item-border-color"),
+          border: colorVar(styles, "--item-border-color"),
           border_alpha: 255,
           image: isCollect
             ? { alpha: 0 }
             : {
                 alpha: 255,
-                recolour: color(styles, "--text-color"),
+                recolour: colorVar(styles, "--text-color"),
                 recolour_alpha: 255,
               },
-          text: color(styles, "--text-color"),
+          text: colorVar(styles, "--text-color"),
           text_alpha: 255,
         },
         focus: {
-          background: color(styles, "--item-color-active"),
+          background: colorVar(styles, "--item-color-active"),
           background_alpha: 255,
-          border: color(styles, "--item-border-color-active"),
+          border: colorVar(styles, "--item-border-color-active"),
           border_alpha: 255,
           image: isCollect
             ? { alpha: 0 }
             : {
-                recolour: color(styles, "--text-color"),
+                recolour: colorVar(styles, "--text-color"),
                 recolour_alpha: 255,
               },
-          text: color(styles, "--text-color"),
+          text: colorVar(styles, "--text-color"),
           text_alpha: 255,
         },
         animation_time: 250,
@@ -219,8 +216,8 @@ const buildMuxlaunchTemplate = (
   const gap = Math.round(height / numberVar(styles, "--item-grid-gap-divider"));
   const glyphSize = Math.round((height / 7) * (width === height ? 0.9 : 1));
   const bigItemHeight = height - header - 3 * gap - Math.round(height / 6.5);
-  const shadow = color(styles, "--fake-shadow-color");
-  const text = color(styles, "--text-color");
+  const shadow = colorVar(styles, "--fake-shadow-color");
+  const text = colorVar(styles, "--text-color");
 
   return {
     glyph: { grid: glyphSize },
@@ -246,9 +243,9 @@ const buildMuxlaunchTemplate = (
         shadow_y_offset: Math.round(height / 240),
         shadow_width: Math.round(height / 120),
         default: {
-          background: color(styles, "--item-color"),
+          background: colorVar(styles, "--item-color"),
           background_alpha: 255,
-          border: color(styles, "--item-border-color"),
+          border: colorVar(styles, "--item-border-color"),
           border_alpha: 255,
           image: {
             alpha: 255,
@@ -259,9 +256,9 @@ const buildMuxlaunchTemplate = (
           text_alpha: 255,
         },
         focus: {
-          background: color(styles, "--item-color-active"),
+          background: colorVar(styles, "--item-color-active"),
           background_alpha: 255,
-          border: color(styles, "--item-border-color-active"),
+          border: colorVar(styles, "--item-border-color-active"),
           border_alpha: 255,
           image: {
             alpha: 255,
@@ -294,10 +291,19 @@ const buildMuxlaunchLayout = (
     Math.round(height / numberVar(styles, "--header-height-divider")) -
     3 * gap -
     Math.round(height / 6.5);
+
+  const bigItem = (index: number) => ({
+    x: index * (bigItemWidth + gap),
+    y: 0,
+    w: bigItemWidth,
+    h: bigItemHeight,
+  });
+
   const smallItemGlyphSize = Math.round(height / 15);
   const smallItemSize = smallItemGlyphSize + 2 * Math.round(height / 48);
   const xSmallStart = width - 6.25 * gap - 4 * smallItemSize;
   const ySmallStart = 2.375 * gap + bigItemHeight;
+
   const smallItem = (index: number) => ({
     x: xSmallStart + index * (gap + smallItemSize),
     y: ySmallStart,
@@ -313,25 +319,10 @@ const buildMuxlaunchLayout = (
   return {
     mode: "items",
     items: {
-      explore: { x: 0, y: 0, w: bigItemWidth, h: bigItemHeight },
-      collection: {
-        x: bigItemWidth + gap,
-        y: 0,
-        w: bigItemWidth,
-        h: bigItemHeight,
-      },
-      history: {
-        x: 2 * bigItemWidth + 2 * gap,
-        y: 0,
-        w: bigItemWidth,
-        h: bigItemHeight,
-      },
-      apps: {
-        x: 3 * bigItemWidth + 3 * gap,
-        y: 0,
-        w: bigItemWidth,
-        h: bigItemHeight,
-      },
+      explore: bigItem(0),
+      collection: bigItem(1),
+      history: bigItem(2),
+      apps: bigItem(3),
       info: smallItem(0),
       config: smallItem(1),
       reboot: smallItem(2),
@@ -352,19 +343,19 @@ const buildThemeJson = (
   const shadowAlpha = Math.round(
     255 * numberVar(styles, "--font-shadow-opacity"),
   );
-  const shadowColor = color(styles, "--font-shadow-color");
-  const textColor = color(styles, "--text-color");
-  const itemColor = color(styles, "--item-color");
-  const itemActiveColor = color(styles, "--item-color-active");
-  const itemBorderColor = color(styles, "--item-border-color");
-  const itemActiveBorderColor = color(styles, "--item-border-color-active");
+  const shadowColor = colorVar(styles, "--font-shadow-color");
+  const textColor = colorVar(styles, "--text-color");
+  const itemColor = colorVar(styles, "--item-color");
+  const itemActiveColor = colorVar(styles, "--item-color-active");
+  const itemBorderColor = colorVar(styles, "--item-border-color");
+  const itemActiveBorderColor = colorVar(styles, "--item-border-color-active");
   const shadowOffset = Math.round(height / 240);
   const radius = Math.round(height / 54);
 
   return {
     scheme: {
       background: {
-        background: color(styles, "--background"),
+        background: colorVar(styles, "--background"),
         alpha: 255,
       },
       font: {
@@ -719,7 +710,7 @@ const buildThemeJson = (
         background_alpha: 200,
         text: textColor,
         text_alpha: 255,
-        text_fade_time: 24,
+        text_fade_time: 150,
         text_separator: " / ",
       },
       meta: { META_CUT: 40 },
