@@ -717,7 +717,7 @@ const buildThemeJson = (
       misc: {
         static_alignment: 0,
         content: {
-          item: { count: 6 },
+          item: { count: 6, spacing: Math.round(height / 120) },
           size_to_content: 0,
           width: width - 2 * pad,
           height:
