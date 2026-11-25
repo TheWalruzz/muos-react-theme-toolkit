@@ -710,7 +710,7 @@ const buildThemeJson = (
         background_alpha: 200,
         text: textColor,
         text_alpha: 255,
-        text_fade_time: 150,
+        text_fade_time: 24,
         text_separator: " / ",
       },
       meta: { META_CUT: 40 },
